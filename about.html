@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Abowabon — The Story & The SAFE Method</title>
+<meta name="description" content="Abowabon was built from 11 documented manifestations and a biomedical scientist's evidence-based approach to the SAFE Method and 3-Mode Framework.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#070B14; --bg2:#0D1425; --surface:#141C2E; --surface2:#1A2540;
+  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.13);
+  --gold:#C9963A; --gold2:#E8B84B; --gold3:#D4A96A;
+  --gold-dim:rgba(201,150,58,0.12); --gold-glow:rgba(201,150,58,0.06);
+  --teal:#4ECDC4; --teal-dim:rgba(78,205,196,0.1);
+  --rose:#E07070; --rose-dim:rgba(224,112,112,0.1);
+  --sage:#7BC67E; --lav:#9B8FD4;
+  --text:#E8EAF0; --text2:#8892A4; --text3:#5A6478;
+  --ff-d:'Cormorant Garamond',serif; --ff:'DM Sans',sans-serif;
+  --r:14px; --rsm:10px; --rlg:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--ff);background:var(--bg);color:var(--text);line-height:1.65}
+.aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.ab{position:absolute;border-radius:50%;filter:blur(90px);opacity:.1;animation:drift 22s ease-in-out infinite}
+.ab:nth-child(1){width:700px;height:700px;background:#1E3A5F;top:-250px;left:-150px}
+.ab:nth-child(2){width:450px;height:450px;background:#C9963A;top:15%;right:-120px;animation-delay:-8s}
+.ab:nth-child(3){width:550px;height:550px;background:#0E4A4A;bottom:-150px;left:25%;animation-delay:-16s}
+.ab:nth-child(4){width:300px;height:300px;background:#4A1F7A;top:50%;left:-50px;animation-delay:-5s}
+@keyframes drift{0%,100%{transform:translate(0,0)scale(1)}33%{transform:translate(25px,-18px)scale(1.04)}66%{transform:translate(-18px,25px)scale(.96)}}
+
+.shell{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:0 24px}
+.top-bar{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--border)}
+.logo{font-family:var(--ff-d);font-size:1.5rem;font-weight:600;background:linear-gradient(135deg,#E8B84B,#C9963A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.nav-links{display:flex;gap:18px}
+.nav-links a{font-size:.82rem;color:var(--text2);text-decoration:none}
+.nav-links a:hover{color:var(--text)}
+
+.hero{padding:56px 0 36px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--gold-dim);border:1px solid rgba(201,150,58,.25);border-radius:99px;padding:6px 16px;font-size:.78rem;color:var(--gold2);font-weight:600;margin-bottom:20px}
+.hero h1{font-family:var(--ff-d);font-size:clamp(2.2rem,6vw,3.2rem);font-weight:300;line-height:1.2;margin-bottom:14px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero p{font-size:1rem;color:var(--text2);max-width:480px;margin:0 auto;line-height:1.75}
+
+.section{padding:32px 0;border-bottom:1px solid var(--border)}
+.section:last-child{border-bottom:none}
+.section-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--gold);font-weight:600;margin-bottom:10px}
+.section h2{font-family:var(--ff-d);font-size:1.9rem;font-weight:300;margin-bottom:16px;line-height:1.3}
+.section h2 em{font-style:italic;color:var(--gold2)}
+.section p{font-size:.95rem;color:var(--text2);margin-bottom:14px;line-height:1.8}
+.section p strong{color:var(--text);font-weight:500}
+
+.evidence-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--rlg);padding:24px;margin:20px 0}
+.evidence-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.8px;color:var(--gold);font-weight:600;margin-bottom:14px}
+.ev-row{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.ev-row:last-child{border-bottom:none}
+.ev-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.ev-text{font-size:.88rem;color:var(--text2);line-height:1.6}
+.ev-text strong{color:var(--text)}
+
+.safe-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.safe-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px}
+.safe-letter{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;margin-bottom:10px}
+.safe-title{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:5px}
+.safe-desc{font-size:.82rem;color:var(--text2);line-height:1.6}
+
+.mode-grid{display:flex;flex-direction:column;gap:10px;margin:20px 0}
+.mode-card{display:flex;align-items:flex-start;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px}
+.mode-emoji{font-size:1.6rem;flex-shrink:0}
+.mode-name{font-size:.92rem;font-weight:600;margin-bottom:3px}
+.mode-desc{font-size:.83rem;color:var(--text2);line-height:1.6}
+.mode-1-c{color:var(--rose)} .mode-2-c{color:var(--teal)} .mode-3-c{color:var(--gold2)}
+
+.creator-card{background:linear-gradient(135deg,var(--surface),var(--surface2));border:1px solid rgba(201,150,58,.25);border-radius:var(--rlg);padding:28px;text-align:center;margin:24px 0}
+.creator-av{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#C9963A,#E8B84B);display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin:0 auto 14px}
+.creator-title{font-family:var(--ff-d);font-size:1.3rem;font-weight:400;margin-bottom:8px}
+.creator-body{font-size:.88rem;color:var(--text2);line-height:1.75;max-width:440px;margin:0 auto}
+.creator-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.ctag{font-size:.72rem;background:var(--gold-dim);color:var(--gold2);border:1px solid rgba(201,150,58,.2);border-radius:99px;padding:5px 12px}
+
+.cta-section{text-align:center;padding:40px 0}
+.btn-gold{display:inline-block;background:linear-gradient(135deg,#C9963A,#E8B84B);color:#0D1425;border:none;border-radius:var(--r);padding:15px 32px;font-family:var(--ff);font-size:.95rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all .2s}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,150,58,.4)}
+.btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.btn-ghost{background:transparent;border:1px solid var(--border2);border-radius:var(--r);padding:13px 26px;font-family:var(--ff);font-size:.88rem;color:var(--text2);text-decoration:none}
+.btn-ghost:hover{background:var(--surface);color:var(--text)}
+
+.ad-zone{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.1);border-radius:var(--rsm);padding:10px;text-align:center;font-size:.7rem;color:var(--text3);margin:24px 0}
+
+footer{text-align:center;padding:28px 0 40px;font-size:.78rem;color:var(--text3)}
+footer a{color:var(--text3);text-decoration:none;margin:0 10px}
+
+@media(max-width:560px){.safe-grid{grid-template-columns:1fr}.nav-links{display:none}}
+</style>
+</head>
+<body>
+<div class="aurora"><div class="ab"></div><div class="ab"></div><div class="ab"></div><div class="ab"></div></div>
+
+<div class="shell">
+  <div class="top-bar">
+    <a href="https://abowabon.com" class="logo">✦ Abowabon</a>
+    <div class="nav-links">
+      <a href="https://abowabon.com">App</a>
+      <a href="https://abowabon.com/mode-check">Mode quiz</a>
+      <a href="https://abowabon.com/privacy">Privacy</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-badge">✦ About Abowabon</div>
+    <h1>Built from <em>evidence</em>, not theory</h1>
+    <p>Abowabon exists because manifestation advice online is mostly recycled, unfalsifiable, and disconnected from how the nervous system actually works. This was built differently.</p>
+  </div>
+
+  <div class="ad-zone">AdSense 728×90 — replace with your AdSense code</div>
+
+  <div class="section">
+    <div class="section-label">The origin</div>
+    <h2>Why this <em>app</em> exists</h2>
+    <p>Abowabon was created by a registered Biomedical Scientist (HCPC-registered) who applied manifestation practice systematically over several years — not as a hobby, but as a documented, evidence-led process. Every technique included in this app earned its place because it produced a repeatable result, not because it sounded compelling.</p>
+    <p>The creator documented <strong>11 separate manifestations</strong> across money, career, relationships, and health — with dates, specifics, and the exact technique used for each. From that evidence, a clear pattern emerged: manifestation works best when it respects the nervous system rather than overriding it with forced positivity.</p>
+    <div class="evidence-card">
+      <div class="evidence-label">✦ What the evidence showed</div>
+      <div class="ev-row"><div class="ev-icon">🫀</div><div class="ev-text"><strong>The nervous system decides first.</strong> No visualisation works while the body is in threat mode. Safety has to come before desire.</div></div>
+      <div class="ev-row"><div class="ev-icon">⚡</div><div class="ev-text"><strong>Frisson is a real, repeatable signal.</strong> A specific body sensation marks genuine alignment — distinct from excitement or hope.</div></div>
+      <div class="ev-row"><div class="ev-icon">📓</div><div class="ev-text"><strong>Evidence compounds.</strong> Logging small confirmations daily changes belief faster than any affirmation repeated by rote.</div></div>
+      <div class="ev-row"><div class="ev-icon">🌊</div><div class="ev-text"><strong>Mode matters more than method.</strong> The same technique fails in one nervous system state and works effortlessly in another.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The framework</div>
+    <h2>The <em>SAFE Method</em></h2>
+    <p>Every guide Abowabon generates is built on four sequential steps. Skipping straight to step four — the part most manifestation content focuses on — is why most people stay stuck.</p>
+    <div class="safe-grid">
+      <div class="safe-card"><div class="safe-letter" style="background:rgba(46,134,193,.15);color:#4A9FD4">S</div><div class="safe-title">Safety First</div><div class="safe-desc">Regulate the nervous system before anything else. A contracted body cannot attract what it fears.</div></div>
+      <div class="safe-card"><div class="safe-letter" style="background:rgba(123,198,126,.15);color:var(--sage)">A</div><div class="safe-title">Acknowledge & Accept</div><div class="safe-desc">Hold the desire clearly while accepting current reality without denial or resistance.</div></div>
+      <div class="safe-card"><div class="safe-letter" style="background:rgba(201,150,58,.15);color:var(--gold)">F</div><div class="safe-title">Find a Floor</div><div class="safe-desc">Identify the minimum needed to feel safe. This removes the desperation that repels desire.</div></div>
+      <div class="safe-card"><div class="safe-letter" style="background:rgba(155,143,212,.15);color:var(--lav)">E</div><div class="safe-title">Engage & Release</div><div class="safe-desc">Take one aligned daily action. Then release attachment to the outcome until tomorrow.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">The diagnostic</div>
+    <h2>The <em>3-Mode Framework</em></h2>
+    <p>Before recommending any practice, Abowabon identifies which nervous system mode a desire is being held in. The same desire can sit in different modes on different days.</p>
+    <div class="mode-grid">
+      <div class="mode-card"><div class="mode-emoji">🫁</div><div><div class="mode-name mode-1-c">Mode 1 — Exhausted Release</div><div class="mode-desc">High alert. The priority is rest and surrender, not visualisation or forced positivity.</div></div></div>
+      <div class="mode-card"><div class="mode-emoji">🌊</div><div><div class="mode-name mode-2-c">Mode 2 — Effortless Attraction</div><div class="mode-desc">Desire and belief are aligned. Light daily practice and aligned action flow naturally.</div></div></div>
+      <div class="mode-card"><div class="mode-emoji">🎯</div><div><div class="mode-name mode-3-c">Mode 3 — Backed Safety</div><div class="mode-desc">Certainty is the baseline. The practice is maintaining this state while acting boldly.</div></div></div>
+    </div>
+  </div>
+
+  <div class="ad-zone">AdSense 300×250 — replace with your AdSense code</div>
+
+  <div class="section">
+    <div class="section-label">The creator</div>
+    <h2>Who built <em>this</em></h2>
+    <div class="creator-card">
+      <div class="creator-av">✦</div>
+      <div class="creator-title">A scientist who manifests</div>
+      <div class="creator-body">HCPC-registered Biomedical Scientist with a background in haematology and blood transfusion. Years of systematic manifestation practice, documented and tested like any other hypothesis. Abowabon is the framework that survived contact with evidence.</div>
+      <div class="creator-tags">
+        <span class="ctag">HCPC registered</span>
+        <span class="ctag">Evidence-based</span>
+        <span class="ctag">11 documented wins</span>
+        <span class="ctag">Nervous system informed</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <a href="https://abowabon.com" class="btn-gold">✦ Try Abowabon free</a>
+    <div class="btn-row">
+      <a href="https://abowabon.com/mode-check" class="btn-ghost">Take the Mode Quiz</a>
+      <a href="https://abowabon.com/complete-system" class="btn-ghost">The Complete System — £29</a>
+    </div>
+  </div>
+
+  <footer>
+    <a href="https://abowabon.com">Home</a>
+    <a href="https://abowabon.com/privacy">Privacy</a>
+    <a href="mailto:hello@abowabon.com">Contact</a>
+    © 2025 Abowabon
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Abowabon — Your Complete Manifestation Companion</title>
+<meta name="description" content="Free AI-powered manifestation app. SAFE Method guides, daily practice sessions, belief audit, evidence journal, scripting notebook, and nervous system mode checker.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#070B14; --bg2:#0D1425; --bg3:#111827;
+  --surface:#141C2E; --surface2:#1A2540;
+  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.13);
+  --gold:#C9963A; --gold2:#E8B84B; --gold3:#D4A96A;
+  --gold-dim:rgba(201,150,58,0.12); --gold-glow:rgba(201,150,58,0.06);
+  --teal:#4ECDC4; --teal-dim:rgba(78,205,196,0.1);
+  --rose:#E07070; --rose-dim:rgba(224,112,112,0.1);
+  --sage:#7BC67E; --sage-dim:rgba(123,198,126,0.1);
+  --lav:#9B8FD4; --lav-dim:rgba(155,143,212,0.1);
+  --red:#C0392B; --red-dim:rgba(192,57,43,0.1);
+  --text:#E8EAF0; --text2:#8892A4; --text3:#5A6478;
+  --ff-d:'Cormorant Garamond',serif; --ff:'DM Sans',sans-serif;
+  --r:14px; --rsm:10px; --rlg:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden}
+body{font-family:var(--ff);background:var(--bg);color:var(--text);overscroll-behavior:none}
+
+/* AURORA */
+.aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.ab{position:absolute;border-radius:50%;filter:blur(90px);opacity:.1;animation:drift 22s ease-in-out infinite}
+.ab:nth-child(1){width:700px;height:700px;background:#1E3A5F;top:-250px;left:-150px;animation-delay:0s}
+.ab:nth-child(2){width:450px;height:450px;background:#C9963A;top:15%;right:-120px;animation-delay:-8s}
+.ab:nth-child(3){width:550px;height:550px;background:#0E4A4A;bottom:-150px;left:25%;animation-delay:-16s}
+.ab:nth-child(4){width:300px;height:300px;background:#4A1F7A;top:50%;left:-50px;animation-delay:-5s}
+@keyframes drift{0%,100%{transform:translate(0,0)scale(1)}33%{transform:translate(25px,-18px)scale(1.04)}66%{transform:translate(-18px,25px)scale(.96)}}
+
+/* SHELL */
+#app{position:relative;z-index:1;width:100%;max-width:430px;margin:0 auto;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+
+/* SCREENS */
+.screen{display:none;flex-direction:column;height:100%;animation:fadeUp .3s ease}
+.screen.active{display:flex}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ONBOARDING */
+.ob-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 28px 28px;text-align:center;overflow-y:auto}
+.logo-orb{width:88px;height:88px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#E8B84B,#C9963A 60%,#8B6520);box-shadow:0 0 50px rgba(201,150,58,.5),0 0 100px rgba(201,150,58,.2);display:flex;align-items:center;justify-content:center;font-size:2.2rem;margin:0 auto 24px;animation:glow 3s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 50px rgba(201,150,58,.5),0 0 100px rgba(201,150,58,.2)}50%{box-shadow:0 0 70px rgba(201,150,58,.7),0 0 140px rgba(201,150,58,.35)}}
+.app-name{font-family:var(--ff-d);font-size:3.2rem;font-weight:300;background:linear-gradient(135deg,#E8B84B,#C9963A 50%,#D4A96A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px}
+.app-tag{font-size:.95rem;color:var(--text2);line-height:1.6;max-width:280px;margin:0 auto 32px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:32px}
+.pill{background:var(--surface);border:1px solid var(--border2);border-radius:20px;padding:7px 14px;font-size:.78rem;color:var(--text2);display:flex;align-items:center;gap:6px}
+.ob-name-input{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r);padding:13px 16px;font-family:var(--ff);font-size:1rem;color:var(--text);outline:none;margin-bottom:12px;text-align:center}
+.ob-name-input:focus{border-color:var(--gold)}
+.ob-name-input::placeholder{color:var(--text3)}
+
+/* BUTTONS */
+.btn{width:100%;border:none;border-radius:var(--r);padding:15px;font-family:var(--ff);font-size:.95rem;font-weight:600;cursor:pointer;transition:all .2s;letter-spacing:.2px}
+.btn-gold{background:linear-gradient(135deg,#C9963A,#E8B84B);color:#0D1425}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,150,58,.4)}
+.btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--text2);margin-top:10px}
+.btn-ghost:hover{background:var(--surface);color:var(--text)}
+.btn-sm{width:auto;padding:8px 16px;font-size:.82rem}
+
+/* TOP BAR */
+.top-bar{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:rgba(7,11,20,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);flex-shrink:0;position:relative;z-index:10}
+.logo-sm{font-family:var(--ff-d);font-size:1.45rem;font-weight:600;background:linear-gradient(135deg,#E8B84B,#C9963A);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.greeting-name{font-family:var(--ff-d);font-size:.9rem;color:var(--text2);font-style:italic}
+.icon-btn{width:36px;height:36px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;color:var(--text2);transition:all .2s}
+.icon-btn:hover{background:var(--surface2);color:var(--text)}
+
+/* SCROLL */
+.scroll{flex:1;overflow-y:auto;padding:18px 18px 100px;-webkit-overflow-scrolling:touch}
+.scroll::-webkit-scrollbar{display:none}
+
+/* BOTTOM NAV */
+.bnav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:rgba(13,20,37,.96);backdrop-filter:blur(20px);border-top:1px solid var(--border);display:flex;padding:8px 0 max(16px, env(safe-area-inset-bottom));z-index:50;flex-shrink:0}
+.ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 4px;cursor:pointer;opacity:.4;transition:all .2s}
+.ni.active{opacity:1}
+.ni .ic{font-size:1.15rem}
+.ni .lb{font-size:.62rem;color:var(--text2);font-weight:500}
+.ni.active .lb{color:var(--gold2)}
+
+/* SECTION HEADS */
+.sh{margin-bottom:18px}
+.sh h2{font-family:var(--ff-d);font-size:1.85rem;font-weight:300;line-height:1.25}
+.sh h2 em{font-style:italic;color:var(--gold2)}
+.sh p{font-size:.85rem;color:var(--text2);margin-top:5px;line-height:1.55}
+
+/* CARDS */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px;margin-bottom:14px}
+.card-gold{border-color:rgba(201,150,58,.25);background:linear-gradient(135deg,var(--surface),rgba(201,150,58,.04))}
+
+/* STREAK BANNER */
+.streak-banner{background:linear-gradient(135deg,var(--surface),var(--surface2));border:1px solid rgba(201,150,58,.2);border-radius:var(--r);padding:16px 18px;margin-bottom:14px;display:flex;align-items:center;gap:14px}
+.streak-num{font-family:var(--ff-d);font-size:2.6rem;font-weight:300;color:var(--gold2);line-height:1}
+.streak-label{font-size:.82rem;color:var(--text2)}
+.streak-sub{font-size:.75rem;color:var(--text3);margin-top:2px}
+
+/* DAILY CHECKLIST */
+.cl-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:var(--rsm);background:var(--bg2);border:1px solid var(--border);cursor:pointer;transition:all .2s;margin-bottom:8px}
+.cl-item.done{background:rgba(123,198,126,.07);border-color:rgba(123,198,126,.25)}
+.cl-box{width:22px;height:22px;min-width:22px;border-radius:6px;border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:.7rem;background:var(--bg);transition:all .2s}
+.cl-item.done .cl-box{background:var(--sage);border-color:var(--sage);color:#0a0a0a}
+.cl-txt{font-size:.83rem;font-weight:500;color:var(--text);line-height:1.4}
+.cl-sub{font-size:.73rem;color:var(--text3);margin-top:2px}
+
+/* MODE BADGE */
+.mode-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:99px;font-size:.72rem;font-weight:600}
+.mode-1{background:var(--rose-dim);border:1px solid rgba(224,112,112,.2);color:var(--rose)}
+.mode-2{background:var(--teal-dim);border:1px solid rgba(78,205,196,.2);color:var(--teal)}
+.mode-3{background:var(--gold-dim);border:1px solid rgba(201,150,58,.25);color:var(--gold2)}
+
+/* MANIFEST CARDS */
+.mc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:12px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.mc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
+.mc.money::before{background:var(--gold)}
+.mc.love::before{background:var(--rose)}
+.mc.career::before{background:var(--teal)}
+.mc.health::before{background:var(--sage)}
+.mc.other::before{background:var(--lav)}
+.mc:hover{transform:translateX(2px);border-color:var(--border2)}
+.mc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.mc-cat{font-size:.68rem;text-transform:uppercase;letter-spacing:.8px;font-weight:600}
+.mc-cat.money{color:var(--gold)} .mc-cat.love{color:var(--rose)} .mc-cat.career{color:var(--teal)} .mc-cat.health{color:var(--sage)} .mc-cat.other{color:var(--lav)}
+.mc-desire{font-size:.9rem;font-weight:500;line-height:1.4;margin-bottom:10px}
+.mc-bar-bg{height:4px;background:var(--bg2);border-radius:2px;overflow:hidden}
+.mc-bar{height:100%;border-radius:2px;transition:width .5s}
+.mc-bar.money{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.mc-bar.love{background:linear-gradient(90deg,var(--rose),#EDA0A0)}
+.mc-bar.career{background:linear-gradient(90deg,var(--teal),#6EDDD6)}
+.mc-bar.health{background:linear-gradient(90deg,var(--sage),#9FD9A2)}
+.mc-bar.other{background:linear-gradient(90deg,var(--lav),#B9B0E8)}
+
+/* DESIRE INPUT */
+.di-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--rlg);padding:20px;margin-bottom:18px}
+.di-label{font-size:.72rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--gold);font-weight:600;margin-bottom:10px}
+textarea.di{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--rsm);padding:13px 15px;font-family:var(--ff);font-size:.92rem;color:var(--text);resize:none;min-height:80px;outline:none;transition:border-color .2s}
+textarea.di:focus{border-color:var(--gold)}
+textarea.di::placeholder{color:var(--text3)}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.cat-btn{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rsm);padding:10px 6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;transition:all .2s;font-family:var(--ff)}
+.cat-btn.sel,.cat-btn:hover{border-color:var(--gold);background:var(--gold-dim)}
+.cat-btn .ci{font-size:1.25rem}
+.cat-btn .cn{font-size:.68rem;color:var(--text2);font-weight:500;text-align:center}
+.cat-btn.sel .cn{color:var(--gold2)}
+.sel-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+select.si{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--rsm);padding:10px 12px;font-family:var(--ff);font-size:.85rem;color:var(--text);outline:none}
+label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var(--text3);display:block;margin-bottom:5px}
+
+/* AI GUIDE */
+.guide-panel{background:var(--surface);border:1px solid var(--border2);border-radius:var(--rlg);overflow:hidden;margin-bottom:18px}
+.guide-hdr{padding:16px 18px;background:linear-gradient(135deg,rgba(201,150,58,.1),rgba(201,150,58,.04));border-bottom:1px solid var(--border)}
+.guide-lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--gold);font-weight:600;margin-bottom:3px}
+.guide-desire{font-family:var(--ff-d);font-size:1.2rem;font-style:italic;color:var(--text)}
+.guide-body{padding:18px}
+.gs-lbl{display:flex;align-items:center;gap:7px;margin-bottom:8px;font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;font-weight:600}
+.gs-dot{width:7px;height:7px;border-radius:50%}
+.gs-txt{font-size:.87rem;color:var(--text2);line-height:1.7}
+.safe-step{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.safe-step:last-child{border-bottom:none}
+.safe-letter{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.safe-content h4{font-size:.8rem;font-weight:600;margin-bottom:3px;color:var(--text)}
+.safe-content p{font-size:.82rem;color:var(--text2);line-height:1.55}
+.identity-stmt{background:var(--bg2);border-left:3px solid var(--gold);border-radius:0 var(--rsm) var(--rsm) 0;padding:11px 13px;font-size:.85rem;font-style:italic;color:var(--text);line-height:1.6;margin-top:10px}
+.action-step{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.action-step:last-child{border-bottom:none}
+.action-num{width:24px;height:24px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--gold);flex-shrink:0;font-weight:600}
+.action-txt{font-size:.83rem;color:var(--text2);line-height:1.55;padding-top:2px}
+
+/* LOADING */
+.loading{display:flex;flex-direction:column;align-items:center;padding:28px 20px;gap:12px}
+.loading p{font-size:.85rem;color:var(--text2)}
+.dots{display:flex;gap:5px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:dp 1.4s ease-in-out infinite}
+.dot:nth-child(2){animation-delay:.2s}.dot:nth-child(3){animation-delay:.4s}
+@keyframes dp{0%,80%,100%{opacity:.3;transform:scale(.8)}40%{opacity:1;transform:scale(1.1)}}
+
+/* SESSIONS — PRACTICE TAB */
+.sess-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px}
+.sess-tabs::-webkit-scrollbar{display:none}
+.s-tab{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:7px 14px;font-size:.78rem;color:var(--text2);white-space:nowrap;cursor:pointer;font-family:var(--ff);transition:all .2s}
+.s-tab.active{background:var(--gold-dim);border-color:rgba(201,150,58,.3);color:var(--gold2)}
+.session-content{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.sc-hdr{padding:14px 16px;border-bottom:1px solid var(--border);background:var(--gold-glow)}
+.sc-title{font-size:.9rem;font-weight:600;margin-bottom:2px}
+.sc-sub{font-size:.75rem;color:var(--text3)}
+.step-item{display:flex;gap:10px;padding:10px 16px;border-bottom:1px solid var(--border);align-items:flex-start}
+.step-item:last-child{border-bottom:none}
+.step-n{min-width:24px;height:24px;border-radius:50%;background:var(--gold);color:#0a0a0a;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700}
+.step-txt{font-size:.83rem;color:var(--text2);line-height:1.55;padding-top:2px}
+
+/* BREATHING */
+.breath-circle{width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(78,205,196,.15),rgba(78,205,196,.05));border:2px solid rgba(78,205,196,.3);display:flex;align-items:center;justify-content:center;flex-direction:column;margin:0 auto 14px;transition:all 1s ease}
+.breath-circle.expand{transform:scale(1.25);border-color:rgba(78,205,196,.7);background:radial-gradient(circle,rgba(78,205,196,.25),rgba(78,205,196,.08))}
+.breath-time{font-size:2rem;font-weight:300;font-family:var(--ff-d);color:var(--teal)}
+.breath-phase{font-size:.72rem;color:var(--text3);margin-top:2px}
+.breath-dots{display:flex;justify-content:center;gap:6px;margin-bottom:14px}
+.bd{width:8px;height:8px;border-radius:50%;background:var(--border2);transition:all .4s}
+.bd.active{background:var(--teal);transform:scale(1.3)}
+
+/* HEATMAP */
+.heatmap{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin:10px 0}
+.hm{aspect-ratio:1;border-radius:3px;background:var(--bg2)}
+.hm.d1{background:rgba(201,150,58,.15)}.hm.d2{background:rgba(201,150,58,.35)}.hm.d3{background:rgba(201,150,58,.6)}.hm.d4{background:rgba(201,150,58,.9)}
+
+/* JOURNAL TABS */
+.jtab-row{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto}
+.jtab-row::-webkit-scrollbar{display:none}
+.jtab{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:6px 13px;font-size:.75rem;color:var(--text2);cursor:pointer;white-space:nowrap;font-family:var(--ff)}
+.jtab.active{background:var(--gold-dim);border-color:rgba(201,150,58,.3);color:var(--gold2)}
+.j-panel{display:none}.j-panel.active{display:block}
+.j-entry{background:var(--bg2);border-left:3px solid var(--gold);border-radius:0 var(--rsm) var(--rsm) 0;padding:11px 13px;margin-bottom:10px}
+.j-date{font-size:.68rem;color:var(--gold3);font-weight:600;margin-bottom:3px}
+.j-text{font-size:.83rem;color:var(--text);line-height:1.5}
+.belief-old{border-left-color:var(--rose);background:var(--rose-dim)}
+.belief-new{border-left-color:var(--sage);background:var(--sage-dim)}
+.bl-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:3px}
+.belief-old .bl-label{color:var(--rose)}.belief-new .bl-label{color:var(--sage)}
+
+/* MONEY LOG */
+.money-item{display:flex;justify-content:space-between;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border)}
+.money-item:last-child{border-bottom:none}
+.mi-desc{font-size:.83rem;color:var(--text);margin-bottom:2px}
+.mi-date{font-size:.7rem;color:var(--text3)}
+.mi-amt{font-family:var(--ff-d);font-size:1.05rem;color:var(--sage);font-weight:600}
+
+/* SCRIPTORIUM (Journal notebook) */
+.scenario-hdr{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;cursor:pointer;background:var(--gold-glow);border-bottom:1px solid var(--border)}
+.scenario-num{font-size:.65rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--text3);margin-bottom:3px}
+.scenario-title{font-family:var(--ff-d);font-size:1.05rem;font-weight:600}
+.scenario-body{padding:16px;display:none}
+.scenario-body.open{display:block}
+.scene-prose{font-family:var(--ff-d);font-size:.9rem;font-style:italic;color:var(--text);line-height:1.85;background:rgba(255,255,255,.02);border-radius:var(--rsm);padding:14px 16px;margin-bottom:12px}
+.frisson-anchor{border-left:2.5px solid var(--gold);padding:10px 13px;background:rgba(201,150,58,.04);border-radius:0 var(--rsm) var(--rsm) 0;margin-bottom:10px}
+.fa-label{font-size:.65rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--gold);font-weight:700;margin-bottom:4px}
+.fa-text{font-family:var(--ff-d);font-size:.85rem;font-style:italic;color:var(--gold3);line-height:1.6}
+.dn-block{border-left:2.5px solid var(--red);padding:10px 13px;background:var(--red-dim);border-radius:0 var(--rsm) var(--rsm) 0}
+.dn-label{font-size:.65rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--rose);font-weight:700;margin-bottom:4px}
+.dn-text{font-family:var(--ff-d);font-size:.85rem;font-style:italic;color:#FFB0B0;line-height:1.6}
+
+/* MODE QUIZ */
+.quiz-q{font-size:.92rem;font-weight:500;color:var(--text);margin-bottom:12px;line-height:1.5}
+.quiz-opt{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rsm);padding:10px 13px;font-size:.83rem;color:var(--text2);cursor:pointer;margin-bottom:7px;transition:all .2s}
+.quiz-opt:hover,.quiz-opt.sel{background:var(--gold-dim);border-color:rgba(201,150,58,.3);color:var(--text)}
+.mode-result{background:linear-gradient(135deg,var(--surface),var(--surface2));border:1px solid rgba(201,150,58,.25);border-radius:var(--rlg);padding:24px;margin-top:16px;text-align:center;display:none}
+.mode-result.show{display:block;animation:fadeUp .4s ease}
+.mode-name{font-family:var(--ff-d);font-size:1.8rem;font-weight:400;color:var(--gold2);margin:8px 0 4px}
+.mode-desc{font-size:.87rem;color:var(--text2);line-height:1.65;margin-bottom:14px}
+
+/* STATS */
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px;text-align:center}
+.stat-n{font-family:var(--ff-d);font-size:2rem;font-weight:300;color:var(--gold2)}
+.stat-l{font-size:.75rem;color:var(--text3);margin-top:2px}
+.phase-prog{margin-bottom:10px}
+.pp-row{display:flex;justify-content:space-between;font-size:.78rem;color:var(--text2);margin-bottom:5px}
+.pp-bg{height:5px;background:var(--bg2);border-radius:3px;overflow:hidden}
+.pp-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .6s}
+
+/* MODAL */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:200;align-items:flex-end;justify-content:center}
+.modal.open{display:flex;animation:fi .2s ease}
+@keyframes fi{from{opacity:0}to{opacity:1}}
+.modal-sheet{width:100%;max-width:430px;background:var(--bg3);border-radius:var(--rlg) var(--rlg) 0 0;border-top:1px solid var(--border2);padding:20px;max-height:85vh;overflow-y:auto;animation:su .3s cubic-bezier(.4,0,.2,1)}
+.modal-sheet::-webkit-scrollbar{display:none}
+@keyframes su{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.modal-handle{width:36px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 18px}
+
+/* TOAST */
+.toast{position:fixed;bottom:96px;left:50%;transform:translateX(-50%);background:rgba(25,35,55,.98);color:var(--text);border:1px solid var(--border2);border-radius:20px;padding:9px 18px;font-size:.82rem;font-weight:500;z-index:300;pointer-events:none;opacity:0;transition:opacity .3s;white-space:nowrap;backdrop-filter:blur(10px)}
+.toast.show{opacity:1}
+
+/* PROFILE */
+.profile-hdr{background:linear-gradient(135deg,var(--surface),var(--surface2));border:1px solid rgba(201,150,58,.2);border-radius:var(--rlg);padding:22px;text-align:center;margin-bottom:16px}
+.profile-av{width:68px;height:68px;border-radius:50%;margin:0 auto 10px;background:linear-gradient(135deg,#C9963A,#E8B84B);display:flex;align-items:center;justify-content:center;font-size:1.8rem}
+.profile-name{font-family:var(--ff-d);font-size:1.4rem;font-weight:400}
+.profile-since{font-size:.75rem;color:var(--text3);margin-top:3px}
+.setting-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border);cursor:pointer}
+.setting-row:last-child{border-bottom:none}
+.setting-l{display:flex;align-items:center;gap:12px}
+.setting-ic{width:34px;height:34px;background:var(--bg2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.setting-lbl{font-size:.88rem;font-weight:500}
+.setting-sub{font-size:.73rem;color:var(--text3)}
+
+/* AD ZONE */
+.ad-zone{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.1);border-radius:var(--rsm);padding:10px;text-align:center;font-size:.7rem;color:var(--text3);margin-bottom:14px}
+
+/* DIVIDER */
+.divider{display:flex;align-items:center;gap:10px;margin:16px 0;color:var(--text3);font-size:.75rem}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+</style>
+</head>
+<body>
+
+<div class="aurora">
+  <div class="ab"></div><div class="ab"></div><div class="ab"></div><div class="ab"></div>
+</div>
+
+<div id="app">
+
+  <!-- ═══════════════ ONBOARDING ═══════════════ -->
+  <div class="screen active" id="s-onboard">
+    <div class="ob-wrap">
+      <div class="logo-orb">✦</div>
+      <div class="app-name">Abowabon</div>
+      <div class="app-tag">Your complete manifestation companion — SAFE Method guides, daily practice, belief audit, evidence journal & scripting notebook</div>
+      <div class="pills">
+        <div class="pill"><span>🛡️</span> SAFE Method</div>
+        <div class="pill"><span>🌊</span> 3-Mode Framework</div>
+        <div class="pill"><span>⚡</span> Belief Audit</div>
+        <div class="pill"><span>📓</span> Evidence Journal</div>
+        <div class="pill"><span>🌅</span> Daily Sessions</div>
+        <div class="pill"><span>✍️</span> Scriptorium</div>
+      </div>
+      <input class="ob-name-input" id="ob-name" type="text" placeholder="What shall we call you? (optional)" maxlength="30">
+      <button class="btn btn-gold" onclick="startApp()">✦ Begin Your Journey</button>
+      <button class="btn btn-ghost" onclick="startApp()">Skip — take me in</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════ HOME ═══════════════ -->
+  <div class="screen" id="s-home">
+    <div class="top-bar">
+      <span class="logo-sm">Abowabon</span>
+      <span class="greeting-name" id="greeting">Good day, seeker ✦</span>
+      <div class="icon-btn" onclick="showTab('s-stats')">📊</div>
+    </div>
+    <div class="scroll">
+      <div class="sh" style="margin-top:4px">
+        <h2>What are you <em>calling in</em>?</h2>
+        <p>Describe your desire and receive a personalised SAFE Method guide.</p>
+      </div>
+
+      <div class="di-card">
+        <div class="di-label">✦ Your desire</div>
+        <textarea class="di" id="desireInput" rows="3" placeholder="e.g. I want to attract financial abundance and clear my debts…"></textarea>
+        <div class="cat-grid" id="catGrid">
+          <div class="cat-btn sel" data-cat="money" onclick="selCat(this)"><div class="ci">💰</div><div class="cn">Money</div></div>
+          <div class="cat-btn" data-cat="love" onclick="selCat(this)"><div class="ci">❤️</div><div class="cn">Love</div></div>
+          <div class="cat-btn" data-cat="career" onclick="selCat(this)"><div class="ci">🚀</div><div class="cn">Career</div></div>
+          <div class="cat-btn" data-cat="health" onclick="selCat(this)"><div class="ci">🌿</div><div class="cn">Health</div></div>
+          <div class="cat-btn" data-cat="other" onclick="selCat(this)"><div class="ci">⚡</div><div class="cn">Confidence</div></div>
+          <div class="cat-btn" data-cat="other" onclick="selCat(this)"><div class="ci">🔮</div><div class="cn">Purpose</div></div>
+        </div>
+        <div class="sel-row">
+          <div><label class="sl">Tone</label>
+            <select class="si" id="toneSelect">
+              <option>Empowering</option><option>Gentle & nurturing</option>
+              <option>Bold & direct</option><option>Spiritual & soulful</option>
+            </select>
+          </div>
+          <div><label class="sl">Mode check</label>
+            <select class="si" id="modeSelect">
+              <option value="auto">Auto-detect</option>
+              <option value="1">Mode 1 — Exhausted</option>
+              <option value="2">Mode 2 — Effortless</option>
+              <option value="3">Mode 3 — Backed</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn-gold" id="genBtn" onclick="generateGuide()">
+          <span id="genTxt">✦ Generate my SAFE guide</span>
+          <span id="genLoad" style="display:none">Crafting your guide…</span>
+        </button>
+      </div>
+
+      <div class="ad-zone">AdSense 320×50 — replace with your AdSense code</div>
+
+      <!-- Guide result -->
+      <div id="guideResult" style="display:none"></div>
+
+      <div class="divider">Active manifestations</div>
+
+      <div id="manifestList"></div>
+
+      <!-- Streak -->
+      <div class="streak-banner">
+        <div>
+          <div class="streak-num" id="streakNum">1</div>
+          <div class="streak-label">day streak 🔥</div>
+          <div class="streak-sub">Keep your daily practice alive</div>
+        </div>
+        <div style="flex:1;text-align:right">
+          <div class="heatmap" id="heatmap"></div>
+        </div>
+      </div>
+
+      <!-- Daily checklist -->
+      <div class="card">
+        <div class="di-label" style="margin-bottom:12px">Today's ritual <span id="checkCount" style="color:var(--gold2)">0</span>/6</div>
+        <div id="checkList">
+          <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">✓</div><div><div class="cl-txt">Morning feeling state (10 min)</div><div class="cl-sub">Access and expand the abundance feeling</div></div></div>
+          <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">✓</div><div><div class="cl-txt">Write 5 gratitude entries</div><div class="cl-sub">Financial blessings, however small</div></div></div>
+          <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">✓</div><div><div class="cl-txt">SAFE method practice</div><div class="cl-sub">S·A·F·E for your primary desire today</div></div></div>
+          <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">✓</div><div><div class="cl-txt">Midday state reset (5 min)</div><div class="cl-sub">Return to the feeling state after lunch</div></div></div>
+          <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">✓</div><div><div class="cl-txt">Evidence journal — log 3 entries</div><div class="cl-sub">Any manifestation evidence from today</div></div></div>
+          <div class="cl-item" onclick="toggleCheck(this)"><div class="cl-box">✓</div><div><div class="cl-txt">Evening release & trust statement</div><div class="cl-sub">Release worry. Set tomorrow's inspired action.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ PRACTICE ═══════════════ -->
+  <div class="screen" id="s-practice">
+    <div class="top-bar">
+      <span class="logo-sm">Practice</span>
+    </div>
+    <div class="scroll">
+      <div class="sh" style="margin-top:4px">
+        <h2>Daily <em>sessions</em></h2>
+        <p>Guided practice for every part of your day</p>
+      </div>
+
+      <div class="sess-tabs">
+        <div class="s-tab active" onclick="switchSession('morning',this)">🌅 Morning</div>
+        <div class="s-tab" onclick="switchSession('midday',this)">☀️ Midday</div>
+        <div class="s-tab" onclick="switchSession('evening',this)">🌙 Evening</div>
+        <div class="s-tab" onclick="switchSession('belief',this)">🔓 Belief</div>
+      </div>
+      <div id="sessionContent" class="session-content"></div>
+
+      <div class="divider" style="margin:20px 0">Breathing practice</div>
+
+      <div class="card" style="text-align:center">
+        <div class="di-label" style="margin-bottom:12px">4-7-8 Nervous System Reset</div>
+        <div class="breath-circle" id="breathCircle">
+          <div class="breath-time" id="breathTime">4</div>
+          <div class="breath-phase" id="breathPhase">Inhale</div>
+        </div>
+        <div class="breath-dots">
+          <div class="bd" id="bd0"></div><div class="bd" id="bd1"></div>
+          <div class="bd" id="bd2"></div><div class="bd" id="bd3"></div>
+        </div>
+        <div style="display:flex;gap:8px;justify-content:center">
+          <button class="btn btn-gold btn-sm" onclick="startBreath()">Start</button>
+          <button class="btn btn-ghost btn-sm" onclick="stopBreath()">Stop</button>
+        </div>
+        <div style="margin-top:12px">
+          <span onclick="setBreathDur(5)" class="s-tab" style="cursor:pointer;padding:5px 11px;font-size:.72rem">5 min</span>
+          <span onclick="setBreathDur(10)" class="s-tab active" style="cursor:pointer;padding:5px 11px;font-size:.72rem">10 min</span>
+          <span onclick="setBreathDur(15)" class="s-tab" style="cursor:pointer;padding:5px 11px;font-size:.72rem">15 min</span>
+        </div>
+      </div>
+
+      <div class="ad-zone" style="margin-top:14px">AdSense 320×50 — replace with your AdSense code</div>
+
+      <div class="divider">Mode quiz</div>
+      <div class="card">
+        <div class="di-label" style="margin-bottom:10px">🫀 Find your current mode</div>
+        <div id="quizContent"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ JOURNAL ═══════════════ -->
+  <div class="screen" id="s-journal">
+    <div class="top-bar"><span class="logo-sm">Journal</span></div>
+    <div class="scroll">
+      <div class="sh" style="margin-top:4px">
+        <h2>Your <em>inner notebook</em></h2>
+        <p>Evidence, beliefs, money flow & gratitude</p>
+      </div>
+      <div class="jtab-row">
+        <div class="jtab active" onclick="switchJTab('evidence',this)">⭐ Evidence</div>
+        <div class="jtab" onclick="switchJTab('beliefs',this)">🧠 Beliefs</div>
+        <div class="jtab" onclick="switchJTab('money',this)">💰 Money flow</div>
+        <div class="jtab" onclick="switchJTab('gratitude',this)">🙏 Gratitude</div>
+      </div>
+
+      <!-- Evidence -->
+      <div class="j-panel active" id="jp-evidence">
+        <div class="card">
+          <div class="di-label" style="margin-bottom:8px">Log new evidence</div>
+          <textarea class="di" id="evidenceInput" rows="2" placeholder="Something that confirmed your manifestation is working…"></textarea>
+          <button class="btn btn-gold btn-sm" style="margin-top:8px" onclick="addEvidence()">Log evidence ⭐</button>
+        </div>
+        <div id="evidenceList"></div>
+      </div>
+
+      <!-- Beliefs -->
+      <div class="j-panel" id="jp-beliefs">
+        <div class="card">
+          <div class="di-label" style="margin-bottom:8px">Old belief to clear</div>
+          <textarea class="di" id="beliefOld" rows="2" placeholder="e.g. Money is hard to earn…"></textarea>
+          <div class="di-label" style="margin-bottom:8px;margin-top:10px">New empowering belief</div>
+          <textarea class="di" id="beliefNew" rows="2" placeholder="e.g. Money flows to me easily from multiple sources…"></textarea>
+          <button class="btn btn-gold btn-sm" style="margin-top:8px" onclick="addBelief()">Save belief shift</button>
+        </div>
+        <div id="beliefList"></div>
+      </div>
+
+      <!-- Money flow -->
+      <div class="j-panel" id="jp-money">
+        <div class="card">
+          <div class="di-label" style="margin-bottom:8px">Log money flow</div>
+          <textarea class="di" id="moneyDesc" rows="2" placeholder="Describe how money arrived — expected or unexpected…"></textarea>
+          <input type="text" class="di" id="moneyAmt" style="height:auto;padding:10px 13px;margin-top:8px;min-height:0" placeholder="Amount (e.g. £50 or 'unexpected meal')">
+          <button class="btn btn-gold btn-sm" style="margin-top:8px" onclick="addMoneyLog()">Log flow 💰</button>
+        </div>
+        <div class="card" style="margin-top:0">
+          <div class="di-label" style="margin-bottom:8px">Money flow log</div>
+          <div id="moneyList"></div>
+        </div>
+      </div>
+
+      <!-- Gratitude -->
+      <div class="j-panel" id="jp-gratitude">
+        <div class="card">
+          <div class="di-label" style="margin-bottom:8px">Gratitude entry</div>
+          <textarea class="di" id="gratInput" rows="3" placeholder="I am grateful for…"></textarea>
+          <button class="btn btn-gold btn-sm" style="margin-top:8px" onclick="addGratitude()">Add gratitude 🙏</button>
+        </div>
+        <div id="gratList"></div>
+      </div>
+
+      <div class="ad-zone">AdSense 320×100 — replace with your AdSense code</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ SCRIPTORIUM ═══════════════ -->
+  <div class="screen" id="s-script">
+    <div class="top-bar"><span class="logo-sm">Scriptorium</span></div>
+    <div class="scroll">
+      <div class="sh" style="margin-top:4px">
+        <h2>Settled end <em>scenarios</em></h2>
+        <p>Write it as already done. The Death Note method — feel the relief of the ordinary Tuesday where it exists.</p>
+      </div>
+      <div id="scenarioList"></div>
+      <div class="card" style="margin-top:4px">
+        <div class="di-label" style="margin-bottom:8px">✍️ Add your own desire to script</div>
+        <textarea class="di" id="newScenario" rows="2" placeholder="Name your desire to create a scenario for…"></textarea>
+        <button class="btn btn-gold btn-sm" style="margin-top:8px" onclick="addScenario()">Create scenario ✦</button>
+      </div>
+      <div class="ad-zone" style="margin-top:14px">AdSense 320×50 — replace with your AdSense code</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ STATS ═══════════════ -->
+  <div class="screen" id="s-stats">
+    <div class="top-bar">
+      <span class="logo-sm">Progress</span>
+      <div class="icon-btn" onclick="showTab('s-profile')">👤</div>
+    </div>
+    <div class="scroll">
+      <div class="sh" style="margin-top:4px">
+        <h2>Your <em>journey</em></h2>
+        <p>Evidence of your practice and your progress</p>
+      </div>
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-n" id="stGuides">0</div><div class="stat-l">AI guides</div></div>
+        <div class="stat-card"><div class="stat-n" id="stEvidence">0</div><div class="stat-l">Evidence logged</div></div>
+        <div class="stat-card"><div class="stat-n" id="stStreak">1</div><div class="stat-l">Day streak 🔥</div></div>
+        <div class="stat-card"><div class="stat-n" id="stBeliefs">0</div><div class="stat-l">Beliefs shifted</div></div>
+      </div>
+      <div class="card">
+        <div class="di-label" style="margin-bottom:12px">SAFE Method mastery</div>
+        <div class="phase-prog"><div class="pp-row"><span>Safety First</span><span id="pp1">0%</span></div><div class="pp-bg"><div class="pp-fill" id="pb1" style="width:0%"></div></div></div>
+        <div class="phase-prog"><div class="pp-row"><span>Acknowledge & Accept</span><span id="pp2">0%</span></div><div class="pp-bg"><div class="pp-fill" id="pb2" style="width:0%"></div></div></div>
+        <div class="phase-prog"><div class="pp-row"><span>Find a Floor</span><span id="pp3">0%</span></div><div class="pp-bg"><div class="pp-fill" id="pb3" style="width:0%"></div></div></div>
+        <div class="phase-prog"><div class="pp-row"><span>Engage & Release</span><span id="pp4">0%</span></div><div class="pp-bg"><div class="pp-fill" id="pb4" style="width:0%"></div></div></div>
+      </div>
+      <div class="card">
+        <div class="di-label" style="margin-bottom:10px">Activity heatmap</div>
+        <div class="heatmap" id="heatmap2"></div>
+        <div style="display:flex;align-items:center;gap:6px;margin-top:8px;font-size:.68rem;color:var(--text3)">
+          <div class="hm" style="width:12px;height:12px"></div><span>None</span>
+          <div class="hm d1" style="width:12px;height:12px"></div>
+          <div class="hm d2" style="width:12px;height:12px"></div>
+          <div class="hm d3" style="width:12px;height:12px"></div>
+          <div class="hm d4" style="width:12px;height:12px"></div><span>Active</span>
+        </div>
+      </div>
+      <div class="ad-zone">AdSense 320×50 — replace with your AdSense code</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ PROFILE ═══════════════ -->
+  <div class="screen" id="s-profile">
+    <div class="top-bar"><span class="logo-sm">Profile</span></div>
+    <div class="scroll">
+      <div class="profile-hdr">
+        <div class="profile-av">✦</div>
+        <div class="profile-name" id="profileName">Seeker</div>
+        <div class="profile-since">Abowabon practitioner · Day 1</div>
+        <div style="margin-top:10px" id="currentModeBadge"></div>
+      </div>
+      <div class="card">
+        <div class="setting-row" onclick="showTab('s-script')"><div class="setting-l"><div class="setting-ic">✍️</div><div><div class="setting-lbl">Scriptorium</div><div class="setting-sub">Your settled end scenarios</div></div></div><span style="color:var(--text3)">›</span></div>
+        <div class="setting-row" onclick="showModal('modal-about')"><div class="setting-l"><div class="setting-ic">📖</div><div><div class="setting-lbl">About Abowabon</div><div class="setting-sub">The SAFE method & 3-mode framework</div></div></div><span style="color:var(--text3)">›</span></div>
+        <div class="setting-row" onclick="exportData()"><div class="setting-l"><div class="setting-ic">📤</div><div><div class="setting-lbl">Export my data</div><div class="setting-sub">Download your journal and entries</div></div></div><span style="color:var(--text3)">›</span></div>
+        <div class="setting-row" onclick="clearAll()"><div class="setting-l"><div class="setting-ic">🗑️</div><div><div class="setting-lbl">Reset all data</div><div class="setting-sub">Start fresh</div></div></div><span style="color:var(--text3)">›</span></div>
+      </div>
+      <div class="ad-zone">AdSense 320×100 — replace with your AdSense code</div>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV -->
+  <div class="bnav">
+    <div class="ni active" onclick="showTab('s-home')" id="ni-home"><div class="ic">✦</div><div class="lb">Home</div></div>
+    <div class="ni" onclick="showTab('s-practice')" id="ni-practice"><div class="ic">🌊</div><div class="lb">Practice</div></div>
+    <div class="ni" onclick="showTab('s-journal')" id="ni-journal"><div class="ic">📓</div><div class="lb">Journal</div></div>
+    <div class="ni" onclick="showTab('s-script')" id="ni-script"><div class="ic">✍️</div><div class="lb">Scripts</div></div>
+    <div class="ni" onclick="showTab('s-stats')" id="ni-stats"><div class="ic">📊</div><div class="lb">Progress</div></div>
+  </div>
+
+  <!-- MODAL: Guide detail -->
+  <div class="modal" id="modal-guide">
+    <div class="modal-sheet">
+      <div class="modal-handle"></div>
+      <div id="modal-guide-content"></div>
+      <button class="btn btn-ghost" style="margin-top:14px" onclick="closeModal('modal-guide')">Close</button>
+    </div>
+  </div>
+
+  <!-- MODAL: About -->
+  <div class="modal" id="modal-about">
+    <div class="modal-sheet">
+      <div class="modal-handle"></div>
+      <div style="font-family:var(--ff-d);font-size:1.6rem;font-weight:300;margin-bottom:10px">The SAFE Method</div>
+      <p style="font-size:.87rem;color:var(--text2);line-height:1.7;margin-bottom:16px">Abowabon is built on the SAFE Method — a nervous-system-first approach to manifestation developed from lived experience and rooted in how the body actually responds to desire and resistance.</p>
+      <div style="background:var(--gold-dim);border-radius:var(--rsm);padding:14px;margin-bottom:12px">
+        <div style="font-size:.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--gold);font-weight:700;margin-bottom:8px">S · A · F · E</div>
+        <div style="font-size:.85rem;color:var(--text2);line-height:1.7"><strong style="color:var(--text)">S — Safety First.</strong> Regulate your nervous system before any manifestation practice. A contracted, threat-mode body cannot attract what it fears.<br><br><strong style="color:var(--text)">A — Acknowledge & Accept.</strong> Hold the desire clearly while accepting the current reality without denial or resistance.<br><br><strong style="color:var(--text)">F — Find a Floor.</strong> Identify the minimum you need to feel safe. This removes desperation — the greatest repeller of desire.<br><br><strong style="color:var(--text)">E — Engage & Release.</strong> Take one aligned daily action. Then release attachment to the outcome until tomorrow.</div>
+      </div>
+      <div style="font-family:var(--ff-d);font-size:1.4rem;font-weight:300;margin:16px 0 8px">The 3 Modes</div>
+      <div class="mode-badge mode-1" style="margin-bottom:8px;display:flex">Mode 1 · Exhausted Release — surrender is the practice</div>
+      <div class="mode-badge mode-2" style="margin-bottom:8px;display:flex">Mode 2 · Effortless Attraction — align and allow</div>
+      <div class="mode-badge mode-3" style="margin-bottom:8px;display:flex">Mode 3 · Backed Safety — act from certainty</div>
+      <button class="btn btn-ghost" style="margin-top:14px" onclick="closeModal('modal-about')">Close</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── STATE ──────────────────────────────────────────────────────────────────────
+let S = {
+  name: '', streak: 1, guides: 0,
+  manifestations: [
+    {id:1, cat:'money', desire:'Clear all urgent financial pressure', day:7, progress:35, mode:1},
+    {id:2, cat:'career', desire:'Secure a permanent senior role I love', day:3, progress:20, mode:2},
+  ],
+  evidence: [], beliefs: [],
+  money:[{desc:'Unexpected client bonus',amt:'£120',date:'Today'},{desc:'Found forgotten gift card',amt:'£25',date:'Yesterday'}],
+  gratitude: [], scenarios: [], checksDone: 0, totalGuides: 0,
+  modeHistory: [], currentMode: 0,
+};
+let selCatVal = 'money';
+let breathTimer = null, breathDur = 10 * 60, breathRemaining = 0, breathRunning = false;
+const phases = [{label:'Inhale',sec:4},{label:'Hold',sec:7},{label:'Exhale',sec:8},{label:'Hold',sec:2}];
+let bPhaseIdx = 0, bCount = 0;
+const catColors = {money:'var(--gold)',love:'var(--rose)',career:'var(--teal)',health:'var(--sage)',other:'var(--lav)'};
+
+const SESSIONS = {
+  morning:{title:'Morning Feeling State',icon:'🌅',steps:['Find a quiet place. Sit comfortably, spine straight.','Close your eyes. Take 5 slow, deep breaths.','Recall a memory of financial safety or ease — any time you felt provided for.','Expand that feeling. Breathe into it. Let it fill your whole body.','Affirm silently: "Money flows to me easily. I am open to receive."','Hold the feeling for the session duration. Return gently if distracted.']},
+  midday:{title:'Midday State Reset',icon:'☀️',steps:['Step away from work for 5 minutes.','Take 3 deep breaths. Release any tension.','Ask yourself: "What is my current feeling state right now?"','If anxious: "This moment does not define my flow. More is always coming."','Return to your abundance feeling state for 2 minutes.','Set an intention for the afternoon: "I am open to positive surprises."']},
+  evening:{title:'Evening Release & Trust',icon:'🌙',steps:['Sit comfortably. Review your day with soft attention.','Recall at least 3 evidence moments from today.','Acknowledge any resistance or worry that arose — without judgment.','Release: "I release all worry for tonight. It is handled."','Feel the relief of genuinely trusting the process.','Set tomorrow\'s inspired action in your mind before sleeping.']},
+  belief:{title:'Belief Clearing Practice',icon:'🔓',steps:['Identify one limiting belief that has been active today.','Say it out loud and observe how it feels in your body.','Ask: "Is this a universal law, or just a story I was taught?"','Find ONE real piece of evidence that contradicts this belief.','Create a new, believable counter-belief. Write it down.','Repeat the new belief 10 times with genuine feeling, not mechanics.']},
+};
+
+const SCENARIOS = [
+  {title:'Financial freedom arrived',sub:'Bills cleared · breathing room · ordinary Tuesday',scene:'I sit at my kitchen table on a quiet Tuesday morning, coffee in hand, no urgency in my chest. The payment went through last Thursday. I remember checking the balance and feeling... nothing dramatic. Just right. Like it was always going to be this way.',frisson:'The moment I realised the money had arrived and I had simply forgotten to panic.',dn:'The bills are paid. The pressure is gone. I will never remember what this worry felt like.'},
+  {title:'Dream role secured',sub:'Permanent position · valued · thriving',scene:'It is a Wednesday. I am at my desk. My ID badge is slightly faded now from daily use. My opinion is sought. I contribute without anxiety. The salary hits the account reliably. I drive home thinking about dinner, not about work.',frisson:'The first morning I woke up knowing this job was mine and the searching was over.',dn:'The role is secured. The uncertainty is done. The person who worried about this no longer exists.'},
+];
+
+const QUIZ = [
+  {q:'When you think about your desire right now, what happens in your body?',opts:['Heavy, tight, anxious — hard to even think about it','Slightly hopeful but easily pulled back to doubt','Calm and certain — I know it\'s coming']},
+  {q:'How often do you check for evidence that it hasn\'t happened yet?',opts:['Constantly — it feels urgent and pressing','Sometimes, but I can redirect my attention','Rarely — I\'m not attached to the timing']},
+  {q:'Your current relationship with inspired action is…',opts:['Paralysed — too overwhelmed to act','Taking small steps but need reassurance','Acting from certainty — each step feels natural']},
+];
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+function startApp() {
+  const n = document.getElementById('ob-name').value.trim();
+  if (n) { S.name = n; localStorage.setItem('mai_name', n); }
+  else { S.name = localStorage.getItem('mai_name') || ''; }
+  showTab('s-home');
+  initAll();
+}
+
+function initAll() {
+  try { const saved = localStorage.getItem('mai_state'); if(saved) S = {...S,...JSON.parse(saved)}; } catch(e){}
+  if (!S.name) S.name = localStorage.getItem('mai_name') || '';
+  updateGreeting();
+  renderManifestList();
+  buildHeatmap('heatmap'); buildHeatmap('heatmap2');
+  renderSession('morning');
+  renderScenarios();
+  renderEvidence(); renderBeliefs(); renderMoneyList(); renderGratitude();
+  renderStats();
+  renderQuiz(0);
+  updateStreakDisplay();
+  if (S.name) {
+    document.getElementById('profileName').textContent = S.name;
+    document.getElementById('greeting').textContent = 'Hi, ' + S.name + ' ✦';
+  }
+}
+
+function save() { try { localStorage.setItem('mai_state', JSON.stringify(S)); } catch(e){} }
+
+// ── NAVIGATION ────────────────────────────────────────────────────────────────
+const tabNav = {
+  's-home':'ni-home','s-practice':'ni-practice','s-journal':'ni-journal',
+  's-script':'ni-script','s-stats':'ni-stats'
+};
+function showTab(id) {
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.ni').forEach(n=>n.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const ni = tabNav[id]; if(ni) document.getElementById(ni).classList.add('active');
+  window.scrollTo(0,0);
+  if(id==='s-stats') renderStats();
+}
+function showModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+// ── GREETING ──────────────────────────────────────────────────────────────────
+function updateGreeting() {
+  const h = new Date().getHours();
+  const tod = h < 12 ? 'morning' : h < 17 ? 'afternoon' : 'evening';
+  const name = S.name ? S.name : 'seeker';
+  document.getElementById('greeting').textContent = `Good ${tod}, ${name} ✦`;
+}
+
+// ── CATEGORY SELECT ───────────────────────────────────────────────────────────
+function selCat(el) {
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('sel'));
+  el.classList.add('sel'); selCatVal = el.dataset.cat;
+}
+
+// ── AI GUIDE ─────────────────────────────────────────────────────────────────
+async function generateGuide() {
+  const desire = document.getElementById('desireInput').value.trim();
+  if (!desire) { toast('Please describe what you want to manifest'); return; }
+  const tone = document.getElementById('toneSelect').value;
+  const modeHint = document.getElementById('modeSelect').value;
+  const btn = document.getElementById('genBtn');
+  document.getElementById('genTxt').style.display='none';
+  document.getElementById('genLoad').style.display='inline';
+  btn.disabled=true;
+  document.getElementById('guideResult').style.display='none';
+
+  const prompt = `You are Abowabon — a grounded manifestation coach using the SAFE Method and 3-Mode Framework.
+Tone: ${tone}. Mode hint: ${modeHint==='auto'?'determine from the desire':'Mode '+modeHint}.
+Desire: "${desire}"
+
+Return ONLY valid JSON (no markdown, no extra text):
+{
+  "mode": 1, 
+  "modeLabel": "Exhausted Release",
+  "modeReason": "One sentence why this desire is in this mode",
+  "safe": {
+    "s": "Nervous system regulation instruction specific to this desire",
+    "a": "Acknowledge & Accept statement for this desire",
+    "f": "The minimum floor to feel safe with this desire",
+    "e": "One specific daily engaged action for this desire"
+  },
+  "relaxedTip": "One body-based technique to generate non-contracted energy for this desire",
+  "visualization": "Two sentences: an ordinary settled Tuesday where this desire exists — not exciting, just normal",
+  "identityAnchor": "One identity statement separating self-worth from this outcome",
+  "actions": ["3 specific action steps for this desire"]
+}`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({model:'claude-sonnet-4-6', max_tokens:1000, messages:[{role:'user',content:prompt}]})
+    });
+    const data = await res.json();
+    const text = data.content?.map(b=>b.text||'').join('') || '';
+    const clean = text.replace(/```json|```/g,'').trim();
+    const g = JSON.parse(clean);
+    renderGuide(desire, g);
+    S.totalGuides++; S.guides++;
+    save();
+  } catch(e) {
+    renderFallback(desire, selCatVal);
+  } finally {
+    document.getElementById('genTxt').style.display='inline';
+    document.getElementById('genLoad').style.display='none';
+    btn.disabled=false;
+  }
+}
+
+function renderGuide(desire, g) {
+  const modeClass = ['','mode-1','mode-2','mode-3'][g.mode] || 'mode-1';
+  const modeColors = {s:'rgba(46,134,193,.15)',a:'rgba(123,198,126,.15)',f:'rgba(201,150,58,.15)',e:'rgba(155,143,212,.15)'};
+  const modeTC = {s:'#4A9FD4',a:'var(--sage)',f:'var(--gold)',e:'var(--lav)'};
+  const el = document.getElementById('guideResult');
+  el.innerHTML = `
+  <div class="guide-panel">
+    <div class="guide-hdr">
+      <div class="guide-lbl">✦ Your SAFE guide</div>
+      <div class="guide-desire">${desire}</div>
+      <span class="mode-badge ${modeClass}" style="margin-top:8px;display:inline-flex">Mode ${g.mode} · ${g.modeLabel||''}</span>
+      <div style="font-size:.78rem;color:var(--text3);margin-top:6px">${g.modeReason||''}</div>
+    </div>
+    <div class="guide-body">
+      <div class="gs-lbl" style="color:var(--gold)"><div class="gs-dot" style="background:var(--gold)"></div>The SAFE Method — applied</div>
+      <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:16px">
+        ${['s','a','f','e'].map((k,i)=>`<div class="safe-step"><div class="safe-letter" style="background:${modeColors[k]};color:${modeTC[k]}">${k.toUpperCase()}</div><div class="safe-content"><h4>${['Safety First','Acknowledge & Accept','Find a Floor','Engage & Release'][i]}</h4><p>${g.safe?.[k]||''}</p></div></div>`).join('')}
+      </div>
+      <div class="gs-lbl" style="color:var(--teal)"><div class="gs-dot" style="background:var(--teal)"></div>Relaxed energy tip</div>
+      <div class="gs-txt" style="margin-bottom:14px">${g.relaxedTip||''}</div>
+      <div class="gs-lbl" style="color:var(--lav)"><div class="gs-dot" style="background:var(--lav)"></div>Visualisation — the ordinary Tuesday</div>
+      <div class="identity-stmt" style="margin-bottom:14px">${g.visualization||''}</div>
+      <div class="gs-lbl" style="color:var(--sage)"><div class="gs-dot" style="background:var(--sage)"></div>Action steps</div>
+      ${(g.actions||[]).map((a,i)=>`<div class="action-step"><div class="action-num">${i+1}</div><div class="action-txt">${a}</div></div>`).join('')}
+      <div class="identity-stmt" style="margin-top:12px">Identity: ${g.identityAnchor||''}</div>
+    </div>
+  </div>`;
+  el.style.display='block';
+  el.scrollIntoView({behavior:'smooth',block:'start'});
+  toast('Guide generated ✦');
+}
+
+function renderFallback(desire, cat) {
+  const d = desire.toLowerCase();
+  const g = {
+    mode:1, modeLabel:'Exhausted Release',
+    modeReason:`High importance and urgency creates nervous system contraction around ${d}.`,
+    safe:{
+      s:`Place your hand on your chest. Breathe in for 4 counts, hold for 7, exhale for 8. Repeat 3 times before you think about ${d} at all.`,
+      a:`I clearly desire ${d}. I acknowledge I do not have it yet, and that is OK. Both things are true.`,
+      f:`The minimum I need to feel safe right now is to know that one step has been taken today. That is enough.`,
+      e:`Choose one single action today that moves toward ${d}. Just one. Do it and release the day.`
+    },
+    relaxedTip:`Recall the last time something you wanted arrived unexpectedly. Let that feeling expand in your chest for 60 seconds before thinking about ${d}.`,
+    visualization:`It is a quiet Tuesday. ${desire} is your normal now. You think about it briefly while making tea — not with relief, just with the ordinary satisfaction of something settled.`,
+    identityAnchor:`My worth is complete whether or not ${d} has arrived. I am not my outcomes.`,
+    actions:[`Take one concrete step toward ${desire} today`,`Write 3 pieces of evidence that this is possible`,`Practice the evening release statement before sleep`]
+  };
+  renderGuide(desire, g);
+}
+
+// ── MANIFESTATIONS LIST ────────────────────────────────────────────────────────
+function renderManifestList() {
+  const el = document.getElementById('manifestList');
+  if (!S.manifestations.length) { el.innerHTML='<div style="text-align:center;color:var(--text3);padding:20px;font-size:.85rem">No active manifestations yet.<br>Generate a guide above to begin.</div>'; return; }
+  el.innerHTML = S.manifestations.map(m=>`
+  <div class="mc ${m.cat}" onclick="openManifest(${m.id})">
+    <div class="mc-top">
+      <span class="mc-cat ${m.cat}">${{money:'💰 Money',love:'❤️ Love',career:'🚀 Career',health:'🌿 Health',other:'✨ Purpose'}[m.cat]||'✦ Other'}</span>
+      <span class="mode-badge ${['','mode-1','mode-2','mode-3'][m.mode]||'mode-1'}" style="font-size:.65rem;padding:3px 8px">Mode ${m.mode}</span>
+    </div>
+    <div class="mc-desire">${m.desire}</div>
+    <div class="mc-bar-bg"><div class="mc-bar ${m.cat}" style="width:${m.progress}%"></div></div>
+    <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:.68rem;color:var(--text3)"><span>Day ${m.day}</span><span>${m.progress}% aligned</span></div>
+  </div>`).join('');
+}
+
+function openManifest(id) {
+  const m = S.manifestations.find(x=>x.id===id);
+  if (!m) return;
+  document.getElementById('modal-guide-content').innerHTML = `
+  <div style="font-family:var(--ff-d);font-size:1.4rem;font-weight:300;margin-bottom:4px">${m.desire}</div>
+  <span class="mode-badge ${['','mode-1','mode-2','mode-3'][m.mode]}" style="margin-bottom:14px;display:inline-flex">Mode ${m.mode}</span>
+  <div class="identity-stmt">Each day of practice, you become more aligned with this. You are on Day ${m.day}. Keep going.</div>
+  <div style="margin-top:14px">
+    <div class="di-label" style="margin-bottom:8px">Log today's evidence</div>
+    <textarea class="di" id="inline-evidence" rows="2" placeholder="Something that suggests this is coming…"></textarea>
+    <button class="btn btn-gold btn-sm" style="margin-top:8px" onclick="logEvidenceFromModal(${m.id})">Log evidence ⭐</button>
+  </div>`;
+  showModal('modal-guide');
+}
+
+function logEvidenceFromModal(id) {
+  const txt = document.getElementById('inline-evidence').value.trim();
+  if (!txt) return;
+  S.evidence.unshift({text:txt, date:new Date().toLocaleDateString(), desireId:id});
+  save(); renderEvidence(); toast('Evidence logged ⭐'); closeModal('modal-guide');
+}
+
+// ── CHECKLIST ────────────────────────────────────────────────────────────────
+function toggleCheck(el) {
+  el.classList.toggle('done');
+  const done = document.querySelectorAll('.cl-item.done').length;
+  document.getElementById('checkCount').textContent = done;
+  if (done === 6) { S.streak++; updateStreakDisplay(); toast('Daily ritual complete! 🎉 Streak: '+S.streak); save(); }
+}
+
+function updateStreakDisplay() {
+  document.getElementById('streakNum').textContent = S.streak;
+  document.getElementById('stStreak').textContent = S.streak;
+}
+
+// ── HEATMAP ──────────────────────────────────────────────────────────────────
+function buildHeatmap(id) {
+  const el = document.getElementById(id); if (!el) return;
+  const levels = [0,1,0,2,3,4,3,2,1,0,1,2,3,4,4,3,2,1,2,3,4,3,2,1,0,1,2,3];
+  el.innerHTML = levels.map(l=>`<div class="hm ${l>0?'d'+l:''}"></div>`).join('');
+}
+
+// ── SESSIONS ─────────────────────────────────────────────────────────────────
+function switchSession(key, el) {
+  document.querySelectorAll('.sess-tabs .s-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active'); renderSession(key);
+}
+
+function renderSession(key) {
+  const s = SESSIONS[key]; const el = document.getElementById('sessionContent');
+  el.innerHTML = `<div class="sc-hdr"><div class="sc-title">${s.icon} ${s.title}</div><div class="sc-sub">Follow each step in sequence</div></div>${s.steps.map((step,i)=>`<div class="step-item"><div class="step-n">${i+1}</div><div class="step-txt">${step}</div></div>`).join('')}`;
+}
+
+// ── BREATHING ────────────────────────────────────────────────────────────────
+function setBreathDur(min) {
+  breathDur = min * 60; breathRemaining = breathDur;
+  document.querySelectorAll('.s-tab').forEach(t=>{if(t.textContent===min+' min'){t.classList.add('active')}else{t.classList.remove('active')}});
+}
+
+function startBreath() {
+  if (breathRunning) return;
+  breathRunning = true; bPhaseIdx = 0; bCount = phases[0].sec;
+  document.getElementById('breathCircle').classList.add('expand');
+  breathTimer = setInterval(tickBreath, 1000);
+}
+
+function tickBreath() {
+  bCount--;
+  document.getElementById('breathTime').textContent = bCount;
+  document.getElementById('breathPhase').textContent = phases[bPhaseIdx].label;
+  const dotIdx = Math.floor(bPhaseIdx);
+  document.querySelectorAll('.bd').forEach((d,i)=>d.classList.toggle('active',i===dotIdx));
+  if (bCount <= 0) {
+    bPhaseIdx = (bPhaseIdx+1) % phases.length;
+    bCount = phases[bPhaseIdx].sec;
+    document.getElementById('breathCircle').classList.toggle('expand', bPhaseIdx===0||bPhaseIdx===1);
+  }
+}
+
+function stopBreath() {
+  clearInterval(breathTimer); breathRunning = false;
+  document.getElementById('breathCircle').classList.remove('expand');
+  document.getElementById('breathTime').textContent = phases[0].sec;
+  document.getElementById('breathPhase').textContent = phases[0].label;
+  document.querySelectorAll('.bd').forEach(d=>d.classList.remove('active'));
+}
+
+// ── QUIZ ─────────────────────────────────────────────────────────────────────
+let quizAnswers = [];
+function renderQuiz(qIdx) {
+  if (qIdx >= QUIZ.length) { showQuizResult(); return; }
+  const q = QUIZ[qIdx]; const el = document.getElementById('quizContent');
+  el.innerHTML = `<div style="font-size:.7rem;color:var(--text3);margin-bottom:6px">Question ${qIdx+1} of ${QUIZ.length}</div>
+  <div class="quiz-q">${q.q}</div>
+  ${q.opts.map((o,i)=>`<div class="quiz-opt" onclick="answerQuiz(${qIdx},${i},this)">${o}</div>`).join('')}`;
+}
+
+function answerQuiz(qIdx, ansIdx, el) {
+  document.querySelectorAll('.quiz-opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel'); quizAnswers[qIdx] = ansIdx;
+  setTimeout(()=>renderQuiz(qIdx+1), 400);
+}
+
+function showQuizResult() {
+  const avg = quizAnswers.reduce((a,b)=>a+b,0) / quizAnswers.length;
+  const mode = avg < 0.8 ? 1 : avg < 1.6 ? 2 : 3;
+  const labels = ['','Exhausted Release','Effortless Attraction','Backed Safety'];
+  const descs = ['','Your nervous system is in high-alert. The priority is safety and surrender — not action or visualisation. Rest, release, and let go of urgency.','You are in the sweet spot. Desire and belief are aligned. Light daily practice and aligned action will flow naturally to your desire.','You operate from certainty. Your desire feels inevitable. Your practice is maintaining this state and taking bold, inspired action from your certainty.'];
+  const modeClass = ['','mode-1','mode-2','mode-3'][mode];
+  S.currentMode = mode; S.modeHistory.push({mode,date:new Date().toLocaleDateString()}); save();
+  document.getElementById('currentModeBadge').innerHTML = `<span class="mode-badge ${modeClass}">Currently in Mode ${mode} · ${labels[mode]}</span>`;
+  document.getElementById('quizContent').innerHTML = `
+  <div class="mode-result show">
+    <div style="font-size:2.5rem">${'🆘✨🎯'[mode-1]}</div>
+    <div class="mode-name">Mode ${mode} — ${labels[mode]}</div>
+    <div class="mode-desc">${descs[mode]}</div>
+    <span class="mode-badge ${modeClass}" style="display:inline-flex;margin-bottom:16px">Mode ${mode}</span>
+    <button class="btn btn-gold btn-sm" onclick="quizAnswers=[];renderQuiz(0)">Retake quiz</button>
+  </div>`;
+}
+
+// ── JOURNAL TABS ────────────────────────────────────────────────────────────
+function switchJTab(key, el) {
+  document.querySelectorAll('.jtab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.j-panel').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('jp-'+key).classList.add('active');
+}
+
+// ── EVIDENCE ────────────────────────────────────────────────────────────────
+function addEvidence() {
+  const t = document.getElementById('evidenceInput').value.trim(); if (!t) return;
+  S.evidence.unshift({text:t, date:new Date().toLocaleDateString()});
+  document.getElementById('evidenceInput').value=''; save(); renderEvidence(); toast('Evidence logged ⭐');
+}
+function renderEvidence() {
+  const el = document.getElementById('evidenceList');
+  if (!S.evidence.length) { el.innerHTML='<div style="color:var(--text3);font-size:.82rem;text-align:center;padding:16px">No evidence yet. Start logging what you notice.</div>'; return; }
+  el.innerHTML = S.evidence.map(e=>`<div class="j-entry"><div class="j-date">${e.date}</div><div class="j-text">${e.text}</div></div>`).join('');
+  document.getElementById('stEvidence').textContent = S.evidence.length;
+}
+
+// ── BELIEFS ─────────────────────────────────────────────────────────────────
+function addBelief() {
+  const o=document.getElementById('beliefOld').value.trim(), n=document.getElementById('beliefNew').value.trim();
+  if (!o||!n) return;
+  S.beliefs.unshift({old:o,new:n,date:new Date().toLocaleDateString()});
+  document.getElementById('beliefOld').value=''; document.getElementById('beliefNew').value='';
+  save(); renderBeliefs(); toast('Belief shifted ✦');
+}
+function renderBeliefs() {
+  const el=document.getElementById('beliefList');
+  if (!S.beliefs.length) { el.innerHTML='<div style="color:var(--text3);font-size:.82rem;text-align:center;padding:16px">No belief shifts yet.</div>'; return; }
+  el.innerHTML=S.beliefs.map(b=>`<div class="j-entry belief-old"><div class="bl-label">Old belief</div><div class="j-text">${b.old}</div></div><div class="j-entry belief-new"><div class="bl-label">New belief</div><div class="j-text">${b.new}</div></div><div style="font-size:.68rem;color:var(--text3);text-align:right;margin-bottom:10px">${b.date}</div>`).join('');
+  document.getElementById('stBeliefs').textContent = S.beliefs.length;
+}
+
+// ── MONEY LOG ────────────────────────────────────────────────────────────────
+function addMoneyLog() {
+  const d=document.getElementById('moneyDesc').value.trim(), a=document.getElementById('moneyAmt').value.trim();
+  if (!d) return;
+  S.money.unshift({desc:d,amt:a||'—',date:new Date().toLocaleDateString()});
+  document.getElementById('moneyDesc').value=''; document.getElementById('moneyAmt').value='';
+  save(); renderMoneyList(); toast('Money flow logged 💰');
+}
+function renderMoneyList() {
+  const el=document.getElementById('moneyList');
+  if (!S.money.length) { el.innerHTML='<div style="color:var(--text3);font-size:.82rem;text-align:center;padding:12px">No money flow logged yet.</div>'; return; }
+  el.innerHTML=S.money.map(m=>`<div class="money-item"><div><div class="mi-desc">${m.desc}</div><div class="mi-date">${m.date}</div></div><div class="mi-amt">${m.amt}</div></div>`).join('');
+}
+
+// ── GRATITUDE ────────────────────────────────────────────────────────────────
+function addGratitude() {
+  const t=document.getElementById('gratInput').value.trim(); if (!t) return;
+  S.gratitude.unshift({text:t,date:new Date().toLocaleDateString()});
+  document.getElementById('gratInput').value=''; save(); renderGratitude(); toast('Gratitude added 🙏');
+}
+function renderGratitude() {
+  const el=document.getElementById('gratList');
+  if (!S.gratitude.length) { el.innerHTML='<div style="color:var(--text3);font-size:.82rem;text-align:center;padding:16px">No gratitude entries yet.</div>'; return; }
+  el.innerHTML=S.gratitude.map(g=>`<div class="j-entry" style="border-left-color:var(--lav)"><div class="j-date">${g.date}</div><div class="j-text">${g.text}</div></div>`).join('');
+}
+
+// ── SCRIPTORIUM ──────────────────────────────────────────────────────────────
+function renderScenarios() {
+  const all = [...SCENARIOS, ...S.scenarios];
+  document.getElementById('scenarioList').innerHTML = all.map((sc,i)=>`
+  <div class="card" style="padding:0;margin-bottom:14px">
+    <div class="scenario-hdr" onclick="toggleScenario(${i})">
+      <div><div class="scenario-num">Desire ${i+1}</div><div class="scenario-title">${sc.title}</div><div style="font-size:.75rem;color:var(--text3);margin-top:2px;font-style:italic">${sc.sub||''}</div></div>
+      <div style="color:var(--text3);font-size:.85rem" id="sarr${i}">›</div>
+    </div>
+    <div class="scenario-body" id="sb${i}">
+      <div class="scene-prose">"${sc.scene}"</div>
+      ${sc.frisson?`<div class="frisson-anchor"><div class="fa-label">✦ Frisson anchor</div><div class="fa-text">${sc.frisson}</div></div>`:''}
+      ${sc.dn?`<div class="dn-block"><div class="dn-label">📓 Death note</div><div class="dn-text">${sc.dn}</div></div>`:''}
+      ${sc.userWritten?`<textarea class="di" style="margin-top:10px" rows="3" placeholder="Continue writing your scene…">${sc.extra||''}</textarea>`:''}
+    </div>
+  </div>`).join('');
+}
+
+function toggleScenario(i) {
+  const body = document.getElementById('sb'+i);
+  const arr = document.getElementById('sarr'+i);
+  const open = body.classList.toggle('open');
+  arr.style.transform = open ? 'rotate(90deg)' : '';
+}
+
+function addScenario() {
+  const t=document.getElementById('newScenario').value.trim(); if (!t) return;
+  S.scenarios.push({title:t, sub:'Your settled end scene', scene:'Write your ordinary Tuesday here — the day your desire is simply your normal life. No fanfare. Just settled.', userWritten:true});
+  document.getElementById('newScenario').value=''; save(); renderScenarios(); toast('Scenario created ✍️');
+}
+
+// ── STATS ─────────────────────────────────────────────────────────────────────
+function renderStats() {
+  document.getElementById('stGuides').textContent = S.totalGuides||0;
+  document.getElementById('stEvidence').textContent = S.evidence.length;
+  document.getElementById('stStreak').textContent = S.streak;
+  document.getElementById('stBeliefs').textContent = S.beliefs.length;
+  const base = Math.min(S.totalGuides * 12, 95);
+  ['1','2','3','4'].forEach((n,i)=>{
+    const v = Math.max(0, base - i*8);
+    document.getElementById('pb'+n).style.width = v+'%';
+    document.getElementById('pp'+n).textContent = v+'%';
+  });
+}
+
+// ── EXPORT ───────────────────────────────────────────────────────────────────
+function exportData() {
+  const ev = S.evidence.map(e=>`[${e.date}] ${e.text}`).join('\n');
+  const bl = S.beliefs.map(b=>`OLD: ${b.old}\nNEW: ${b.new}`).join('\n---\n');
+  const mn = S.money.map(m=>`${m.date}: ${m.desc} — ${m.amt}`).join('\n');
+  const gr = S.gratitude.map(g=>`${g.date}: ${g.text}`).join('\n');
+  const txt = `MANIFESTAI EXPORT\n${'='.repeat(40)}\n\nEVIDENCE JOURNAL\n${ev}\n\nBELIEF SHIFTS\n${bl}\n\nMONEY FLOW LOG\n${mn}\n\nGRATITUDE\n${gr}`;
+  const a=document.createElement('a'); a.href='data:text/plain;charset=utf-8,'+encodeURIComponent(txt);
+  a.download='Abowabon_Journal.txt'; a.click(); toast('Journal exported 📤');
+}
+
+function clearAll() {
+  if (!confirm('Reset all your data? This cannot be undone.')) return;
+  S.evidence=[]; S.beliefs=[]; S.money=[]; S.gratitude=[]; S.scenarios=[]; S.streak=1; S.totalGuides=0;
+  save(); initAll(); toast('Data cleared');
+}
+
+// ── TOAST ─────────────────────────────────────────────────────────────────────
+function toast(msg) {
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+// ── BOOT ─────────────────────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', ()=>{
+  const saved = localStorage.getItem('mai_name');
+  if (saved) { document.getElementById('ob-name').value = saved; }
+  // Load session state
+  try {
+    const st = localStorage.getItem('mai_state');
+    if (st) { const parsed = JSON.parse(st); S = {...S,...parsed}; }
+  } catch(e){}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+# Netlify redirects file — defines clean URLs for every page in the project
+# This file must be named exactly "_redirects" with no extension and live at
+# the root of your deploy folder for Netlify to read it automatically.
+
+# Core platform pages
+/                       /ManifestAI_Flagship.html              200
+/about                  /about.html                            200
+/privacy                /privacy.html                           200
+
+# Lead magnet / sales pages
+/surrender              /email_capture_landing.html             200
+/complete-system        /gumroad_sales_page.html                200
+/transurfing             /transurfing_seo_hub.html               200
+
+# Standalone viral tool
+/mode-check             /mode_checker_tool.html                  200
+
+# Tool suite — individual SEO landing pages (in numbered order)
+/affirmations           /tool-suite/01_affirmation-generator.html        200
+/safe-method            /tool-suite/02_safe-method-generator.html        200
+/frisson                /tool-suite/03_frisson-activator.html            200
+/end-scene              /tool-suite/04_end-scene-builder.html            200
+/threat-mode-check      /tool-suite/05_threat-mode-checker.html          200
+/belief-audit           /tool-suite/06_belief-audit-tool.html            200
+/surrender-tool         /tool-suite/07_surrender-guide-generator.html    200
+/transurfing-practice   /tool-suite/08_transurfing-practice-generator.html 200
+/30-day-plan            /tool-suite/09_30-day-plan-builder.html          200
+/evidence-journal       /tool-suite/10_evidence-journal.html             200
+
+# Income stream pages
+/coaching               /income-streams/coaching_booking_page.html       200

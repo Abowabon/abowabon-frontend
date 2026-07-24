@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surrender Guide Generator — How to Let Go | Abowabon</title>
+<meta name="description" content="Get a personalised letting-go plan for whatever you're gripping too tightly. Free AI tool — surrender without giving up on what you want.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070B14;--surface:#141C2E;--border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.15);--gold:#C9963A;--gold2:#E8B84B;--teal:#4ECDC4;--text:#E8EAF0;--text2:#8892A4;--text3:#5A6478;--ff:'DM Sans',sans-serif;--ffd:'Cormorant Garamond',serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--ff);background:var(--bg);color:var(--text);line-height:1.65}
+.aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.ab{position:absolute;border-radius:50%;filter:blur(100px);opacity:.09;animation:drift 22s ease-in-out infinite}
+.ab:nth-child(1){width:600px;height:600px;background:#1A3A5A;top:-180px;left:-120px}
+.ab:nth-child(2){width:420px;height:420px;background:#4ECDC4;bottom:10%;right:-100px;animation-delay:-9s}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(16px,-12px)}}
+.nav{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--ffd);font-size:1.2rem;color:var(--gold2);text-decoration:none;font-weight:600}
+.nav-links{display:flex;gap:18px}
+.nav-links a{font-size:.8rem;color:var(--text2);text-decoration:none}
+.wrap{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:36px 20px 60px}
+.ad-top{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.1);border-radius:8px;padding:10px;text-align:center;font-size:.7rem;color:var(--text3);margin-bottom:28px}
+.hero{text-align:center;margin-bottom:32px}
+.hero-badge{display:inline-block;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.2);color:var(--teal);border-radius:99px;padding:5px 14px;font-size:.75rem;font-weight:600;margin-bottom:14px}
+.hero h1{font-family:var(--ffd);font-size:clamp(2rem,6vw,2.7rem);font-weight:300;line-height:1.25;margin-bottom:10px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero p{font-size:.92rem;color:var(--text2);max-width:440px;margin:0 auto;line-height:1.7}
+.tool-card{background:var(--surface);border:1px solid var(--border2);border-radius:20px;padding:24px;margin-bottom:24px}
+.field-label{font-size:.78rem;font-weight:600;color:var(--text);margin-bottom:8px;display:block}
+textarea.input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border2);border-radius:12px;padding:13px 15px;font-family:var(--ff);font-size:.92rem;color:var(--text);outline:none;resize:none;min-height:76px;margin-bottom:14px}
+textarea.input:focus{border-color:var(--gold)}
+textarea.input::placeholder{color:var(--text3)}
+.btn-gold{width:100%;background:linear-gradient(135deg,#C9963A,#E8B84B);color:#0D1425;border:none;border-radius:12px;padding:14px;font-family:var(--ff);font-size:.95rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,150,58,.4)}
+.btn-gold:disabled{opacity:.6}
+.spinner{width:15px;height:15px;border:2px solid rgba(13,20,37,.3);border-top-color:#0D1425;border-radius:50%;animation:spin .7s linear infinite;display:none}
+.btn-gold.loading .spinner{display:block}
+.btn-gold.loading .btn-text{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.results{display:none;margin-top:18px}
+.results.show{display:block;animation:fu .4s ease}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.surrender-step{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
+.surrender-step:last-child{border-bottom:none}
+.s-num{min-width:30px;height:30px;border-radius:9px;background:rgba(78,205,196,.12);border:1px solid rgba(78,205,196,.25);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0}
+.step-text{font-size:.85rem;color:var(--text2);line-height:1.6}
+.ad-mid{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.1);border-radius:8px;padding:10px;text-align:center;font-size:.7rem;color:var(--text3);margin:24px 0}
+.info-section{margin:32px 0}
+.info-section h2{font-family:var(--ffd);font-size:1.5rem;font-weight:300;margin-bottom:12px}
+.info-section h2 em{font-style:italic;color:var(--gold2)}
+.info-section p{font-size:.88rem;color:var(--text2);line-height:1.75;margin-bottom:12px}
+.cta-box{background:linear-gradient(135deg,rgba(201,150,58,.1),rgba(201,150,58,.05));border:1px solid rgba(201,150,58,.25);border-radius:16px;padding:22px;text-align:center;margin-top:28px}
+.cta-box h3{font-family:var(--ffd);font-size:1.4rem;font-weight:300;margin-bottom:6px}
+.cta-box p{font-size:.83rem;color:var(--text2);margin-bottom:14px}
+.btn-ghost{display:inline-block;background:transparent;border:1px solid rgba(201,150,58,.3);border-radius:10px;padding:11px 22px;font-family:var(--ff);font-size:.85rem;color:var(--gold2);cursor:pointer;text-decoration:none}
+footer{text-align:center;padding:20px;font-size:.75rem;color:var(--text3)}
+footer a{color:var(--text3);text-decoration:none;margin:0 8px}
+</style>
+</head>
+<body>
+<div class="aurora"><div class="ab"></div><div class="ab"></div></div>
+
+<nav class="nav">
+  <a href="https://abowabon.com" class="nav-logo">✦ Abowabon</a>
+  <div class="nav-links"><a href="https://abowabon.com">App</a><a href="https://abowabon.com/surrender">Free guide</a></div>
+</nav>
+
+<div class="wrap">
+  <div class="ad-top">AdSense Leaderboard 728×90 — replace with your AdSense code</div>
+
+  <div class="hero">
+    <div class="hero-badge">🤍 Free surrender plan — high search volume</div>
+    <h1>How to let go<br><em>without giving up</em></h1>
+    <p>Surrender isn't giving up — it's releasing the grip while keeping the desire. Tell us what you're holding too tightly and get a personalised plan to soften it.</p>
+  </div>
+
+  <div class="tool-card">
+    <label class="field-label">What are you finding hard to let go of?</label>
+    <textarea class="input" id="attachmentInput" placeholder="e.g. needing to know how this will work out, controlling the timeline, a specific outcome..."></textarea>
+    <button class="btn-gold" id="genBtn" onclick="generate()">
+      <span class="btn-text">🤍 Build my letting-go plan</span>
+      <div class="spinner"></div>
+    </button>
+
+    <div class="results" id="results"></div>
+  </div>
+
+  <div class="ad-mid">AdSense Rectangle 300×250 — replace with your AdSense code</div>
+
+  <div class="info-section">
+    <h2>The difference between <em>surrender and giving up</em></h2>
+    <p>Giving up says: "I no longer believe this is possible." Surrender says: "I believe so completely that I no longer need to carry it." One comes from despair. The other comes from trust. The body knows the difference instantly, even if the mind can't always articulate it.</p>
+    <p>The moment you stop checking for evidence of its absence is often the moment evidence of its presence begins to arrive. This isn't mysticism — it's the mechanics of attention. You find what you look for.</p>
+  </div>
+
+  <div class="cta-box">
+    <h3>Get the full Surrender Guide free</h3>
+    <p>The complete guide covers the Control vs Surrender matrix and daily surrender tools — delivered free to your inbox.</p>
+    <a class="btn-ghost" href="https://abowabon.com/surrender">Get the free guide →</a>
+  </div>
+</div>
+
+<footer>
+  <a href="https://abowabon.com">Abowabon</a>
+  <a href="https://abowabon.com/about">About</a>
+  <a href="https://abowabon.com/privacy">Privacy</a>
+  © 2025 Abowabon
+</footer>
+
+<script>
+async function generate() {
+  const attachment = document.getElementById('attachmentInput').value.trim();
+  if (!attachment) { alert('Please describe what you\'re holding onto'); return; }
+  const btn = document.getElementById('genBtn');
+  btn.classList.add('loading'); btn.disabled = true;
+
+  try {
+    const res = await fetch('https://abowabonbackend-production.up.railway.app/api/generate-surrender-plan', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ attachment })
+    });
+    const data = await res.json();
+    render(data.steps || fallback(attachment));
+  } catch(e) {
+    render(fallback(attachment));
+  } finally {
+    btn.classList.remove('loading'); btn.disabled = false;
+  }
+}
+
+function fallback(attachment) {
+  const a = attachment.toLowerCase();
+  return [
+    `Notice the physical grip first. Where does "${a}" sit in your body right now? Name the sensation without trying to fix it yet.`,
+    `Say silently: "${attachment} would be wonderful. I am also genuinely fine without it resolving today." Both halves must be true — find what's real in the second half.`,
+    `Identify one thing currently outside your control about this. Naming it specifically reduces its grip more than vague worry does.`,
+    `Take one small action that IS within your control today, then deliberately stop thinking about the rest until tomorrow.`,
+    `Before sleep, say: "It is handled for tonight. I release my grip without releasing my desire."`
+  ];
+}
+
+function render(steps) {
+  document.getElementById('results').innerHTML = steps.map((s,i) =>
+    `<div class="surrender-step"><div class="s-num">${i+1}</div><div class="step-text">${s}</div></div>`
+  ).join('');
+  document.getElementById('results').classList.add('show');
+}
+</script>
+</body>
+</html>

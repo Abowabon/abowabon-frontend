@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's Your Manifestation Mode? Free Quiz | Abowabon</title>
+<meta name="description" content="Take the free 5-question quiz to discover your current manifestation mode — and get a personalised SAFE Method plan to shift your state instantly.">
+<meta property="og:title" content="What's Your Manifestation Mode? 🫀">
+<meta property="og:description" content="Discover why you're stuck — and get your personalised plan in 60 seconds. Free quiz.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070B14;--surface:#141C2E;--surface2:#1A2540;--border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.15);--gold:#C9963A;--gold2:#E8B84B;--teal:#4ECDC4;--rose:#E07070;--sage:#7BC67E;--text:#E8EAF0;--text2:#8892A4;--text3:#5A6478;--ff:'DM Sans',sans-serif;--ffd:'Cormorant Garamond',serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--ff);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
+.aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.ab{position:absolute;border-radius:50%;filter:blur(100px);opacity:.09;animation:drift 20s ease-in-out infinite}
+.ab:nth-child(1){width:600px;height:600px;background:#1E3A5F;top:-200px;left:-100px}
+.ab:nth-child(2){width:400px;height:400px;background:#C9963A;top:20%;right:-100px;animation-delay:-7s}
+.ab:nth-child(3){width:500px;height:500px;background:#0E4A4A;bottom:-100px;left:20%;animation-delay:-14s}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-15px)}}
+.wrap{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:40px 20px 60px}
+.ad-top{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.1);border-radius:8px;padding:10px;text-align:center;font-size:.7rem;color:var(--text3);margin-bottom:28px}
+.logo{text-align:center;margin-bottom:32px}
+.logo a{font-family:var(--ffd);font-size:1.2rem;color:var(--gold2);text-decoration:none;font-weight:600}
+.hero{text-align:center;margin-bottom:36px}
+.hero-badge{display:inline-block;background:rgba(201,150,58,.12);border:1px solid rgba(201,150,58,.25);color:var(--gold2);border-radius:99px;padding:5px 14px;font-size:.75rem;font-weight:600;margin-bottom:14px}
+.hero h1{font-family:var(--ffd);font-size:clamp(2rem,6vw,2.8rem);font-weight:300;line-height:1.2;margin-bottom:10px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero p{font-size:.92rem;color:var(--text2);max-width:380px;margin:0 auto;line-height:1.65}
+.share-row{display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap}
+.share-btn{background:rgba(255,255,255,.05);border:1px solid var(--border2);border-radius:20px;padding:6px 14px;font-size:.75rem;color:var(--text2);cursor:pointer;font-family:var(--ff);transition:all .2s}
+.share-btn:hover{background:rgba(255,255,255,.1);color:var(--text)}
+.quiz-card{background:var(--surface);border:1px solid var(--border2);border-radius:20px;padding:28px;margin-bottom:20px}
+.progress-bar{height:3px;background:rgba(255,255,255,.08);border-radius:2px;margin-bottom:24px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:2px;transition:width .4s ease}
+.q-num{font-size:.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+.q-text{font-size:1.05rem;font-weight:500;margin-bottom:20px;line-height:1.5;color:var(--text)}
+.opt{display:block;width:100%;text-align:left;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:13px 16px;font-family:var(--ff);font-size:.88rem;color:var(--text2);cursor:pointer;margin-bottom:9px;transition:all .2s}
+.opt:hover,.opt.sel{background:rgba(201,150,58,.1);border-color:rgba(201,150,58,.35);color:var(--text)}
+.opt.sel{font-weight:500}
+.result{display:none;background:var(--surface);border:1px solid var(--border2);border-radius:20px;overflow:hidden;margin-bottom:20px}
+.result.show{display:block;animation:fu .5s ease}
+@keyframes fu{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+.result-hdr{padding:28px;text-align:center;border-bottom:1px solid var(--border)}
+.result-emoji{font-size:3rem;margin-bottom:12px}
+.mode-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:99px;font-size:.75rem;font-weight:600;margin:8px 0}
+.m1{background:rgba(224,112,112,.12);border:1px solid rgba(224,112,112,.25);color:var(--rose)}
+.m2{background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.2);color:var(--teal)}
+.m3{background:rgba(201,150,58,.12);border:1px solid rgba(201,150,58,.25);color:var(--gold2)}
+.result-name{font-family:var(--ffd);font-size:2rem;font-weight:300;margin:6px 0}
+.result-tagline{font-size:.85rem;color:var(--text2);line-height:1.6;max-width:360px;margin:0 auto}
+.result-body{padding:24px}
+.safe-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.safe-item{background:rgba(255,255,255,.03);border-radius:12px;padding:14px}
+.safe-letter{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:700;margin-bottom:8px}
+.safe-title{font-size:.75rem;font-weight:600;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
+.safe-text{font-size:.8rem;color:var(--text2);line-height:1.55}
+.affirmations-box{background:rgba(201,150,58,.05);border:1px solid rgba(201,150,58,.15);border-radius:12px;padding:16px;margin-bottom:16px}
+.aff-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.8px;color:var(--gold);font-weight:700;margin-bottom:10px}
+.aff{display:flex;align-items:flex-start;gap:8px;font-size:.83rem;color:var(--text2);margin-bottom:7px;line-height:1.5}
+.aff-star{color:var(--gold);flex-shrink:0;margin-top:2px}
+.share-result{background:linear-gradient(135deg,var(--surface),var(--surface2));border:1px solid rgba(201,150,58,.2);border-radius:12px;padding:16px;text-align:center;margin-bottom:16px}
+.share-result p{font-size:.85rem;color:var(--text2);margin-bottom:12px}
+.btn-gold{background:linear-gradient(135deg,#C9963A,#E8B84B);color:#0D1425;border:none;border-radius:10px;padding:12px 24px;font-family:var(--ff);font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(201,150,58,.4)}
+.btn-ghost{background:transparent;border:1px solid var(--border2);border-radius:10px;padding:10px 20px;font-family:var(--ff);font-size:.85rem;color:var(--text2);cursor:pointer;margin-left:8px}
+.btn-ghost:hover{background:rgba(255,255,255,.06);color:var(--text)}
+.cta-box{background:linear-gradient(135deg,rgba(201,150,58,.08),rgba(201,150,58,.04));border:1px solid rgba(201,150,58,.2);border-radius:16px;padding:22px;text-align:center;margin-top:20px}
+.cta-box h3{font-family:var(--ffd);font-size:1.4rem;font-weight:300;margin-bottom:6px}
+.cta-box p{font-size:.83rem;color:var(--text2);margin-bottom:16px}
+.ad-mid{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.1);border-radius:8px;padding:10px;text-align:center;font-size:.7rem;color:var(--text3);margin:20px 0}
+footer{text-align:center;padding:20px;font-size:.75rem;color:var(--text3)}
+footer a{color:var(--text3);text-decoration:none;margin:0 8px}
+</style>
+</head>
+<body>
+<div class="aurora"><div class="ab"></div><div class="ab"></div><div class="ab"></div></div>
+
+<div class="wrap">
+  <div class="ad-top">AdSense Leaderboard 728×90 — replace with your AdSense code</div>
+
+  <div class="logo"><a href="https://abowabon.com">✦ Abowabon</a></div>
+
+  <div class="hero">
+    <div class="hero-badge">🫀 Free nervous system quiz</div>
+    <h1>What's your <em>manifestation mode</em>?</h1>
+    <p>Your nervous system determines what you can attract right now. This 5-question quiz identifies your current mode — and gives you the exact practice to shift it.</p>
+    <div class="share-row">
+      <button class="share-btn" onclick="shareQuiz('twitter')">🐦 Share on X</button>
+      <button class="share-btn" onclick="shareQuiz('facebook')">📘 Share</button>
+      <button class="share-btn" onclick="shareQuiz('copy')">🔗 Copy link</button>
+    </div>
+  </div>
+
+  <div id="quizWrap">
+    <div class="quiz-card" id="quizCard">
+      <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+      <div class="q-num" id="qNum">Question 1 of 5</div>
+      <div class="q-text" id="qText"></div>
+      <div id="qOpts"></div>
+    </div>
+  </div>
+
+  <div class="result" id="resultPanel">
+    <div class="result-hdr">
+      <div class="result-emoji" id="rEmoji"></div>
+      <div class="mode-badge" id="rBadge"></div>
+      <div class="result-name" id="rName"></div>
+      <div class="result-tagline" id="rTagline"></div>
+    </div>
+    <div class="result-body">
+      <div class="safe-grid" id="safeGrid"></div>
+      <div class="affirmations-box">
+        <div class="aff-label">✦ Your mode affirmations</div>
+        <div id="affList"></div>
+      </div>
+      <div class="ad-mid">AdSense Rectangle 300×250 — replace with your AdSense code</div>
+      <div class="share-result">
+        <p>Share your mode with friends — they might recognise themselves in it too</p>
+        <button class="btn-gold" onclick="shareResult()">Share my result</button>
+        <button class="btn-ghost" onclick="copyResult()">Copy result</button>
+      </div>
+      <div class="cta-box">
+        <h3>Get your personalised SAFE guide ✦</h3>
+        <p>Enter your specific desire and receive a complete day-by-day plan tailored to your mode — free in the Abowabon app.</p>
+        <button class="btn-gold" onclick="window.location.href='https://abowabon.com'">Open Abowabon free →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="https://abowabon.com">Abowabon</a>
+  <a href="https://abowabon.com/about">About</a>
+  <a href="https://abowabon.com/privacy">Privacy</a>
+  © 2025 Abowabon
+</footer>
+
+<script>
+const QUESTIONS = [
+  {q:"When you think about your primary desire right now, what happens in your body immediately?",opts:["Heavy pressure or tightening in my chest — it's hard to hold the thought","A flicker of hope that quickly gets pulled back toward doubt","Calm, steady confidence — it just feels inevitable"]},
+  {q:"How often do you check for evidence that what you want hasn't happened yet?",opts:["Constantly — its absence feels urgent and pressing","Sometimes, but I can redirect my attention fairly easily","Rarely — I'm not attached to timing or evidence at all"]},
+  {q:"Your current relationship with action toward your desire is…",opts:["Paralysed — the whole thing feels too heavy to move on","Taking small steps but seeking reassurance along the way","Moving from certainty — each step feels natural and obvious"]},
+  {q:"When something unexpected and positive happens in your life right now, you feel…",opts:["Brief relief, then quickly back to worry or numbness","Grateful and hopeful, but slightly afraid to fully trust it","Confirmation — of course that happened. More is coming."]},
+  {q:"If your desire arrived tomorrow, which feeling would dominate first?",opts:["Shock or disbelief — 'Is this real? Will it last?'","Joy mixed with slight anxiety about what comes next","Quiet satisfaction — finally, things are as they should be"]}
+];
+
+const MODES = {
+  1:{emoji:'🫁',badge:'Mode 1',badgeClass:'m1',name:'Exhausted Release',tagline:"Your nervous system is in high-alert and needs rest more than practice. The most powerful thing you can do right now is surrender — not try harder.",safe:{s:{l:'S — Safety First',c:'Before any visualisation or journalling, regulate your body. Your nervous system cannot attract what it fears. Start with 4-7-8 breathing (inhale 4, hold 7, exhale 8) twice a day.'},a:{l:'A — Acknowledge & Accept',c:'Both things are true: you have this desire, and you do not have it yet. Sit with both without trying to resolve the tension. This is how relief begins.'},f:{l:'F — Find a Floor',c:'What is the minimum you need today to feel safe — not to get everything, just to feel stable? That single thing is your only job.'},e:{l:'E — Engage & Release',c:"One tiny action. Then put the desire down until tomorrow. Literally say out loud: 'It is handled. I release it until morning.'"}},affirmations:["I give myself permission to rest without losing what I want","Surrender is not giving up — it is allowing","My desire is safe whether I think about it or not","The pressure I feel is old. A new pattern is forming now","I do enough. I am enough. The rest is coming."]},
+  2:{emoji:'🌊',badge:'Mode 2',badgeClass:'m2',name:'Effortless Attraction',tagline:"You are in the creative zone. Desire and belief are aligned. Light daily practice and small aligned actions will flow naturally to what you want.",safe:{s:{l:'S — Safety First',c:'You are already in a regulated state. Maintain it by protecting your morning — keep the first 20 minutes screen-free and spend them in the feeling of your desire already present.'},a:{l:'A — Acknowledge & Accept',c:"You have come far. Acknowledge how different your inner state is from a year ago. That growth is evidence. Accept that the timing is handled."},f:{l:'F — Find a Floor',c:"Your floor is already solid. The question is: what would make it feel even safer? Add that one layer of support and trust the process completely."},e:{l:'E — Engage & Release',c:"Take your most aligned action today with full presence. Then consciously shift attention to other parts of your life that also matter. Balance is part of the attraction."}},affirmations:["I am in flow. What I need comes to me with ease","My desire and I are in alignment — there is nothing to force","I take joyful action and then let the universe do its part","I am magnetic when I am relaxed and present","Evidence appears around me constantly — I notice it now"]},
+  3:{emoji:'🎯',badge:'Mode 3',badgeClass:'m3',name:'Backed Safety',tagline:"You operate from certainty. Your desire feels inevitable. The practice now is maintaining this state and taking bold action from your unshakeable foundation.",safe:{s:{l:'S — Safety First',c:"You are backed. Stay there by returning to your identity anchor daily: 'I am the kind of person for whom this is simply what happens.' No evidence required."},a:{l:'A — Acknowledge & Accept',c:"You already know it is done. The only acknowledgement needed is gratitude for the version of reality already forming behind the scenes."},f:{l:'F — Find a Floor',c:"Your floor is your identity, not your circumstances. You know who you are. That cannot be taken from you by any delay or obstacle."},e:{l:'E — Engage & Release',c:"Take the boldest, most aligned action available to you today. Not from fear — from the quiet certainty of someone who already knows how this ends."}},affirmations:["I operate from certainty, not hope","What I want is inevitable — the timing is not my concern","I am already the person my desire belongs to","Bold action is natural to me — I move without second-guessing","I am backed by something much larger than my own effort"]}
+};
+
+let answers = [], currentQ = 0;
+
+function renderQ(idx) {
+  const q = QUESTIONS[idx];
+  document.getElementById('progress').style.width = ((idx/5)*100)+'%';
+  document.getElementById('qNum').textContent = `Question ${idx+1} of 5`;
+  document.getElementById('qText').textContent = q.q;
+  document.getElementById('qOpts').innerHTML = q.opts.map((o,i) =>
+    `<button class="opt" onclick="answer(${idx},${i},this)">${o}</button>`
+  ).join('');
+}
+
+function answer(qIdx, ansIdx, el) {
+  document.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  answers[qIdx] = ansIdx;
+  setTimeout(() => {
+    currentQ++;
+    if (currentQ >= QUESTIONS.length) showResult();
+    else renderQ(currentQ);
+  }, 350);
+}
+
+function showResult() {
+  document.getElementById('progress').style.width = '100%';
+  const avg = answers.reduce((a,b)=>a+b,0) / answers.length;
+  const modeNum = avg < 0.8 ? 1 : avg < 1.6 ? 2 : 3;
+  const m = MODES[modeNum];
+  const panel = document.getElementById('resultPanel');
+  document.getElementById('rEmoji').textContent = m.emoji;
+  document.getElementById('rBadge').className = `mode-badge ${m.badgeClass}`;
+  document.getElementById('rBadge').textContent = m.badge;
+  document.getElementById('rName').textContent = m.name;
+  document.getElementById('rTagline').textContent = m.tagline;
+  document.getElementById('safeGrid').innerHTML = Object.values(m.safe).map(s =>
+    `<div class="safe-item"><div class="safe-title" style="color:var(--gold)">${s.l}</div><div class="safe-text">${s.c}</div></div>`
+  ).join('');
+  document.getElementById('affList').innerHTML = m.affirmations.map(a =>
+    `<div class="aff"><span class="aff-star">✦</span><span>${a}</span></div>`
+  ).join('');
+  document.getElementById('quizWrap').style.display='none';
+  panel.classList.add('show');
+  panel.scrollIntoView({behavior:'smooth',block:'start'});
+  window._currentMode = modeNum;
+  window._modeName = m.name;
+}
+
+function shareResult() {
+  const text = `I just discovered I'm in ${window._modeName||'a manifestation mode'} — take the free 5-question quiz to find yours 🫀✦`;
+  const url = window.location.href;
+  if (navigator.share) {
+    navigator.share({title:'My Manifestation Mode', text, url}).catch(()=>{});
+  } else {
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,'_blank');
+  }
+}
+
+function shareQuiz() {
+  const text = 'Discover your manifestation mode — a free nervous system quiz that actually explains why you\'re stuck 🫀';
+  if (navigator.share) {
+    navigator.share({title:'Manifestation Mode Quiz',text,url:window.location.href}).catch(()=>{});
+  } else {
+    const el = document.createElement('textarea');
+    el.value = window.location.href;
+    document.body.appendChild(el);
+    el.select(); document.execCommand('copy');
+    document.body.removeChild(el);
+    alert('Link copied!');
+  }
+}
+
+function copyResult() {
+  const m = MODES[window._currentMode||1];
+  const text = `My Abowabon manifestation mode: ${m.name}\n\n${m.tagline}\n\nFind yours: ${window.location.href}`;
+  navigator.clipboard.writeText(text).then(()=>alert('Copied!'));
+}
+
+renderQ(0);
+</script>
+</body>
+</html>

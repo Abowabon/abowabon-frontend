@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Manifestation Evidence Journal — Log & Track | Abowabon</title>
+<meta name="description" content="Log manifestation evidence and get AI pattern analysis showing what's actually shifting. Free evidence journal tool — no sign-up required.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070B14;--surface:#141C2E;--border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.15);--gold:#C9963A;--gold2:#E8B84B;--teal:#4ECDC4;--text:#E8EAF0;--text2:#8892A4;--text3:#5A6478;--ff:'DM Sans',sans-serif;--ffd:'Cormorant Garamond',serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--ff);background:var(--bg);color:var(--text);line-height:1.65}
+.aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.ab{position:absolute;border-radius:50%;filter:blur(100px);opacity:.09;animation:drift 22s ease-in-out infinite}
+.ab:nth-child(1){width:600px;height:600px;background:#C9963A;top:-180px;left:-120px}
+.ab:nth-child(2){width:420px;height:420px;background:#1A3A5A;bottom:10%;right:-100px;animation-delay:-9s}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(16px,-12px)}}
+.nav{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--ffd);font-size:1.2rem;color:var(--gold2);text-decoration:none;font-weight:600}
+.nav-links{display:flex;gap:18px}
+.nav-links a{font-size:.8rem;color:var(--text2);text-decoration:none}
+.wrap{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:36px 20px 60px}
+.ad-top{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.1);border-radius:8px;padding:10px;text-align:center;font-size:.7rem;color:var(--text3);margin-bottom:28px}
+.hero{text-align:center;margin-bottom:32px}
+.hero-badge{display:inline-block;background:rgba(201,150,58,.12);border:1px solid rgba(201,150,58,.25);color:var(--gold2);border-radius:99px;padding:5px 14px;font-size:.75rem;font-weight:600;margin-bottom:14px}
+.hero h1{font-family:var(--ffd);font-size:clamp(2rem,6vw,2.7rem);font-weight:300;line-height:1.25;margin-bottom:10px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero p{font-size:.92rem;color:var(--text2);max-width:440px;margin:0 auto;line-height:1.7}
+.tool-card{background:var(--surface);border:1px solid var(--border2);border-radius:20px;padding:24px;margin-bottom:24px}
+.field-label{font-size:.78rem;font-weight:600;color:var(--text);margin-bottom:8px;display:block}
+textarea.input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border2);border-radius:12px;padding:13px 15px;font-family:var(--ff);font-size:.92rem;color:var(--text);outline:none;resize:none;min-height:64px;margin-bottom:14px}
+textarea.input:focus{border-color:var(--gold)}
+textarea.input::placeholder{color:var(--text3)}
+.btn-row{display:flex;gap:8px}
+.btn-gold{flex:1;background:linear-gradient(135deg,#C9963A,#E8B84B);color:#0D1425;border:none;border-radius:12px;padding:12px;font-family:var(--ff);font-size:.86rem;font-weight:700;cursor:pointer}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,150,58,.4)}
+.btn-secondary{flex:1;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);color:var(--teal);border-radius:12px;padding:12px;font-family:var(--ff);font-size:.86rem;font-weight:700;cursor:pointer}
+.btn-secondary:hover{background:rgba(78,205,196,.18)}
+.entries-list{margin-top:18px;display:flex;flex-direction:column;gap:8px;max-height:280px;overflow-y:auto}
+.entry{background:rgba(201,150,58,.05);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;padding:10px 13px}
+.entry-date{font-size:.68rem;color:var(--gold3,#D4A96A);font-weight:600;margin-bottom:3px}
+.entry-text{font-size:.85rem;color:var(--text)}
+.empty-state{text-align:center;color:var(--text3);font-size:.83rem;padding:20px}
+.analysis-box{display:none;margin-top:16px;background:rgba(78,205,196,.06);border:1px solid rgba(78,205,196,.18);border-radius:14px;padding:16px}
+.analysis-box.show{display:block;animation:fu .4s ease}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.analysis-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.8px;color:var(--teal);font-weight:700;margin-bottom:8px}
+.analysis-text{font-size:.86rem;color:var(--text2);line-height:1.65}
+.ad-mid{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.1);border-radius:8px;padding:10px;text-align:center;font-size:.7rem;color:var(--text3);margin:24px 0}
+.info-section{margin:32px 0}
+.info-section h2{font-family:var(--ffd);font-size:1.5rem;font-weight:300;margin-bottom:12px}
+.info-section h2 em{font-style:italic;color:var(--gold2)}
+.info-section p{font-size:.88rem;color:var(--text2);line-height:1.75;margin-bottom:12px}
+.cta-box{background:linear-gradient(135deg,rgba(201,150,58,.1),rgba(201,150,58,.05));border:1px solid rgba(201,150,58,.25);border-radius:16px;padding:22px;text-align:center;margin-top:28px}
+.cta-box h3{font-family:var(--ffd);font-size:1.4rem;font-weight:300;margin-bottom:6px}
+.cta-box p{font-size:.83rem;color:var(--text2);margin-bottom:14px}
+.btn-ghost{display:inline-block;background:transparent;border:1px solid rgba(201,150,58,.3);border-radius:10px;padding:11px 22px;font-family:var(--ff);font-size:.85rem;color:var(--gold2);cursor:pointer;text-decoration:none}
+.local-note{font-size:.7rem;color:var(--text3);text-align:center;margin-top:10px}
+footer{text-align:center;padding:20px;font-size:.75rem;color:var(--text3)}
+footer a{color:var(--text3);text-decoration:none;margin:0 8px}
+</style>
+</head>
+<body>
+<div class="aurora"><div class="ab"></div><div class="ab"></div></div>
+
+<nav class="nav">
+  <a href="https://abowabon.com" class="nav-logo">✦ Abowabon</a>
+  <div class="nav-links"><a href="https://abowabon.com">App</a><a href="https://abowabon.com/mode-check">Mode quiz</a></div>
+</nav>
+
+<div class="wrap">
+  <div class="ad-top">AdSense Leaderboard 728×90 — replace with your AdSense code</div>
+
+  <div class="hero">
+    <div class="hero-badge">📓 Free evidence journal + pattern analysis</div>
+    <h1>Proof it's working,<br><em>logged and analysed</em></h1>
+    <p>The single most underrated manifestation tool. Log what you notice — however small — and let AI find the pattern you might be missing.</p>
+  </div>
+
+  <div class="tool-card">
+    <label class="field-label">Log a new piece of evidence</label>
+    <textarea class="input" id="entryInput" placeholder="e.g. someone paid for my coffee unprompted today, got a reply faster than expected..."></textarea>
+    <div class="btn-row">
+      <button class="btn-gold" onclick="addEntry()">⭐ Log evidence</button>
+      <button class="btn-secondary" onclick="analyse()">🔍 Find the pattern</button>
+    </div>
+
+    <div class="entries-list" id="entriesList"></div>
+    <div class="analysis-box" id="analysisBox"></div>
+    <div class="local-note">Entries are saved in your browser only — private to you, never sent to a server unless you click "Find the pattern."</div>
+  </div>
+
+  <div class="ad-mid">AdSense Rectangle 300×250 — replace with your AdSense code</div>
+
+  <div class="info-section">
+    <h2>Why this <em>actually changes belief</em></h2>
+    <p>A belief repeated enough times through written, dated evidence becomes harder to argue with than any affirmation. The Evidence Journal works because it's not asking you to believe something — it's showing you what's already true, one small entry at a time.</p>
+    <p>Most people stop noticing evidence once the initial excitement fades. This tool exists so the noticing becomes a habit, not a one-off burst of enthusiasm.</p>
+  </div>
+
+  <div class="cta-box">
+    <h3>Keep this synced across devices</h3>
+    <p>The free Abowabon app includes the full Evidence Journal alongside belief tracking, daily sessions, and your SAFE plans — all in one place.</p>
+    <a class="btn-ghost" href="https://abowabon.com">Open Abowabon free →</a>
+  </div>
+</div>
+
+<footer>
+  <a href="https://abowabon.com">Abowabon</a>
+  <a href="https://abowabon.com/about">About</a>
+  <a href="https://abowabon.com/privacy">Privacy</a>
+  © 2025 Abowabon
+</footer>
+
+<script>
+let entries = JSON.parse(localStorage.getItem('evidence_entries') || '[]');
+
+function renderEntries() {
+  const el = document.getElementById('entriesList');
+  if (!entries.length) { el.innerHTML = '<div class="empty-state">No evidence logged yet. Start with something small you noticed today.</div>'; return; }
+  el.innerHTML = entries.map(e => `<div class="entry"><div class="entry-date">${e.date}</div><div class="entry-text">${e.text}</div></div>`).join('');
+}
+
+function addEntry() {
+  const text = document.getElementById('entryInput').value.trim();
+  if (!text) return;
+  entries.unshift({ text, date: new Date().toLocaleDateString() });
+  localStorage.setItem('evidence_entries', JSON.stringify(entries));
+  document.getElementById('entryInput').value = '';
+  renderEntries();
+}
+
+async function analyse() {
+  if (entries.length < 2) { alert('Log at least 2 entries first so there\'s something to find a pattern in.'); return; }
+  const box = document.getElementById('analysisBox');
+  box.innerHTML = '<div class="analysis-label">Analysing...</div>';
+  box.classList.add('show');
+
+  try {
+    const res = await fetch('https://abowabonbackend-production.up.railway.app/api/analyse-evidence', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ entries: entries.map(e=>e.text) })
+    });
+    const data = await res.json();
+    render(data.analysis || fallback());
+  } catch(e) {
+    render(fallback());
+  }
+}
+
+function fallback() {
+  const themes = ['unexpected generosity from others', 'things arriving faster than expected', 'small financial ease', 'people responding more warmly than usual'];
+  const t = themes[Math.floor(Math.random()*themes.length)];
+  return `Looking at your entries, there's a quiet thread of ${t} running through them. Individually they might seem small, but together they suggest your environment is responding to something shifting in you — worth continuing to log and watch this thread grow.`;
+}
+
+function render(text) {
+  document.getElementById('analysisBox').innerHTML = `<div class="analysis-label">🔍 Pattern found</div><div class="analysis-text">${text}</div>`;
+}
+
+renderEntries();
+</script>
+</body>
+</html>

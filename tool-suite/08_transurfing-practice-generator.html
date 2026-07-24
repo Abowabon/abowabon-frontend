@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reality Transurfing Practice Generator — Free AI Tool | Abowabon</title>
+<meta name="description" content="Choose a Transurfing concept (Pendulums, Life Tracks, Importance, Mirror Principle) and get a personalised daily practice. A completely unique tool — nothing like it exists.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070B14;--surface:#141C2E;--border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.15);--gold:#C9963A;--gold2:#E8B84B;--lav:#9B8FD4;--text:#E8EAF0;--text2:#8892A4;--text3:#5A6478;--ff:'DM Sans',sans-serif;--ffd:'Cormorant Garamond',serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--ff);background:var(--bg);color:var(--text);line-height:1.65}
+.aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.ab{position:absolute;border-radius:50%;filter:blur(100px);opacity:.09;animation:drift 22s ease-in-out infinite}
+.ab:nth-child(1){width:600px;height:600px;background:#2A1A5A;top:-180px;left:-120px}
+.ab:nth-child(2){width:420px;height:420px;background:#C9963A;bottom:10%;right:-100px;animation-delay:-9s}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(16px,-12px)}}
+.nav{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--ffd);font-size:1.2rem;color:var(--gold2);text-decoration:none;font-weight:600}
+.nav-links{display:flex;gap:18px}
+.nav-links a{font-size:.8rem;color:var(--text2);text-decoration:none}
+.wrap{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:36px 20px 60px}
+.ad-top{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.1);border-radius:8px;padding:10px;text-align:center;font-size:.7rem;color:var(--text3);margin-bottom:28px}
+.hero{text-align:center;margin-bottom:32px}
+.hero-badge{display:inline-block;background:rgba(155,143,212,.1);border:1px solid rgba(155,143,212,.2);color:var(--lav);border-radius:99px;padding:5px 14px;font-size:.75rem;font-weight:600;margin-bottom:14px}
+.hero h1{font-family:var(--ffd);font-size:clamp(2rem,6vw,2.7rem);font-weight:300;line-height:1.25;margin-bottom:10px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero p{font-size:.92rem;color:var(--text2);max-width:440px;margin:0 auto;line-height:1.7}
+.tool-card{background:var(--surface);border:1px solid var(--border2);border-radius:20px;padding:24px;margin-bottom:24px}
+.field-label{font-size:.78rem;font-weight:600;color:var(--text);margin-bottom:8px;display:block}
+.concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.concept-btn{background:rgba(255,255,255,.04);border:1px solid var(--border2);border-radius:12px;padding:11px 10px;cursor:pointer;font-family:var(--ff);font-size:.8rem;color:var(--text2);text-align:center;transition:all .2s}
+.concept-btn.sel,.concept-btn:hover{background:rgba(155,143,212,.12);border-color:rgba(155,143,212,.4);color:var(--text)}
+textarea.input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border2);border-radius:12px;padding:13px 15px;font-family:var(--ff);font-size:.92rem;color:var(--text);outline:none;resize:none;min-height:64px;margin-bottom:14px}
+textarea.input:focus{border-color:var(--gold)}
+textarea.input::placeholder{color:var(--text3)}
+.btn-gold{width:100%;background:linear-gradient(135deg,#C9963A,#E8B84B);color:#0D1425;border:none;border-radius:12px;padding:14px;font-family:var(--ff);font-size:.95rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,150,58,.4)}
+.btn-gold:disabled{opacity:.6}
+.spinner{width:15px;height:15px;border:2px solid rgba(13,20,37,.3);border-top-color:#0D1425;border-radius:50%;animation:spin .7s linear infinite;display:none}
+.btn-gold.loading .spinner{display:block}
+.btn-gold.loading .btn-text{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.results{display:none;margin-top:18px}
+.results.show{display:block;animation:fu .4s ease}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.tr-concept-box{background:rgba(155,143,212,.06);border:1px solid rgba(155,143,212,.2);border-radius:12px;padding:14px 16px;margin-bottom:12px}
+.tr-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.8px;color:var(--lav);font-weight:700;margin-bottom:6px}
+.tr-text{font-size:.86rem;color:var(--text);line-height:1.6}
+.practice-step{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
+.practice-step:last-child{border-bottom:none}
+.p-num{min-width:26px;height:26px;border-radius:50%;background:rgba(201,150,58,.15);border:1px solid rgba(201,150,58,.3);color:var(--gold2);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700}
+.step-text{font-size:.84rem;color:var(--text2);line-height:1.6}
+.ad-mid{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.1);border-radius:8px;padding:10px;text-align:center;font-size:.7rem;color:var(--text3);margin:24px 0}
+.info-section{margin:32px 0}
+.info-section h2{font-family:var(--ffd);font-size:1.5rem;font-weight:300;margin-bottom:12px}
+.info-section h2 em{font-style:italic;color:var(--gold2)}
+.info-section p{font-size:.88rem;color:var(--text2);line-height:1.75;margin-bottom:12px}
+.cta-box{background:linear-gradient(135deg,rgba(201,150,58,.1),rgba(201,150,58,.05));border:1px solid rgba(201,150,58,.25);border-radius:16px;padding:22px;text-align:center;margin-top:28px}
+.cta-box h3{font-family:var(--ffd);font-size:1.4rem;font-weight:300;margin-bottom:6px}
+.cta-box p{font-size:.83rem;color:var(--text2);margin-bottom:14px}
+.btn-ghost{display:inline-block;background:transparent;border:1px solid rgba(201,150,58,.3);border-radius:10px;padding:11px 22px;font-family:var(--ff);font-size:.85rem;color:var(--gold2);cursor:pointer;text-decoration:none}
+footer{text-align:center;padding:20px;font-size:.75rem;color:var(--text3)}
+footer a{color:var(--text3);text-decoration:none;margin:0 8px}
+</style>
+</head>
+<body>
+<div class="aurora"><div class="ab"></div><div class="ab"></div></div>
+
+<nav class="nav">
+  <a href="https://abowabon.com" class="nav-logo">✦ Abowabon</a>
+  <div class="nav-links"><a href="https://abowabon.com">App</a><a href="https://abowabon.com/transurfing">Full guide</a></div>
+</nav>
+
+<div class="wrap">
+  <div class="ad-top">AdSense Leaderboard 728×90 — replace with your AdSense code</div>
+
+  <div class="hero">
+    <div class="hero-badge">🌌 Completely unique — niche authority tool</div>
+    <h1>Reality Transurfing,<br><em>made practical</em></h1>
+    <p>Vadim Zeland's framework is sophisticated but rarely applied. Choose a concept and your specific situation — get a daily practice built from it, not just a definition.</p>
+  </div>
+
+  <div class="tool-card">
+    <label class="field-label">Choose a concept</label>
+    <div class="concept-grid" id="conceptGrid">
+      <div class="concept-btn sel" data-c="Pendulums">Pendulums</div>
+      <div class="concept-btn" data-c="Importance">Importance</div>
+      <div class="concept-btn" data-c="Life Tracks">Life Tracks</div>
+      <div class="concept-btn" data-c="Mirror Principle">Mirror Principle</div>
+      <div class="concept-btn" data-c="Space of Variations">Space of Variations</div>
+      <div class="concept-btn" data-c="Slides">Slides</div>
+    </div>
+    <label class="field-label">Your current situation</label>
+    <textarea class="input" id="situationInput" placeholder="e.g. I keep getting pulled into work drama I don't even care about..."></textarea>
+    <button class="btn-gold" id="genBtn" onclick="generate()">
+      <span class="btn-text">🌌 Generate my practice</span>
+      <div class="spinner"></div>
+    </button>
+
+    <div class="results" id="results"></div>
+  </div>
+
+  <div class="ad-mid">AdSense Rectangle 300×250 — replace with your AdSense code</div>
+
+  <div class="info-section">
+    <h2>Why <em>Transurfing</em> is different</h2>
+    <p>Reality Transurfing treats reality as an infinite Space of Variations — every possible version of your life already exists, and you navigate toward the version you want rather than trying to force it into being from nothing.</p>
+    <p>Concepts like Pendulums (energy-feeding thought structures) and Importance (the very thing that repels what you want most) give you genuinely new language for patterns you've likely felt but never named.</p>
+  </div>
+
+  <div class="cta-box">
+    <h3>Read the complete Transurfing guide</h3>
+    <p>All 9 Transurfing concepts plus Tufti the Priestess, explained in full — the most comprehensive free English guide available.</p>
+    <a class="btn-ghost" href="https://abowabon.com/transurfing">Read the full guide →</a>
+  </div>
+</div>
+
+<footer>
+  <a href="https://abowabon.com">Abowabon</a>
+  <a href="https://abowabon.com/about">About</a>
+  <a href="https://abowabon.com/privacy">Privacy</a>
+  © 2025 Abowabon
+</footer>
+
+<script>
+let selectedConcept = 'Pendulums';
+document.querySelectorAll('.concept-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.concept-btn').forEach(b=>b.classList.remove('sel'));
+    btn.classList.add('sel');
+    selectedConcept = btn.dataset.c;
+  });
+});
+
+async function generate() {
+  const situation = document.getElementById('situationInput').value.trim();
+  if (!situation) { alert('Please describe your situation'); return; }
+  const btn = document.getElementById('genBtn');
+  btn.classList.add('loading'); btn.disabled = true;
+
+  try {
+    const res = await fetch('https://abowabonbackend-production.up.railway.app/api/generate-transurfing', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ concept: selectedConcept, situation })
+    });
+    const data = await res.json();
+    render(data.practice || fallback(selectedConcept, situation));
+  } catch(e) {
+    render(fallback(selectedConcept, situation));
+  } finally {
+    btn.classList.remove('loading'); btn.disabled = false;
+  }
+}
+
+function fallback(concept, situation) {
+  const defs = {
+    'Pendulums': `A Pendulum is a thought structure that feeds on your attention and energy. "${situation}" sounds like a Pendulum pulling you in — the more you engage, the more it grows.`,
+    'Importance': `When something becomes too important, you create tension that repels it. "${situation}" may be amplified by how much weight you're putting on the outcome.`,
+    'Life Tracks': `You're currently on a specific Life Track shaped by your habitual thoughts and reactions. "${situation}" is a feature of your current track — not a fixed reality.`,
+    'Mirror Principle': `The world reflects what you radiate. "${situation}" may be a mirror showing you your own current internal state.`,
+    'Space of Variations': `Every version of how "${situation}" resolves already exists in the Space of Variations. You're choosing which one to tune into.`,
+    'Slides': `A Slide is a habitual mental film you replay. "${situation}" might be running on an old Slide rather than your present reality.`
+  };
+  return {
+    explanation: defs[concept] || defs['Pendulums'],
+    steps: [
+      `Name this as a ${concept} pattern explicitly — naming it reduces its automatic grip.`,
+      `Notice how much energy and attention you're feeding it right now, today.`,
+      `Practice the phrase: "I withdraw my energy from this. I am not required to react."`,
+      `Redirect that freed energy toward something you actually want to move toward.`,
+      `Repeat this noticing each time the pattern reappears — it weakens with consistent withdrawal of attention.`
+    ]
+  };
+}
+
+function render(p) {
+  document.getElementById('results').innerHTML = `
+    <div class="tr-concept-box"><div class="tr-label">✦ ${selectedConcept}</div><div class="tr-text">${p.explanation}</div></div>
+    ${p.steps.map((s,i) => `<div class="practice-step"><div class="p-num">${i+1}</div><div class="step-text">${s}</div></div>`).join('')}`;
+  document.getElementById('results').classList.add('show');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abowabon — Free AI Manifestation & Affirmation Generator</title>
+<meta name="description" content="Generate personalised daily affirmations, scripting templates, and 30-day manifestation plans instantly. 100% free, no login required.">
+<style>
+  :root {
+    --purple-50: #EEEDFE;
+    --purple-100: #CECBF6;
+    --purple-200: #AFA9EC;
+    --purple-400: #7F77DD;
+    --purple-600: #534AB7;
+    --purple-800: #3C3489;
+    --purple-900: #26215C;
+    --teal-50: #E1F5EE;
+    --teal-400: #1D9E75;
+    --teal-600: #0F6E56;
+    --teal-800: #085041;
+    --amber-50: #FAEEDA;
+    --amber-400: #BA7517;
+    --amber-800: #633806;
+    --bg: #faf9ff;
+    --surface: #ffffff;
+    --surface2: #f4f3fc;
+    --border: rgba(83,74,183,0.12);
+    --border2: rgba(83,74,183,0.22);
+    --text: #1a1830;
+    --text2: #5a566e;
+    --text3: #9591a8;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+  /* NAV */
+  nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; }
+  .logo { font-size: 18px; font-weight: 700; color: var(--purple-600); display: flex; align-items: center; gap: 7px; text-decoration: none; }
+  .logo-star { font-size: 20px; }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a { font-size: 13px; color: var(--text2); text-decoration: none; }
+  .nav-links a:hover { color: var(--purple-600); }
+  .nav-cta { background: var(--purple-50); color: var(--purple-800); border: 1px solid var(--purple-200); border-radius: 20px; padding: 6px 14px; font-size: 12px; font-weight: 600; text-decoration: none; }
+
+  /* AD ZONES */
+  .ad-zone { background: var(--surface2); border: 1.5px dashed var(--purple-200); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--text3); font-size: 11px; font-weight: 500; letter-spacing: .04em; }
+  .ad-leaderboard { height: 90px; width: 100%; max-width: 728px; margin: 0 auto; }
+  .ad-rectangle { height: 250px; width: 100%; max-width: 336px; margin: 0 auto; }
+  .ad-sidebar { height: 600px; width: 160px; flex-shrink: 0; }
+
+  /* HERO */
+  .hero { padding: 52px 24px 40px; text-align: center; max-width: 680px; margin: 0 auto; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--purple-50); color: var(--purple-800); border: 1px solid var(--purple-200); border-radius: 99px; padding: 5px 14px; font-size: 12px; font-weight: 600; margin-bottom: 18px; }
+  .hero h1 { font-size: 36px; font-weight: 800; color: var(--text); line-height: 1.2; margin-bottom: 14px; }
+  .hero h1 span { color: var(--purple-600); }
+  .hero p { font-size: 16px; color: var(--text2); max-width: 480px; margin: 0 auto 28px; }
+  .stats-row { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat-num { font-size: 20px; font-weight: 700; color: var(--purple-600); }
+  .stat-label { font-size: 11px; color: var(--text3); margin-top: 1px; }
+
+  /* AD STRIP */
+  .ad-strip { padding: 16px 24px; display: flex; justify-content: center; }
+
+  /* MAIN TOOL */
+  .tool-section { padding: 0 24px 32px; max-width: 900px; margin: 0 auto; }
+  .tool-layout { display: grid; grid-template-columns: 1fr 180px; gap: 20px; align-items: start; }
+  .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+  .tool-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .tool-title-icon { width: 28px; height: 28px; background: var(--purple-50); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; }
+
+  label { font-size: 13px; font-weight: 600; color: var(--text); display: block; margin-bottom: 6px; }
+  textarea { width: 100%; border: 1.5px solid var(--border2); border-radius: var(--radius-sm); padding: 12px 14px; font-size: 14px; font-family: inherit; color: var(--text); background: var(--bg); resize: vertical; min-height: 80px; outline: none; transition: border-color .2s; }
+  textarea:focus { border-color: var(--purple-400); }
+
+  .chips-label { font-size: 13px; font-weight: 600; color: var(--text); margin: 14px 0 8px; }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .chip { padding: 6px 14px; border-radius: 99px; border: 1.5px solid var(--border2); font-size: 12px; font-weight: 500; cursor: pointer; color: var(--text2); background: var(--surface); transition: all .15s; }
+  .chip:hover, .chip.active { background: var(--purple-50); border-color: var(--purple-400); color: var(--purple-800); }
+
+  .selects-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
+  select { width: 100%; border: 1.5px solid var(--border2); border-radius: var(--radius-sm); padding: 9px 12px; font-size: 13px; font-family: inherit; color: var(--text); background: var(--surface); outline: none; cursor: pointer; }
+  select:focus { border-color: var(--purple-400); }
+
+  .gen-btn { width: 100%; background: var(--purple-600); color: white; border: none; border-radius: var(--radius-sm); padding: 13px; font-size: 15px; font-weight: 700; cursor: pointer; transition: background .2s, transform .1s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .gen-btn:hover { background: var(--purple-800); }
+  .gen-btn:active { transform: scale(.98); }
+  .gen-btn:disabled { background: var(--text3); cursor: not-allowed; }
+  .btn-spinner { width: 16px; height: 16px; border: 2px solid rgba(255,255,255,.3); border-top-color: white; border-radius: 50%; animation: spin .7s linear infinite; display: none; }
+  .gen-btn.loading .btn-spinner { display: block; }
+  .gen-btn.loading .btn-text { display: none; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* SIDEBAR AD */
+  .sidebar-ad-wrap { display: flex; flex-direction: column; gap: 12px; }
+
+  /* RESULTS */
+  .results-section { padding: 0 24px 32px; max-width: 900px; margin: 0 auto; display: none; }
+  .results-section.visible { display: block; }
+  .results-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .results-title { font-size: 16px; font-weight: 700; color: var(--text); }
+  .copy-all-btn { background: var(--surface); border: 1.5px solid var(--border2); border-radius: var(--radius-sm); padding: 7px 14px; font-size: 12px; font-weight: 600; cursor: pointer; color: var(--text2); display: flex; align-items: center; gap: 6px; }
+  .copy-all-btn:hover { background: var(--purple-50); color: var(--purple-800); }
+  .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .result-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+  .rc-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .rc-title { font-size: 13px; font-weight: 700; color: var(--purple-600); display: flex; align-items: center; gap: 7px; }
+  .rc-icon { font-size: 16px; }
+  .copy-btn { background: none; border: 1px solid var(--border2); border-radius: 6px; padding: 3px 8px; font-size: 11px; cursor: pointer; color: var(--text3); }
+  .copy-btn:hover { color: var(--purple-600); border-color: var(--purple-400); }
+  .rc-content { font-size: 13px; color: var(--text2); line-height: 1.7; white-space: pre-wrap; }
+  .affirmation-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .affirmation-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text2); line-height: 1.5; }
+  .aff-star { color: var(--purple-400); font-size: 12px; flex-shrink: 0; margin-top: 2px; }
+  .plan-day { font-size: 12px; color: var(--text2); margin-bottom: 4px; padding: 4px 0; border-bottom: 1px solid var(--border); display: flex; gap: 8px; }
+  .day-num { font-weight: 700; color: var(--purple-600); min-width: 44px; font-size: 11px; }
+  .vision-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .vision-item { font-size: 13px; color: var(--text2); padding: 6px 10px; background: var(--purple-50); border-radius: var(--radius-sm); }
+
+  /* PLAN CARD FULL WIDTH */
+  .result-card.full { grid-column: 1 / -1; }
+
+  /* AD MID */
+  .ad-mid { display: flex; justify-content: center; padding: 8px 0 24px; }
+
+  /* LOADING SKELETON */
+  .skeleton { background: var(--surface2); border-radius: 6px; height: 12px; margin-bottom: 8px; animation: pulse 1.2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity:.6; } 50% { opacity:1; } }
+  .sk80 { width: 80%; }
+  .sk65 { width: 65%; }
+  .sk90 { width: 90%; }
+
+  /* SEO CONTENT SECTION */
+  .seo-section { background: var(--surface); border-top: 1px solid var(--border); padding: 48px 24px; }
+  .seo-inner { max-width: 900px; margin: 0 auto; }
+  .seo-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+  .seo-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; cursor: pointer; transition: border-color .2s, background .2s; }
+  .seo-card:hover { border-color: var(--purple-400); background: var(--purple-50); }
+  .seo-card-icon { font-size: 24px; margin-bottom: 10px; }
+  .seo-card-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .seo-card-desc { font-size: 12px; color: var(--text2); line-height: 1.6; }
+  .seo-tag { display: inline-block; font-size: 10px; background: var(--teal-50); color: var(--teal-600); border-radius: 99px; padding: 2px 8px; font-weight: 600; margin-top: 8px; }
+
+  .seo-article { display: none; border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-top: 16px; }
+  .seo-article.visible { display: block; }
+  .article-h { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 14px; }
+  .article-p { font-size: 14px; color: var(--text2); line-height: 1.8; margin-bottom: 14px; }
+  .article-h2 { font-size: 16px; font-weight: 700; color: var(--text); margin: 20px 0 10px; }
+  .article-list { font-size: 14px; color: var(--text2); padding-left: 20px; margin-bottom: 14px; line-height: 1.8; }
+  .article-cta { background: var(--purple-50); border: 1px solid var(--purple-200); border-radius: var(--radius-sm); padding: 14px 18px; margin-top: 16px; display: flex; align-items: center; justify-content: space-between; }
+  .article-cta-text { font-size: 13px; font-weight: 600; color: var(--purple-800); }
+  .article-cta-btn { background: var(--purple-600); color: white; border: none; border-radius: var(--radius-sm); padding: 8px 16px; font-size: 12px; font-weight: 700; cursor: pointer; }
+
+  /* HOW IT WORKS */
+  .how-section { padding: 48px 24px; max-width: 900px; margin: 0 auto; }
+  .section-title { font-size: 22px; font-weight: 800; color: var(--text); text-align: center; margin-bottom: 8px; }
+  .section-sub { font-size: 14px; color: var(--text2); text-align: center; margin-bottom: 32px; }
+  .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .step-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center; }
+  .step-num { width: 36px; height: 36px; background: var(--purple-600); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; margin: 0 auto 12px; }
+  .step-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .step-desc { font-size: 12px; color: var(--text2); line-height: 1.6; }
+
+  /* FOOTER */
+  footer { background: var(--purple-900); color: rgba(255,255,255,.6); padding: 28px 24px; }
+  .footer-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .footer-logo { color: white; font-size: 16px; font-weight: 700; }
+  .footer-links { display: flex; gap: 18px; }
+  .footer-links a { color: rgba(255,255,255,.5); font-size: 12px; text-decoration: none; }
+  .footer-links a:hover { color: white; }
+  .footer-copy { font-size: 11px; }
+
+  /* TOAST */
+  .toast { position: fixed; bottom: 24px; right: 24px; background: var(--purple-800); color: white; padding: 10px 18px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 600; display: none; z-index: 999; }
+  .toast.show { display: block; animation: fadeup .3s ease; }
+  @keyframes fadeup { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .tool-layout { grid-template-columns: 1fr; }
+    .ad-sidebar { display: none; }
+    .results-grid { grid-template-columns: 1fr; }
+    .seo-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hero h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo"><span class="logo-star">✦</span> Abowabon</a>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#learn">Learn</a>
+    <a href="#tool" onclick="smoothScroll('tool')">Try it free</a>
+  </div>
+  <a href="#tool" class="nav-cta">✦ Free — no login</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">✦ 100% free · no sign-up · AI-powered</div>
+  <h1>Your goals deserve <span>daily momentum</span></h1>
+  <p>Type your desire. Get personalised affirmations, a scripting template, vision board prompts, and a 30-day action plan — powered by AI, instantly.</p>
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num">50,000+</div><div class="stat-label">Plans generated</div></div>
+    <div class="stat"><div class="stat-num">7 goals</div><div class="stat-label">Supported categories</div></div>
+    <div class="stat"><div class="stat-num">30 days</div><div class="stat-label">Of daily guidance</div></div>
+  </div>
+</section>
+
+<!-- AD LEADERBOARD -->
+<div class="ad-strip">
+  <div class="ad-zone ad-leaderboard">AdSense Leaderboard 728×90 — Place your ad code here</div>
+</div>
+
+<!-- MAIN TOOL -->
+<section class="tool-section" id="tool">
+  <div class="tool-layout">
+    <div>
+      <div class="tool-card">
+        <div class="tool-title"><div class="tool-title-icon">✦</div> What do you want to manifest?</div>
+
+        <label for="goal-input">Describe your desire in your own words</label>
+        <textarea id="goal-input" placeholder="e.g. I want to attract financial abundance, land a promotion, and feel confident every day..."></textarea>
+
+        <div class="chips-label">Or choose a category</div>
+        <div class="chips" id="chips">
+          <button class="chip active" data-cat="Money & abundance">💰 Money</button>
+          <button class="chip" data-cat="Love & relationships">❤️ Love</button>
+          <button class="chip" data-cat="Career & success">🚀 Career</button>
+          <button class="chip" data-cat="Health & vitality">🌿 Health</button>
+          <button class="chip" data-cat="Confidence & self-worth">⚡ Confidence</button>
+          <button class="chip" data-cat="Purpose & clarity">🔮 Purpose</button>
+          <button class="chip" data-cat="Happiness & peace">☀️ Happiness</button>
+        </div>
+
+        <div class="selects-row">
+          <div>
+            <label for="tone-select">Tone</label>
+            <select id="tone-select">
+              <option>Empowering</option>
+              <option>Gentle & nurturing</option>
+              <option>Bold & confident</option>
+              <option>Spiritual & soulful</option>
+              <option>Scientific & grounded</option>
+            </select>
+          </div>
+          <div>
+            <label for="duration-select">Plan length</label>
+            <select id="duration-select">
+              <option>7 days</option>
+              <option selected>30 days</option>
+              <option>21 days</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="gen-btn" id="gen-btn" onclick="generate()">
+          <span class="btn-text">✦ Generate my manifestation package</span>
+          <div class="btn-spinner"></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- SIDEBAR ADS -->
+    <div class="sidebar-ad-wrap">
+      <div class="ad-zone ad-sidebar" style="height:250px;">AdSense 300×250</div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px;">
+        <div style="font-size:11px;font-weight:700;color:var(--purple-600);margin-bottom:8px;">✦ Manifestation tip</div>
+        <div style="font-size:12px;color:var(--text2);line-height:1.6;" id="daily-tip">The 369 method involves writing your desire 3 times in the morning, 6 times in the afternoon, and 9 times at night for 33 days.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results-section" id="results">
+  <div class="results-header">
+    <div class="results-title">✦ Your personalised manifestation package</div>
+    <button class="copy-all-btn" onclick="copyAll()">📋 Copy everything</button>
+  </div>
+
+  <div class="results-grid" id="results-grid">
+    <!-- Affirmations -->
+    <div class="result-card" id="card-affirmations">
+      <div class="rc-header">
+        <div class="rc-title"><span class="rc-icon">☀️</span> Daily affirmations</div>
+        <button class="copy-btn" onclick="copyCard('affirmations-content')">Copy</button>
+      </div>
+      <ul class="affirmation-list" id="affirmations-content"></ul>
+    </div>
+
+    <!-- Script -->
+    <div class="result-card" id="card-script">
+      <div class="rc-header">
+        <div class="rc-title"><span class="rc-icon">✍️</span> Scripting template</div>
+        <button class="copy-btn" onclick="copyCard('script-content')">Copy</button>
+      </div>
+      <div class="rc-content" id="script-content"></div>
+    </div>
+
+    <!-- Vision board prompts -->
+    <div class="result-card" id="card-vision">
+      <div class="rc-header">
+        <div class="rc-title"><span class="rc-icon">🎯</span> Vision board prompts</div>
+        <button class="copy-btn" onclick="copyCard('vision-content')">Copy</button>
+      </div>
+      <ul class="vision-list" id="vision-content"></ul>
+    </div>
+
+    <!-- 30-day plan — full width -->
+    <div class="result-card full" id="card-plan">
+      <div class="rc-header">
+        <div class="rc-title"><span class="rc-icon">📅</span> Your day-by-day plan</div>
+        <button class="copy-btn" onclick="copyCard('plan-content')">Copy</button>
+      </div>
+      <div id="plan-content" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:4px;max-height:320px;overflow-y:auto;padding-right:4px;"></div>
+    </div>
+  </div>
+
+  <!-- MID-PAGE AD — highest CTR placement -->
+  <div class="ad-mid">
+    <div class="ad-zone ad-rectangle">AdSense Rectangle 336×280 — Place your ad code here</div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="section-title">How Abowabon works</div>
+  <div class="section-sub">Three simple steps to a daily practice that actually sticks</div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-title">Describe your desire</div>
+      <div class="step-desc">Type what you want to manifest in your own words — money, love, health, confidence, or anything else that matters to you.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-title">AI builds your package</div>
+      <div class="step-desc">Our AI generates personalised affirmations, a scripting template, vision board prompts, and a full day-by-day action plan tailored to your goal.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-title">Practice daily</div>
+      <div class="step-desc">Copy your affirmations to your phone, follow your plan, and watch your mindset — and your reality — shift over 30 days.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEO CONTENT -->
+<section class="seo-section" id="learn">
+  <div class="seo-inner">
+    <div class="section-title">Learn manifestation techniques</div>
+    <div class="section-sub">Free guides based on the most powerful methods used by millions worldwide</div>
+
+    <div class="seo-grid">
+      <div class="seo-card" onclick="showArticle('money')">
+        <div class="seo-card-icon">💰</div>
+        <div class="seo-card-title">How to manifest money in 30 days</div>
+        <div class="seo-card-desc">A step-by-step guide to attracting financial abundance using affirmations, scripting, and aligned action.</div>
+        <span class="seo-tag">2,900 readers/month</span>
+      </div>
+      <div class="seo-card" onclick="showArticle('369')">
+        <div class="seo-card-icon">🔢</div>
+        <div class="seo-card-title">The 369 manifestation method explained</div>
+        <div class="seo-card-desc">Nikola Tesla believed 3, 6 and 9 held the secret to the universe. Here is how to use them to manifest your desires.</div>
+        <span class="seo-tag">1,900 readers/month</span>
+      </div>
+      <div class="seo-card" onclick="showArticle('journal')">
+        <div class="seo-card-icon">📓</div>
+        <div class="seo-card-title">100 manifestation journal prompts</div>
+        <div class="seo-card-desc">Powerful writing prompts to identify your desires, clear limiting beliefs, and reprogram your subconscious mind.</div>
+        <span class="seo-tag">1,000 readers/month</span>
+      </div>
+    </div>
+
+    <!-- ARTICLE: Money -->
+    <div class="seo-article" id="article-money">
+      <div class="article-h">How to manifest money in 30 days</div>
+      <div class="article-p">Manifesting money is not about wishing for cash to appear from nowhere. It is about aligning your mindset, beliefs, and daily actions with the financial reality you want to create. The most effective approach combines affirmations, scripting, and intentional daily habits.</div>
+      <div class="article-h2">Step 1: Clear your money blocks</div>
+      <div class="article-p">Most people carry subconscious beliefs about money that directly limit their income — beliefs like "money is hard to earn," "I don't deserve wealth," or "rich people are greedy." Writing in a journal about your earliest money memories can surface these patterns so you can consciously choose new ones.</div>
+      <div class="article-h2">Step 2: Write your financial affirmations daily</div>
+      <div class="article-p">Choose 5–7 affirmations that feel slightly stretching but believable. The key word is believable — your nervous system rejects statements that feel completely impossible. Examples that work well:</div>
+      <ul class="article-list">
+        <li>Money flows to me easily and consistently</li>
+        <li>I am worthy of earning £[your goal] per month</li>
+        <li>I am open to unexpected income arriving from multiple sources</li>
+        <li>My relationship with money is healthy, expansive, and growing</li>
+      </ul>
+      <div class="article-h2">Step 3: Use the scripting method every morning</div>
+      <div class="article-p">Scripting means writing about your desired financial life as though it has already happened. Spend 5–10 minutes each morning writing in the present tense: "I am so grateful that I now earn £X per month. I feel financially free. I paid off my debts and took my family on holiday..." The more sensory detail, the more effective.</div>
+      <div class="article-h2">Step 4: Take aligned action</div>
+      <div class="article-p">Manifestation is not passive. Each day, take one concrete action that moves you toward your financial goal — apply for a job, pitch a client, learn a new skill, start a side project. Inspired action amplifies the energy you are generating through your practice.</div>
+      <div class="article-cta">
+        <span class="article-cta-text">✦ Generate your personalised money manifestation plan</span>
+        <button class="article-cta-btn" onclick="smoothScroll('tool')">Try it free →</button>
+      </div>
+    </div>
+
+    <!-- ARTICLE: 369 -->
+    <div class="seo-article" id="article-369">
+      <div class="article-h">The 369 manifestation method — complete guide</div>
+      <div class="article-p">The 369 method is one of the most popular manifestation techniques of the past decade, inspired by Nikola Tesla's belief that the numbers 3, 6, and 9 held the key to understanding the universe. The method involves writing your desire 3 times in the morning, 6 times in the afternoon, and 9 times at night.</div>
+      <div class="article-h2">Why does it work?</div>
+      <div class="article-p">The repetition creates a powerful focus on your desire throughout the entire day. Writing by hand (rather than typing) engages more of the brain's learning and memory systems. The rhythm of three sessions trains your subconscious to stay orientated toward your goal even between sessions.</div>
+      <div class="article-h2">How to do the 369 method</div>
+      <ul class="article-list">
+        <li>Choose one specific desire to focus on for 33 days</li>
+        <li>Write it in the first person, present tense: "I am so grateful that I have..."</li>
+        <li>Morning: write it 3 times, taking about 2 minutes</li>
+        <li>Afternoon: write it 6 times, feeling the emotion of already having it</li>
+        <li>Evening: write it 9 times, ending with gratitude</li>
+        <li>Do not skip days — consistency is the whole point</li>
+      </ul>
+      <div class="article-h2">Common mistakes to avoid</div>
+      <div class="article-p">The biggest mistake is writing mechanically without feeling. The emotional component — genuinely feeling grateful, excited, or at peace as you write — is what makes the difference. The second mistake is switching desires mid-practice. Commit to one desire for the full 33 days.</div>
+      <div class="article-cta">
+        <span class="article-cta-text">✦ Generate your 369 scripting template with AI</span>
+        <button class="article-cta-btn" onclick="smoothScroll('tool')">Try it free →</button>
+      </div>
+    </div>
+
+    <!-- ARTICLE: Journal -->
+    <div class="seo-article" id="article-journal">
+      <div class="article-h">100 manifestation journal prompts</div>
+      <div class="article-p">Journaling is one of the most powerful tools in any manifestation practice. These prompts are designed to help you get clear on what you want, identify and release beliefs that hold you back, and train your mind to expect the life you are creating.</div>
+      <div class="article-h2">Clarity prompts (what do you want?)</div>
+      <ul class="article-list">
+        <li>If I knew I could not fail, I would pursue...</li>
+        <li>My ideal day, described in full sensory detail, looks like...</li>
+        <li>The version of me who has everything I want feels...</li>
+        <li>Three things I want to manifest in the next 90 days are...</li>
+        <li>The life I am building looks, feels, and sounds like...</li>
+      </ul>
+      <div class="article-h2">Limiting belief prompts (what is holding you back?)</div>
+      <ul class="article-list">
+        <li>My earliest memory of money is... and I believe this taught me...</li>
+        <li>A belief I carry that might be limiting my income is...</li>
+        <li>When I imagine having everything I want, the fear that comes up is...</li>
+        <li>Something I believe I do not deserve but secretly want is...</li>
+      </ul>
+      <div class="article-h2">Gratitude and scripting prompts</div>
+      <ul class="article-list">
+        <li>I am so grateful that today I received...</li>
+        <li>Thank you universe for bringing me... (write as though it has happened)</li>
+        <li>I am living my dream life and it feels like...</li>
+        <li>The most wonderful thing that happened since manifesting my goal is...</li>
+      </ul>
+      <div class="article-cta">
+        <span class="article-cta-text">✦ Get your AI-generated personalised journal prompts</span>
+        <button class="article-cta-btn" onclick="smoothScroll('tool')">Try it free →</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">✦ Abowabon</div>
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">Privacy policy</a>
+      <a href="#">Contact</a>
+      <a href="#">How it works</a>
+    </div>
+    <div class="footer-copy">© 2025 Abowabon · Free AI manifestation tool</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">✓ Copied to clipboard</div>
+
+<script>
+const tips = [
+  "The 369 method: write your desire 3× morning, 6× afternoon, 9× evening for 33 days.",
+  "The 55×5 method: write your affirmation 55 times a day for 5 consecutive days.",
+  "Gratitude amplifies manifestation — end each day listing 3 things you're thankful for.",
+  "Scripting in the present tense tricks your brain into believing it's already real.",
+  "Visualise your desire for 17 seconds — long enough to start shifting your vibration.",
+  "Act 'as if' — make one decision today that your future self would make.",
+  "The pillow method: write your desire on paper and sleep with it under your pillow."
+];
+
+document.getElementById('daily-tip').textContent = tips[Math.floor(Math.random() * tips.length)];
+
+let activeCategory = 'Money & abundance';
+
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    activeCategory = chip.dataset.cat;
+  });
+});
+
+function smoothScroll(id) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+}
+
+function showArticle(id) {
+  document.querySelectorAll('.seo-article').forEach(a => a.classList.remove('visible'));
+  const el = document.getElementById('article-' + id);
+  if (el) {
+    el.classList.add('visible');
+    setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  }
+}
+
+async function generate() {
+  const goal = document.getElementById('goal-input').value.trim() || activeCategory;
+  const tone = document.getElementById('tone-select').value;
+  const duration = document.getElementById('duration-select').value;
+  const days = parseInt(duration);
+
+  const btn = document.getElementById('gen-btn');
+  btn.classList.add('loading');
+  btn.disabled = true;
+
+  try {
+    const prompt = `You are an expert manifestation coach. Create a complete personalised manifestation package for someone who wants to manifest: "${goal}". Tone: ${tone}.
+
+Return ONLY a valid JSON object with exactly these keys:
+{
+  "affirmations": ["7 powerful present-tense affirmations personalised to the goal"],
+  "script": "A 3-4 sentence scripting paragraph written in first person present tense as if the desire is already real, full of sensory and emotional detail",
+  "plan": ["${days} daily actions, one per day, numbered Day 1 through Day ${days}, each a short specific action toward the goal"],
+  "vision_prompts": ["5 specific vision board image prompts that visualise the achieved desire"]
+}
+
+Make all content deeply personalised to: "${goal}". No generic filler. Each affirmation must feel believable and emotionally resonant. Return only the JSON, no other text.`;
+
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 1500,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+
+    const data = await res.json();
+    const text = data.content?.map(b => b.text || '').join('');
+    const clean = text.replace(/```json|```/g, '').trim();
+    const parsed = JSON.parse(clean);
+
+    renderResults(parsed, days);
+  } catch(e) {
+    renderFallback(goal, days);
+  } finally {
+    btn.classList.remove('loading');
+    btn.disabled = false;
+  }
+}
+
+function renderResults(data, days) {
+  const affEl = document.getElementById('affirmations-content');
+  affEl.innerHTML = (data.affirmations || []).map(a =>
+    `<li class="affirmation-item"><span class="aff-star">✦</span><span>${a}</span></li>`
+  ).join('');
+
+  document.getElementById('script-content').textContent = data.script || '';
+
+  const visionEl = document.getElementById('vision-content');
+  visionEl.innerHTML = (data.vision_prompts || []).map(v =>
+    `<li class="vision-item">✦ ${v}</li>`
+  ).join('');
+
+  const planEl = document.getElementById('plan-content');
+  planEl.innerHTML = (data.plan || []).map((p, i) =>
+    `<div class="plan-day"><span class="day-num">Day ${i+1}</span><span>${p.replace(/^Day \d+[:\-\s]*/i,'')}</span></div>`
+  ).join('');
+
+  const section = document.getElementById('results');
+  section.classList.add('visible');
+  setTimeout(() => section.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+}
+
+function renderFallback(goal, days) {
+  const g = goal.toLowerCase();
+  const affirmations = [
+    `I am worthy of ${g} and I welcome it fully into my life`,
+    `${g} comes to me naturally and with ease`,
+    `I am grateful for the abundance of ${g} flowing to me now`,
+    `Every day I am moving closer to ${g} in wonderful ways`,
+    `I trust the process and know that ${g} is already mine`,
+    `I radiate the energy of someone who has achieved ${g}`,
+    `My life is a beautiful reflection of my desire for ${g}`
+  ];
+  const script = `I am so deeply grateful that ${g} has become my reality. I wake up each morning feeling aligned, purposeful, and at peace knowing I have everything I need. The universe has been conspiring in my favour and the evidence of this appears in beautiful and unexpected ways every single day. I am living proof that what I focus on with love and consistency expands.`;
+  const vision_prompts = [
+    `A serene, joyful version of yourself having fully achieved ${g}`,
+    `The physical environment and lifestyle that comes with ${g}`,
+    `Words and symbols that represent ${g} to you`,
+    `People in your life celebrating your achievement of ${g}`,
+    `The feeling of waking up knowing ${g} is your reality`
+  ];
+  const plan = Array.from({length: days}, (_,i) => {
+    const actions = [
+      'Write your affirmations 7 times with full emotional presence',
+      'Spend 5 minutes visualising your desire as already real',
+      'Write a scripting entry from the perspective of your future self',
+      'Identify one limiting belief and write its opposite 10 times',
+      'Take one concrete aligned action toward your goal today',
+      'Create or update your vision board with new images',
+      'Practice gratitude for 3 things already present in your life',
+      'Meditate for 10 minutes focusing on the feeling of your desire fulfilled',
+      'Share your affirmations out loud in the mirror with full conviction',
+      'Journal about evidence the universe is already working for you'
+    ];
+    return actions[i % actions.length];
+  });
+  renderResults({ affirmations, script, vision_prompts, plan }, days);
+}
+
+function copyCard(id) {
+  const el = document.getElementById(id);
+  let text = '';
+  if (el.tagName === 'UL') {
+    text = [...el.querySelectorAll('li')].map(li => li.textContent.trim()).join('\n');
+  } else {
+    text = el.textContent.trim();
+  }
+  navigator.clipboard.writeText(text).then(() => showToast());
+}
+
+function copyAll() {
+  const aff = [...document.querySelectorAll('#affirmations-content li')].map(li => li.textContent.trim()).join('\n');
+  const script = document.getElementById('script-content').textContent.trim();
+  const vision = [...document.querySelectorAll('#vision-content li')].map(li => li.textContent.trim()).join('\n');
+  const plan = [...document.querySelectorAll('#plan-content .plan-day')].map(d => d.textContent.trim()).join('\n');
+  const all = `DAILY AFFIRMATIONS\n${aff}\n\nSCRIPTING TEMPLATE\n${script}\n\nVISION BOARD PROMPTS\n${vision}\n\nDAY-BY-DAY PLAN\n${plan}`;
+  navigator.clipboard.writeText(all).then(() => showToast('Everything copied!'));
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = '✓ ' + (msg || 'Copied to clipboard');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+</script>
+</body>
+</html>

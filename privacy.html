@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Abowabon</title>
+<meta name="description" content="Abowabon privacy policy — how we handle your data, AdSense cookies, email subscriptions, and your rights under GDPR.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#070B14; --bg2:#0D1425; --surface:#141C2E; --surface2:#1A2540;
+  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.13);
+  --gold:#C9963A; --gold2:#E8B84B;
+  --gold-dim:rgba(201,150,58,0.12);
+  --teal:#4ECDC4;
+  --text:#E8EAF0; --text2:#8892A4; --text3:#5A6478;
+  --ff-d:'Cormorant Garamond',serif; --ff:'DM Sans',sans-serif;
+  --r:14px; --rsm:10px; --rlg:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--ff);background:var(--bg);color:var(--text);line-height:1.7}
+.aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.ab{position:absolute;border-radius:50%;filter:blur(100px);opacity:.08;animation:drift 24s ease-in-out infinite}
+.ab:nth-child(1){width:600px;height:600px;background:#1A2A5A;top:-200px;left:-150px}
+.ab:nth-child(2){width:400px;height:400px;background:#C9963A;bottom:10%;right:-100px;animation-delay:-10s}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(18px,-14px)}}
+
+.shell{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:0 24px 60px}
+.top-bar{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--border)}
+.logo{font-family:var(--ff-d);font-size:1.5rem;font-weight:600;background:linear-gradient(135deg,#E8B84B,#C9963A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.nav-links{display:flex;gap:18px}
+.nav-links a{font-size:.82rem;color:var(--text2);text-decoration:none}
+.nav-links a:hover{color:var(--text)}
+
+.hero{padding:48px 0 28px}
+.hero-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--gold);font-weight:600;margin-bottom:10px}
+.hero h1{font-family:var(--ff-d);font-size:clamp(2rem,5vw,2.8rem);font-weight:300;margin-bottom:10px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.updated{font-size:.82rem;color:var(--text3)}
+
+.toc{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:18px 20px;margin:24px 0}
+.toc-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.8px;color:var(--gold);font-weight:600;margin-bottom:10px}
+.toc a{display:block;font-size:.85rem;color:var(--text2);text-decoration:none;padding:4px 0}
+.toc a:hover{color:var(--gold2)}
+
+.section{padding:26px 0;border-bottom:1px solid var(--border)}
+.section:last-of-type{border-bottom:none}
+.section h2{font-family:var(--ff-d);font-size:1.5rem;font-weight:400;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.section-num{font-size:.85rem;color:var(--gold);font-weight:600;font-family:var(--ff)}
+.section p{font-size:.9rem;color:var(--text2);margin-bottom:12px}
+.section p strong{color:var(--text);font-weight:500}
+.section ul{margin:0 0 12px 0;padding-left:20px}
+.section li{font-size:.9rem;color:var(--text2);margin-bottom:7px;line-height:1.6}
+.section li strong{color:var(--text);font-weight:500}
+
+.info-box{background:rgba(78,205,196,.06);border:1px solid rgba(78,205,196,.15);border-radius:var(--rsm);padding:14px 16px;margin:14px 0;font-size:.85rem;color:var(--text2);line-height:1.65}
+.info-box strong{color:var(--text)}
+.warn-box{background:var(--gold-dim);border:1px solid rgba(201,150,58,.2);border-radius:var(--rsm);padding:14px 16px;margin:14px 0;font-size:.85rem;color:var(--text2);line-height:1.65}
+.warn-box strong{color:var(--gold2)}
+
+.table-wrap{overflow-x:auto;margin:14px 0}
+table{width:100%;font-size:.83rem;border-collapse:collapse}
+th{text-align:left;font-weight:600;color:var(--gold2);padding:8px 10px;border-bottom:1px solid var(--border2);font-size:.78rem;text-transform:uppercase;letter-spacing:.4px}
+td{padding:9px 10px;border-bottom:1px solid var(--border);color:var(--text2)}
+td:first-child{color:var(--text);font-weight:500}
+
+.contact-card{background:linear-gradient(135deg,var(--surface),var(--surface2));border:1px solid rgba(201,150,58,.2);border-radius:var(--rlg);padding:24px;text-align:center;margin-top:24px}
+.contact-card h3{font-family:var(--ff-d);font-size:1.4rem;font-weight:300;margin-bottom:8px}
+.contact-card p{font-size:.88rem;color:var(--text2);margin-bottom:16px}
+.btn-gold{display:inline-block;background:linear-gradient(135deg,#C9963A,#E8B84B);color:#0D1425;border:none;border-radius:var(--r);padding:13px 28px;font-family:var(--ff);font-size:.9rem;font-weight:700;cursor:pointer;text-decoration:none}
+
+footer{text-align:center;padding:28px 0;font-size:.78rem;color:var(--text3)}
+footer a{color:var(--text3);text-decoration:none;margin:0 10px}
+
+@media(max-width:560px){.nav-links{display:none}table{font-size:.78rem}}
+</style>
+</head>
+<body>
+<div class="aurora"><div class="ab"></div><div class="ab"></div></div>
+
+<div class="shell">
+  <div class="top-bar">
+    <a href="https://abowabon.com" class="logo">✦ Abowabon</a>
+    <div class="nav-links">
+      <a href="https://abowabon.com">App</a>
+      <a href="https://abowabon.com/about">About</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-label">Legal</div>
+    <h1>Privacy <em>Policy</em></h1>
+    <div class="updated">Last updated: [Insert date when you publish]</div>
+  </div>
+
+  <div class="toc">
+    <div class="toc-label">Contents</div>
+    <a href="#intro">1. Who we are</a>
+    <a href="#data">2. What data we collect</a>
+    <a href="#ai">3. How AI guide generation works</a>
+    <a href="#cookies">4. Cookies & advertising (AdSense)</a>
+    <a href="#email">5. Email & Mailchimp</a>
+    <a href="#storage">6. Local storage on your device</a>
+    <a href="#rights">7. Your rights (GDPR)</a>
+    <a href="#thirdparty">8. Third-party services</a>
+    <a href="#children">9. Children's privacy</a>
+    <a href="#changes">10. Changes to this policy</a>
+    <a href="#contact">11. Contact us</a>
+  </div>
+
+  <div class="section" id="intro">
+    <h2><span class="section-num">01</span> Who we are</h2>
+    <p>Abowabon ("we", "us", "our") provides a free AI-powered manifestation app, web tools, and related digital content at <strong>abowabon.com</strong>. This policy explains what information we collect, why, and what choices you have.</p>
+    <p>This policy applies to the Abowabon web app, the Mode Checker quiz, the Transurfing guide hub, the email capture page, and any associated mobile apps.</p>
+  </div>
+
+  <div class="section" id="data">
+    <h2><span class="section-num">02</span> What data we collect</h2>
+    <p>We aim to collect as little personal data as possible. Here is exactly what we gather:</p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Data type</th><th>When collected</th><th>Purpose</th></tr>
+        <tr><td>Name (optional)</td><td>Onboarding screen</td><td>Personalises greetings — stored locally on your device only</td></tr>
+        <tr><td>Desire text you enter</td><td>When generating an AI guide</td><td>Sent to our AI provider to generate your personalised guide — not stored on our servers after the response</td></tr>
+        <tr><td>Email address</td><td>If you sign up for the free guide or newsletter</td><td>To send the requested content and occasional updates — via Mailchimp</td></tr>
+        <tr><td>Journal entries</td><td>If you use the Journal or Scriptorium features</td><td>Stored locally in your browser only — we do not see this data</td></tr>
+        <tr><td>Usage analytics</td><td>Automatically, via Google Analytics</td><td>Understand which pages and tools are useful, anonymised</td></tr>
+      </table>
+    </div>
+    <div class="info-box"><strong>Important:</strong> Your journal entries, evidence logs, belief shifts, and scripting notebook are stored using your browser's local storage. This means the data lives on your device, not on our servers. Clearing your browser data will permanently delete it — we cannot recover it for you.</div>
+  </div>
+
+  <div class="section" id="ai">
+    <h2><span class="section-num">03</span> How AI guide generation works</h2>
+    <p>When you type a desire and request a guide, that text is sent securely to our backend server, which forwards it to our AI provider (Anthropic) to generate your personalised SAFE Method guide. We do not store the content of your desire on our servers beyond the time needed to process the request.</p>
+    <p>We recommend not entering highly sensitive personal information (full names of others, medical details, financial account numbers) into the desire field, even though the system is designed to handle general goals like "financial abundance" or "career success" safely.</p>
+  </div>
+
+  <div class="section" id="cookies">
+    <h2><span class="section-num">04</span> Cookies & advertising (Google AdSense)</h2>
+    <p>This site displays advertisements via Google AdSense. Google and its partners use cookies to serve ads based on your prior visits to this and other websites.</p>
+    <ul>
+      <li><strong>You can opt out</strong> of personalised advertising by visiting <a href="https://www.google.com/settings/ads" style="color:var(--gold2)">Google's Ads Settings</a></li>
+      <li><strong>Third-party vendors</strong>, including Google, use cookies to serve ads based on your visits to this site and other sites on the internet</li>
+      <li><strong>You can disable cookies</strong> entirely in your browser settings, though some site features may not work as intended</li>
+    </ul>
+    <div class="warn-box"><strong>AdSense disclosure:</strong> This site is a participant in the Google AdSense programme. We earn revenue from ads displayed on the site, which does not affect the price or availability of any free content.</div>
+  </div>
+
+  <div class="section" id="email">
+    <h2><span class="section-num">05</span> Email & Mailchimp</h2>
+    <p>If you sign up for our free guide or newsletter, your name and email address are stored with Mailchimp, our email service provider. We use this to send you the requested content and occasional updates about Abowabon.</p>
+    <ul>
+      <li>You can unsubscribe at any time using the link at the bottom of every email</li>
+      <li>We do not sell, rent, or share your email address with third parties for marketing purposes</li>
+      <li>Mailchimp's own privacy practices apply to data they process on our behalf — see <a href="https://mailchimp.com/legal/privacy/" style="color:var(--gold2)">Mailchimp's Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <div class="section" id="storage">
+    <h2><span class="section-num">06</span> Local storage on your device</h2>
+    <p>Abowabon uses your browser's local storage (not cookies) to save your streak, journal entries, scripting notebook, and progress data directly on your device. This data:</p>
+    <ul>
+      <li>Is never transmitted to our servers</li>
+      <li>Is only accessible from the same browser and device where it was created</li>
+      <li>Can be exported at any time using the "Export my data" feature in your Profile</li>
+      <li>Can be permanently deleted using the "Reset all data" feature, or by clearing your browser's site data</li>
+    </ul>
+  </div>
+
+  <div class="section" id="rights">
+    <h2><span class="section-num">07</span> Your rights (UK GDPR / EU GDPR)</h2>
+    <p>If you are located in the UK or EU, you have the right to:</p>
+    <ul>
+      <li><strong>Access</strong> — request a copy of the personal data we hold about you</li>
+      <li><strong>Rectification</strong> — correct inaccurate personal data</li>
+      <li><strong>Erasure</strong> — request deletion of your email and associated data</li>
+      <li><strong>Portability</strong> — receive your data in a structured, machine-readable format</li>
+      <li><strong>Object</strong> — object to processing of your data for marketing purposes</li>
+      <li><strong>Withdraw consent</strong> — unsubscribe from emails at any time</li>
+    </ul>
+    <p>To exercise any of these rights, contact us using the details at the bottom of this page.</p>
+  </div>
+
+  <div class="section" id="thirdparty">
+    <h2><span class="section-num">08</span> Third-party services we use</h2>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Service</th><th>Purpose</th><th>Their privacy policy</th></tr>
+        <tr><td>Anthropic (Claude AI)</td><td>Generates personalised guides</td><td>anthropic.com/legal/privacy</td></tr>
+        <tr><td>Google AdSense</td><td>Displays advertisements</td><td>policies.google.com/privacy</td></tr>
+        <tr><td>Google Analytics</td><td>Anonymised usage statistics</td><td>policies.google.com/privacy</td></tr>
+        <tr><td>Mailchimp</td><td>Email newsletter delivery</td><td>mailchimp.com/legal/privacy</td></tr>
+        <tr><td>Gumroad</td><td>Processes digital product purchases</td><td>gumroad.com/privacy</td></tr>
+        <tr><td>Netlify / Railway</td><td>Website and backend hosting</td><td>netlify.com/privacy · railway.app/legal/privacy</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section" id="children">
+    <h2><span class="section-num">09</span> Children's privacy</h2>
+    <p>Abowabon is not directed at children under 16. We do not knowingly collect personal data from children. If you believe a child has provided us with personal information, please contact us and we will delete it promptly.</p>
+  </div>
+
+  <div class="section" id="changes">
+    <h2><span class="section-num">10</span> Changes to this policy</h2>
+    <p>We may update this privacy policy from time to time. Material changes will be reflected by updating the "Last updated" date at the top of this page. Continued use of Abowabon after changes constitutes acceptance of the revised policy.</p>
+  </div>
+
+  <div class="section" id="contact" style="border-bottom:none">
+    <h2><span class="section-num">11</span> Contact us</h2>
+    <p>For any questions about this privacy policy or to exercise your data rights, contact:</p>
+    <div class="contact-card">
+      <h3>Get in touch</h3>
+      <p>hello@abowabon.com</p>
+      <a href="mailto:hello@abowabon.com" class="btn-gold">Email us</a>
+    </div>
+  </div>
+
+  <footer>
+    <a href="https://abowabon.com">Home</a>
+    <a href="https://abowabon.com/about">About</a>
+    <a href="mailto:hello@abowabon.com">Contact</a>
+    © 2025 Abowabon
+  </footer>
+</div>
+</body>
+</html>
