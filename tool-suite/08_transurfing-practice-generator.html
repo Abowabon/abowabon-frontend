@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Reality Transurfing Practice Generator — Free AI Tool | Abowabon</title>
 <meta name="description" content="Choose a Transurfing concept (Pendulums, Life Tracks, Importance, Mirror Principle) and get a personalised daily practice. A completely unique tool — nothing like it exists.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+/* ── MOBILE BASE FIXES ─────────────────────────────────────────────────── */
+*{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img,video{max-width:100%;height:auto}
+input,textarea,select,button{font-family:inherit}
+
 :root{--bg:#070B14;--surface:#141C2E;--border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.15);--gold:#C9963A;--gold2:#E8B84B;--lav:#9B8FD4;--text:#E8EAF0;--text2:#8892A4;--text3:#5A6478;--ff:'DM Sans',sans-serif;--ffd:'Cormorant Garamond',serif}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--ff);background:var(--bg);color:var(--text);line-height:1.65}
@@ -140,7 +146,7 @@ async function generate() {
   btn.classList.add('loading'); btn.disabled = true;
 
   try {
-    const res = await fetch('https://abowabonbackend-production.up.railway.app/api/generate-transurfing', {
+    const res = await fetch('https://YOUR-BACKEND.railway.app/api/generate-transurfing', {
       method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ concept: selectedConcept, situation })
     });

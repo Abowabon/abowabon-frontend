@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Free Manifestation Evidence Journal — Log & Track | Abowabon</title>
 <meta name="description" content="Log manifestation evidence and get AI pattern analysis showing what's actually shifting. Free evidence journal tool — no sign-up required.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+/* ── MOBILE BASE FIXES ─────────────────────────────────────────────────── */
+*{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img,video{max-width:100%;height:auto}
+input,textarea,select,button{font-family:inherit}
+
 :root{--bg:#070B14;--surface:#141C2E;--border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.15);--gold:#C9963A;--gold2:#E8B84B;--teal:#4ECDC4;--text:#E8EAF0;--text2:#8892A4;--text3:#5A6478;--ff:'DM Sans',sans-serif;--ffd:'Cormorant Garamond',serif}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--ff);background:var(--bg);color:var(--text);line-height:1.65}
@@ -117,16 +123,43 @@ let entries = JSON.parse(localStorage.getItem('evidence_entries') || '[]');
 
 function renderEntries() {
   const el = document.getElementById('entriesList');
-  if (!entries.length) { el.innerHTML = '<div class="empty-state">No evidence logged yet. Start with something small you noticed today.</div>'; return; }
-  el.innerHTML = entries.map(e => `<div class="entry"><div class="entry-date">${e.date}</div><div class="entry-text">${e.text}</div></div>`).join('');
+  if (!entries.length) {
+    el.innerHTML = '<div class="empty-state">No evidence logged yet. Start with something small you noticed today.</div>';
+    return;
+  }
+  el.innerHTML = entries.map((e, i) => `
+    <div class="entry">
+      <div class="entry-date">${e.date || ''}</div>
+      <div class="entry-text">${e.text}</div>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <button onclick="editEntry(${i})" style="background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.25);color:#E8B84B;border-radius:8px;padding:3px 10px;font-size:.68rem;cursor:pointer;font-family:inherit">Edit</button>
+        <button onclick="deleteEntry(${i})" style="background:rgba(192,57,43,.1);border:1px solid rgba(192,57,43,.25);color:#E07070;border-radius:8px;padding:3px 10px;font-size:.68rem;cursor:pointer;font-family:inherit">Delete</button>
+      </div>
+    </div>`).join('');
 }
 
 function addEntry() {
   const text = document.getElementById('entryInput').value.trim();
   if (!text) return;
-  entries.unshift({ text, date: new Date().toLocaleDateString() });
+  entries.unshift({ id: Date.now(), text, date: new Date().toLocaleDateString() });
   localStorage.setItem('evidence_entries', JSON.stringify(entries));
   document.getElementById('entryInput').value = '';
+  renderEntries();
+}
+
+function editEntry(idx) {
+  const entry = entries[idx]; if (!entry) return;
+  const newText = prompt('Edit this entry:', entry.text);
+  if (newText === null || !newText.trim()) return;
+  entries[idx].text = newText.trim();
+  localStorage.setItem('evidence_entries', JSON.stringify(entries));
+  renderEntries();
+}
+
+function deleteEntry(idx) {
+  if (!confirm('Delete this evidence entry?')) return;
+  entries.splice(idx, 1);
+  localStorage.setItem('evidence_entries', JSON.stringify(entries));
   renderEntries();
 }
 
@@ -137,7 +170,7 @@ async function analyse() {
   box.classList.add('show');
 
   try {
-    const res = await fetch('https://abowabonbackend-production.up.railway.app/api/analyse-evidence', {
+    const res = await fetch('https://YOUR-BACKEND.railway.app/api/analyse-evidence', {
       method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ entries: entries.map(e=>e.text) })
     });

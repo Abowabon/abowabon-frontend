@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Threat Mode Checker — Safety or Threat? Free Quiz | Abowabon</title>
+<meta name="description" content="Quick quiz: are you in nervous system safety or threat mode right now? Get an instant reset plan. The #1 blocker of manifestation, diagnosed in 60 seconds.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── MOBILE BASE FIXES ─────────────────────────────────────────────────── */
+*{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img,video{max-width:100%;height:auto}
+input,textarea,select,button{font-family:inherit}
+
+:root{--bg:#070B14;--surface:#141C2E;--border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.15);--gold:#C9963A;--gold2:#E8B84B;--rose:#E07070;--sage:#7BC67E;--text:#E8EAF0;--text2:#8892A4;--text3:#5A6478;--ff:'DM Sans',sans-serif;--ffd:'Cormorant Garamond',serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--ff);background:var(--bg);color:var(--text);line-height:1.65}
+.aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.ab{position:absolute;border-radius:50%;filter:blur(100px);opacity:.09;animation:drift 22s ease-in-out infinite}
+.ab:nth-child(1){width:600px;height:600px;background:#7A2A2A;top:-180px;left:-120px}
+.ab:nth-child(2){width:420px;height:420px;background:#1F7A5A;bottom:10%;right:-100px;animation-delay:-9s}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(16px,-12px)}}
+.nav{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--ffd);font-size:1.2rem;color:var(--gold2);text-decoration:none;font-weight:600}
+.nav-links{display:flex;gap:18px}
+.nav-links a{font-size:.8rem;color:var(--text2);text-decoration:none}
+.wrap{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:36px 20px 60px}
+.ad-top{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.1);border-radius:8px;padding:10px;text-align:center;font-size:.7rem;color:var(--text3);margin-bottom:28px}
+.hero{text-align:center;margin-bottom:30px}
+.hero-badge{display:inline-block;background:rgba(224,112,112,.1);border:1px solid rgba(224,112,112,.2);color:var(--rose);border-radius:99px;padding:5px 14px;font-size:.75rem;font-weight:600;margin-bottom:14px}
+.hero h1{font-family:var(--ffd);font-size:clamp(2rem,6vw,2.7rem);font-weight:300;line-height:1.25;margin-bottom:10px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero p{font-size:.92rem;color:var(--text2);max-width:420px;margin:0 auto;line-height:1.7}
+.quiz-card{background:var(--surface);border:1px solid var(--border2);border-radius:20px;padding:26px}
+.progress-bar{height:3px;background:rgba(255,255,255,.08);border-radius:2px;margin-bottom:20px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--rose),var(--gold2));border-radius:2px;transition:width .4s}
+.q-num{font-size:.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+.q-text{font-size:1rem;font-weight:500;margin-bottom:18px;line-height:1.5}
+.opt{display:block;width:100%;text-align:left;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:12px 15px;font-family:var(--ff);font-size:.86rem;color:var(--text2);cursor:pointer;margin-bottom:8px}
+.opt:hover,.opt.sel{background:rgba(201,150,58,.1);border-color:rgba(201,150,58,.35);color:var(--text)}
+.result{display:none}
+.result.show{display:block;animation:fu .4s ease}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.result-emoji{font-size:2.6rem;text-align:center;margin-bottom:8px}
+.result-badge{display:block;text-align:center;font-size:.85rem;font-weight:700;padding:6px 16px;border-radius:99px;margin:0 auto 10px;max-width:fit-content}
+.r-safe{background:rgba(123,198,126,.12);color:var(--sage);border:1px solid rgba(123,198,126,.25)}
+.r-threat{background:rgba(224,112,112,.12);color:var(--rose);border:1px solid rgba(224,112,112,.25)}
+.result-title{font-family:var(--ffd);font-size:1.6rem;font-weight:400;text-align:center;margin-bottom:10px}
+.result-desc{font-size:.86rem;color:var(--text2);text-align:center;line-height:1.7;margin-bottom:18px}
+.reset-step{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}
+.reset-step:last-child{border-bottom:none}
+.reset-num{min-width:26px;height:26px;border-radius:50%;background:rgba(201,150,58,.15);border:1px solid rgba(201,150,58,.3);color:var(--gold2);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700}
+.reset-text{font-size:.84rem;color:var(--text2);line-height:1.6}
+.ad-mid{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.1);border-radius:8px;padding:10px;text-align:center;font-size:.7rem;color:var(--text3);margin:24px 0}
+.cta-box{background:linear-gradient(135deg,rgba(201,150,58,.1),rgba(201,150,58,.05));border:1px solid rgba(201,150,58,.25);border-radius:16px;padding:22px;text-align:center;margin-top:20px}
+.cta-box h3{font-family:var(--ffd);font-size:1.4rem;font-weight:300;margin-bottom:6px}
+.cta-box p{font-size:.83rem;color:var(--text2);margin-bottom:14px}
+.btn-ghost{display:inline-block;background:transparent;border:1px solid rgba(201,150,58,.3);border-radius:10px;padding:11px 22px;font-family:var(--ff);font-size:.85rem;color:var(--gold2);cursor:pointer;text-decoration:none}
+footer{text-align:center;padding:20px;font-size:.75rem;color:var(--text3)}
+footer a{color:var(--text3);text-decoration:none;margin:0 8px}
+</style>
+</head>
+<body>
+<div class="aurora"><div class="ab"></div><div class="ab"></div></div>
+
+<nav class="nav">
+  <a href="https://abowabon.com" class="nav-logo">✦ Abowabon</a>
+  <div class="nav-links"><a href="https://abowabon.com">App</a><a href="https://abowabon.com/mode-check">Mode quiz</a></div>
+</nav>
+
+<div class="wrap">
+  <div class="ad-top">AdSense Leaderboard 728×90 — replace with your AdSense code</div>
+
+  <div class="hero">
+    <div class="hero-badge">🫀 60-second nervous system check</div>
+    <h1>Safety mode or<br><em>threat mode?</em></h1>
+    <p>No manifestation technique works while your body believes it's under threat. Answer 4 quick questions to find out which state you're in — and get the exact reset.</p>
+  </div>
+
+  <div id="quizWrap">
+    <div class="quiz-card">
+      <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+      <div class="q-num" id="qNum">Question 1 of 4</div>
+      <div class="q-text" id="qText"></div>
+      <div id="qOpts"></div>
+    </div>
+  </div>
+
+  <div class="result" id="resultPanel"></div>
+
+  <div class="ad-mid">AdSense Rectangle 300×250 — replace with your AdSense code</div>
+
+  <div class="cta-box">
+    <h3>Get a personalised full plan</h3>
+    <p>Once you're regulated, the free Abowabon app builds your complete SAFE Method guide for any desire.</p>
+    <a class="btn-ghost" href="https://abowabon.com">Open Abowabon free →</a>
+  </div>
+</div>
+
+<footer>
+  <a href="https://abowabon.com">Abowabon</a>
+  <a href="https://abowabon.com/about">About</a>
+  <a href="https://abowabon.com/privacy">Privacy</a>
+  © 2025 Abowabon
+</footer>
+
+<script>
+const QUESTIONS = [
+  {q:"Right now, how does your breathing feel?",opts:["Shallow, high in my chest","Mostly normal, occasionally tight","Slow and full, low in my belly"]},
+  {q:"Your jaw and shoulders feel...",opts:["Tense, I'm holding without realising it","A little tight but I can release it","Relaxed and loose"]},
+  {q:"How often are you checking your phone or for 'updates' right now?",opts:["Constantly — it feels urgent","Sometimes, when I think of it","Rarely — I'm not waiting on anything"]},
+  {q:"If something unexpected happened in the next hour, you'd feel...",opts:["Immediate alarm or dread","Mild concern but manageable","Curious, not threatened"]}
+];
+
+let answers = [], current = 0;
+
+function renderQ(i) {
+  const q = QUESTIONS[i];
+  document.getElementById('progress').style.width = ((i/4)*100)+'%';
+  document.getElementById('qNum').textContent = `Question ${i+1} of 4`;
+  document.getElementById('qText').textContent = q.q;
+  document.getElementById('qOpts').innerHTML = q.opts.map((o,idx) =>
+    `<button class="opt" onclick="answer(${i},${idx},this)">${o}</button>`
+  ).join('');
+}
+
+function answer(qi, ai, el) {
+  document.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  answers[qi] = ai;
+  setTimeout(()=>{ current++; if(current>=4) showResult(); else renderQ(current); }, 300);
+}
+
+function showResult() {
+  document.getElementById('progress').style.width = '100%';
+  const avg = answers.reduce((a,b)=>a+b,0)/answers.length;
+  const isThreat = avg < 1.2;
+  const panel = document.getElementById('resultPanel');
+
+  if (isThreat) {
+    panel.innerHTML = `
+      <div class="result-emoji">🫁</div>
+      <span class="result-badge r-threat">Threat Mode</span>
+      <div class="result-title">You're in Threat Mode</div>
+      <div class="result-desc">Your nervous system is on high alert. No visualisation or affirmation will land until this is addressed first — that's not a failure, it's just biology.</div>
+      <div class="reset-step"><div class="reset-num">1</div><div class="reset-text">Breathe in for 4 counts, hold for 7, exhale for 8. Repeat 3 times. The long exhale signals safety to your nervous system.</div></div>
+      <div class="reset-step"><div class="reset-num">2</div><div class="reset-text">Deliberately drop your shoulders and unclench your jaw, even if it feels artificial at first.</div></div>
+      <div class="reset-step"><div class="reset-num">3</div><div class="reset-text">Name where you are out loud: "I am in [location]. It is [day]." This interrupts the threat-mode spiral.</div></div>
+      <div class="reset-step"><div class="reset-num">4</div><div class="reset-text">Pause all manifestation practice until you feel more settled. Pushing through threat mode deepens it.</div></div>`;
+  } else {
+    panel.innerHTML = `
+      <div class="result-emoji">🌿</div>
+      <span class="result-badge r-safe">Safety Mode</span>
+      <div class="result-title">You're in Safety Mode</div>
+      <div class="result-desc">Your nervous system is regulated enough to practice. This is the window where SAFE Method work, visualisation, and Frisson activation actually land.</div>
+      <div class="reset-step"><div class="reset-num">1</div><div class="reset-text">This is a good time to work on your active desires — try the Frisson Activator or End Scene Builder.</div></div>
+      <div class="reset-step"><div class="reset-num">2</div><div class="reset-text">Log this calm state in your Evidence Journal — noticing safety reinforces it.</div></div>
+      <div class="reset-step"><div class="reset-num">3</div><div class="reset-text">Take one aligned action while you're in this state — momentum compounds when you're regulated.</div></div>`;
+  }
+  panel.classList.add('show');
+  document.getElementById('quizWrap').style.display = 'none';
+  panel.scrollIntoView({behavior:'smooth'});
+}
+
+renderQ(0);
+</script>
+</body>
+</html>
