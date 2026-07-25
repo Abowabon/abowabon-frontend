@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Abowabon — Your Complete Manifestation Companion</title>
 <meta name="description" content="Free AI-powered manifestation app. SAFE Method guides, daily practice sessions, belief audit, evidence journal, scripting notebook, and nervous system mode checker.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -14,7 +14,8 @@
   --gold:#C9963A; --gold2:#E8B84B; --gold3:#D4A96A;
   --gold-dim:rgba(201,150,58,0.12); --gold-glow:rgba(201,150,58,0.06);
   --teal:#4ECDC4; --teal-dim:rgba(78,205,196,0.1);
-  --rose:#E07070; --rose-dim:rgba(224,112,112,0.1);
+  --rose:#E07070;--rose-dim:rgba(224,112,112,0.1);
+  --red-dim:rgba(192,57,43,0.1); --rose-dim:rgba(224,112,112,0.1);
   --sage:#7BC67E; --sage-dim:rgba(123,198,126,0.1);
   --lav:#9B8FD4; --lav-dim:rgba(155,143,212,0.1);
   --red:#C0392B; --red-dim:rgba(192,57,43,0.1);
@@ -23,8 +24,8 @@
   --r:14px; --rsm:10px; --rlg:20px;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;overflow:hidden}
-body{font-family:var(--ff);background:var(--bg);color:var(--text);overscroll-behavior:none}
+html{height:100%;height:-webkit-fill-available}
+body{font-family:var(--ff);background:var(--bg);color:var(--text);overscroll-behavior:none;height:100%;height:-webkit-fill-available;overflow:hidden}
 
 /* AURORA */
 .aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
@@ -36,15 +37,15 @@ body{font-family:var(--ff);background:var(--bg);color:var(--text);overscroll-beh
 @keyframes drift{0%,100%{transform:translate(0,0)scale(1)}33%{transform:translate(25px,-18px)scale(1.04)}66%{transform:translate(-18px,25px)scale(.96)}}
 
 /* SHELL */
-#app{position:relative;z-index:1;width:100%;max-width:430px;margin:0 auto;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+#app{position:relative;z-index:1;width:100%;max-width:430px;margin:0 auto;height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden}
 
 /* SCREENS */
-.screen{display:none;flex-direction:column;height:100%;animation:fadeUp .3s ease}
+.screen{display:none;flex-direction:column;flex:1;min-height:0;animation:fadeUp .3s ease}
 .screen.active{display:flex}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
 /* ONBOARDING */
-.ob-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 28px 28px;text-align:center;overflow-y:auto}
+.ob-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 28px calc(80px + env(safe-area-inset-bottom, 20px));text-align:center;overflow-y:auto;min-height:0}
 .logo-orb{width:88px;height:88px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#E8B84B,#C9963A 60%,#8B6520);box-shadow:0 0 50px rgba(201,150,58,.5),0 0 100px rgba(201,150,58,.2);display:flex;align-items:center;justify-content:center;font-size:2.2rem;margin:0 auto 24px;animation:glow 3s ease-in-out infinite}
 @keyframes glow{0%,100%{box-shadow:0 0 50px rgba(201,150,58,.5),0 0 100px rgba(201,150,58,.2)}50%{box-shadow:0 0 70px rgba(201,150,58,.7),0 0 140px rgba(201,150,58,.35)}}
 .app-name{font-family:var(--ff-d);font-size:3.2rem;font-weight:300;background:linear-gradient(135deg,#E8B84B,#C9963A 50%,#D4A96A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px}
@@ -71,11 +72,11 @@ body{font-family:var(--ff);background:var(--bg);color:var(--text);overscroll-beh
 .icon-btn:hover{background:var(--surface2);color:var(--text)}
 
 /* SCROLL */
-.scroll{flex:1;overflow-y:auto;padding:18px 18px 100px;-webkit-overflow-scrolling:touch}
+.scroll{flex:1;overflow-y:auto;padding:18px 18px calc(80px + env(safe-area-inset-bottom, 0px));-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
 .scroll::-webkit-scrollbar{display:none}
 
 /* BOTTOM NAV */
-.bnav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:rgba(13,20,37,.96);backdrop-filter:blur(20px);border-top:1px solid var(--border);display:flex;padding:8px 0 max(16px, env(safe-area-inset-bottom));z-index:50;flex-shrink:0}
+.bnav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;background:rgba(13,20,37,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--border);display:flex;padding:8px 0;padding-bottom:max(8px, env(safe-area-inset-bottom, 8px));z-index:100;flex-shrink:0}
 .ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 4px;cursor:pointer;opacity:.4;transition:all .2s}
 .ni.active{opacity:1}
 .ni .ic{font-size:1.15rem}
@@ -290,6 +291,27 @@ label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var
 /* DIVIDER */
 .divider{display:flex;align-items:center;gap:10px;margin:16px 0;color:var(--text3);font-size:.75rem}
 .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+/* DESKTOP — show as centred phone shell on wide screens */
+@media (min-width: 500px) {
+  body { background: var(--bg); display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  #app { height: min(100vh, 900px); height: min(100dvh, 900px); border-radius: 32px; border: 1px solid var(--border2); box-shadow: 0 40px 100px rgba(0,0,0,.6); overflow: hidden; }
+  .bnav { border-radius: 0 0 32px 32px; }
+  .modal { border-radius: 32px; overflow: hidden; }
+}
+/* SMALL PHONES — ensure nothing clips below 360px width */
+@media (max-width: 360px) {
+  .scroll { padding: 14px 14px calc(80px + env(safe-area-inset-bottom, 0px)); }
+  .ni .lb { font-size: .55rem; }
+  .sh h2 { font-size: 1.5rem; }
+}
+/* LANDSCAPE MOBILE */
+@media (max-height: 500px) and (orientation: landscape) {
+  .scroll { padding-bottom: 70px; }
+  .bnav { padding: 4px 0; }
+  .ni { padding: 4px; }
+  .ni .ic { font-size: 1rem; }
+  .streak-banner { padding: 10px 14px; }
+}
 </style>
 </head>
 <body>
@@ -448,7 +470,10 @@ label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var
 
       <div class="divider">Mode quiz</div>
       <div class="card">
-        <div class="di-label" style="margin-bottom:10px">🫀 Find your current mode</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <div class="di-label" style="margin-bottom:0">🫀 Find your current mode</div>
+          <a href="mode_checker_tool.html" style="font-size:.72rem;color:var(--gold2);text-decoration:none;background:var(--gold-dim);border:1px solid rgba(201,150,58,.25);border-radius:99px;padding:4px 10px">Full quiz ↗</a>
+        </div>
         <div id="quizContent"></div>
       </div>
     </div>
@@ -578,21 +603,50 @@ label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var
 
   <!-- ═══════════════ PROFILE ═══════════════ -->
   <div class="screen" id="s-profile">
-    <div class="top-bar"><span class="logo-sm">Profile</span></div>
+    <div class="top-bar"><span class="logo-sm">Profile</span>
+      <button id="logoutBtn" onclick="logoutUser()" style="display:none;background:var(--red-dim);border:1px solid rgba(192,57,43,.25);color:var(--rose);border-radius:8px;padding:5px 12px;font-size:.75rem;cursor:pointer;font-family:var(--ff)">Log out</button>
+    </div>
     <div class="scroll">
-      <div class="profile-hdr">
-        <div class="profile-av">✦</div>
-        <div class="profile-name" id="profileName">Seeker</div>
-        <div class="profile-since">Abowabon practitioner · Day 1</div>
-        <div style="margin-top:10px" id="currentModeBadge"></div>
+      <!-- Not logged in view -->
+      <div id="loginSection">
+        <div class="card card-gold" style="margin-bottom:18px">
+          <div class="di-label" style="margin-bottom:4px">🔐 Your account</div>
+          <p style="font-size:.82rem;color:var(--text2);margin-bottom:14px;line-height:1.6">Set a username and app password to protect your data on this device. This is stored locally — only you can access it.</p>
+          <div style="margin-bottom:10px">
+            <label class="sl">Username</label>
+            <input type="text" id="loginUser" class="di" style="min-height:0;height:auto;padding:10px 13px" placeholder="Your username" autocomplete="username">
+          </div>
+          <div style="margin-bottom:14px">
+            <label class="sl">App password</label>
+            <input type="password" id="loginPass" class="di" style="min-height:0;height:auto;padding:10px 13px" placeholder="Choose a password" autocomplete="current-password">
+          </div>
+          <div style="display:flex;gap:8px">
+            <button class="btn btn-gold btn-sm" onclick="loginUser()" style="flex:1">Sign in / Create account</button>
+          </div>
+          <div id="loginError" style="display:none;color:var(--rose);font-size:.78rem;margin-top:8px;text-align:center"></div>
+        </div>
+        <div class="card" style="opacity:.6">
+          <p style="font-size:.8rem;color:var(--text2);text-align:center">Sign in above to access your profile and settings</p>
+        </div>
       </div>
-      <div class="card">
-        <div class="setting-row" onclick="showTab('s-script')"><div class="setting-l"><div class="setting-ic">✍️</div><div><div class="setting-lbl">Scriptorium</div><div class="setting-sub">Your settled end scenarios</div></div></div><span style="color:var(--text3)">›</span></div>
-        <div class="setting-row" onclick="showModal('modal-about')"><div class="setting-l"><div class="setting-ic">📖</div><div><div class="setting-lbl">About Abowabon</div><div class="setting-sub">The SAFE method & 3-mode framework</div></div></div><span style="color:var(--text3)">›</span></div>
-        <div class="setting-row" onclick="exportData()"><div class="setting-l"><div class="setting-ic">📤</div><div><div class="setting-lbl">Export my data</div><div class="setting-sub">Download your journal and entries</div></div></div><span style="color:var(--text3)">›</span></div>
-        <div class="setting-row" onclick="clearAll()"><div class="setting-l"><div class="setting-ic">🗑️</div><div><div class="setting-lbl">Reset all data</div><div class="setting-sub">Start fresh</div></div></div><span style="color:var(--text3)">›</span></div>
+
+      <!-- Logged in view -->
+      <div id="profileSection" style="display:none">
+        <div class="profile-hdr">
+          <div class="profile-av">✦</div>
+          <div class="profile-name" id="profileName">Seeker</div>
+          <div class="profile-since" id="profileSince">Abowabon practitioner · Day 1</div>
+          <div style="margin-top:10px" id="currentModeBadge"></div>
+        </div>
+        <div class="card">
+          <div class="setting-row" onclick="showTab('s-script')"><div class="setting-l"><div class="setting-ic">✍️</div><div><div class="setting-lbl">Scriptorium</div><div class="setting-sub">Your settled end scenarios</div></div></div><span style="color:var(--text3)">›</span></div>
+          <div class="setting-row" onclick="showModal('modal-about')"><div class="setting-l"><div class="setting-ic">📖</div><div><div class="setting-lbl">About Abowabon</div><div class="setting-sub">The SAFE method & 3-mode framework</div></div></div><span style="color:var(--text3)">›</span></div>
+          <div class="setting-row" onclick="exportData()"><div class="setting-l"><div class="setting-ic">📤</div><div><div class="setting-lbl">Export my data</div><div class="setting-sub">Download your journal and entries</div></div></div><span style="color:var(--text3)">›</span></div>
+          <div class="setting-row" onclick="changePassword()"><div class="setting-l"><div class="setting-ic">🔑</div><div><div class="setting-lbl">Change password</div><div class="setting-sub">Update your app password</div></div></div><span style="color:var(--text3)">›</span></div>
+          <div class="setting-row" onclick="clearAll()"><div class="setting-l"><div class="setting-ic">🗑️</div><div><div class="setting-lbl">Reset all data</div><div class="setting-sub">Start fresh — cannot be undone</div></div></div><span style="color:var(--text3)">›</span></div>
+        </div>
+        <div class="ad-zone">AdSense 320×100 — replace with your AdSense code</div>
       </div>
-      <div class="ad-zone">AdSense 320×100 — replace with your AdSense code</div>
     </div>
   </div>
 
@@ -694,8 +748,8 @@ function initAll() {
   renderStats();
   renderQuiz(0);
   updateStreakDisplay();
+  checkLoginState();
   if (S.name) {
-    document.getElementById('profileName').textContent = S.name;
     document.getElementById('greeting').textContent = 'Hi, ' + S.name + ' ✦';
   }
 }
@@ -986,13 +1040,33 @@ function switchJTab(key, el) {
 // ── EVIDENCE ────────────────────────────────────────────────────────────────
 function addEvidence() {
   const t = document.getElementById('evidenceInput').value.trim(); if (!t) return;
-  S.evidence.unshift({text:t, date:new Date().toLocaleDateString()});
+  S.evidence.unshift({id: Date.now(), text:t, date:new Date().toLocaleDateString()});
   document.getElementById('evidenceInput').value=''; save(); renderEvidence(); toast('Evidence logged ⭐');
+}
+function editEvidence(idx) {
+  const entry = S.evidence[idx]; if (!entry) return;
+  const newText = prompt('Edit evidence entry:', entry.text);
+  if (newText === null || !newText.trim()) return;
+  S.evidence[idx].text = newText.trim();
+  save(); renderEvidence(); toast('Evidence updated ⭐');
+}
+function deleteEvidence(idx) {
+  if (!confirm('Delete this evidence entry?')) return;
+  S.evidence.splice(idx, 1);
+  save(); renderEvidence(); toast('Entry deleted');
 }
 function renderEvidence() {
   const el = document.getElementById('evidenceList');
   if (!S.evidence.length) { el.innerHTML='<div style="color:var(--text3);font-size:.82rem;text-align:center;padding:16px">No evidence yet. Start logging what you notice.</div>'; return; }
-  el.innerHTML = S.evidence.map(e=>`<div class="j-entry"><div class="j-date">${e.date}</div><div class="j-text">${e.text}</div></div>`).join('');
+  el.innerHTML = S.evidence.map((e,i)=>`
+    <div class="j-entry" style="position:relative">
+      <div class="j-date">${e.date}</div>
+      <div class="j-text">${e.text}</div>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <button onclick="editEvidence(${i})" style="background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.25);color:var(--gold2);border-radius:8px;padding:3px 10px;font-size:.68rem;cursor:pointer;font-family:var(--ff)">Edit</button>
+        <button onclick="deleteEvidence(${i})" style="background:var(--red-dim);border:1px solid rgba(192,57,43,.25);color:var(--rose);border-radius:8px;padding:3px 10px;font-size:.68rem;cursor:pointer;font-family:var(--ff)">Delete</button>
+      </div>
+    </div>`).join('');
   document.getElementById('stEvidence').textContent = S.evidence.length;
 }
 
@@ -1000,14 +1074,39 @@ function renderEvidence() {
 function addBelief() {
   const o=document.getElementById('beliefOld').value.trim(), n=document.getElementById('beliefNew').value.trim();
   if (!o||!n) return;
-  S.beliefs.unshift({old:o,new:n,date:new Date().toLocaleDateString()});
+  S.beliefs.unshift({id:Date.now(), old:o, new:n, date:new Date().toLocaleDateString()});
   document.getElementById('beliefOld').value=''; document.getElementById('beliefNew').value='';
   save(); renderBeliefs(); toast('Belief shifted ✦');
+}
+function editBelief(idx) {
+  const b = S.beliefs[idx]; if (!b) return;
+  const newOld = prompt('Edit old belief:', b.old);
+  if (newOld === null) return;
+  const newNew = prompt('Edit new belief:', b.new);
+  if (newNew === null) return;
+  S.beliefs[idx] = { ...b, old: newOld.trim() || b.old, new: newNew.trim() || b.new };
+  save(); renderBeliefs(); toast('Belief updated ✦');
+}
+function deleteBelief(idx) {
+  if (!confirm('Delete this belief shift?')) return;
+  S.beliefs.splice(idx, 1);
+  save(); renderBeliefs(); toast('Belief entry deleted');
 }
 function renderBeliefs() {
   const el=document.getElementById('beliefList');
   if (!S.beliefs.length) { el.innerHTML='<div style="color:var(--text3);font-size:.82rem;text-align:center;padding:16px">No belief shifts yet.</div>'; return; }
-  el.innerHTML=S.beliefs.map(b=>`<div class="j-entry belief-old"><div class="bl-label">Old belief</div><div class="j-text">${b.old}</div></div><div class="j-entry belief-new"><div class="bl-label">New belief</div><div class="j-text">${b.new}</div></div><div style="font-size:.68rem;color:var(--text3);text-align:right;margin-bottom:10px">${b.date}</div>`).join('');
+  el.innerHTML=S.beliefs.map((b,i)=>`
+    <div style="margin-bottom:12px">
+      <div class="j-entry belief-old"><div class="bl-label">Old belief</div><div class="j-text">${b.old}</div></div>
+      <div class="j-entry belief-new"><div class="bl-label">New belief</div><div class="j-text">${b.new}</div></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px">
+        <span style="font-size:.68rem;color:var(--text3)">${b.date}</span>
+        <div style="display:flex;gap:6px">
+          <button onclick="editBelief(${i})" style="background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.25);color:var(--gold2);border-radius:8px;padding:3px 10px;font-size:.68rem;cursor:pointer;font-family:var(--ff)">Edit</button>
+          <button onclick="deleteBelief(${i})" style="background:var(--red-dim);border:1px solid rgba(192,57,43,.25);color:var(--rose);border-radius:8px;padding:3px 10px;font-size:.68rem;cursor:pointer;font-family:var(--ff)">Delete</button>
+        </div>
+      </div>
+    </div>`).join('');
   document.getElementById('stBeliefs').textContent = S.beliefs.length;
 }
 
@@ -1015,57 +1114,178 @@ function renderBeliefs() {
 function addMoneyLog() {
   const d=document.getElementById('moneyDesc').value.trim(), a=document.getElementById('moneyAmt').value.trim();
   if (!d) return;
-  S.money.unshift({desc:d,amt:a||'—',date:new Date().toLocaleDateString()});
+  S.money.unshift({id:Date.now(), desc:d, amt:a||'—', date:new Date().toLocaleDateString()});
   document.getElementById('moneyDesc').value=''; document.getElementById('moneyAmt').value='';
   save(); renderMoneyList(); toast('Money flow logged 💰');
+}
+function editMoneyLog(idx) {
+  const m = S.money[idx]; if (!m) return;
+  const newDesc = prompt('Edit description:', m.desc);
+  if (newDesc === null) return;
+  const newAmt = prompt('Edit amount:', m.amt === '—' ? '' : m.amt);
+  if (newAmt === null) return;
+  S.money[idx] = { ...m, desc: newDesc.trim() || m.desc, amt: newAmt.trim() || '—' };
+  save(); renderMoneyList(); toast('Entry updated 💰');
+}
+function deleteMoneyLog(idx) {
+  if (!confirm('Delete this money flow entry?')) return;
+  S.money.splice(idx, 1);
+  save(); renderMoneyList(); toast('Entry deleted');
 }
 function renderMoneyList() {
   const el=document.getElementById('moneyList');
   if (!S.money.length) { el.innerHTML='<div style="color:var(--text3);font-size:.82rem;text-align:center;padding:12px">No money flow logged yet.</div>'; return; }
-  el.innerHTML=S.money.map(m=>`<div class="money-item"><div><div class="mi-desc">${m.desc}</div><div class="mi-date">${m.date}</div></div><div class="mi-amt">${m.amt}</div></div>`).join('');
+  el.innerHTML=S.money.map((m,i)=>`
+    <div class="money-item" style="flex-direction:column;align-items:flex-start;gap:6px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;width:100%">
+        <div><div class="mi-desc">${m.desc}</div><div class="mi-date">${m.date}</div></div>
+        <div class="mi-amt">${m.amt}</div>
+      </div>
+      <div style="display:flex;gap:6px">
+        <button onclick="editMoneyLog(${i})" style="background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.25);color:var(--gold2);border-radius:8px;padding:3px 10px;font-size:.68rem;cursor:pointer;font-family:var(--ff)">Edit</button>
+        <button onclick="deleteMoneyLog(${i})" style="background:var(--red-dim);border:1px solid rgba(192,57,43,.25);color:var(--rose);border-radius:8px;padding:3px 10px;font-size:.68rem;cursor:pointer;font-family:var(--ff)">Delete</button>
+      </div>
+    </div>`).join('');
 }
 
 // ── GRATITUDE ────────────────────────────────────────────────────────────────
 function addGratitude() {
   const t=document.getElementById('gratInput').value.trim(); if (!t) return;
-  S.gratitude.unshift({text:t,date:new Date().toLocaleDateString()});
+  S.gratitude.unshift({id:Date.now(), text:t, date:new Date().toLocaleDateString()});
   document.getElementById('gratInput').value=''; save(); renderGratitude(); toast('Gratitude added 🙏');
+}
+function editGratitude(idx) {
+  const g = S.gratitude[idx]; if (!g) return;
+  const newText = prompt('Edit gratitude entry:', g.text);
+  if (newText === null || !newText.trim()) return;
+  S.gratitude[idx].text = newText.trim();
+  save(); renderGratitude(); toast('Gratitude updated 🙏');
+}
+function deleteGratitude(idx) {
+  if (!confirm('Delete this gratitude entry?')) return;
+  S.gratitude.splice(idx, 1);
+  save(); renderGratitude(); toast('Entry deleted');
 }
 function renderGratitude() {
   const el=document.getElementById('gratList');
   if (!S.gratitude.length) { el.innerHTML='<div style="color:var(--text3);font-size:.82rem;text-align:center;padding:16px">No gratitude entries yet.</div>'; return; }
-  el.innerHTML=S.gratitude.map(g=>`<div class="j-entry" style="border-left-color:var(--lav)"><div class="j-date">${g.date}</div><div class="j-text">${g.text}</div></div>`).join('');
+  el.innerHTML=S.gratitude.map((g,i)=>`
+    <div class="j-entry" style="border-left-color:var(--lav)">
+      <div class="j-date">${g.date}</div>
+      <div class="j-text">${g.text}</div>
+      <div style="display:flex;gap:6px;margin-top:8px">
+        <button onclick="editGratitude(${i})" style="background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.25);color:var(--gold2);border-radius:8px;padding:3px 10px;font-size:.68rem;cursor:pointer;font-family:var(--ff)">Edit</button>
+        <button onclick="deleteGratitude(${i})" style="background:var(--red-dim);border:1px solid rgba(192,57,43,.25);color:var(--rose);border-radius:8px;padding:3px 10px;font-size:.68rem;cursor:pointer;font-family:var(--ff)">Delete</button>
+      </div>
+    </div>`).join('');
 }
 
 // ── SCRIPTORIUM ──────────────────────────────────────────────────────────────
 function renderScenarios() {
-  const all = [...SCENARIOS, ...S.scenarios];
-  document.getElementById('scenarioList').innerHTML = all.map((sc,i)=>`
+  const examples = SCENARIOS;
+  const userScenarios = S.scenarios || [];
+
+  let html = '';
+
+  // Example entries (clearly labelled, not editable, not deletable)
+  if (userScenarios.length === 0) {
+    // Show examples only when user has no entries yet
+    html += examples.map((sc, i) => `
+    <div class="card" style="padding:0;margin-bottom:14px;opacity:.7">
+      <div class="scenario-hdr" onclick="toggleScenario('ex${i}')">
+        <div>
+          <div class="scenario-num" style="color:var(--text3)">Example ${i+1}</div>
+          <div class="scenario-title">${sc.title}</div>
+          <div style="font-size:.75rem;color:var(--text3);margin-top:2px;font-style:italic">${sc.sub||''}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:.65rem;background:var(--bg2);color:var(--text3);border-radius:99px;padding:2px 8px;border:1px solid var(--border)">Example</span>
+          <div style="color:var(--text3);font-size:.85rem" id="sarr_ex${i}">›</div>
+        </div>
+      </div>
+      <div class="scenario-body" id="sb_ex${i}">
+        <div style="font-size:.75rem;color:var(--text3);margin-bottom:10px;padding:6px 10px;background:var(--bg2);border-radius:6px">
+          📌 This is a sample scenario. Create your own below to replace it.
+        </div>
+        <div class="scene-prose">"${sc.scene}"</div>
+        ${sc.frisson?`<div class="frisson-anchor"><div class="fa-label">✦ Frisson anchor</div><div class="fa-text">${sc.frisson}</div></div>`:''}
+        ${sc.dn?`<div class="dn-block"><div class="dn-label">📓 Death note</div><div class="dn-text">${sc.dn}</div></div>`:''}
+      </div>
+    </div>`).join('');
+  }
+
+  // User entries — numbered from Desire 1
+  html += userScenarios.map((sc, i) => `
   <div class="card" style="padding:0;margin-bottom:14px">
-    <div class="scenario-hdr" onclick="toggleScenario(${i})">
-      <div><div class="scenario-num">Desire ${i+1}</div><div class="scenario-title">${sc.title}</div><div style="font-size:.75rem;color:var(--text3);margin-top:2px;font-style:italic">${sc.sub||''}</div></div>
-      <div style="color:var(--text3);font-size:.85rem" id="sarr${i}">›</div>
+    <div class="scenario-hdr" onclick="toggleScenario('usr${i}')">
+      <div>
+        <div class="scenario-num">Desire ${i+1}</div>
+        <div class="scenario-title">${sc.title}</div>
+        <div style="font-size:.75rem;color:var(--text3);margin-top:2px;font-style:italic">${sc.sub||''}</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <button onclick="event.stopPropagation();editScenario(${i})" style="background:rgba(201,150,58,.1);border:1px solid rgba(201,150,58,.25);color:var(--gold2);border-radius:8px;padding:4px 10px;font-size:.68rem;cursor:pointer;font-family:var(--ff)">Edit</button>
+        <button onclick="event.stopPropagation();deleteScenario(${i})" style="background:var(--red-dim);border:1px solid rgba(192,57,43,.25);color:var(--rose);border-radius:8px;padding:4px 10px;font-size:.68rem;cursor:pointer;font-family:var(--ff)">Delete</button>
+        <div style="color:var(--text3);font-size:.85rem" id="sarr_usr${i}">›</div>
+      </div>
     </div>
-    <div class="scenario-body" id="sb${i}">
-      <div class="scene-prose">"${sc.scene}"</div>
+    <div class="scenario-body" id="sb_usr${i}">
+      <div class="scene-prose" id="scene-prose-${i}">"${sc.scene}"</div>
       ${sc.frisson?`<div class="frisson-anchor"><div class="fa-label">✦ Frisson anchor</div><div class="fa-text">${sc.frisson}</div></div>`:''}
       ${sc.dn?`<div class="dn-block"><div class="dn-label">📓 Death note</div><div class="dn-text">${sc.dn}</div></div>`:''}
-      ${sc.userWritten?`<textarea class="di" style="margin-top:10px" rows="3" placeholder="Continue writing your scene…">${sc.extra||''}</textarea>`:''}
     </div>
   </div>`).join('');
+
+  if (userScenarios.length === 0) {
+    html += `<div style="text-align:center;color:var(--text3);font-size:.8rem;padding:8px 0 16px">Your scenarios appear here. Examples shown above until you create your first one.</div>`;
+  }
+
+  document.getElementById('scenarioList').innerHTML = html;
 }
 
-function toggleScenario(i) {
-  const body = document.getElementById('sb'+i);
-  const arr = document.getElementById('sarr'+i);
+function toggleScenario(id) {
+  const body = document.getElementById('sb_' + id);
+  const arr = document.getElementById('sarr_' + id);
+  if (!body) return;
   const open = body.classList.toggle('open');
-  arr.style.transform = open ? 'rotate(90deg)' : '';
+  if (arr) arr.style.transform = open ? 'rotate(90deg)' : '';
 }
 
 function addScenario() {
-  const t=document.getElementById('newScenario').value.trim(); if (!t) return;
-  S.scenarios.push({title:t, sub:'Your settled end scene', scene:'Write your ordinary Tuesday here — the day your desire is simply your normal life. No fanfare. Just settled.', userWritten:true});
-  document.getElementById('newScenario').value=''; save(); renderScenarios(); toast('Scenario created ✍️');
+  const t = document.getElementById('newScenario').value.trim(); if (!t) return;
+  S.scenarios.push({
+    title: t,
+    sub: 'Your settled end scene',
+    scene: 'Write your ordinary Tuesday here — the day your desire is simply your normal life. No fanfare. Just settled.',
+    frisson: '',
+    dn: '',
+    userWritten: true
+  });
+  document.getElementById('newScenario').value = '';
+  save(); renderScenarios();
+  // Auto-open the newly created scenario
+  const newIdx = S.scenarios.length - 1;
+  setTimeout(() => toggleScenario('usr' + newIdx), 100);
+  toast('Scenario created ✍️');
+}
+
+function editScenario(i) {
+  const sc = S.scenarios[i]; if (!sc) return;
+  const newTitle = prompt('Edit desire name:', sc.title);
+  if (newTitle === null) return;
+  const newScene = prompt('Edit scene (your ordinary Tuesday):', sc.scene);
+  if (newScene === null) return;
+  const newFrisson = prompt('Edit Frisson anchor (optional):', sc.frisson || '');
+  const newDn = prompt('Edit Death Note (optional):', sc.dn || '');
+  S.scenarios[i] = { ...sc, title: newTitle || sc.title, scene: newScene || sc.scene, frisson: newFrisson || '', dn: newDn || '' };
+  save(); renderScenarios(); toast('Scenario updated ✍️');
+}
+
+function deleteScenario(i) {
+  const sc = S.scenarios[i]; if (!sc) return;
+  if (!confirm(`Delete "${sc.title}"? This cannot be undone.`)) return;
+  S.scenarios.splice(i, 1);
+  save(); renderScenarios(); toast('Scenario deleted');
 }
 
 // ── STATS ─────────────────────────────────────────────────────────────────────
@@ -1074,9 +1294,11 @@ function renderStats() {
   document.getElementById('stEvidence').textContent = S.evidence.length;
   document.getElementById('stStreak').textContent = S.streak;
   document.getElementById('stBeliefs').textContent = S.beliefs.length;
-  const base = Math.min(S.totalGuides * 12, 95);
+  // Only fill bars once user has actually used the app
+  const guides = S.totalGuides || 0;
+  const base = guides === 0 ? 0 : Math.min(guides * 12, 95);
   ['1','2','3','4'].forEach((n,i)=>{
-    const v = Math.max(0, base - i*8);
+    const v = guides === 0 ? 0 : Math.max(0, base - i*8);
     document.getElementById('pb'+n).style.width = v+'%';
     document.getElementById('pp'+n).textContent = v+'%';
   });
@@ -1094,12 +1316,145 @@ function exportData() {
 }
 
 function clearAll() {
-  if (!confirm('Reset all your data? This cannot be undone.')) return;
-  S.evidence=[]; S.beliefs=[]; S.money=[]; S.gratitude=[]; S.scenarios=[]; S.streak=1; S.totalGuides=0;
-  save(); initAll(); toast('Data cleared');
+  if (!confirm('Reset ALL your data? This clears your name, journal, scenarios, manifestations, streaks and history. This cannot be undone.')) return;
+  // Wipe localStorage entirely
+  localStorage.removeItem('mai_state');
+  localStorage.removeItem('mai_name');
+  // Reset state to clean defaults
+  S = {
+    name: '', streak: 1, guides: 0, totalGuides: 0,
+    manifestations: [], evidence: [], beliefs: [],
+    money: [], gratitude: [], scenarios: [], checksDone: 0,
+    modeHistory: [], currentMode: 0,
+  };
+  // Clear all UI inputs
+  ['evidenceInput','beliefOld','beliefNew','moneyDesc','moneyAmt','gratInput','newScenario','desireInput'].forEach(id => {
+    const el = document.getElementById(id); if (el) el.value = '';
+  });
+  // Re-render everything
+  document.getElementById('ob-name').value = '';
+  document.getElementById('profileName').textContent = 'Seeker';
+  document.getElementById('greeting').textContent = 'Good day, seeker ✦';
+  document.getElementById('currentModeBadge').innerHTML = '';
+  document.getElementById('guideResult').style.display = 'none';
+  document.querySelectorAll('.cl-item').forEach(i => i.classList.remove('done'));
+  document.getElementById('checkCount').textContent = '0';
+  renderManifestList();
+  renderEvidence(); renderBeliefs(); renderMoneyList(); renderGratitude();
+  renderScenarios(); renderStats();
+  updateStreakDisplay();
+  buildHeatmap('heatmap'); buildHeatmap('heatmap2');
+  quizAnswers = []; renderQuiz(0);
+  toast('All data reset. Fresh start ✦');
 }
 
-// ── TOAST ─────────────────────────────────────────────────────────────────────
+// ── LOGIN / LOGOUT ────────────────────────────────────────────────────────────
+// Stored on device only — no server involved. Username + hashed password in localStorage.
+// Simple hash function (not cryptographic, but fine for a local app password)
+function simpleHash(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash;
+  }
+  return hash.toString(36);
+}
+
+function loginUser() {
+  const username = document.getElementById('loginUser').value.trim();
+  const password = document.getElementById('loginPass').value;
+  const errEl = document.getElementById('loginError');
+
+  if (!username || !password) {
+    errEl.textContent = 'Please enter both a username and password.';
+    errEl.style.display = 'block'; return;
+  }
+  if (password.length < 4) {
+    errEl.textContent = 'Password must be at least 4 characters.';
+    errEl.style.display = 'block'; return;
+  }
+
+  const storedUser = localStorage.getItem('ab_auth_user');
+  const storedHash = localStorage.getItem('ab_auth_hash');
+  const passwordHash = simpleHash(password);
+
+  if (!storedUser) {
+    // First time — create account
+    localStorage.setItem('ab_auth_user', username);
+    localStorage.setItem('ab_auth_hash', passwordHash);
+    localStorage.setItem('ab_logged_in', '1');
+    S.name = username;
+    localStorage.setItem('mai_name', username);
+    save();
+    errEl.style.display = 'none';
+    showLoggedIn(username);
+    toast('Account created. Welcome, ' + username + ' ✦');
+  } else if (storedUser === username && storedHash === passwordHash) {
+    // Existing user — correct credentials
+    localStorage.setItem('ab_logged_in', '1');
+    S.name = username;
+    errEl.style.display = 'none';
+    showLoggedIn(username);
+    toast('Welcome back, ' + username + ' ✦');
+  } else if (storedUser !== username) {
+    errEl.textContent = 'Username not recognised. If this is a new device, clear data first.';
+    errEl.style.display = 'block';
+  } else {
+    errEl.textContent = 'Incorrect password. Please try again.';
+    errEl.style.display = 'block';
+  }
+}
+
+function logoutUser() {
+  if (!confirm('Log out? Your data stays saved on this device.')) return;
+  localStorage.removeItem('ab_logged_in');
+  showLoggedOut();
+  toast('Logged out. Your data is safe.');
+}
+
+function changePassword() {
+  const current = prompt('Enter your current password:');
+  if (current === null) return;
+  const storedHash = localStorage.getItem('ab_auth_hash');
+  if (simpleHash(current) !== storedHash) {
+    toast('Incorrect current password.'); return;
+  }
+  const newPass = prompt('Enter your new password (min 4 characters):');
+  if (!newPass || newPass.length < 4) { toast('Password too short.'); return; }
+  const confirm2 = prompt('Confirm new password:');
+  if (newPass !== confirm2) { toast('Passwords do not match.'); return; }
+  localStorage.setItem('ab_auth_hash', simpleHash(newPass));
+  toast('Password updated ✦');
+}
+
+function showLoggedIn(username) {
+  document.getElementById('loginSection').style.display = 'none';
+  document.getElementById('profileSection').style.display = 'block';
+  document.getElementById('logoutBtn').style.display = 'block';
+  document.getElementById('profileName').textContent = username;
+  const days = Math.max(1, S.streak || 1);
+  document.getElementById('profileSince').textContent = `Abowabon practitioner · Day ${days}`;
+}
+
+function showLoggedOut() {
+  document.getElementById('loginSection').style.display = 'block';
+  document.getElementById('profileSection').style.display = 'none';
+  document.getElementById('logoutBtn').style.display = 'none';
+  document.getElementById('loginUser').value = '';
+  document.getElementById('loginPass').value = '';
+  document.getElementById('loginError').style.display = 'none';
+}
+
+function checkLoginState() {
+  const loggedIn = localStorage.getItem('ab_logged_in');
+  const storedUser = localStorage.getItem('ab_auth_user');
+  if (loggedIn === '1' && storedUser) {
+    showLoggedIn(storedUser);
+  } else {
+    showLoggedOut();
+  }
+}
 function toast(msg) {
   const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),2500);

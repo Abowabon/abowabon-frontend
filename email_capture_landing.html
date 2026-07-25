@@ -2,14 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Free: The Art of Surrender — A Manifestation Guide | Abowabon</title>
 <meta name="description" content="Download the free Surrender Guide — why letting go is the most powerful manifestation technique, and exactly how to do it without giving up.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&display=swap" rel="stylesheet">
 <style>
+/* ── MOBILE BASE FIXES ─────────────────────────────────────────────────── */
+*{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img,video{max-width:100%;height:auto}
+input,textarea,select,button{font-family:inherit}
+
 :root{--bg:#070B14;--surface:#141C2E;--border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.15);--gold:#C9963A;--gold2:#E8B84B;--teal:#4ECDC4;--text:#E8EAF0;--text2:#8892A4;--text3:#5A6478;--ff:'DM Sans',sans-serif;--ffd:'Cormorant Garamond',serif}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--ff);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
+body{font-family:var(--ff);background:var(--bg);color:var(--text);min-height:100vh;height:100dvh;min-height:100dvh;line-height:1.6}
 .aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .ab{position:absolute;border-radius:50%;filter:blur(100px);opacity:.09;animation:drift 20s ease-in-out infinite}
 .ab:nth-child(1){width:600px;height:600px;background:#1A3A5A;top:-150px;left:-100px}
@@ -83,7 +89,19 @@ footer a{color:var(--text3);text-decoration:none;margin:0 8px}
 
   <div class="form-card" id="formCard">
     <div class="fc-title">Get the guide free ✦</div>
-    <div class="fc-sub">Delivered instantly to your email. No spam — ever.</div>
+    <div class="fc-sub">Download instantly, or have it sent to your email.</div>
+
+    <!-- DOWNLOAD WITHOUT EMAIL -->
+    <button class="btn-cta" onclick="downloadGuide()" style="background:linear-gradient(135deg,#1A6B63,#4ECDC4);color:#fff;margin-bottom:10px">
+      ⬇ Download free now (no email needed)
+    </button>
+    <div style="text-align:center;font-size:.75rem;color:var(--text3);margin-bottom:14px;display:flex;align-items:center;gap:8px">
+      <div style="flex:1;height:1px;background:var(--border)"></div>
+      <span>or send to email</span>
+      <div style="flex:1;height:1px;background:var(--border)"></div>
+    </div>
+
+    <!-- EMAIL OPTION -->
     <div class="field"><label>Your name</label><input type="text" id="nameInput" placeholder="What shall we call you?"></div>
     <div class="field"><label>Email address</label><input type="email" id="emailInput" placeholder="you@email.com"></div>
     <button class="btn-cta" onclick="submitForm()">Send me the guide →</button>
@@ -92,9 +110,12 @@ footer a{color:var(--text3);text-decoration:none;margin:0 8px}
 
   <div class="success-panel" id="successPanel">
     <div class="success-icon">🤍</div>
-    <div class="success-h">Your guide is on its way</div>
-    <div class="success-p">Check your inbox in the next few minutes. If it doesn't arrive, check your spam folder and mark it as not-spam so future emails land safely.<br><br>While you wait — explore the free Abowabon app to discover your manifestation mode and get a personalised SAFE guide.</div>
-    <div style="margin-top:16px"><button class="btn-ghost" onclick="window.location.href='https://abowabon.com'">Open Abowabon free →</button></div>
+    <div class="success-h">Guide delivered!</div>
+    <div class="success-p" id="successMsg">Your guide is downloading now. Check your downloads folder.</div>
+    <div style="margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-ghost" onclick="downloadGuide()">⬇ Download again</button>
+      <button class="btn-ghost" onclick="window.location.href='https://abowabon.com'">Open Abowabon free →</button>
+    </div>
   </div>
 
   <div class="preview-section">
@@ -121,22 +142,157 @@ footer a{color:var(--text3);text-decoration:none;margin:0 8px}
 </footer>
 
 <script>
-function submitForm() {
+// ── DOWNLOAD — generates the surrender guide as a downloadable HTML file ──────
+function downloadGuide() {
+  const guideHTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Art of Surrender — Abowabon Free Guide</title>
+<style>
+  body{font-family:'Georgia',serif;max-width:600px;margin:40px auto;padding:0 24px 60px;color:#1a1a1a;line-height:1.8;background:#fdfaf5}
+  h1{font-size:2rem;color:#C9963A;margin-bottom:6px;line-height:1.2}
+  h2{font-size:1.3rem;color:#333;margin-top:36px;margin-bottom:10px;border-bottom:2px solid #C9963A;padding-bottom:4px}
+  .subtitle{font-size:1rem;color:#666;font-style:italic;margin-bottom:32px}
+  p{margin-bottom:16px;color:#333}
+  .quote{background:#fef9f0;border-left:4px solid #C9963A;padding:16px 20px;margin:24px 0;font-style:italic;color:#444;border-radius:0 8px 8px 0}
+  .tool{background:#f0faf8;border:1px solid #4ECDC4;border-radius:12px;padding:18px;margin:20px 0}
+  .tool h3{color:#1A6B63;margin:0 0 8px}
+  .matrix{width:100%;border-collapse:collapse;margin:20px 0}
+  .matrix th{background:#C9963A;color:#fff;padding:10px;text-align:left}
+  .matrix td{padding:10px;border-bottom:1px solid #e0d8cc}
+  .matrix tr:nth-child(even) td{background:#fef9f0}
+  .footer{margin-top:48px;padding-top:16px;border-top:1px solid #ddd;font-size:.85rem;color:#888;text-align:center}
+  .logo{text-align:center;font-size:1.5rem;color:#C9963A;margin-bottom:20px}
+</style>
+</head>
+<body>
+<div class="logo">✦ Abowabon</div>
+<h1>The Art of Surrender</h1>
+<div class="subtitle">Why letting go is the most powerful manifestation move — and exactly how to do it without giving up on what you want.</div>
+
+<h2>Surrender vs Giving Up</h2>
+<p>Most people confuse surrender with defeat. They're not the same thing, and the body knows the difference immediately even when the mind can't articulate it.</p>
+
+<div class="quote">"Surrender is not the same as giving up. Giving up says: I no longer believe this is possible. Surrender says: I believe so completely that I no longer need to carry it. One comes from despair. The other comes from trust."</div>
+
+<p>Giving up is a collapse of belief. Surrender is an expansion of it — a trust so complete that the constant monitoring, checking, and controlling becomes unnecessary. One contracts the nervous system. The other relaxes it. And a relaxed nervous system is the only one that can attract what it wants.</p>
+
+<h2>Why Control Blocks Manifestation</h2>
+<p>When you grip a desire tightly — checking daily for evidence it hasn't arrived, running worst-case scenarios, monitoring timelines — you enter a state of resistance. The body interprets urgency as threat. And a body in threat mode cannot attract what it fears losing.</p>
+<p>The mechanism is not mystical. It is the simple physics of attention: you find what you look for. A person scanning constantly for absence finds evidence of absence. A person who has genuinely released the need to check finds evidence of arrival instead — because they've freed their attention to notice it.</p>
+
+<div class="quote">"The moment you stop checking for evidence of its absence is often the moment evidence of its presence begins to arrive."</div>
+
+<h2>The Control vs Surrender Matrix</h2>
+<table class="matrix">
+  <tr><th>State</th><th>Feels like</th><th>Body signal</th><th>Action</th></tr>
+  <tr><td><strong>Control</strong></td><td>Urgent, tight, monitoring</td><td>Chest tension, jaw clenched</td><td>SAFE Method S step first</td></tr>
+  <tr><td><strong>Surrender</strong></td><td>Open, calm, trusting</td><td>Shoulders dropped, breathing easy</td><td>Let the day unfold</td></tr>
+  <tr><td><strong>Giving up</strong></td><td>Resigned, numb, defeated</td><td>Heavy, flat, withdrawn</td><td>This is grief, not surrender</td></tr>
+</table>
+
+<h2>Three Daily Surrender Tools</h2>
+
+<div class="tool">
+  <h3>Tool 1 — The Evening Release Statement (2 minutes)</h3>
+  <p>Before sleep, say this out loud or write it in your journal:</p>
+  <p><em>"[My desire] is already handled. I release my grip on it tonight — not because I've given up, but because I trust it completely. I can stop watching the door."</em></p>
+  <p>The specific words matter less than the genuine felt sense of putting something down. If you cannot feel the release, your body is still in control mode. Use the 4-7-8 breath first (inhale 4, hold 7, exhale 8) until your shoulders drop, then try again.</p>
+</div>
+
+<div class="tool">
+  <h3>Tool 2 — The Importance Reduction Practice (5 minutes)</h3>
+  <p>From Reality Transurfing: importance is the single greatest repeller of what you want. The more desperately you need something, the more the universe's balancing forces push it away.</p>
+  <p>Write this sentence daily until you feel both halves are genuinely true:</p>
+  <p><em>"[Desire] would be wonderful. I am also genuinely fine without it today."</em></p>
+  <p>If the second half feels like a lie, find what is actually true in it — even the smallest version. "I am fine without it today because I still have [specific thing that is okay]."</p>
+</div>
+
+<div class="tool">
+  <h3>Tool 3 — The Attention Redirect (30 seconds, as needed)</h3>
+  <p>Every time you catch yourself checking for evidence your desire hasn't arrived:</p>
+  <p>1. Name it: "I'm checking. This is control, not trust."</p>
+  <p>2. Drop your shoulders deliberately.</p>
+  <p>3. Ask: "What else is happening right now that is good?" — redirect attention to the present.</p>
+  <p>Repeat. Each repetition strengthens the surrender habit slightly.</p>
+</div>
+
+<h2>Surrendering High-Stakes Desires</h2>
+<p>The tools above work for small desires easily. For the ones that feel impossible to release — the relationship, the debt, the health situation — the same principles apply, but the starting point is different.</p>
+<p>For high-stakes desires, begin with the body, not the mind. No amount of reframing works while the body is in threat mode. Use the physical reset first (4-7-8 breathing, shoulder drop, grounding statement) until you feel genuinely calmer. Then, and only then, attempt the evening release or importance reduction.</p>
+<p>High-stakes desires also need a floor — the minimum you need to feel safe enough to function today, separate from the full desire. "I don't need the relationship resolved today. I just need to get through this one day with enough calm." This is the F step of the SAFE Method, and it's where genuine surrender begins.</p>
+
+<h2>What Surrender Feels Like When It's Working</h2>
+<p>You'll know genuine surrender has landed when thinking about your desire produces calm rather than urgency. Not excitement — calm. Not certainty about timing — simply the felt sense that it's handled and you can stop monitoring it.</p>
+<p>If thinking about the desire still produces a lurch of anxiety or urgency, surrender hasn't fully landed yet. That's not a failure — it's information. Return to the body first.</p>
+
+<div class="footer">
+  <p>✦ Abowabon — abowabon.com</p>
+  <p>This guide is free to share. Not for resale. © 2025 Abowabon</p>
+  <p>For the complete framework including Frisson, End Scenes, Threat Mode override and the Evidence Journal, visit <strong>abowabon.com/complete-system</strong></p>
+</div>
+</body>
+</html>`;
+
+  const blob = new Blob([guideHTML], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'Abowabon_Surrender_Guide.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  // Show success panel
+  document.getElementById('formCard').style.display = 'none';
+  document.getElementById('successMsg').textContent = 'Your guide is downloading now. Open Abowabon_Surrender_Guide.html in any browser to read it.';
+  document.getElementById('successPanel').classList.add('show');
+  document.getElementById('successPanel').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ── EMAIL SUBMISSION ──────────────────────────────────────────────────────────
+async function submitForm() {
   const name = document.getElementById('nameInput').value.trim();
   const email = document.getElementById('emailInput').value.trim();
-  if (!email || !email.includes('@')) { alert('Please enter a valid email address'); return; }
-  
-  // INTEGRATE WITH YOUR EMAIL PLATFORM HERE
-  // Mailchimp API, ConvertKit, EmailOctopus, etc.
-  // For Mailchimp: POST to your list's signup URL
-  // For now, this shows the success state
-  
-  console.log('New subscriber:', name, email);
-  // TODO: POST to your Mailchimp/ConvertKit endpoint
-  
-  document.getElementById('formCard').style.display = 'none';
-  document.getElementById('successPanel').classList.add('show');
-  document.getElementById('successPanel').scrollIntoView({behavior:'smooth'});
+  if (!email || !email.includes('@')) {
+    alert('Please enter a valid email address'); return;
+  }
+
+  // ── MAILCHIMP INTEGRATION ──────────────────────────────────────────────────
+  // Replace the URL below with your real Mailchimp JSONP URL
+  // Found at: Mailchimp → Audience → Signup forms → Embedded forms → copy action URL
+  // Change "post?" to "post-json?" and add "&c=mailchimpCallback" at the end
+  const MAILCHIMP_URL = 'https://YOUR-ACCOUNT.us1.list-manage.com/subscribe/post-json?u=XXXXX&id=XXXXX&c=mailchimpCallback';
+
+  if (MAILCHIMP_URL.includes('YOUR-ACCOUNT')) {
+    // Mailchimp not connected yet — just trigger download
+    console.log('Mailchimp not configured. Subscriber:', name, email);
+    downloadGuide();
+    document.getElementById('successMsg').textContent = 'Thank you ' + (name || '') + '! Your guide is downloading now. We\'ll be in touch once our newsletter is live.';
+    return;
+  }
+
+  // JSONP Mailchimp submission
+  window.mailchimpCallback = function(data) {
+    if (data.result === 'success') {
+      downloadGuide();
+      document.getElementById('successMsg').textContent = 'Guide sent to ' + email + '! Also downloading now as a backup.';
+    } else {
+      // Show error but still offer download
+      downloadGuide();
+      document.getElementById('successMsg').textContent = data.msg + ' — we\'ve also started the download so you\'ll still get the guide.';
+    }
+    document.getElementById('formCard').style.display = 'none';
+    document.getElementById('successPanel').classList.add('show');
+    document.getElementById('successPanel').scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const script = document.createElement('script');
+  script.src = `${MAILCHIMP_URL}&EMAIL=${encodeURIComponent(email)}&FNAME=${encodeURIComponent(name)}`;
+  document.body.appendChild(script);
 }
 </script>
 </body>

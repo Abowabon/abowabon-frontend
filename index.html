@@ -2,23 +2,351 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=/Abowabon_Flagship.html">
-<title>Abowabon — Redirecting...</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Abowabon — Your Daily Manifestation & Wellbeing Practice</title>
+<meta name="description" content="AI-guided daily manifestation and wellbeing practice. Free tools, SAFE Method guides, mode checker, belief audit, evidence journal and more.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#070B14;--gold:#C9963A;--gold2:#E8B84B;--text:#E8EAF0;--text2:#8892A4}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);display:flex;align-items:center;justify-content:center;height:100vh;text-align:center}
-.box{padding:40px}
-.logo{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold2);margin-bottom:10px}
-.sub{font-size:.85rem;color:var(--text2)}
-a{color:var(--gold2);text-decoration:none}
+/* ── MOBILE BASE FIXES ─────────────────────────────────────────────────── */
+*{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img,video{max-width:100%;height:auto}
+input,textarea,select,button{font-family:inherit}
+
+:root{
+  --bg:#070B14;--bg2:#0D1425;--surface:#141C2E;--surface2:#1A2540;
+  --border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.15);
+  --gold:#C9963A;--gold2:#E8B84B;--teal:#4ECDC4;--rose:#E07070;
+  --sage:#7BC67E;--lav:#9B8FD4;
+  --text:#E8EAF0;--text2:#8892A4;--text3:#5A6478;
+  --ff:'DM Sans',sans-serif;--ffd:'Cormorant Garamond',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{height:100%;height:-webkit-fill-available}
+body{font-family:var(--ff);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* AURORA */
+.aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.ab{position:absolute;border-radius:50%;filter:blur(100px);opacity:.09;animation:drift 22s ease-in-out infinite}
+.ab:nth-child(1){width:600px;height:600px;background:#1E3A5F;top:-200px;left:-150px}
+.ab:nth-child(2){width:420px;height:420px;background:#C9963A;top:20%;right:-120px;animation-delay:-8s}
+.ab:nth-child(3){width:500px;height:500px;background:#0E4A4A;bottom:-100px;left:20%;animation-delay:-16s}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-15px)}}
+
+/* LAYOUT */
+.shell{position:relative;z-index:1;max-width:480px;margin:0 auto;padding:0 0 100px}
+
+/* HEADER */
+.header{padding:32px 20px 20px;text-align:center}
+.header-logo{font-family:var(--ffd);font-size:2.2rem;font-weight:600;background:linear-gradient(135deg,#E8B84B,#C9963A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px}
+.header-sub{font-size:.82rem;color:var(--text3)}
+.header-greeting{font-size:.92rem;color:var(--text2);margin-top:6px;font-style:italic;min-height:1.4em}
+
+/* SEARCH/FILTER BAR */
+.filter-bar{display:flex;gap:8px;padding:0 16px;margin-bottom:20px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.filter-bar::-webkit-scrollbar{display:none}
+.filter-pill{flex-shrink:0;background:var(--surface);border:1px solid var(--border);border-radius:99px;padding:6px 14px;font-size:.75rem;font-weight:500;color:var(--text2);cursor:pointer;transition:all .2s;white-space:nowrap}
+.filter-pill.active,.filter-pill:hover{background:rgba(201,150,58,.12);border-color:rgba(201,150,58,.3);color:var(--gold2)}
+
+/* SECTION LABEL */
+.section-label{font-size:.68rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--text3);font-weight:600;padding:0 20px;margin-bottom:12px;margin-top:24px}
+
+/* APP GRID */
+.app-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:0 16px}
+@media(min-width:360px){.app-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:440px){.app-grid{grid-template-columns:repeat(4,1fr)}}
+
+/* APP ICON */
+.app-icon{display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;text-decoration:none;-webkit-tap-highlight-color:transparent;transition:transform .15s}
+.app-icon:active{transform:scale(.92)}
+.app-icon-img{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;position:relative;flex-shrink:0;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.app-icon-badge{position:absolute;top:-4px;right:-4px;background:#E07070;color:#fff;font-size:.55rem;font-weight:700;padding:2px 5px;border-radius:99px;border:2px solid var(--bg)}
+.app-icon-label{font-size:.7rem;color:var(--text2);text-align:center;font-weight:500;line-height:1.3;max-width:72px}
+
+/* HERO APP (flagship) */
+.hero-app{margin:0 16px 8px;background:linear-gradient(135deg,var(--surface),var(--surface2));border:1px solid rgba(201,150,58,.25);border-radius:20px;padding:20px;display:flex;align-items:center;gap:16px;cursor:pointer;text-decoration:none;transition:all .2s}
+.hero-app:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.hero-icon{width:72px;height:72px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:2.2rem;flex-shrink:0;background:linear-gradient(135deg,#C9963A,#E8B84B);box-shadow:0 6px 24px rgba(201,150,58,.4)}
+.hero-info{flex:1;min-width:0}
+.hero-name{font-family:var(--ffd);font-size:1.4rem;font-weight:400;color:var(--text);margin-bottom:3px}
+.hero-desc{font-size:.78rem;color:var(--text2);line-height:1.5}
+.hero-badge{display:inline-block;background:rgba(201,150,58,.15);color:var(--gold2);border-radius:99px;padding:3px 10px;font-size:.68rem;font-weight:600;margin-top:6px}
+
+/* FEATURED ROW (2 wide) */
+.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px}
+.featured-card{background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:16px 14px;cursor:pointer;text-decoration:none;transition:all .2s;display:flex;flex-direction:column;gap:8px}
+.featured-card:hover{transform:translateY(-2px);border-color:rgba(201,150,58,.3)}
+.fc-icon{font-size:1.6rem}
+.fc-name{font-size:.88rem;font-weight:600;color:var(--text)}
+.fc-desc{font-size:.75rem;color:var(--text2);line-height:1.45}
+.fc-tag{font-size:.65rem;padding:2px 8px;border-radius:99px;font-weight:600;display:inline-block;width:fit-content}
+
+/* INCOME ROW */
+.income-card{margin:0 16px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none;transition:all .2s;margin-bottom:8px}
+.income-card:hover{border-color:var(--border2)}
+.ic-icon{font-size:1.4rem;width:40px;text-align:center;flex-shrink:0}
+.ic-info{flex:1}
+.ic-name{font-size:.88rem;font-weight:600;color:var(--text)}
+.ic-desc{font-size:.74rem;color:var(--text2)}
+.ic-price{font-size:.82rem;font-weight:700;color:var(--gold2);flex-shrink:0}
+
+/* BOTTOM NAV */
+.bnav{position:fixed;bottom:0;left:0;right:0;background:rgba(7,11,20,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--border);padding:8px 0;padding-bottom:max(8px,env(safe-area-inset-bottom,8px));z-index:100;display:flex;max-width:480px;margin:0 auto}
+.bnav{left:50%;right:auto;transform:translateX(-50%);width:100%;max-width:480px}
+.bn-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 0;cursor:pointer;opacity:.45;transition:opacity .2s;text-decoration:none}
+.bn-item.active,.bn-item:hover{opacity:1}
+.bn-item .bn-ic{font-size:1.2rem}
+.bn-item .bn-lb{font-size:.6rem;color:var(--text2);font-weight:500}
+.bn-item.active .bn-lb{color:var(--gold2)}
+
+/* AD ZONE */
+.ad-zone{background:rgba(255,255,255,.02);border:1px dashed rgba(255,255,255,.08);border-radius:10px;margin:16px 16px 0;padding:12px;text-align:center;font-size:.68rem;color:var(--text3)}
+
+/* COLOUR CLASSES FOR ICONS */
+.c-gold{background:linear-gradient(135deg,#C9963A,#E8B84B)}
+.c-teal{background:linear-gradient(135deg,#1A6B63,#4ECDC4)}
+.c-rose{background:linear-gradient(135deg,#8B3A3A,#E07070)}
+.c-lav{background:linear-gradient(135deg,#4A3A8B,#9B8FD4)}
+.c-sage{background:linear-gradient(135deg,#2A5A2A,#7BC67E)}
+.c-blue{background:linear-gradient(135deg,#1A3A6B,#5B8FD4)}
+.c-orange{background:linear-gradient(135deg,#8B4A1A,#E09B4A)}
+.c-purple{background:linear-gradient(135deg,#4A1A6B,#9B4AD4)}
+.c-pink{background:linear-gradient(135deg,#6B1A4A,#D44A9B)}
+.c-dark{background:linear-gradient(135deg,#1A2540,#2A3A60)}
+
+.tag-free{background:rgba(78,205,196,.12);color:var(--teal)}
+.tag-paid{background:rgba(201,150,58,.12);color:var(--gold2)}
+.tag-new{background:rgba(224,112,112,.12);color:var(--rose)}
+
+/* HIDDEN CATEGORY */
+.app-icon.hidden,.featured-card.hidden,.income-card.hidden{display:none}
 </style>
 </head>
 <body>
-<div class="box">
-  <div class="logo">✦ Abowabon</div>
-  <div class="sub">Redirecting to the app... <a href="/Abowabon_Flagship.html">Click here if not redirected</a></div>
+<div class="aurora"><div class="ab"></div><div class="ab"></div><div class="ab"></div></div>
+
+<div class="shell">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-logo">✦ Abowabon</div>
+    <div class="header-sub">Your daily practice. Unexpected outcomes.</div>
+    <div class="header-greeting" id="greeting"></div>
+  </div>
+
+  <!-- AD ZONE -->
+  <div class="ad-zone">AdSense 728×90 — replace with your AdSense code</div>
+
+  <!-- FILTER BAR -->
+  <div style="margin-top:16px">
+    <div class="filter-bar" id="filterBar">
+      <div class="filter-pill active" onclick="filterApps('all',this)">All</div>
+      <div class="filter-pill" onclick="filterApps('practice',this)">Practice</div>
+      <div class="filter-pill" onclick="filterApps('tools',this)">Tools</div>
+      <div class="filter-pill" onclick="filterApps('guidance',this)">Guidance</div>
+      <div class="filter-pill" onclick="filterApps('store',this)">Store</div>
+    </div>
+  </div>
+
+  <!-- FLAGSHIP HERO -->
+  <div class="section-label" data-cat="practice">Daily Practice</div>
+  <a class="hero-app" href="ManifestAI_Flagship.html" data-cat="practice">
+    <div class="hero-icon">✦</div>
+    <div class="hero-info">
+      <div class="hero-name">Abowabon App</div>
+      <div class="hero-desc">Daily sessions, SAFE Method guides, AI manifestation coach, evidence journal, streaks and more</div>
+      <div class="hero-badge">✦ Open the full app</div>
+    </div>
+  </a>
+
+  <!-- FEATURED TOOLS (Mode Checker + Threat Mode) -->
+  <div class="section-label" data-cat="tools">Diagnostic Tools</div>
+  <div class="featured-grid">
+    <a class="featured-card" href="mode_checker_tool.html" data-cat="tools">
+      <div class="fc-icon">🫀</div>
+      <div class="fc-name">Mode Checker</div>
+      <div class="fc-desc">5 questions → discover your manifestation mode and get a personalised plan</div>
+      <span class="fc-tag tag-free">Free quiz</span>
+    </a>
+    <a class="featured-card" href="tool-suite/05_threat-mode-checker.html" data-cat="tools">
+      <div class="fc-icon">🛡</div>
+      <div class="fc-name">Threat Mode</div>
+      <div class="fc-desc">Are you in safety or threat? 60-second check with instant reset plan</div>
+      <span class="fc-tag tag-free">Free</span>
+    </a>
+  </div>
+
+  <!-- TOOL SUITE GRID -->
+  <div class="section-label" data-cat="tools">AI Tool Suite</div>
+  <div class="app-grid">
+
+    <a class="app-icon" href="tool-suite/01_affirmation-generator.html" data-cat="tools">
+      <div class="app-icon-img c-gold">☀️</div>
+      <div class="app-icon-label">Affirmations</div>
+    </a>
+
+    <a class="app-icon" href="tool-suite/02_safe-method-generator.html" data-cat="tools">
+      <div class="app-icon-img c-lav">🛡</div>
+      <div class="app-icon-label">SAFE Method</div>
+    </a>
+
+    <a class="app-icon" href="tool-suite/03_frisson-activator.html" data-cat="tools">
+      <div class="app-icon-img c-orange">⚡</div>
+      <div class="app-icon-label">Frisson</div>
+    </a>
+
+    <a class="app-icon" href="tool-suite/04_end-scene-builder.html" data-cat="tools">
+      <div class="app-icon-img c-rose">🎬</div>
+      <div class="app-icon-label">End Scene</div>
+    </a>
+
+    <a class="app-icon" href="tool-suite/06_belief-audit-tool.html" data-cat="tools">
+      <div class="app-icon-img c-sage">🧠</div>
+      <div class="app-icon-label">Belief Audit</div>
+    </a>
+
+    <a class="app-icon" href="tool-suite/07_surrender-guide-generator.html" data-cat="tools">
+      <div class="app-icon-img c-teal">🤍</div>
+      <div class="app-icon-label">Surrender</div>
+    </a>
+
+    <a class="app-icon" href="tool-suite/08_transurfing-practice-generator.html" data-cat="tools">
+      <div class="app-icon-img c-purple">🌌</div>
+      <div class="app-icon-label">Transurfing</div>
+    </a>
+
+    <a class="app-icon" href="tool-suite/09_30-day-plan-builder.html" data-cat="tools">
+      <div class="app-icon-img c-blue">📅</div>
+      <div class="app-icon-label">30-Day Plan</div>
+    </a>
+
+    <a class="app-icon" href="tool-suite/10_evidence-journal.html" data-cat="tools">
+      <div class="app-icon-img c-dark">📓</div>
+      <div class="app-icon-label">Evidence Journal</div>
+    </a>
+
+  </div>
+
+  <!-- AD ZONE MID -->
+  <div class="ad-zone" style="margin-top:24px">AdSense 300×250 — replace with your AdSense code</div>
+
+  <!-- GUIDANCE & READING -->
+  <div class="section-label" data-cat="guidance">Guides & Reading</div>
+  <div class="featured-grid">
+    <a class="featured-card" href="transurfing_seo_hub.html" data-cat="guidance">
+      <div class="fc-icon">🌌</div>
+      <div class="fc-name">Transurfing Guide</div>
+      <div class="fc-desc">Complete guide to Reality Transurfing — Pendulums, Importance, Mirror Principle, Tufti</div>
+      <span class="fc-tag tag-free">Free read</span>
+    </a>
+    <a class="featured-card" href="email_capture_landing.html" data-cat="guidance">
+      <div class="fc-icon">🤍</div>
+      <div class="fc-name">Surrender Guide</div>
+      <div class="fc-desc">Free guide to letting go without giving up on what you want</div>
+      <span class="fc-tag tag-free">Free PDF</span>
+    </a>
+  </div>
+
+  <!-- STORE -->
+  <div class="section-label" data-cat="store">Store</div>
+
+  <a class="income-card" href="gumroad_sales_page.html" data-cat="store">
+    <div class="ic-icon">📦</div>
+    <div class="ic-info">
+      <div class="ic-name">Complete Manifestation System</div>
+      <div class="ic-desc">Frisson · Silence · End Scenes · Threat Mode · Evidence Journal — 5 complete chapters</div>
+    </div>
+    <div class="ic-price">£29</div>
+  </a>
+
+  <a class="income-card" href="income-streams/coaching_booking_page.html" data-cat="store">
+    <div class="ic-icon">🗓</div>
+    <div class="ic-info">
+      <div class="ic-name">1:1 Coaching Session</div>
+      <div class="ic-desc">Personalised session with the creator — SAFE Method, mode diagnosis, and your specific desires</div>
+    </div>
+    <div class="ic-price">£35+</div>
+  </a>
+
+  <!-- ABOUT / LEGAL -->
+  <div class="section-label">About</div>
+  <div class="app-grid" style="grid-template-columns:repeat(3,1fr)">
+    <a class="app-icon" href="about.html">
+      <div class="app-icon-img c-dark" style="font-size:1.5rem">📖</div>
+      <div class="app-icon-label">About</div>
+    </a>
+    <a class="app-icon" href="sitemap.html">
+      <div class="app-icon-img c-dark" style="font-size:1.5rem">🗺</div>
+      <div class="app-icon-label">All Pages</div>
+    </a>
+    <a class="app-icon" href="privacy.html">
+      <div class="app-icon-img c-dark" style="font-size:1.5rem">🔒</div>
+      <div class="app-icon-label">Privacy</div>
+    </a>
+  </div>
+
+  <div style="height:20px"></div>
 </div>
+
+<!-- BOTTOM NAV -->
+<nav class="bnav">
+  <a class="bn-item active" href="index.html">
+    <span class="bn-ic">⊞</span>
+    <span class="bn-lb">Home</span>
+  </a>
+  <a class="bn-item" href="ManifestAI_Flagship.html">
+    <span class="bn-ic">✦</span>
+    <span class="bn-lb">App</span>
+  </a>
+  <a class="bn-item" href="mode_checker_tool.html">
+    <span class="bn-ic">🫀</span>
+    <span class="bn-lb">Mode</span>
+  </a>
+  <a class="bn-item" href="gumroad_sales_page.html">
+    <span class="bn-ic">🛍</span>
+    <span class="bn-lb">Store</span>
+  </a>
+  <a class="bn-item" href="about.html">
+    <span class="bn-ic">📖</span>
+    <span class="bn-lb">About</span>
+  </a>
+</nav>
+
+<script>
+// Greeting
+(function(){
+  const h = new Date().getHours();
+  const name = localStorage.getItem('ab_name');
+  const g = h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening';
+  const el = document.getElementById('greeting');
+  if (name) el.textContent = `${g}, ${name} ✦`;
+  else el.textContent = `${g} ✦`;
+})();
+
+// Filter
+function filterApps(cat, el) {
+  // Update pills
+  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+
+  // Show/hide items
+  const items = document.querySelectorAll('[data-cat]');
+  const labels = document.querySelectorAll('.section-label[data-cat]');
+
+  if (cat === 'all') {
+    items.forEach(i => i.classList.remove('hidden'));
+    labels.forEach(l => l.style.display = '');
+  } else {
+    items.forEach(i => {
+      if (i.dataset.cat === cat) i.classList.remove('hidden');
+      else i.classList.add('hidden');
+    });
+    labels.forEach(l => {
+      if (l.dataset.cat === cat) l.style.display = '';
+      else l.style.display = 'none';
+    });
+  }
+}
+</script>
 </body>
 </html>
