@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>1:1 Manifestation Coaching — Abowabon</title>
+<meta name="description" content="Book a 1:1 manifestation coaching call. Evidence-based, nervous-system-informed guidance from a registered Biomedical Scientist with 11 documented manifestations.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── MOBILE BASE FIXES ─────────────────────────────────────────────────── */
+*{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img,video{max-width:100%;height:auto}
+input,textarea,select,button{font-family:inherit}
+
+:root{--bg:#070B14;--surface:#141C2E;--surface2:#1A2540;--border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.15);--gold:#C9963A;--gold2:#E8B84B;--teal:#4ECDC4;--sage:#7BC67E;--text:#E8EAF0;--text2:#8892A4;--text3:#5A6478;--ff:'DM Sans',sans-serif;--ffd:'Cormorant Garamond',serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--ff);background:var(--bg);color:var(--text);line-height:1.65}
+.aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.ab{position:absolute;border-radius:50%;filter:blur(100px);opacity:.09;animation:drift 22s ease-in-out infinite}
+.ab:nth-child(1){width:600px;height:600px;background:#1A3A5A;top:-180px;left:-120px}
+.ab:nth-child(2){width:420px;height:420px;background:#C9963A;bottom:10%;right:-100px;animation-delay:-9s}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(16px,-12px)}}
+.wrap{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:44px 20px 60px}
+.logo{text-align:center;margin-bottom:32px}
+.logo a{font-family:var(--ffd);font-size:1.2rem;color:var(--gold2);text-decoration:none;font-weight:600}
+.hero{text-align:center;margin-bottom:32px}
+.hero-badge{display:inline-block;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.2);color:var(--teal);border-radius:99px;padding:5px 14px;font-size:.75rem;font-weight:600;margin-bottom:14px}
+.hero h1{font-family:var(--ffd);font-size:clamp(2rem,6vw,2.8rem);font-weight:300;line-height:1.25;margin-bottom:10px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero p{font-size:.92rem;color:var(--text2);max-width:420px;margin:0 auto;line-height:1.7}
+.evidence-strip{display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+.ev-pill{font-size:.75rem;background:var(--surface);border:1px solid var(--border2);border-radius:99px;padding:5px 12px;color:var(--text2)}
+.plans{display:flex;flex-direction:column;gap:14px;margin:32px 0}
+.plan-card{background:var(--surface);border:1px solid var(--border2);border-radius:18px;padding:22px;position:relative}
+.plan-card.featured{border-color:rgba(201,150,58,.4);background:linear-gradient(135deg,var(--surface),rgba(201,150,58,.06))}
+.plan-badge{position:absolute;top:-10px;right:20px;background:linear-gradient(135deg,#C9963A,#E8B84B);color:#0D1425;font-size:.68rem;font-weight:700;padding:4px 12px;border-radius:99px}
+.plan-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.plan-name{font-family:var(--ffd);font-size:1.3rem;font-weight:400}
+.plan-price{font-family:var(--ffd);font-size:1.6rem;color:var(--gold2);font-weight:400}
+.plan-sub{font-size:.78rem;color:var(--text3);margin-bottom:14px}
+.plan-features{margin-bottom:16px}
+.pf-item{display:flex;gap:8px;font-size:.85rem;color:var(--text2);margin-bottom:7px;align-items:flex-start;line-height:1.5}
+.pf-check{color:var(--sage);flex-shrink:0;margin-top:2px}
+.btn-book{width:100%;background:linear-gradient(135deg,#C9963A,#E8B84B);color:#0D1425;border:none;border-radius:12px;padding:13px;font-family:var(--ff);font-size:.92rem;font-weight:700;cursor:pointer;transition:all .2s;text-decoration:none;display:block;text-align:center}
+.btn-book:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,150,58,.4)}
+.btn-book.ghost{background:transparent;border:1px solid var(--border2);color:var(--text2)}
+.how-section{margin:32px 0}
+.how-title{font-family:var(--ffd);font-size:1.5rem;font-weight:300;margin-bottom:16px;text-align:center}
+.how-steps{display:flex;flex-direction:column;gap:10px}
+.how-step{display:flex;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px}
+.hs-num{min-width:26px;height:26px;border-radius:50%;background:rgba(201,150,58,.15);border:1px solid rgba(201,150,58,.3);color:var(--gold2);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+.hs-title{font-size:.85rem;font-weight:600;margin-bottom:3px}
+.hs-body{font-size:.8rem;color:var(--text2);line-height:1.5}
+.faq-item{border-bottom:1px solid var(--border);padding:14px 0}
+.faq-q{font-size:.88rem;font-weight:500;margin-bottom:5px}
+.faq-a{font-size:.82rem;color:var(--text2);line-height:1.6}
+.setup-note{background:rgba(78,205,196,.06);border:1px solid rgba(78,205,196,.15);border-radius:12px;padding:16px;margin-top:32px;font-size:.8rem;color:var(--text2);line-height:1.6}
+.setup-note strong{color:var(--teal)}
+footer{text-align:center;padding:24px 0;font-size:.75rem;color:var(--text3)}
+</style>
+</head>
+<body>
+<div class="aurora"><div class="ab"></div><div class="ab"></div></div>
+
+<div class="wrap">
+  <div class="logo"><a href="https://abowabon.com">✦ Abowabon</a></div>
+
+  <div class="hero">
+    <div class="hero-badge">🗓 1:1 coaching — book today</div>
+    <h1>Get unstuck on <em>your specific desire</em></h1>
+    <p>A focused call to find exactly which mode you're in, why your current approach isn't landing, and what to do instead — for your real situation, not a generic template.</p>
+    <div class="evidence-strip">
+      <span class="ev-pill">✦ HCPC-registered Biomedical Scientist</span>
+      <span class="ev-pill">✦ 11 documented manifestations</span>
+      <span class="ev-pill">✦ SAFE Method creator</span>
+    </div>
+  </div>
+
+  <div class="plans">
+    <div class="plan-card">
+      <div class="plan-top"><div><div class="plan-name">Quick Reset</div><div class="plan-sub">30 minutes · single focus</div></div><div class="plan-price">£35</div></div>
+      <div class="plan-features">
+        <div class="pf-item"><span class="pf-check">✓</span><span>Identify which of the 3 modes you're stuck in right now</span></div>
+        <div class="pf-item"><span class="pf-check">✓</span><span>One specific desire — diagnosed and unblocked</span></div>
+        <div class="pf-item"><span class="pf-check">✓</span><span>A clear next-step plan you can start same day</span></div>
+      </div>
+      <a class="btn-book ghost" href="#booking-form">Book Quick Reset — £35 →</a>
+    </div>
+
+    <div class="plan-card featured">
+      <div class="plan-badge">Most popular</div>
+      <div class="plan-top"><div><div class="plan-name">Full Session</div><div class="plan-sub">60 minutes · deep dive</div></div><div class="plan-price">£65</div></div>
+      <div class="plan-features">
+        <div class="pf-item"><span class="pf-check">✓</span><span>Everything in Quick Reset, with time to go deeper</span></div>
+        <div class="pf-item"><span class="pf-check">✓</span><span>Full SAFE Method walkthrough for your top 2-3 desires</span></div>
+        <div class="pf-item"><span class="pf-check">✓</span><span>Personalised Frisson trigger identification</span></div>
+        <div class="pf-item"><span class="pf-check">✓</span><span>Written follow-up summary sent within 24 hours</span></div>
+      </div>
+      <a class="btn-book" href="#booking-form">Book Full Session — £65 →</a>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-top"><div><div class="plan-name">3-Session Package</div><div class="plan-sub">60 min × 3 · ongoing support</div></div><div class="plan-price">£165</div></div>
+      <div class="plan-features">
+        <div class="pf-item"><span class="pf-check">✓</span><span>Save £30 vs booking individually</span></div>
+        <div class="pf-item"><span class="pf-check">✓</span><span>Spread across 3-6 weeks to track real progress</span></div>
+        <div class="pf-item"><span class="pf-check">✓</span><span>WhatsApp check-ins between sessions</span></div>
+      </div>
+      <a class="btn-book ghost" href="#booking-form">Book Package — £165 →</a>
+    </div>
+  </div>
+
+  <div class="how-section">
+    <div class="how-title">How it works</div>
+    <div class="how-steps">
+      <div class="how-step"><div class="hs-num">1</div><div><div class="hs-title">Choose your session and pay securely</div><div class="hs-body">Payment via Stripe link — instant confirmation, no account needed</div></div></div>
+      <div class="how-step"><div class="hs-num">2</div><div><div class="hs-title">Pick a time on the calendar</div><div class="hs-body">You'll be redirected to book a slot that works for both of us</div></div></div>
+      <div class="how-step"><div class="hs-num">3</div><div><div class="hs-title">Fill in a 2-minute intake form</div><div class="hs-body">So the session starts focused on your actual situation, not generic questions</div></div></div>
+      <div class="how-step"><div class="hs-num">4</div><div><div class="hs-title">We meet over video call</div><div class="hs-body">Google Meet or Zoom — link sent automatically after booking</div></div></div>
+    </div>
+  </div>
+
+  <div id="booking-form" class="how-section">
+    <div class="how-title">Ready to book?</div>
+    <a class="btn-book" href="https://calendly.com/YOUR-USERNAME/quick-reset" target="_blank">Book Quick Reset (£35) →</a>
+    <div style="height:10px"></div>
+    <a class="btn-book" href="https://calendly.com/YOUR-USERNAME/full-session" target="_blank">Book Full Session (£65) →</a>
+    <div style="height:10px"></div>
+    <a class="btn-book ghost" href="https://calendly.com/YOUR-USERNAME/package" target="_blank">Book 3-Session Package (£165) →</a>
+  </div>
+
+  <div class="how-section">
+    <div class="how-title">Questions</div>
+    <div class="faq-item"><div class="faq-q">Is this therapy or medical advice?</div><div class="faq-a">No. This is manifestation coaching based on a personal evidence-based framework. It is not a substitute for therapy, medical care, or financial advice.</div></div>
+    <div class="faq-item"><div class="faq-q">What if I need to reschedule?</div><div class="faq-a">You can reschedule up to 24 hours before your session free of charge via the link in your confirmation email.</div></div>
+    <div class="faq-item"><div class="faq-q">Do you offer refunds?</div><div class="faq-a">If you're unhappy with your session, message within 48 hours and we'll discuss a partial or full refund on a case-by-case basis.</div></div>
+  </div>
+
+  <div class="setup-note">
+    <strong>Setup checklist (for you, not visible to customers):</strong><br>
+    1) Create a free Stripe Payment Link for each price (£35 / £65 / £165) at dashboard.stripe.com/payment-links — no code needed.<br>
+    2) Create a free Calendly account, make 3 event types matching the durations, and replace YOUR-USERNAME in the links above with your real Calendly username.<br>
+    3) Better flow: use Calendly's built-in payment collection (Stripe integration in Calendly Pro, ~£10/mo) so payment and booking happen in one step instead of two links.<br>
+    4) Replace abowabon.com with your real domain once registered.
+  </div>
+
+  <footer>© 2025 Abowabon · This page is for coaching booking purposes only</footer>
+</div>
+</body>
+</html>
