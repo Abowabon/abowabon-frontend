@@ -125,7 +125,7 @@ async function generate() {
   btn.classList.add('loading'); btn.disabled = true;
 
   try {
-    const res = await fetch('https://YOUR-BACKEND.railway.app/api/generate-affirmations', {
+    const res = await fetch('https://abowabonbackend-production.up.railway.app/api/generate-affirmations', {
       method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ desire, count: 7 })
     });

@@ -142,7 +142,7 @@ async function generate() {
   btn.classList.add('loading'); btn.disabled = true;
 
   try {
-    const res = await fetch('https://YOUR-BACKEND.railway.app/api/generate-guide', {
+    const res = await fetch('https://abowabonbackend-production.up.railway.app/api/generate-guide', {
       method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ desire, tone: 'Empowering', mode })
     });

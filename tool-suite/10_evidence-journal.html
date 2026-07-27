@@ -170,7 +170,7 @@ async function analyse() {
   box.classList.add('show');
 
   try {
-    const res = await fetch('https://YOUR-BACKEND.railway.app/api/analyse-evidence', {
+    const res = await fetch('https://abowabonbackend-production.up.railway.app/api/analyse-evidence', {
       method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ entries: entries.map(e=>e.text) })
     });
