@@ -146,8 +146,8 @@ textarea.di::placeholder{color:var(--text3)}
 .cat-btn .ci{font-size:1.25rem}
 .cat-btn .cn{font-size:.68rem;color:var(--text2);font-weight:500;text-align:center}
 .cat-btn.sel .cn{color:var(--gold2)}
-.sel-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
-select.si{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--rsm);padding:10px 12px;font-family:var(--ff);font-size:.85rem;color:var(--text);outline:none}
+.sel-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px}
+select.si{width:100%;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--rsm);padding:9px 6px;font-family:var(--ff);font-size:.76rem;color:var(--text);outline:none}
 label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var(--text3);display:block;margin-bottom:5px}
 
 /* AI GUIDE */
@@ -253,23 +253,6 @@ label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var
 /* STATS */
 .stat-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
 .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px;text-align:center}
-/* JOURNEY TRACKER */
-.jt-step{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;position:relative}
-.jt-dot{width:26px;height:26px;border-radius:50%;background:var(--bg2);border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--text3);transition:all .2s}
-.jt-step.done .jt-dot{background:linear-gradient(135deg,#C9963A,#E8B84B);border-color:transparent;color:#0D1425}
-.jt-step.current .jt-dot{border-color:var(--gold);color:var(--gold2);box-shadow:0 0 0 3px var(--gold-glow)}
-.jt-lbl{font-size:.6rem;color:var(--text3);text-align:center}
-.jt-step.done .jt-lbl,.jt-step.current .jt-lbl{color:var(--text2)}
-.jt-line{position:absolute;top:13px;left:-50%;width:100%;height:1px;background:var(--border2);z-index:-1}
-.jt-step:first-child .jt-line{display:none}
-/* ACHIEVEMENTS */
-.badge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.badge{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 6px;border-radius:var(--rsm);border:1px solid var(--border);background:var(--bg2);text-align:center}
-.badge-ic{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;background:var(--surface2);filter:grayscale(1);opacity:.35}
-.badge.unlocked{border-color:rgba(201,150,58,.3);background:linear-gradient(135deg,var(--surface),rgba(201,150,58,.05))}
-.badge.unlocked .badge-ic{background:linear-gradient(135deg,#C9963A,#E8B84B);filter:none;opacity:1;box-shadow:0 0 16px rgba(201,150,58,.35)}
-.badge-lbl{font-size:.66rem;color:var(--text3);line-height:1.3}
-.badge.unlocked .badge-lbl{color:var(--text2)}
 .stat-n{font-family:var(--ff-d);font-size:2rem;font-weight:300;color:var(--gold2)}
 .stat-l{font-size:.75rem;color:var(--text3);margin-top:2px}
 .phase-prog{margin-bottom:10px}
@@ -353,11 +336,13 @@ label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var
         <div class="pill"><span>🌅</span> Daily Sessions</div>
         <div class="pill"><span>✍️</span> Scriptorium</div>
       </div>
-      <div style="background:var(--gold-dim);border-radius:var(--rsm);padding:14px 16px;margin-bottom:24px;text-align:left;max-width:320px">
-        <div style="font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--gold);font-weight:700;margin-bottom:6px">How Abowabon works</div>
-        <div style="font-size:.8rem;color:var(--text2);line-height:1.6">Name a desire → get a personalised <strong style="color:var(--text)">SAFE Method</strong> guide (Safety, Acknowledge, Floor, Engage) → practice it daily → journal your evidence → script the settled scene → watch your progress build.</div>
-        <div style="margin-top:8px"><span style="font-size:.78rem;color:var(--gold2);cursor:pointer;text-decoration:underline" onclick="showModal('modal-about')">Read the full method →</span></div>
+      <div style="background:var(--surface);border:1px solid var(--border2);border-radius:var(--rlg);padding:16px 18px;margin-bottom:20px;text-align:left;max-width:320px;width:100%">
+        <div style="font-size:.66rem;text-transform:uppercase;letter-spacing:1px;color:var(--gold);font-weight:700;margin-bottom:12px;text-align:center">How Abowabon works</div>
+        <div style="display:flex;gap:10px;margin-bottom:10px"><div style="width:22px;height:22px;min-width:22px;border-radius:50%;background:var(--gold-dim);color:var(--gold2);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700">1</div><div style="font-size:.79rem;color:var(--text2);line-height:1.5">Name a desire — get an AI-crafted SAFE Method guide built just for it</div></div>
+        <div style="display:flex;gap:10px;margin-bottom:10px"><div style="width:22px;height:22px;min-width:22px;border-radius:50%;background:var(--gold-dim);color:var(--gold2);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700">2</div><div style="font-size:.79rem;color:var(--text2);line-height:1.5">Follow daily practice, log evidence & shift beliefs in your journal</div></div>
+        <div style="display:flex;gap:10px"><div style="width:22px;height:22px;min-width:22px;border-radius:50%;background:var(--gold-dim);color:var(--gold2);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700">3</div><div style="font-size:.79rem;color:var(--text2);line-height:1.5">Script the settled scene in the Scriptorium & track progress to 100%</div></div>
       </div>
+      <button class="btn btn-ghost" style="max-width:320px;width:100%;margin:0 auto 20px" onclick="showModal('modal-about')">📖 What's the SAFE Method?</button>
       <input class="ob-name-input" id="ob-name" type="text" placeholder="What shall we call you? (optional)" maxlength="30">
       <button class="btn btn-gold" onclick="startApp()">✦ Begin Your Journey</button>
       <button class="btn btn-ghost" onclick="startApp()">Skip — take me in</button>
@@ -369,17 +354,19 @@ label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var
     <div class="top-bar">
       <span class="logo-sm">Abowabon</span>
       <span class="greeting-name" id="greeting">Good day, seeker ✦</span>
-      <div class="icon-btn" onclick="showTab('s-stats')">📊</div>
+      <div style="display:flex;gap:8px">
+        <div class="icon-btn" onclick="showModal('modal-about')" title="How Abowabon works">📖</div>
+        <div class="icon-btn" onclick="showTab('s-stats')">📊</div>
+      </div>
     </div>
     <div class="scroll">
-      <div class="card" style="padding:14px 12px" id="journeyCard">
-        <div class="di-label" style="margin-bottom:10px;padding-left:4px">Your journey</div>
-        <div id="journeyTrack" style="display:flex;justify-content:space-between;gap:4px"></div>
-      </div>
-
       <div class="sh" style="margin-top:4px">
         <h2>What are you <em>calling in</em>?</h2>
         <p>Describe your desire and receive a personalised SAFE Method guide.</p>
+      </div>
+
+      <div class="card" style="padding:14px 10px 12px">
+        <div style="display:flex;align-items:flex-start" id="journeyStepper"></div>
       </div>
 
       <div class="di-card">
@@ -406,6 +393,13 @@ label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var
               <option value="1">Mode 1 — Exhausted</option>
               <option value="2">Mode 2 — Effortless</option>
               <option value="3">Mode 3 — Backed</option>
+            </select>
+          </div>
+          <div><label class="sl">Challenge</label>
+            <select class="si" id="challengeSelect">
+              <option value="30">30 days</option>
+              <option value="60">60 days</option>
+              <option value="90">90 days</option>
             </select>
           </div>
         </div>
@@ -583,7 +577,9 @@ label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var
       <div class="card" style="margin-top:4px">
         <div class="di-label" style="margin-bottom:8px">✍️ Add your own desire to script</div>
         <textarea class="di" id="newScenario" rows="2" placeholder="Name your desire to create a scenario for…"></textarea>
-        <button class="btn btn-gold btn-sm" style="margin-top:8px" id="scenarioBtn" onclick="addScenario()"><span id="scenarioBtnTxt">Create scenario ✦</span></button>
+        <button class="btn btn-gold btn-sm" id="scenBtn" style="margin-top:8px" onclick="addScenario()">
+          <span id="scenTxt">Create scenario ✦</span><span id="scenLoad" style="display:none">Writing your scene…</span>
+        </button>
       </div>
       <div class="ad-zone" style="margin-top:14px">AdSense 320×50 — replace with your AdSense code</div>
     </div>
@@ -607,15 +603,15 @@ label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var
         <div class="stat-card"><div class="stat-n" id="stBeliefs">0</div><div class="stat-l">Beliefs shifted</div></div>
       </div>
       <div class="card">
+        <div class="di-label" style="margin-bottom:10px">Achievements</div>
+        <div id="badgeGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px"></div>
+      </div>
+      <div class="card">
         <div class="di-label" style="margin-bottom:12px">SAFE Method mastery</div>
         <div class="phase-prog"><div class="pp-row"><span>Safety First</span><span id="pp1">0%</span></div><div class="pp-bg"><div class="pp-fill" id="pb1" style="width:0%"></div></div></div>
         <div class="phase-prog"><div class="pp-row"><span>Acknowledge & Accept</span><span id="pp2">0%</span></div><div class="pp-bg"><div class="pp-fill" id="pb2" style="width:0%"></div></div></div>
         <div class="phase-prog"><div class="pp-row"><span>Find a Floor</span><span id="pp3">0%</span></div><div class="pp-bg"><div class="pp-fill" id="pb3" style="width:0%"></div></div></div>
         <div class="phase-prog"><div class="pp-row"><span>Engage & Release</span><span id="pp4">0%</span></div><div class="pp-bg"><div class="pp-fill" id="pb4" style="width:0%"></div></div></div>
-      </div>
-      <div class="card">
-        <div class="di-label" style="margin-bottom:12px">Achievements</div>
-        <div class="badge-grid" id="badgeGrid"></div>
       </div>
       <div class="card">
         <div class="di-label" style="margin-bottom:10px">Activity heatmap</div>
@@ -727,9 +723,10 @@ let S = {
   name: '', streak: 1, guides: 0,
   manifestations: [],
   evidence: [], beliefs: [],
-  money:[{desc:'Unexpected client bonus',amt:'£120',date:'Today'},{desc:'Found forgotten gift card',amt:'£25',date:'Yesterday'}],
+  money: [],
   gratitude: [], scenarios: [], checksDone: 0, totalGuides: 0,
   modeHistory: [], currentMode: 0,
+  achievedCount: 0, unlockedBadges: [], lastPracticeDate: null,
 };
 let selCatVal = 'money';
 let breathTimer = null, breathDur = 10 * 60, breathRemaining = 0, breathRunning = false;
@@ -776,15 +773,78 @@ function initAll() {
   renderStats();
   renderQuiz(0);
   updateStreakDisplay();
-  renderJourney();
-  renderAchievements();
   checkLoginState();
+  renderJourney();
+  renderBadges();
   if (S.name) {
     document.getElementById('greeting').textContent = 'Hi, ' + S.name + ' ✦';
   }
 }
 
-function save() { try { localStorage.setItem('mai_state', JSON.stringify(S)); } catch(e){} }
+function save() {
+  try { localStorage.setItem('mai_state', JSON.stringify(S)); } catch(e){}
+  renderJourney();
+  evaluateBadges();
+}
+
+// ── GUIDED JOURNEY ───────────────────────────────────────────────────────────
+// Home → Practice → Journal → Script → Progress. Lets a new user see the
+// intended flow at a glance and jump straight to whichever step is next.
+function renderJourney() {
+  const el = document.getElementById('journeyStepper'); if (!el) return;
+  const steps = [
+    {id:'s-home',     label:'Desire',   icon:'✦', done: S.manifestations.length > 0},
+    {id:'s-practice', label:'Practice', icon:'🌊', done: (S.streak||0) > 1 || !!S.lastPracticeDate},
+    {id:'s-journal',  label:'Journal',  icon:'📓', done: (S.evidence.length + S.beliefs.length + S.gratitude.length) > 0},
+    {id:'s-script',   label:'Script',   icon:'✍️', done: S.scenarios.length > 0},
+    {id:'s-stats',    label:'Progress', icon:'📊', done: (S.totalGuides||0) > 0},
+  ];
+  el.innerHTML = steps.map((s,i) => `
+    <div onclick="showTab('${s.id}')" style="display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;flex:1">
+      <div style="width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;background:${s.done?'var(--gold-dim)':'var(--bg2)'};border:1.5px solid ${s.done?'var(--gold)':'var(--border2)'};color:${s.done?'var(--gold2)':'var(--text3)'}">${s.done?'✓':s.icon}</div>
+      <div style="font-size:.6rem;color:${s.done?'var(--gold2)':'var(--text3)'};font-weight:500">${s.label}</div>
+    </div>${i < steps.length-1 ? `<div style="flex:0 0 10px;height:1.5px;background:var(--border2);margin-top:16px"></div>` : ''}`
+  ).join('');
+}
+
+// ── ACHIEVEMENTS ─────────────────────────────────────────────────────────────
+const BADGES = [
+  {id:'first_guide',  icon:'✦',  name:'First Steps',       desc:'Generate your first SAFE guide',   test:s => (s.totalGuides||0) >= 1},
+  {id:'streak7',      icon:'🔥', name:'Week of Fire',       desc:'Reach a 7-day streak',              test:s => (s.streak||0) >= 7},
+  {id:'streak30',     icon:'🏆', name:'Devoted',            desc:'Reach a 30-day streak',             test:s => (s.streak||0) >= 30},
+  {id:'evidence10',   icon:'⭐', name:'Evidence Collector', desc:'Log 10 evidence entries',           test:s => (s.evidence||[]).length >= 10},
+  {id:'belief5',      icon:'🔓', name:'Belief Shifter',     desc:'Shift 5 limiting beliefs',          test:s => (s.beliefs||[]).length >= 5},
+  {id:'scriptor',     icon:'✍️', name:'Scriptor',           desc:'Write your first scenario',         test:s => (s.scenarios||[]).length >= 1},
+  {id:'gratitude10',  icon:'🙏', name:'Grateful Heart',     desc:'Log 10 gratitude entries',          test:s => (s.gratitude||[]).length >= 10},
+  {id:'achieved1',    icon:'🎉', name:'Manifestor',         desc:'Mark a desire as achieved',         test:s => (s.achievedCount||0) >= 1},
+];
+
+function evaluateBadges() {
+  if (!S.unlockedBadges) S.unlockedBadges = [];
+  let changed = false;
+  BADGES.forEach(b => {
+    if (!S.unlockedBadges.includes(b.id) && b.test(S)) {
+      S.unlockedBadges.push(b.id);
+      changed = true;
+      toast('🏅 Badge unlocked: ' + b.name);
+    }
+  });
+  if (changed) { try { localStorage.setItem('mai_state', JSON.stringify(S)); } catch(e){} }
+  renderBadges();
+}
+
+function renderBadges() {
+  const el = document.getElementById('badgeGrid'); if (!el) return;
+  const unlocked = S.unlockedBadges || [];
+  el.innerHTML = BADGES.map(b => {
+    const on = unlocked.includes(b.id);
+    return `<div style="background:${on?'var(--gold-dim)':'var(--bg2)'};border:1px solid ${on?'rgba(201,150,58,.3)':'var(--border)'};border-radius:var(--rsm);padding:12px 6px;text-align:center;${on?'':'opacity:.45'}">
+      <div style="font-size:1.3rem;margin-bottom:4px">${b.icon}</div>
+      <div style="font-size:.64rem;font-weight:600;color:${on?'var(--gold2)':'var(--text2)'};line-height:1.3">${b.name}</div>
+      <div style="font-size:.58rem;color:var(--text3);margin-top:2px;line-height:1.3">${b.desc}</div>
+    </div>`;
+  }).join('');
+}
 
 // ── NAVIGATION ────────────────────────────────────────────────────────────────
 const tabNav = {
@@ -817,73 +877,55 @@ function selCat(el) {
 }
 
 // ── AI GUIDE ─────────────────────────────────────────────────────────────────
+// Routes through your real ManifestAI/Abowabon backend (server.js).
+// POST /api/generate-guide  body: { desire, tone, mode }  →  { success, guide }
+// Falls back to a local template only if the backend is unreachable or errors.
+const ABOWABON_API = 'https://abowabonbackend-production.up.railway.app';
+
 async function generateGuide() {
   const desire = document.getElementById('desireInput').value.trim();
   if (!desire) { toast('Please describe what you want to manifest'); return; }
   const tone = document.getElementById('toneSelect').value;
   const modeHint = document.getElementById('modeSelect').value;
+  const challengeDays = parseInt(document.getElementById('challengeSelect').value, 10) || 30;
   const btn = document.getElementById('genBtn');
   document.getElementById('genTxt').style.display='none';
   document.getElementById('genLoad').style.display='inline';
   btn.disabled=true;
   document.getElementById('guideResult').style.display='none';
 
-  const prompt = `You are Abowabon — a grounded manifestation coach using the SAFE Method and 3-Mode Framework.
-Tone: ${tone}. Mode hint: ${modeHint==='auto'?'determine from the desire':'Mode '+modeHint}.
-Desire: "${desire}"
-
-Return ONLY valid JSON (no markdown, no extra text):
-{
-  "mode": 1, 
-  "modeLabel": "Exhausted Release",
-  "modeReason": "One sentence why this desire is in this mode",
-  "safe": {
-    "s": "Nervous system regulation instruction specific to this desire",
-    "a": "Acknowledge & Accept statement for this desire",
-    "f": "The minimum floor to feel safe with this desire",
-    "e": "One specific daily engaged action for this desire"
-  },
-  "relaxedTip": "One body-based technique to generate non-contracted energy for this desire",
-  "visualization": "Two sentences: an ordinary settled Tuesday where this desire exists — not exciting, just normal",
-  "identityAnchor": "One identity statement separating self-worth from this outcome",
-  "actions": ["3 specific action steps for this desire"]
-}`;
-
+  let g = null;
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
+    const res = await fetch(ABOWABON_API + '/api/generate-guide', {
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({model:'claude-sonnet-4-6', max_tokens:1000, messages:[{role:'user',content:prompt}]})
+      body: JSON.stringify({ desire, tone, mode: modeHint })
     });
-    if (!res.ok) throw new Error('API error ' + res.status);
     const data = await res.json();
-    const text = data.content?.map(b=>b.text||'').join('') || '';
-    // Strip code fences and grab the outermost JSON object in case the
-    // model adds any stray text before/after it.
-    let clean = text.replace(/```json|```/g,'').trim();
-    const first = clean.indexOf('{'), last = clean.lastIndexOf('}');
-    if (first !== -1 && last !== -1) clean = clean.slice(first, last + 1);
-    const g = JSON.parse(clean);
-    renderGuide(desire, g, selCatVal);
-    S.totalGuides++; S.guides++;
-    save();
+    if (!res.ok) throw new Error(data.error || `Server responded ${res.status}`);
+    g = data.guide;
+    if (!g || !g.safe) throw new Error('Malformed guide response');
   } catch(e) {
-    console.warn('Abowabon: live AI guide unavailable, using offline guide instead.', e);
-    renderFallback(desire, selCatVal);
-  } finally {
-    document.getElementById('genTxt').style.display='inline';
-    document.getElementById('genLoad').style.display='none';
-    btn.disabled=false;
+    console.warn('generate-guide failed, using local fallback:', e.message);
+    toast(e.message && e.message !== 'Malformed guide response' ? e.message : 'Using offline guide — check your connection');
+    g = buildFallbackGuide(desire, modeHint);
   }
+
+  renderGuide(desire, g);
+  addManifestation(desire, selCatVal, g, challengeDays);
+  S.totalGuides++; S.guides++;
+  save();
+
+  document.getElementById('genTxt').style.display='inline';
+  document.getElementById('genLoad').style.display='none';
+  btn.disabled=false;
 }
 
-let lastGuide = null; // holds {desire, cat, mode} for the most recently generated guide
 
-function renderGuide(desire, g, cat) {
+function renderGuide(desire, g) {
   const modeClass = ['','mode-1','mode-2','mode-3'][g.mode] || 'mode-1';
   const modeColors = {s:'rgba(46,134,193,.15)',a:'rgba(123,198,126,.15)',f:'rgba(201,150,58,.15)',e:'rgba(155,143,212,.15)'};
   const modeTC = {s:'#4A9FD4',a:'var(--sage)',f:'var(--gold)',e:'var(--lav)'};
-  lastGuide = { desire, cat: cat || selCatVal || 'other', mode: g.mode || 1 };
   const el = document.getElementById('guideResult');
   el.innerHTML = `
   <div class="guide-panel">
@@ -905,19 +947,6 @@ function renderGuide(desire, g, cat) {
       <div class="gs-lbl" style="color:var(--sage)"><div class="gs-dot" style="background:var(--sage)"></div>Action steps</div>
       ${(g.actions||[]).map((a,i)=>`<div class="action-step"><div class="action-num">${i+1}</div><div class="action-txt">${a}</div></div>`).join('')}
       <div class="identity-stmt" style="margin-top:12px">Identity: ${g.identityAnchor||''}</div>
-      <div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--border)">
-        <div class="di-label" style="margin-bottom:8px">Turn this into a tracked practice</div>
-        <div class="sel-row" style="margin-bottom:10px">
-          <div style="flex:1"><label class="sl">Challenge length</label>
-            <select class="si" id="challengeLen">
-              <option value="30">30 days</option>
-              <option value="60">60 days</option>
-              <option value="90" selected>90 days</option>
-            </select>
-          </div>
-        </div>
-        <button class="btn btn-gold" onclick="beginManifestation()">✦ Begin practicing this desire</button>
-      </div>
     </div>
   </div>`;
   el.style.display='block';
@@ -925,20 +954,15 @@ function renderGuide(desire, g, cat) {
   toast('Guide generated ✦');
 }
 
-function renderFallback(desire, cat) {
+function buildFallbackGuide(desire, modeHint) {
+  // Used only if the backend is unreachable — keeps the app usable offline,
+  // but the real personalised output comes from generate-guide above.
   const d = desire.toLowerCase();
-  // Vary tone slightly by category so the offline guide doesn't feel identical
-  // every time — used only when the live AI guide can't be reached.
-  const catFlavor = {
-    money:{s:'financial pressure',verb:'flowing in'},
-    love:{s:'the ache of wanting connection',verb:'arriving'},
-    career:{s:'the pressure to prove yourself',verb:'unfolding'},
-    health:{s:'urgency about your body',verb:'settling in'},
-    other:{s:'the weight of wanting this',verb:'becoming real'}
-  }[cat] || {s:'the weight of wanting this',verb:'becoming real'};
-  const g = {
-    mode:1, modeLabel:'Exhausted Release',
-    modeReason:`High importance and urgency creates nervous system contraction around ${catFlavor.s}.`,
+  const mode = (modeHint && modeHint !== 'auto') ? parseInt(modeHint, 10) : 1;
+  const modeLabel = ['','Exhausted Release','Effortless Attraction','Backed Safety'][mode] || 'Exhausted Release';
+  return {
+    mode, modeLabel,
+    modeReason:`High importance and urgency creates nervous system contraction around ${d}.`,
     safe:{
       s:`Place your hand on your chest. Breathe in for 4 counts, hold for 7, exhale for 8. Repeat 3 times before you think about ${d} at all.`,
       a:`I clearly desire ${d}. I acknowledge I do not have it yet, and that is OK. Both things are true.`,
@@ -946,63 +970,68 @@ function renderFallback(desire, cat) {
       e:`Choose one single action today that moves toward ${d}. Just one. Do it and release the day.`
     },
     relaxedTip:`Recall the last time something you wanted arrived unexpectedly. Let that feeling expand in your chest for 60 seconds before thinking about ${d}.`,
-    visualization:`It is a quiet Tuesday. ${desire} is your normal now, ${catFlavor.verb} without fanfare. You think about it briefly while making tea — not with relief, just with the ordinary satisfaction of something settled.`,
+    visualization:`It is a quiet Tuesday. ${desire} is your normal now. You think about it briefly while making tea — not with relief, just with the ordinary satisfaction of something settled.`,
     identityAnchor:`My worth is complete whether or not ${d} has arrived. I am not my outcomes.`,
     actions:[`Take one concrete step toward ${desire} today`,`Write 3 pieces of evidence that this is possible`,`Practice the evening release statement before sleep`]
   };
-  renderGuide(desire, g, cat);
 }
 
 // ── MANIFESTATIONS LIST ────────────────────────────────────────────────────────
+function addManifestation(desire, cat, g, challengeDays) {
+  const days = challengeDays || 30;
+  const m = {
+    id: Date.now(),
+    cat, desire,
+    day: 1,
+    challengeDays: days,
+    progress: Math.round((1/days)*100),
+    mode: g.mode || 1,
+    dailyPractice: (g.safe && g.safe.e) || '',
+    actions: g.actions || [],
+    identityAnchor: g.identityAnchor || '',
+    visualization: g.visualization || '',
+    createdDate: new Date().toLocaleDateString(),
+    lastLogged: null,
+    achieved: false
+  };
+  S.manifestations.unshift(m);
+  renderManifestList();
+}
+
 function renderManifestList() {
   const el = document.getElementById('manifestList');
-  if (!S.manifestations.length) { el.innerHTML='<div style="text-align:center;color:var(--text3);padding:20px;font-size:.85rem">No active manifestations yet.<br>Describe a desire above, generate your SAFE guide, then tap <em>Begin practicing this desire</em> to start tracking it here.</div>'; return; }
-  el.innerHTML = S.manifestations.map(m=>`
-  <div class="mc ${m.cat}" onclick="openManifest(${m.id})">
+  if (!S.manifestations.length) { el.innerHTML='<div style="text-align:center;color:var(--text3);padding:20px;font-size:.85rem">No active manifestations yet.<br>Generate a guide above to begin your first one.</div>'; return; }
+  const sorted = [...S.manifestations].sort((a,b)=> (a.achieved===b.achieved) ? 0 : (a.achieved ? 1 : -1));
+  el.innerHTML = sorted.map(m=>`
+  <div class="mc ${m.cat}" onclick="openManifest(${m.id})" style="${m.achieved?'opacity:.55':''}">
     <div class="mc-top">
       <span class="mc-cat ${m.cat}">${{money:'💰 Money',love:'❤️ Love',career:'🚀 Career',health:'🌿 Health',other:'✨ Purpose'}[m.cat]||'✦ Other'}</span>
-      <span class="mode-badge ${['','mode-1','mode-2','mode-3'][m.mode]||'mode-1'}" style="font-size:.65rem;padding:3px 8px">Mode ${m.mode}</span>
+      ${m.achieved ? `<span class="mode-badge mode-2" style="font-size:.65rem;padding:3px 8px">✓ Achieved</span>` : `<span class="mode-badge ${['','mode-1','mode-2','mode-3'][m.mode]||'mode-1'}" style="font-size:.65rem;padding:3px 8px">Mode ${m.mode}</span>`}
     </div>
     <div class="mc-desire">${m.desire}</div>
     <div class="mc-bar-bg"><div class="mc-bar ${m.cat}" style="width:${m.progress}%"></div></div>
-    <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:.68rem;color:var(--text3)"><span>Day ${m.day}</span><span>${m.progress}% aligned</span></div>
+    <div style="display:flex;justify-content:space-between;margin-top:6px;font-size:.68rem;color:var(--text3)"><span>Day ${m.day} of ${m.challengeDays||30}</span><span>${m.progress}% aligned</span></div>
   </div>`).join('');
 }
 
-function beginManifestation() {
-  if (!lastGuide) return;
-  const days = parseInt(document.getElementById('challengeLen')?.value || '90', 10);
-  const id = Date.now();
-  S.manifestations.push({
-    id, cat: lastGuide.cat, desire: lastGuide.desire, mode: lastGuide.mode,
-    day: 1, progress: 0, challengeDays: days, lastPracticed: null, started: new Date().toISOString()
-  });
-  save(); renderManifestList(); renderAchievements(); renderJourney();
-  toast('Manifestation added — Day 1 of ' + days + ' ✦');
-  document.getElementById('manifestList').scrollIntoView({behavior:'smooth',block:'center'});
-}
+function todayStr() { return new Date().toLocaleDateString(); }
 
 function openManifest(id) {
   const m = S.manifestations.find(x=>x.id===id);
   if (!m) return;
-  const today = new Date().toDateString();
-  const practicedToday = m.lastPracticed === today;
-  const challengeDays = m.challengeDays || 90;
-  const complete = m.progress >= 100;
+  const loggedToday = m.lastLogged === todayStr();
   document.getElementById('modal-guide-content').innerHTML = `
   <div style="font-family:var(--ff-d);font-size:1.4rem;font-weight:300;margin-bottom:4px">${m.desire}</div>
-  <span class="mode-badge ${['','mode-1','mode-2','mode-3'][m.mode]}" style="margin-bottom:14px;display:inline-flex">Mode ${m.mode}</span>
-  <div class="identity-stmt">${complete ? 'You completed this challenge. This desire is now your settled normal.' : `Each day of practice, you become more aligned with this. You are on Day ${m.day} of ${challengeDays}. Keep going.`}</div>
-  <div style="margin-top:14px">
-    <div class="di-label" style="margin-bottom:6px">Progress</div>
-    <div class="mc-bar-bg"><div class="mc-bar ${m.cat}" style="width:${m.progress}%"></div></div>
-    <div style="font-size:.7rem;color:var(--text3);margin-top:4px">${m.progress}% aligned</div>
+  <span class="mode-badge ${['','mode-1','mode-2','mode-3'][m.mode]}" style="margin-bottom:10px;display:inline-flex">Mode ${m.mode}</span>
+  <div style="font-size:.78rem;color:var(--text3);margin-bottom:10px">Day ${m.day} of ${m.challengeDays} · ${m.progress}% aligned</div>
+  <div class="mc-bar-bg" style="margin-bottom:16px"><div class="mc-bar ${m.cat}" style="width:${m.progress}%"></div></div>
+  ${m.dailyPractice ? `<div class="di-label" style="margin-bottom:8px">Today's engaged action</div><div class="identity-stmt" style="margin-bottom:14px">${m.dailyPractice}</div>` : ''}
+  ${(m.actions && m.actions.length) ? `<div class="di-label" style="margin-bottom:8px">Action steps</div>${m.actions.map((a,i)=>`<div class="action-step"><div class="action-num">${i+1}</div><div class="action-txt">${a}</div></div>`).join('')}` : ''}
+  <div style="display:flex;gap:8px;margin-top:14px">
+    <button class="btn btn-gold btn-sm" style="flex:1" onclick="markManifestDay(${m.id})" ${loggedToday?'disabled':''}>${loggedToday?'✓ Logged today':"Mark today's practice done"}</button>
   </div>
-  <div style="margin-top:16px">
-    ${complete
-      ? `<div style="font-size:.85rem;color:var(--sage)">🎉 Challenge complete — nice work.</div>`
-      : `<button class="btn btn-gold btn-sm" ${practicedToday?'disabled style="opacity:.5"':''} onclick="logDailyPractice(${m.id})">${practicedToday ? "Today's practice logged ✓" : 'Mark today\'s practice done ✦'}</button>`}
-  </div>
+  ${m.progress>=100 && !m.achieved ? `<button class="btn btn-ghost btn-sm" style="width:100%;margin-top:8px;border-color:rgba(123,198,126,.4);color:var(--sage)" onclick="achieveManifest(${m.id})">🎉 Mark as achieved</button>` : ''}
+  ${m.achieved ? `<div class="identity-stmt" style="margin-top:10px;border-left-color:var(--sage)">✓ Marked achieved. Beautiful work — this desire is complete.</div>` : ''}
   <div style="margin-top:16px">
     <div class="di-label" style="margin-bottom:8px">Log today's evidence</div>
     <textarea class="di" id="inline-evidence" rows="2" placeholder="Something that suggests this is coming…"></textarea>
@@ -1011,26 +1040,31 @@ function openManifest(id) {
   showModal('modal-guide');
 }
 
-function logDailyPractice(id) {
+function markManifestDay(id) {
   const m = S.manifestations.find(x=>x.id===id);
   if (!m) return;
-  const today = new Date().toDateString();
-  if (m.lastPracticed === today) return;
-  const challengeDays = m.challengeDays || 90;
-  m.day = Math.min((m.day||1) + 1, challengeDays);
-  m.progress = Math.min(100, Math.round((m.day / challengeDays) * 100));
-  m.lastPracticed = today;
-  S.streak = (S.streak||1); // daily practice also counts toward the overall streak via the ritual checklist
-  save(); renderManifestList(); renderAchievements(); renderJourney();
-  toast(m.progress >= 100 ? 'Challenge complete! 🎉' : 'Practice logged — Day ' + m.day + ' ✦');
-  openManifest(id);
+  if (m.lastLogged === todayStr()) { toast('Already logged today ✦'); return; }
+  m.day = Math.min(m.challengeDays, m.day + 1);
+  m.progress = Math.min(100, Math.round((m.day / m.challengeDays) * 100));
+  m.lastLogged = todayStr();
+  save(); renderManifestList(); openManifest(id);
+  toast(`Practice logged — Day ${m.day} of ${m.challengeDays} ✦`);
+}
+
+function achieveManifest(id) {
+  const m = S.manifestations.find(x=>x.id===id);
+  if (!m) return;
+  m.achieved = true; m.progress = 100;
+  S.achievedCount = (S.achievedCount||0) + 1;
+  save(); renderManifestList(); closeModal('modal-guide');
+  toast('🎉 Manifestation achieved! Incredible work.');
 }
 
 function logEvidenceFromModal(id) {
   const txt = document.getElementById('inline-evidence').value.trim();
   if (!txt) return;
   S.evidence.unshift({text:txt, date:new Date().toLocaleDateString(), desireId:id});
-  save(); renderEvidence(); renderJourney(); renderAchievements(); toast('Evidence logged ⭐'); closeModal('modal-guide');
+  save(); renderEvidence(); toast('Evidence logged ⭐'); closeModal('modal-guide');
 }
 
 // ── CHECKLIST ────────────────────────────────────────────────────────────────
@@ -1038,8 +1072,9 @@ function toggleCheck(el) {
   el.classList.toggle('done');
   const done = document.querySelectorAll('.cl-item.done').length;
   document.getElementById('checkCount').textContent = done;
-  S.checksDone = done; save(); renderJourney();
-  if (done === 6) { S.streak++; updateStreakDisplay(); toast('Daily ritual complete! 🎉 Streak: '+S.streak); renderAchievements(); save(); }
+  S.lastPracticeDate = new Date().toLocaleDateString();
+  if (done === 6) { S.streak++; updateStreakDisplay(); toast('Daily ritual complete! 🎉 Streak: '+S.streak); }
+  save();
 }
 
 function updateStreakDisplay() {
@@ -1357,65 +1392,68 @@ function toggleScenario(id) {
 
 async function addScenario() {
   const t = document.getElementById('newScenario').value.trim(); if (!t) return;
-  const btn = document.getElementById('scenarioBtn');
-  const btnTxt = document.getElementById('scenarioBtnTxt');
-  if (btn) { btn.disabled = true; btnTxt.textContent = 'Writing your scene…'; }
+  const btn = document.getElementById('scenBtn');
+  document.getElementById('scenTxt').style.display = 'none';
+  document.getElementById('scenLoad').style.display = 'inline';
+  btn.disabled = true;
 
-  const prompt = `You are Abowabon — a grounded manifestation coach. A user wants a "settled end" scenario: a short scene of an ORDINARY day after their desire has already happened — calm, not dramatic, like the two examples below.
-
-Example 1: "I sit at my kitchen table on a quiet Tuesday morning, coffee in hand, no urgency in my chest. The payment went through last Thursday. I remember checking the balance and feeling... nothing dramatic. Just right."
-Example 2: "It is a Wednesday. I am at my desk. My ID badge is slightly faded now from daily use. My opinion is sought. I contribute without anxiety."
-
-User's desire: "${t}"
-
-Return ONLY valid JSON (no markdown, no extra text):
-{
-  "title": "Short punchy title for this scenario (a few words)",
-  "sub": "One short line describing the settled feeling",
-  "scene": "3-5 sentences, first person, present/past tense, an ordinary day where this desire is simply normal life — no fanfare",
-  "frisson": "One sentence: the specific small moment that would give a felt sense this is real",
-  "dn": "One sentence 'death note' — a closing line marking this concern as resolved, e.g. 'The worry is gone. I will never remember what it felt like.'"
-}`;
-
+  // Your backend's /api/generate-end-scene (Tool 4) writes the settled-scene
+  // prose with real AI. There's no dedicated endpoint for the frisson anchor
+  // or death-note line yet, so those are composed locally from your desire —
+  // still personalised, just not a separate AI call. Add a route later if
+  // you want those AI-written too (see chat notes).
+  let scene;
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({model:'claude-sonnet-4-6', max_tokens:600, messages:[{role:'user',content:prompt}]})
+    const res = await fetch(ABOWABON_API + '/api/generate-end-scene', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ desire: t })
     });
-    if (!res.ok) throw new Error('API error ' + res.status);
     const data = await res.json();
-    const text = data.content?.map(b=>b.text||'').join('') || '';
-    let clean = text.replace(/```json|```/g,'').trim();
-    const first = clean.indexOf('{'), last = clean.lastIndexOf('}');
-    if (first !== -1 && last !== -1) clean = clean.slice(first, last + 1);
-    const sc = JSON.parse(clean);
-    S.scenarios.push({
-      title: sc.title || t, sub: sc.sub || 'Your settled end scene',
-      scene: sc.scene || t, frisson: sc.frisson || '', dn: sc.dn || '',
-      userWritten: true
-    });
-  } catch(e) {
-    console.warn('Abowabon: live scenario generation unavailable, using offline scenario instead.', e);
-    // Offline fallback — still personalised to what the user typed, not a static placeholder.
-    S.scenarios.push({
-      title: t.length > 40 ? t.slice(0,40) + '…' : t,
-      sub: 'Your settled end scene',
-      scene: `It is an ordinary day. ${t} is simply true now — not a headline, not a celebration, just the quiet backdrop of your life. You go about your morning the way you always do, and somewhere in it you notice, almost in passing, that the thing you once wanted so badly has become completely unremarkable.`,
-      frisson: `The moment you catch yourself not thinking about ${t.toLowerCase()} at all — because it no longer needs your attention.`,
-      dn: `${t} is settled. The version of you who worried about this no longer exists.`,
-      userWritten: true
-    });
-  } finally {
-    if (btn) { btn.disabled = false; btnTxt.textContent = 'Create scenario ✦'; }
+    if (!res.ok) throw new Error(data.error || `Server responded ${res.status}`);
+    if (!data.scene) throw new Error('Malformed scene response');
+    scene = data.scene;
+  } catch (e) {
+    console.warn('generate-end-scene failed, using local fallback:', e.message);
+    toast(e.message && e.message !== 'Malformed scene response' ? e.message : 'Using offline scene — check your connection');
+    scene = buildFallbackScene(t);
   }
 
+  const sc = {
+    title: t.length > 42 ? t.slice(0, 42) + '…' : t,
+    sub: 'Your settled end scene',
+    scene,
+    frisson: buildFrissonLine(t),
+    dn: buildDeathNoteLine(t),
+    userWritten: true
+  };
+
+  S.scenarios.push(sc);
   document.getElementById('newScenario').value = '';
-  save(); renderScenarios(); renderJourney(); renderAchievements();
+  save(); renderScenarios();
   // Auto-open the newly created scenario
   const newIdx = S.scenarios.length - 1;
   setTimeout(() => toggleScenario('usr' + newIdx), 100);
   toast('Scenario created ✍️');
+
+  document.getElementById('scenTxt').style.display = 'inline';
+  document.getElementById('scenLoad').style.display = 'none';
+  btn.disabled = false;
+}
+
+function buildFallbackScene(desire) {
+  // Used only if the backend is unreachable.
+  const d = desire.trim();
+  return `It's an ordinary Tuesday. ${d} is simply true now — not new, not exciting, just how things are. I move through my morning the way I always do, and somewhere in the quiet in-between moments I notice how unremarkable it feels. That's how I know it's real: there's no charge left around it anymore, just the calm of something settled.`;
+}
+
+function buildFrissonLine(desire) {
+  const lower = desire.trim().toLowerCase();
+  return `The exact moment I realised ${lower} had already happened and I'd stopped counting the days.`;
+}
+
+function buildDeathNoteLine(desire) {
+  const d = desire.trim();
+  return `${d.charAt(0).toUpperCase()+d.slice(1)} is done. The waiting is over. I will never remember what it felt like to not have this.`;
 }
 
 function editScenario(i) {
@@ -1437,63 +1475,8 @@ function deleteScenario(i) {
   save(); renderScenarios(); toast('Scenario deleted');
 }
 
-// ── JOURNEY TRACKER ──────────────────────────────────────────────────────────
-function renderJourney() {
-  const el = document.getElementById('journeyTrack');
-  if (!el) return;
-  const today = new Date().toDateString();
-  const steps = [
-    { key:'desire', ic:'✦', lbl:'Set Desire', done: S.manifestations.length > 0 },
-    { key:'practice', ic:'🌊', lbl:'Practice', done: S.manifestations.some(m => m.lastPracticed === today) || (S.checksDone||0) > 0 },
-    { key:'journal', ic:'📓', lbl:'Journal', done: S.evidence.length > 0 },
-    { key:'script', ic:'✍️', lbl:'Script', done: S.scenarios.length > 0 },
-    { key:'progress', ic:'📊', lbl:'Progress', done: false },
-  ];
-  // Mark the first not-yet-done step as "current"
-  let currentMarked = false;
-  el.innerHTML = steps.map(s => {
-    let cls = '';
-    if (s.done) cls = 'done';
-    else if (!currentMarked) { cls = 'current'; currentMarked = true; }
-    return `<div class="jt-step ${cls}" onclick="journeyGo('${s.key}')"><div class="jt-line"></div><div class="jt-dot">${s.done ? '✓' : s.ic}</div><div class="jt-lbl">${s.lbl}</div></div>`;
-  }).join('');
-}
-
-function journeyGo(key) {
-  if (key === 'desire') { document.getElementById('desireInput')?.focus(); document.getElementById('desireInput')?.scrollIntoView({behavior:'smooth'}); return; }
-  if (key === 'practice') { showTab('s-practice'); return; }
-  if (key === 'journal') { showTab('s-journal'); return; }
-  if (key === 'script') { showTab('s-script'); return; }
-  if (key === 'progress') { showTab('s-stats'); return; }
-}
-
-// ── ACHIEVEMENTS ─────────────────────────────────────────────────────────────
-function renderAchievements() {
-  const el = document.getElementById('badgeGrid');
-  if (!el) return;
-  const completedChallenge = S.manifestations.some(m => m.progress >= 100);
-  const badges = [
-    { ic:'🧭', lbl:'First guide crafted', on: (S.totalGuides||0) >= 1 },
-    { ic:'✦', lbl:'First desire tracked', on: S.manifestations.length >= 1 },
-    { ic:'🔥', lbl:'3-day streak', on: S.streak >= 3 },
-    { ic:'🔥', lbl:'7-day streak', on: S.streak >= 7 },
-    { ic:'👑', lbl:'30-day streak', on: S.streak >= 30 },
-    { ic:'📓', lbl:'10 evidence entries', on: S.evidence.length >= 10 },
-    { ic:'✍️', lbl:'First scenario scripted', on: S.scenarios.length >= 1 },
-    { ic:'⚡', lbl:'5 beliefs shifted', on: S.beliefs.length >= 5 },
-    { ic:'🌟', lbl:'10 guides crafted', on: (S.totalGuides||0) >= 10 },
-    { ic:'🏆', lbl:'Challenge completed', on: completedChallenge },
-  ];
-  el.innerHTML = badges.map(b => `
-    <div class="badge ${b.on?'unlocked':''}">
-      <div class="badge-ic">${b.ic}</div>
-      <div class="badge-lbl">${b.lbl}</div>
-    </div>`).join('');
-}
-
 // ── STATS ─────────────────────────────────────────────────────────────────────
 function renderStats() {
-  renderAchievements();
   document.getElementById('stGuides').textContent = S.totalGuides||0;
   document.getElementById('stEvidence').textContent = S.evidence.length;
   document.getElementById('stStreak').textContent = S.streak;
@@ -1530,6 +1513,7 @@ function clearAll() {
     manifestations: [], evidence: [], beliefs: [],
     money: [], gratitude: [], scenarios: [], checksDone: 0,
     modeHistory: [], currentMode: 0,
+    achievedCount: 0, unlockedBadges: [], lastPracticeDate: null,
   };
   // Clear all UI inputs
   ['evidenceInput','beliefOld','beliefNew','moneyDesc','moneyAmt','gratInput','newScenario','desireInput'].forEach(id => {
@@ -1549,7 +1533,7 @@ function clearAll() {
   updateStreakDisplay();
   buildHeatmap('heatmap'); buildHeatmap('heatmap2');
   quizAnswers = []; renderQuiz(0);
-  renderJourney(); renderAchievements();
+  renderJourney(); renderBadges();
   toast('All data reset. Fresh start ✦');
 }
 
