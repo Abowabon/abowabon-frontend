@@ -323,7 +323,34 @@ label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var
 <div id="app">
 
   <!-- ═══════════════ ONBOARDING ═══════════════ -->
-  <div class="screen active" id="s-onboard">
+  <div class="screen active" id="s-login">
+    <div class="ob-wrap">
+      <a href="https://abowabon.com" style="align-self:flex-start;font-size:.75rem;color:var(--text3);text-decoration:none;margin-bottom:14px">‹ abowabon.com</a>
+      <div class="logo-orb">✦</div>
+      <div class="app-name">Abowabon</div>
+      <div class="app-tag">Sign in to continue your practice, or add a new user on this device.</div>
+
+      <div id="savedUsersList" style="width:100%;max-width:320px;margin-bottom:16px"></div>
+
+      <div style="background:var(--surface);border:1px solid var(--border2);border-radius:var(--rlg);padding:18px;margin-bottom:16px;max-width:320px;width:100%;text-align:left">
+        <div class="di-label" style="margin-bottom:10px" id="loginFormTitle">Sign in</div>
+        <div style="margin-bottom:10px">
+          <label class="sl">Username</label>
+          <input type="text" id="gateUser" class="di" style="min-height:0;height:auto;padding:10px 13px" placeholder="Your username" autocomplete="username">
+        </div>
+        <div style="margin-bottom:14px">
+          <label class="sl">Password</label>
+          <input type="password" id="gatePass" class="di" style="min-height:0;height:auto;padding:10px 13px" placeholder="Your password" autocomplete="current-password">
+        </div>
+        <button class="btn btn-gold" onclick="gateLogin()">Sign in</button>
+        <div id="gateError" style="display:none;color:var(--rose);font-size:.78rem;margin-top:8px;text-align:center"></div>
+      </div>
+
+      <button class="btn btn-ghost" style="max-width:320px;width:100%" onclick="gateShowNewUser()">+ Add new user</button>
+    </div>
+  </div>
+
+  <div class="screen" id="s-onboard">
     <div class="ob-wrap">
       <div class="logo-orb">✦</div>
       <div class="app-name">Abowabon</div>
@@ -345,7 +372,7 @@ label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var
       <button class="btn btn-ghost" style="max-width:320px;width:100%;margin:0 auto 20px" onclick="showModal('modal-about')">📖 What's the SAFE Method?</button>
       <input class="ob-name-input" id="ob-name" type="text" placeholder="What shall we call you? (optional)" maxlength="30">
       <button class="btn btn-gold" onclick="startApp()">✦ Begin Your Journey</button>
-      <button class="btn btn-ghost" onclick="startApp()">Skip — take me in</button>
+      <!-- <button class="btn btn-ghost" onclick="startApp()">Skip — take me in</button> -->
     </div>
   </div>
 
@@ -571,7 +598,7 @@ label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var
     <div class="scroll">
       <div class="sh" style="margin-top:4px">
         <h2>Settled end <em>scenarios</em></h2>
-        <p>Write it as already done. The Death Note method — feel the relief of the ordinary Tuesday where it exists.</p>
+        <p>Write it as already done. The Desire Note method — feel the relief of the ordinary Tuesday where it exists.</p>
       </div>
       <div id="scenarioList"></div>
       <div class="card" style="margin-top:4px">
@@ -631,34 +658,10 @@ label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var
   <!-- ═══════════════ PROFILE ═══════════════ -->
   <div class="screen" id="s-profile">
     <div class="top-bar"><span class="logo-sm">Profile</span>
-      <button id="logoutBtn" onclick="logoutUser()" style="display:none;background:var(--red-dim);border:1px solid rgba(192,57,43,.25);color:var(--rose);border-radius:8px;padding:5px 12px;font-size:.75rem;cursor:pointer;font-family:var(--ff)">Log out</button>
+      <button id="logoutBtn" onclick="logoutUser()" style="background:var(--red-dim);border:1px solid rgba(192,57,43,.25);color:var(--rose);border-radius:8px;padding:5px 12px;font-size:.75rem;cursor:pointer;font-family:var(--ff)">Log out</button>
     </div>
     <div class="scroll">
-      <!-- Not logged in view -->
-      <div id="loginSection">
-        <div class="card card-gold" style="margin-bottom:18px">
-          <div class="di-label" style="margin-bottom:4px">🔐 Your account</div>
-          <p style="font-size:.82rem;color:var(--text2);margin-bottom:14px;line-height:1.6">Set a username and app password to protect your data on this device. This is stored locally — only you can access it.</p>
-          <div style="margin-bottom:10px">
-            <label class="sl">Username</label>
-            <input type="text" id="loginUser" class="di" style="min-height:0;height:auto;padding:10px 13px" placeholder="Your username" autocomplete="username">
-          </div>
-          <div style="margin-bottom:14px">
-            <label class="sl">App password</label>
-            <input type="password" id="loginPass" class="di" style="min-height:0;height:auto;padding:10px 13px" placeholder="Choose a password" autocomplete="current-password">
-          </div>
-          <div style="display:flex;gap:8px">
-            <button class="btn btn-gold btn-sm" onclick="loginUser()" style="flex:1">Sign in / Create account</button>
-          </div>
-          <div id="loginError" style="display:none;color:var(--rose);font-size:.78rem;margin-top:8px;text-align:center"></div>
-        </div>
-        <div class="card" style="opacity:.6">
-          <p style="font-size:.8rem;color:var(--text2);text-align:center">Sign in above to access your profile and settings</p>
-        </div>
-      </div>
-
-      <!-- Logged in view -->
-      <div id="profileSection" style="display:none">
+      <div id="profileSection">
         <div class="profile-hdr">
           <div class="profile-av">✦</div>
           <div class="profile-name" id="profileName">Seeker</div>
@@ -671,6 +674,7 @@ label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var
           <div class="setting-row" onclick="exportData()"><div class="setting-l"><div class="setting-ic">📤</div><div><div class="setting-lbl">Export my data</div><div class="setting-sub">Download your journal and entries</div></div></div><span style="color:var(--text3)">›</span></div>
           <div class="setting-row" onclick="changePassword()"><div class="setting-l"><div class="setting-ic">🔑</div><div><div class="setting-lbl">Change password</div><div class="setting-sub">Update your app password</div></div></div><span style="color:var(--text3)">›</span></div>
           <div class="setting-row" onclick="clearAll()"><div class="setting-l"><div class="setting-ic">🗑️</div><div><div class="setting-lbl">Reset all data</div><div class="setting-sub">Start fresh — cannot be undone</div></div></div><span style="color:var(--text3)">›</span></div>
+          <div class="setting-row" onclick="exitToWebsite()"><div class="setting-l"><div class="setting-ic">🌐</div><div><div class="setting-lbl">Exit to abowabon.com</div><div class="setting-sub">Return to the main website</div></div></div><span style="color:var(--text3)">›</span></div>
         </div>
         <div class="ad-zone">AdSense 320×100 — replace with your AdSense code</div>
       </div>
@@ -678,7 +682,7 @@ label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var
   </div>
 
   <!-- BOTTOM NAV -->
-  <div class="bnav">
+  <div class="bnav" style="display:none">
     <div class="ni active" onclick="showTab('s-home')" id="ni-home"><div class="ic">✦</div><div class="lb">Home</div></div>
     <div class="ni" onclick="showTab('s-practice')" id="ni-practice"><div class="ic">🌊</div><div class="lb">Practice</div></div>
     <div class="ni" onclick="showTab('s-journal')" id="ni-journal"><div class="ic">📓</div><div class="lb">Journal</div></div>
@@ -719,15 +723,29 @@ label.sl{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;color:var
 
 <script>
 // ── STATE ──────────────────────────────────────────────────────────────────────
-let S = {
-  name: '', streak: 1, guides: 0,
-  manifestations: [],
-  evidence: [], beliefs: [],
-  money: [],
-  gratitude: [], scenarios: [], checksDone: 0, totalGuides: 0,
-  modeHistory: [], currentMode: 0,
-  achievedCount: 0, unlockedBadges: [], lastPracticeDate: null,
-};
+function defaultState() {
+  return {
+    name: '', streak: 1, guides: 0,
+    manifestations: [],
+    evidence: [], beliefs: [],
+    money: [],
+    gratitude: [], scenarios: [], checksDone: 0, totalGuides: 0,
+    modeHistory: [], currentMode: 0,
+    achievedCount: 0, unlockedBadges: [], lastPracticeDate: null,
+  };
+}
+let S = defaultState();
+
+// Old app versions seeded 2 fake manifestations for demo purposes. If a
+// browser still has that in localStorage from earlier testing, strip them
+// out on load so no user ever sees manifestations they didn't create.
+function sanitizeLegacyManifestations(state) {
+  if (state && Array.isArray(state.manifestations)) {
+    const FAKE_DESIRES = ['Clear all urgent financial pressure', 'Secure a permanent senior role I love'];
+    state.manifestations = state.manifestations.filter(m => !FAKE_DESIRES.includes(m && m.desire));
+  }
+  return state;
+}
 let selCatVal = 'money';
 let breathTimer = null, breathDur = 10 * 60, breathRemaining = 0, breathRunning = false;
 const phases = [{label:'Inhale',sec:4},{label:'Hold',sec:7},{label:'Exhale',sec:8},{label:'Hold',sec:2}];
@@ -755,15 +773,15 @@ const QUIZ = [
 // ── INIT ──────────────────────────────────────────────────────────────────────
 function startApp() {
   const n = document.getElementById('ob-name').value.trim();
-  if (n) { S.name = n; localStorage.setItem('mai_name', n); }
-  else { S.name = localStorage.getItem('mai_name') || ''; }
+  if (n) S.name = n;
+  const user = activeUserKey();
+  if (user) localStorage.setItem('ab_onboarded__' + user, '1');
+  save();
   showTab('s-home');
   initAll();
 }
 
 function initAll() {
-  try { const saved = localStorage.getItem('mai_state'); if(saved) S = {...S,...JSON.parse(saved)}; } catch(e){}
-  if (!S.name) S.name = localStorage.getItem('mai_name') || '';
   updateGreeting();
   renderManifestList();
   buildHeatmap('heatmap'); buildHeatmap('heatmap2');
@@ -773,7 +791,7 @@ function initAll() {
   renderStats();
   renderQuiz(0);
   updateStreakDisplay();
-  checkLoginState();
+  renderProfile();
   renderJourney();
   renderBadges();
   if (S.name) {
@@ -782,7 +800,8 @@ function initAll() {
 }
 
 function save() {
-  try { localStorage.setItem('mai_state', JSON.stringify(S)); } catch(e){}
+  const user = activeUserKey();
+  try { if (user) localStorage.setItem('ab_state__' + user, JSON.stringify(S)); } catch(e){}
   renderJourney();
   evaluateBadges();
 }
@@ -829,7 +848,7 @@ function evaluateBadges() {
       toast('🏅 Badge unlocked: ' + b.name);
     }
   });
-  if (changed) { try { localStorage.setItem('mai_state', JSON.stringify(S)); } catch(e){} }
+  if (changed) { const user = activeUserKey(); try { if (user) localStorage.setItem('ab_state__' + user, JSON.stringify(S)); } catch(e){} }
   renderBadges();
 }
 
@@ -856,6 +875,8 @@ function showTab(id) {
   document.querySelectorAll('.ni').forEach(n=>n.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   const ni = tabNav[id]; if(ni) document.getElementById(ni).classList.add('active');
+  const bnav = document.querySelector('.bnav');
+  if (bnav) bnav.style.display = (id === 's-onboard' || id === 's-login') ? 'none' : 'flex';
   window.scrollTo(0,0);
   if(id==='s-stats') renderStats();
 }
@@ -1348,7 +1369,7 @@ function renderScenarios() {
         </div>
         <div class="scene-prose">"${sc.scene}"</div>
         ${sc.frisson?`<div class="frisson-anchor"><div class="fa-label">✦ Frisson anchor</div><div class="fa-text">${sc.frisson}</div></div>`:''}
-        ${sc.dn?`<div class="dn-block"><div class="dn-label">📓 Death note</div><div class="dn-text">${sc.dn}</div></div>`:''}
+        ${sc.dn?`<div class="dn-block"><div class="dn-label">📓 Desire note</div><div class="dn-text">${sc.dn}</div></div>`:''}
       </div>
     </div>`).join('');
   }
@@ -1371,7 +1392,7 @@ function renderScenarios() {
     <div class="scenario-body" id="sb_usr${i}">
       <div class="scene-prose" id="scene-prose-${i}">"${sc.scene}"</div>
       ${sc.frisson?`<div class="frisson-anchor"><div class="fa-label">✦ Frisson anchor</div><div class="fa-text">${sc.frisson}</div></div>`:''}
-      ${sc.dn?`<div class="dn-block"><div class="dn-label">📓 Death note</div><div class="dn-text">${sc.dn}</div></div>`:''}
+      ${sc.dn?`<div class="dn-block"><div class="dn-label">📓 Desire note</div><div class="dn-text">${sc.dn}</div></div>`:''}
     </div>
   </div>`).join('');
 
@@ -1399,7 +1420,7 @@ async function addScenario() {
 
   // Your backend's /api/generate-end-scene (Tool 4) writes the settled-scene
   // prose with real AI. There's no dedicated endpoint for the frisson anchor
-  // or death-note line yet, so those are composed locally from your desire —
+  // or desire-note line yet, so those are composed locally from your desire —
   // still personalised, just not a separate AI call. Add a route later if
   // you want those AI-written too (see chat notes).
   let scene;
@@ -1423,7 +1444,7 @@ async function addScenario() {
     sub: 'Your settled end scene',
     scene,
     frisson: buildFrissonLine(t),
-    dn: buildDeathNoteLine(t),
+    dn: buildDesireNoteLine(t),
     userWritten: true
   };
 
@@ -1451,7 +1472,7 @@ function buildFrissonLine(desire) {
   return `The exact moment I realised ${lower} had already happened and I'd stopped counting the days.`;
 }
 
-function buildDeathNoteLine(desire) {
+function buildDesireNoteLine(desire) {
   const d = desire.trim();
   return `${d.charAt(0).toUpperCase()+d.slice(1)} is done. The waiting is over. I will never remember what it felt like to not have this.`;
 }
@@ -1463,7 +1484,7 @@ function editScenario(i) {
   const newScene = prompt('Edit scene (your ordinary Tuesday):', sc.scene);
   if (newScene === null) return;
   const newFrisson = prompt('Edit Frisson anchor (optional):', sc.frisson || '');
-  const newDn = prompt('Edit Death Note (optional):', sc.dn || '');
+  const newDn = prompt('Edit Desire Note (optional):', sc.dn || '');
   S.scenarios[i] = { ...sc, title: newTitle || sc.title, scene: newScene || sc.scene, frisson: newFrisson || '', dn: newDn || '' };
   save(); renderScenarios(); toast('Scenario updated ✍️');
 }
@@ -1503,25 +1524,18 @@ function exportData() {
 }
 
 function clearAll() {
-  if (!confirm('Reset ALL your data? This clears your name, journal, scenarios, manifestations, streaks and history. This cannot be undone.')) return;
-  // Wipe localStorage entirely
-  localStorage.removeItem('mai_state');
-  localStorage.removeItem('mai_name');
-  // Reset state to clean defaults
-  S = {
-    name: '', streak: 1, guides: 0, totalGuides: 0,
-    manifestations: [], evidence: [], beliefs: [],
-    money: [], gratitude: [], scenarios: [], checksDone: 0,
-    modeHistory: [], currentMode: 0,
-    achievedCount: 0, unlockedBadges: [], lastPracticeDate: null,
-  };
+  if (!confirm('Reset all your journal data? This clears your manifestations, journal, scenarios, streaks and history. Your login stays active. This cannot be undone.')) return;
+  const user = activeUserKey();
+  // Reset state to clean defaults, keep the username
+  S = defaultState();
+  S.name = user || '';
+  try { if (user) localStorage.setItem('ab_state__' + user, JSON.stringify(S)); } catch(e){}
   // Clear all UI inputs
   ['evidenceInput','beliefOld','beliefNew','moneyDesc','moneyAmt','gratInput','newScenario','desireInput'].forEach(id => {
     const el = document.getElementById(id); if (el) el.value = '';
   });
   // Re-render everything
-  document.getElementById('ob-name').value = '';
-  document.getElementById('profileName').textContent = 'Seeker';
+  document.getElementById('profileName').textContent = user || 'Seeker';
   document.getElementById('greeting').textContent = 'Good day, seeker ✦';
   document.getElementById('currentModeBadge').innerHTML = '';
   document.getElementById('guideResult').style.display = 'none';
@@ -1537,9 +1551,9 @@ function clearAll() {
   toast('All data reset. Fresh start ✦');
 }
 
-// ── LOGIN / LOGOUT ────────────────────────────────────────────────────────────
-// Stored on device only — no server involved. Username + hashed password in localStorage.
-// Simple hash function (not cryptographic, but fine for a local app password)
+// ── LOGIN GATE (multi-user, on-device) ─────────────────────────────────────────
+// Stored on device only — no server involved. Each user gets their own
+// hashed password and their own saved app state, keyed by username.
 function simpleHash(str) {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
@@ -1550,62 +1564,137 @@ function simpleHash(str) {
   return hash.toString(36);
 }
 
-function loginUser() {
-  const username = document.getElementById('loginUser').value.trim();
-  const password = document.getElementById('loginPass').value;
-  const errEl = document.getElementById('loginError');
+function getUsersList() {
+  try { return JSON.parse(localStorage.getItem('ab_users') || '[]'); } catch(e) { return []; }
+}
 
-  if (!username || !password) {
-    errEl.textContent = 'Please enter both a username and password.';
-    errEl.style.display = 'block'; return;
-  }
-  if (password.length < 4) {
-    errEl.textContent = 'Password must be at least 4 characters.';
-    errEl.style.display = 'block'; return;
-  }
+function activeUserKey() { return localStorage.getItem('ab_active_user') || ''; }
 
-  const storedUser = localStorage.getItem('ab_auth_user');
-  const storedHash = localStorage.getItem('ab_auth_hash');
-  const passwordHash = simpleHash(password);
+// One-time migration: earlier versions of this app had a single optional
+// account (ab_auth_user/ab_auth_hash) plus a global un-gated state
+// (mai_state/mai_name). Fold that into the new multi-user system so no one
+// loses their journal when this update ships.
+function migrateLegacySingleUser() {
+  try {
+    if (localStorage.getItem('ab_users')) return; // already on the new system
+    const legacyState = localStorage.getItem('mai_state');
+    const legacyName = localStorage.getItem('mai_name');
+    const legacyUser = localStorage.getItem('ab_auth_user') || legacyName || (legacyState ? 'My Profile' : null);
+    if (!legacyUser) return; // brand new device, nothing to bring forward
+    const legacyHash = localStorage.getItem('ab_auth_hash') || simpleHash('abowabon');
+    localStorage.setItem('ab_users', JSON.stringify([legacyUser]));
+    localStorage.setItem('ab_hash__' + legacyUser, legacyHash);
+    if (legacyState) {
+      try {
+        const parsed = sanitizeLegacyManifestations(JSON.parse(legacyState));
+        localStorage.setItem('ab_state__' + legacyUser, JSON.stringify(parsed));
+      } catch(e){}
+    }
+    localStorage.setItem('ab_onboarded__' + legacyUser, '1');
+    // This device previously had unlocked access (login was optional before) — keep it frictionless.
+    localStorage.setItem('ab_active_user', legacyUser);
+  } catch(e) { console.warn('Legacy migration failed', e); }
+}
 
-  if (!storedUser) {
-    // First time — create account
-    localStorage.setItem('ab_auth_user', username);
-    localStorage.setItem('ab_auth_hash', passwordHash);
-    localStorage.setItem('ab_logged_in', '1');
-    S.name = username;
-    localStorage.setItem('mai_name', username);
-    save();
-    errEl.style.display = 'none';
-    showLoggedIn(username);
+function renderSavedUsers() {
+  const el = document.getElementById('savedUsersList'); if (!el) return;
+  const users = getUsersList();
+  if (!users.length) { el.innerHTML = ''; return; }
+  el.innerHTML = users.map(u => `
+    <div class="setting-row" style="cursor:pointer" onclick="prefillUser('${u.replace(/'/g,"\\'")}')">
+      <div class="setting-l"><div class="setting-ic">✦</div><div><div class="setting-lbl">${u}</div><div class="setting-sub">Tap to continue as this user</div></div></div>
+      <span style="color:var(--text3)">›</span>
+    </div>`).join('');
+}
+
+function prefillUser(u) {
+  document.getElementById('gateUser').value = u;
+  document.getElementById('gatePass').value = '';
+  document.getElementById('loginFormTitle').textContent = 'Sign in as ' + u;
+  document.getElementById('gateError').style.display = 'none';
+  document.getElementById('gatePass').focus();
+}
+
+function gateShowNewUser() {
+  document.getElementById('gateUser').value = '';
+  document.getElementById('gatePass').value = '';
+  document.getElementById('gateError').style.display = 'none';
+  document.getElementById('loginFormTitle').textContent = 'Create new profile';
+  document.getElementById('gateUser').focus();
+  toast('Enter a new username & password to add a profile ✦');
+}
+
+function gateLogin() {
+  const username = document.getElementById('gateUser').value.trim();
+  const password = document.getElementById('gatePass').value;
+  const errEl = document.getElementById('gateError');
+  errEl.style.display = 'none';
+
+  if (!username || !password) { errEl.textContent = 'Please enter both a username and password.'; errEl.style.display = 'block'; return; }
+  if (password.length < 4) { errEl.textContent = 'Password must be at least 4 characters.'; errEl.style.display = 'block'; return; }
+
+  const users = getUsersList();
+  const hash = simpleHash(password);
+
+  if (!users.includes(username)) {
+    // New user on this device
+    users.push(username);
+    localStorage.setItem('ab_users', JSON.stringify(users));
+    localStorage.setItem('ab_hash__' + username, hash);
     toast('Account created. Welcome, ' + username + ' ✦');
-  } else if (storedUser === username && storedHash === passwordHash) {
-    // Existing user — correct credentials
-    localStorage.setItem('ab_logged_in', '1');
-    S.name = username;
-    errEl.style.display = 'none';
-    showLoggedIn(username);
-    toast('Welcome back, ' + username + ' ✦');
-  } else if (storedUser !== username) {
-    errEl.textContent = 'Username not recognised. If this is a new device, clear data first.';
-    errEl.style.display = 'block';
+    gateActivateUser(username);
+    return;
+  }
+
+  const storedHash = localStorage.getItem('ab_hash__' + username);
+  if (storedHash !== hash) { errEl.textContent = 'Incorrect password. Please try again.'; errEl.style.display = 'block'; return; }
+
+  toast('Welcome back, ' + username + ' ✦');
+  gateActivateUser(username);
+}
+
+function gateActivateUser(username) {
+  localStorage.setItem('ab_active_user', username);
+
+  let userState = null;
+  try {
+    const raw = localStorage.getItem('ab_state__' + username);
+    if (raw) userState = sanitizeLegacyManifestations(JSON.parse(raw));
+  } catch(e){}
+
+  S = defaultState();
+  if (userState) S = {...S, ...userState};
+  if (!S.name) S.name = username;
+  try { localStorage.setItem('ab_state__' + username, JSON.stringify(S)); } catch(e){}
+
+  const onboarded = localStorage.getItem('ab_onboarded__' + username) === '1';
+  if (onboarded) {
+    initAll();
+    showTab('s-home');
   } else {
-    errEl.textContent = 'Incorrect password. Please try again.';
-    errEl.style.display = 'block';
+    document.getElementById('ob-name').value = S.name || username;
+    showTab('s-onboard');
   }
 }
 
 function logoutUser() {
   if (!confirm('Log out? Your data stays saved on this device.')) return;
-  localStorage.removeItem('ab_logged_in');
-  showLoggedOut();
+  localStorage.removeItem('ab_active_user');
   toast('Logged out. Your data is safe.');
+  document.getElementById('gateUser').value = '';
+  document.getElementById('gatePass').value = '';
+  document.getElementById('gateError').style.display = 'none';
+  document.getElementById('loginFormTitle').textContent = 'Sign in';
+  renderSavedUsers();
+  showTab('s-login');
 }
 
 function changePassword() {
+  const user = activeUserKey();
+  if (!user) return;
   const current = prompt('Enter your current password:');
   if (current === null) return;
-  const storedHash = localStorage.getItem('ab_auth_hash');
+  const storedHash = localStorage.getItem('ab_hash__' + user);
   if (simpleHash(current) !== storedHash) {
     toast('Incorrect current password.'); return;
   }
@@ -1613,37 +1702,21 @@ function changePassword() {
   if (!newPass || newPass.length < 4) { toast('Password too short.'); return; }
   const confirm2 = prompt('Confirm new password:');
   if (newPass !== confirm2) { toast('Passwords do not match.'); return; }
-  localStorage.setItem('ab_auth_hash', simpleHash(newPass));
+  localStorage.setItem('ab_hash__' + user, simpleHash(newPass));
   toast('Password updated ✦');
 }
 
-function showLoggedIn(username) {
-  document.getElementById('loginSection').style.display = 'none';
-  document.getElementById('profileSection').style.display = 'block';
-  document.getElementById('logoutBtn').style.display = 'block';
-  document.getElementById('profileName').textContent = username;
+function renderProfile() {
+  const user = activeUserKey();
+  document.getElementById('profileName').textContent = user || (S.name || 'Seeker');
   const days = Math.max(1, S.streak || 1);
   document.getElementById('profileSince').textContent = `Abowabon practitioner · Day ${days}`;
 }
 
-function showLoggedOut() {
-  document.getElementById('loginSection').style.display = 'block';
-  document.getElementById('profileSection').style.display = 'none';
-  document.getElementById('logoutBtn').style.display = 'none';
-  document.getElementById('loginUser').value = '';
-  document.getElementById('loginPass').value = '';
-  document.getElementById('loginError').style.display = 'none';
+function exitToWebsite() {
+  window.location.href = 'https://abowabon.com';
 }
 
-function checkLoginState() {
-  const loggedIn = localStorage.getItem('ab_logged_in');
-  const storedUser = localStorage.getItem('ab_auth_user');
-  if (loggedIn === '1' && storedUser) {
-    showLoggedIn(storedUser);
-  } else {
-    showLoggedOut();
-  }
-}
 function toast(msg) {
   const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),2500);
@@ -1651,13 +1724,14 @@ function toast(msg) {
 
 // ── BOOT ─────────────────────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', ()=>{
-  const saved = localStorage.getItem('mai_name');
-  if (saved) { document.getElementById('ob-name').value = saved; }
-  // Load session state
-  try {
-    const st = localStorage.getItem('mai_state');
-    if (st) { const parsed = JSON.parse(st); S = {...S,...parsed}; }
-  } catch(e){}
+  migrateLegacySingleUser();
+  renderSavedUsers();
+
+  const active = activeUserKey();
+  if (active && getUsersList().includes(active)) {
+    gateActivateUser(active); // resume previous session on this device
+  }
+  // else: Login screen (s-login) is already the default active screen
 });
 </script>
 </body>
