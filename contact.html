@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Contact Us — Abowabon</title>
+<meta name="description" content="Get in touch with the Abowabon team — questions, support, refunds, or feedback on the SAFE Method app and tools.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── MOBILE BASE FIXES ─────────────────────────────────────────────────── */
+*{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img,video{max-width:100%;height:auto}
+input,textarea,select,button{font-family:inherit}
+
+:root {
+  --bg:#070B14; --bg2:#0D1425; --surface:#141C2E; --surface2:#1A2540;
+  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.13);
+  --gold:#C9963A; --gold2:#E8B84B; --gold3:#D4A96A;
+  --gold-dim:rgba(201,150,58,0.12); --gold-glow:rgba(201,150,58,0.06);
+  --teal:#4ECDC4; --teal-dim:rgba(78,205,196,0.1);
+  --rose:#E07070; --rose-dim:rgba(224,112,112,0.1);
+  --sage:#7BC67E; --lav:#9B8FD4;
+  --text:#E8EAF0; --text2:#8892A4; --text3:#5A6478;
+  --ff-d:'Cormorant Garamond',serif; --ff:'DM Sans',sans-serif;
+  --r:14px; --rsm:10px; --rlg:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--ff);background:var(--bg);color:var(--text);line-height:1.65}
+.aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.ab{position:absolute;border-radius:50%;filter:blur(90px);opacity:.1;animation:drift 22s ease-in-out infinite}
+.ab:nth-child(1){width:700px;height:700px;background:#1E3A5F;top:-250px;left:-150px}
+.ab:nth-child(2){width:450px;height:450px;background:#C9963A;top:15%;right:-120px;animation-delay:-8s}
+.ab:nth-child(3){width:550px;height:550px;background:#0E4A4A;bottom:-150px;left:25%;animation-delay:-16s}
+@keyframes drift{0%,100%{transform:translate(0,0)scale(1)}33%{transform:translate(25px,-18px)scale(1.04)}66%{transform:translate(-18px,25px)scale(.96)}}
+
+.shell{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:0 24px}
+.top-bar{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--border)}
+.logo{font-family:var(--ff-d);font-size:1.5rem;font-weight:600;background:linear-gradient(135deg,#E8B84B,#C9963A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.nav-links{display:flex;gap:18px}
+.nav-links a{font-size:.82rem;color:var(--text2);text-decoration:none}
+.nav-links a:hover{color:var(--text)}
+
+.hero{padding:56px 0 28px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--gold-dim);border:1px solid rgba(201,150,58,.25);border-radius:99px;padding:6px 16px;font-size:.78rem;color:var(--gold2);font-weight:600;margin-bottom:20px}
+.hero h1{font-family:var(--ff-d);font-size:clamp(2.2rem,6vw,3.2rem);font-weight:300;line-height:1.2;margin-bottom:14px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero p{font-size:1rem;color:var(--text2);max-width:480px;margin:0 auto;line-height:1.75}
+
+.ad-zone{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.1);border-radius:var(--rsm);padding:10px;text-align:center;font-size:.7rem;color:var(--text3);margin:24px 0}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0}
+.contact-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--rlg);padding:22px;text-align:center}
+.cc-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin:0 auto 12px}
+.cc-title{font-size:.92rem;font-weight:600;margin-bottom:5px}
+.cc-desc{font-size:.8rem;color:var(--text2);line-height:1.6;margin-bottom:12px}
+.cc-link{font-size:.82rem;color:var(--gold2);text-decoration:none;font-weight:600}
+.cc-link:hover{text-decoration:underline}
+
+.section{padding:32px 0;border-bottom:1px solid var(--border)}
+.section:last-child{border-bottom:none}
+.section-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--gold);font-weight:600;margin-bottom:10px}
+.section h2{font-family:var(--ff-d);font-size:1.9rem;font-weight:300;margin-bottom:16px;line-height:1.3}
+.section h2 em{font-style:italic;color:var(--gold2)}
+.section p{font-size:.95rem;color:var(--text2);margin-bottom:14px;line-height:1.8}
+
+.form-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--rlg);padding:26px}
+.field-label{font-size:.78rem;font-weight:600;color:var(--text);margin-bottom:8px;display:block}
+.field-row{margin-bottom:16px}
+input.input,select.input,textarea.input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border2);border-radius:12px;padding:13px 15px;font-family:var(--ff);font-size:.92rem;color:var(--text);outline:none}
+textarea.input{resize:none;min-height:110px}
+input.input:focus,select.input:focus,textarea.input:focus{border-color:var(--gold)}
+input.input::placeholder,textarea.input::placeholder{color:var(--text3)}
+.btn-gold{width:100%;background:linear-gradient(135deg,#C9963A,#E8B84B);color:#0D1425;border:none;border-radius:12px;padding:15px;font-family:var(--ff);font-size:.95rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,150,58,.4)}
+.form-note{font-size:.75rem;color:var(--text3);text-align:center;margin-top:12px;line-height:1.6}
+
+.reasons{display:flex;flex-direction:column;gap:10px;margin:18px 0}
+.reason-row{display:flex;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px}
+.reason-icon{font-size:1.1rem;flex-shrink:0}
+.reason-title{font-size:.86rem;font-weight:600;margin-bottom:2px}
+.reason-desc{font-size:.8rem;color:var(--text2);line-height:1.55}
+
+.faq-hint{background:linear-gradient(135deg,var(--surface),var(--surface2));border:1px solid rgba(201,150,58,.2);border-radius:var(--rlg);padding:22px;text-align:center;margin:24px 0}
+.faq-hint h3{font-family:var(--ff-d);font-size:1.3rem;font-weight:300;margin-bottom:6px}
+.faq-hint p{font-size:.86rem;color:var(--text2);margin-bottom:14px}
+.btn-ghost{display:inline-block;background:transparent;border:1px solid rgba(201,150,58,.3);border-radius:10px;padding:11px 22px;font-family:var(--ff);font-size:.85rem;color:var(--gold2);cursor:pointer;text-decoration:none}
+
+footer{text-align:center;padding:28px 0 40px;font-size:.78rem;color:var(--text3)}
+footer a{color:var(--text3);text-decoration:none;margin:0 10px}
+
+@media(max-width:560px){.contact-grid{grid-template-columns:1fr}.nav-links{display:none}}
+</style>
+</head>
+<body>
+<div class="aurora"><div class="ab"></div><div class="ab"></div><div class="ab"></div></div>
+
+<div class="shell">
+  <div class="top-bar">
+    <a href="https://abowabon.com" class="logo">✦ Abowabon</a>
+    <div class="nav-links">
+      <a href="https://abowabon.com">App</a>
+      <a href="https://abowabon.com/about">About</a>
+      <a href="https://abowabon.com/faq">FAQ</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-badge">✦ Get in touch</div>
+    <h1>We'd love to <em>hear from you</em></h1>
+    <p>Questions about the app, a tool that's not behaving, a refund request, or just feedback — every message reaches a real person, usually within 1–2 business days.</p>
+  </div>
+
+  <div class="ad-zone">AdSense 728×90 — replace with your AdSense code</div>
+
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="cc-icon" style="background:rgba(201,150,58,.15);color:var(--gold2)">✉️</div>
+      <div class="cc-title">Email us</div>
+      <div class="cc-desc">The fastest way to reach us for support, billing, or general questions.</div>
+      <a class="cc-link" href="mailto:hello@abowabon.com">hello@abowabon.com</a>
+    </div>
+    <div class="contact-card">
+      <div class="cc-icon" style="background:rgba(78,205,196,.15);color:var(--teal)">💳</div>
+      <div class="cc-title">Refund requests</div>
+      <div class="cc-desc">Complete Manifestation System purchases are covered by a 30-day guarantee.</div>
+      <a class="cc-link" href="mailto:hello@abowabon.com?subject=Refund%20request">Request a refund</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Send a message</div>
+    <h2>What's this <em>about?</em></h2>
+    <div class="form-card">
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="field-row">
+          <label class="field-label">Your name</label>
+          <input class="input" type="text" id="cName" placeholder="Jane Smith" required>
+        </div>
+        <div class="field-row">
+          <label class="field-label">Your email</label>
+          <input class="input" type="email" id="cEmail" placeholder="jane@example.com" required>
+        </div>
+        <div class="field-row">
+          <label class="field-label">Reason for contact</label>
+          <select class="input" id="cReason">
+            <option>General question</option>
+            <option>App bug or technical issue</option>
+            <option>Refund request — Complete Manifestation System</option>
+            <option>Billing question</option>
+            <option>Privacy / data request</option>
+            <option>Partnership or press</option>
+            <option>Feedback or suggestion</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <label class="field-label">Message</label>
+          <textarea class="input" id="cMessage" placeholder="Tell us what's going on — the more detail, the faster we can help." required></textarea>
+        </div>
+        <button type="submit" class="btn-gold">✦ Send message</button>
+        <div class="form-note">This opens your email app with the message pre-filled. Nothing is sent without your confirmation. For data requests, see our <a href="https://abowabon.com/privacy" style="color:var(--gold2)">Privacy Policy</a>.</div>
+      </form>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Before you write in</div>
+    <h2>Common reasons <em>people reach out</em></h2>
+    <div class="reasons">
+      <div class="reason-row"><div class="reason-icon">🔄</div><div><div class="reason-title">A tool gave an error or fallback result</div><div class="reason-desc">Our AI-generation tools occasionally fall back to a template response if our servers are busy. Refreshing and trying again usually resolves it — but let us know if it keeps happening.</div></div></div>
+      <div class="reason-row"><div class="reason-icon">📓</div><div><div class="reason-title">Lost journal or evidence log data</div><div class="reason-desc">Journal entries are stored locally in your browser, not on our servers. Clearing browser data or switching devices will remove them — we can't recover this data, but can help you avoid it happening again.</div></div></div>
+      <div class="reason-row"><div class="reason-icon">💷</div><div><div class="reason-title">Purchase or receipt issue</div><div class="reason-desc">Digital products are processed via Gumroad. Include your Gumroad order number or receipt email for the fastest resolution.</div></div></div>
+      <div class="reason-row"><div class="reason-icon">🔐</div><div><div class="reason-title">Privacy or data deletion request</div><div class="reason-desc">Email us directly and we'll process access, correction, or erasure requests in line with UK/EU GDPR — details in our Privacy Policy.</div></div></div>
+    </div>
+  </div>
+
+  <div class="faq-hint">
+    <h3>Looking for a quick answer?</h3>
+    <p>Most questions about the app, tools, pricing, and data are already answered on our FAQ page.</p>
+    <a class="btn-ghost" href="https://abowabon.com/faq">Browse the FAQ →</a>
+  </div>
+
+  <div class="ad-zone">AdSense 300×250 — replace with your AdSense code</div>
+
+  <footer>
+    <a href="https://abowabon.com">Home</a>
+    <a href="https://abowabon.com/about">About</a>
+    <a href="https://abowabon.com/faq">FAQ</a>
+    <a href="https://abowabon.com/privacy">Privacy</a>
+    <a href="mailto:hello@abowabon.com">Contact</a>
+    © 2025 Abowabon
+  </footer>
+</div>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const name = document.getElementById('cName').value.trim();
+  const email = document.getElementById('cEmail').value.trim();
+  const reason = document.getElementById('cReason').value;
+  const message = document.getElementById('cMessage').value.trim();
+
+  const subject = encodeURIComponent(`Abowabon contact — ${reason}`);
+  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nReason: ${reason}\n\nMessage:\n${message}`);
+  window.location.href = `mailto:hello@abowabon.com?subject=${subject}&body=${body}`;
+}
+</script>
+</body>
+</html>

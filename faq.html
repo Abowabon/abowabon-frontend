@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>FAQ — Frequently Asked Questions | Abowabon</title>
+<meta name="description" content="Answers to common questions about the Abowabon app, the SAFE Method, the free tools, the Complete Manifestation System, pricing, privacy, and data storage.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── MOBILE BASE FIXES ─────────────────────────────────────────────────── */
+*{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img,video{max-width:100%;height:auto}
+input,textarea,select,button{font-family:inherit}
+
+:root {
+  --bg:#070B14; --bg2:#0D1425; --surface:#141C2E; --surface2:#1A2540;
+  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.13);
+  --gold:#C9963A; --gold2:#E8B84B; --gold3:#D4A96A;
+  --gold-dim:rgba(201,150,58,0.12); --gold-glow:rgba(201,150,58,0.06);
+  --teal:#4ECDC4; --teal-dim:rgba(78,205,196,0.1);
+  --rose:#E07070; --rose-dim:rgba(224,112,112,0.1);
+  --sage:#7BC67E; --lav:#9B8FD4;
+  --text:#E8EAF0; --text2:#8892A4; --text3:#5A6478;
+  --ff-d:'Cormorant Garamond',serif; --ff:'DM Sans',sans-serif;
+  --r:14px; --rsm:10px; --rlg:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--ff);background:var(--bg);color:var(--text);line-height:1.65}
+.aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.ab{position:absolute;border-radius:50%;filter:blur(90px);opacity:.1;animation:drift 22s ease-in-out infinite}
+.ab:nth-child(1){width:700px;height:700px;background:#1E3A5F;top:-250px;left:-150px}
+.ab:nth-child(2){width:450px;height:450px;background:#C9963A;top:15%;right:-120px;animation-delay:-8s}
+.ab:nth-child(3){width:550px;height:550px;background:#0E4A4A;bottom:-150px;left:25%;animation-delay:-16s}
+@keyframes drift{0%,100%{transform:translate(0,0)scale(1)}33%{transform:translate(25px,-18px)scale(1.04)}66%{transform:translate(-18px,25px)scale(.96)}}
+
+.shell{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:0 24px}
+.top-bar{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--border)}
+.logo{font-family:var(--ff-d);font-size:1.5rem;font-weight:600;background:linear-gradient(135deg,#E8B84B,#C9963A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.nav-links{display:flex;gap:18px}
+.nav-links a{font-size:.82rem;color:var(--text2);text-decoration:none}
+.nav-links a:hover{color:var(--text)}
+
+.hero{padding:56px 0 28px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--gold-dim);border:1px solid rgba(201,150,58,.25);border-radius:99px;padding:6px 16px;font-size:.78rem;color:var(--gold2);font-weight:600;margin-bottom:20px}
+.hero h1{font-family:var(--ff-d);font-size:clamp(2.2rem,6vw,3.2rem);font-weight:300;line-height:1.2;margin-bottom:14px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero p{font-size:1rem;color:var(--text2);max-width:480px;margin:0 auto 24px;line-height:1.75}
+
+.search-box{position:relative;max-width:420px;margin:0 auto}
+.search-box input{width:100%;background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:13px 16px 13px 40px;font-family:var(--ff);font-size:.9rem;color:var(--text);outline:none}
+.search-box input:focus{border-color:var(--gold)}
+.search-box input::placeholder{color:var(--text3)}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:.9rem;color:var(--text3)}
+
+.ad-zone{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.1);border-radius:var(--rsm);padding:10px;text-align:center;font-size:.7rem;color:var(--text3);margin:24px 0}
+
+.cat-nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:24px 0}
+.cat-pill{font-size:.78rem;background:var(--surface);border:1px solid var(--border2);color:var(--text2);border-radius:99px;padding:7px 15px;text-decoration:none}
+.cat-pill:hover{border-color:rgba(201,150,58,.4);color:var(--gold2)}
+
+.faq-section{padding:30px 0;border-bottom:1px solid var(--border)}
+.faq-section:last-of-type{border-bottom:none}
+.faq-section-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--gold);font-weight:600;margin-bottom:6px}
+.faq-section h2{font-family:var(--ff-d);font-size:1.7rem;font-weight:300;margin-bottom:16px}
+.faq-section h2 em{font-style:italic;color:var(--gold2)}
+
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0;cursor:pointer;font-size:.94rem;font-weight:500;color:var(--text)}
+.faq-q .chev{font-size:.8rem;color:var(--gold2);flex-shrink:0;transition:transform .25s}
+.faq-item.open .faq-q .chev{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-item.open .faq-a{max-height:400px}
+.faq-a-inner{font-size:.87rem;color:var(--text2);line-height:1.75;padding-bottom:16px}
+.faq-a-inner a{color:var(--gold2)}
+
+.cta-box{background:linear-gradient(135deg,rgba(201,150,58,.1),rgba(201,150,58,.05));border:1px solid rgba(201,150,58,.25);border-radius:16px;padding:24px;text-align:center;margin:28px 0}
+.cta-box h3{font-family:var(--ff-d);font-size:1.4rem;font-weight:300;margin-bottom:6px}
+.cta-box p{font-size:.86rem;color:var(--text2);margin-bottom:14px}
+.btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn-gold{display:inline-block;background:linear-gradient(135deg,#C9963A,#E8B84B);color:#0D1425;border:none;border-radius:var(--r);padding:13px 26px;font-family:var(--ff);font-size:.9rem;font-weight:700;cursor:pointer;text-decoration:none}
+.btn-ghost{display:inline-block;background:transparent;border:1px solid var(--border2);border-radius:var(--r);padding:12px 24px;font-family:var(--ff);font-size:.87rem;color:var(--text2);text-decoration:none}
+.btn-ghost:hover{background:var(--surface);color:var(--text)}
+
+footer{text-align:center;padding:28px 0 40px;font-size:.78rem;color:var(--text3)}
+footer a{color:var(--text3);text-decoration:none;margin:0 10px}
+
+.no-results{display:none;text-align:center;color:var(--text3);font-size:.88rem;padding:30px 0}
+</style>
+</head>
+<body>
+<div class="aurora"><div class="ab"></div><div class="ab"></div><div class="ab"></div></div>
+
+<div class="shell">
+  <div class="top-bar">
+    <a href="https://abowabon.com" class="logo">✦ Abowabon</a>
+    <div class="nav-links">
+      <a href="https://abowabon.com">App</a>
+      <a href="https://abowabon.com/about">About</a>
+      <a href="https://abowabon.com/contact">Contact</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-badge">✦ Frequently asked questions</div>
+    <h1>Questions, <em>answered</em></h1>
+    <p>Everything about the app, the SAFE Method, the free tools, the Complete Manifestation System, and how your data is handled.</p>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="faqSearch" placeholder="Search the FAQ..." oninput="filterFaqs()">
+    </div>
+  </div>
+
+  <div class="ad-zone">AdSense 728×90 — replace with your AdSense code</div>
+
+  <div class="cat-nav">
+    <a class="cat-pill" href="#general">General</a>
+    <a class="cat-pill" href="#method">The SAFE Method</a>
+    <a class="cat-pill" href="#tools">Free tools</a>
+    <a class="cat-pill" href="#system">Complete System</a>
+    <a class="cat-pill" href="#account">Account & data</a>
+    <a class="cat-pill" href="#billing">Billing</a>
+  </div>
+
+  <div class="no-results" id="noResults">No questions match your search. Try a different term, or <a href="https://abowabon.com/contact" style="color:var(--gold2)">contact us directly</a>.</div>
+
+  <div id="faqContainer">
+
+  <div class="faq-section" id="general">
+    <div class="faq-section-label">General</div>
+    <h2>About <em>Abowabon</em></h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>What is Abowabon?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Abowabon is a free AI-powered manifestation app and set of web tools built around the SAFE Method — a nervous-system-first approach to manifestation created by an HCPC-registered biomedical scientist from documented, evidence-led practice rather than theory alone.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>Is Abowabon free?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Yes. The core app, the mode quiz, and every tool on this site (affirmation generator, SAFE Method generator, Frisson Activator, End Scene Builder, Threat Mode Checker, Belief Audit, Surrender Guide, Transurfing Practice Generator, 30-Day Plan Builder, and Evidence Journal) are free to use with no sign-up required. A separate paid product, the Complete Manifestation System, is available for £29.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>Who created Abowabon?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Abowabon was created by an HCPC-registered Biomedical Scientist with a background in haematology and blood transfusion, who applied manifestation practice systematically over several years and documented 11 separate manifestations with dates and specifics. Read more on the <a href="https://abowabon.com/about">About page</a>.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>Is this based on the Law of Attraction?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">It draws on ideas from Neville Goddard and Reality Transurfing, but is grounded in the creator's own documented, evidence-led practice and nervous-system science rather than dogma. Techniques that produced repeatable results were kept; those that didn't were dropped.</div></div>
+    </div>
+  </div>
+
+  <div class="faq-section" id="method">
+    <div class="faq-section-label">The Framework</div>
+    <h2>The <em>SAFE Method & 3-Mode Framework</em></h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>What does SAFE stand for?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner"><strong>S</strong>afety First — regulate your nervous system before anything else. <strong>A</strong>cknowledge & Accept — hold the desire while accepting current reality. <strong>F</strong>ind a Floor — identify the minimum needed to feel safe. <strong>E</strong>ngage & Release — take one aligned action, then release attachment to the outcome.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>Why does safety come before visualisation?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">The evidence behind Abowabon showed that no visualisation, affirmation, or technique works while the body believes it's under threat. A contracted, high-alert nervous system can't attract what it fears — regulation has to come first, every time.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>What is the 3-Mode Framework?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">A diagnostic used before recommending any practice: Mode 1 (Exhausted Release — high alert, prioritise rest and surrender), Mode 2 (Effortless Attraction — desire and belief aligned, light daily practice flows naturally), and Mode 3 (Backed Safety — certainty is the baseline, the work is acting boldly while maintaining it).</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>What is Frisson and why does it matter?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Frisson is the chill, held breath, or lump-in-the-throat sensation that signals real alignment at a level deeper than thought — distinct from ordinary excitement or hope. A single genuine Frisson response is treated as carrying more belief-updating power than weeks of repeated affirmation. Try the free <a href="https://abowabon.com/frisson-activator">Frisson Activator</a>.</div></div>
+    </div>
+  </div>
+
+  <div class="faq-section" id="tools">
+    <div class="faq-section-label">Free Tools</div>
+    <h2>Using the <em>web tools</em></h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>Do I need an account to use the free tools?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">No. Every free tool — affirmation generator, SAFE Method generator, Frisson Activator, End Scene Builder, Threat Mode Checker, Belief Audit, Surrender Guide, Transurfing Practice Generator, 30-Day Plan Builder, and Evidence Journal — works instantly in your browser with no sign-up.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>Why did a tool give a generic-sounding result?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Each tool calls our AI backend to generate a response tailored to what you typed. If that request fails or times out, the tool falls back to a template response built from your input so you still get something useful. If this happens repeatedly, let us know via the <a href="https://abowabon.com/contact">Contact page</a>.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>Is my Evidence Journal saved anywhere?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Entries are saved in your browser's local storage only. They're never sent to our servers unless you tap "Find the pattern," which sends the entry text (not stored afterwards) for a one-off analysis. Clearing your browser data will permanently delete your entries — export or copy anything important beforehand.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>What's the difference between the Threat Mode Checker and the SAFE Method Generator?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">The <a href="https://abowabon.com/mode-check">Threat Mode Checker</a> is a 60-second quiz that diagnoses whether your nervous system is currently in safety or threat mode, with an instant reset plan. The SAFE Method Generator builds a full four-step plan for a specific desire once you're already regulated enough to work with it.</div></div>
+    </div>
+  </div>
+
+  <div class="faq-section" id="system">
+    <div class="faq-section-label">Paid Product</div>
+    <h2>The <em>Complete Manifestation System</em></h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>What's included in the £29 Complete Manifestation System?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Six components: the Frisson Activation Protocol, the Silence Method (hypnagogic-state practice), Sensory End Scenes (four written examples across money, career, relationships, and health), the Death Note Method, the Threat Mode Override protocol, and the full Evidence Journal system.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>What format is it delivered in?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">A richly formatted HTML guide readable in any browser, also provided as a PDF, with instant access after payment via Gumroad.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>Is it suitable for beginners?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Yes — it includes a simple entry version for people new to manifestation, plus the full framework for anyone who has already tried the basics and wants to understand why they got stuck.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>What if it doesn't work for me?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">A 30-day money-back guarantee applies, no questions asked. Email <a href="mailto:hello@abowabon.com">hello@abowabon.com</a> within 30 days of purchase for a full refund.</div></div>
+    </div>
+  </div>
+
+  <div class="faq-section" id="account">
+    <div class="faq-section-label">Account & Data</div>
+    <h2>Privacy, <em>storage, and your data</em></h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>What data does Abowabon collect?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">As little as possible: an optional name for onboarding, the desire text you enter (sent to our AI provider to generate a guide, not stored afterwards), your email if you subscribe, and anonymised usage analytics. Journal and scripting entries stay on your device only. Full details are in the <a href="https://abowabon.com/privacy">Privacy Policy</a>.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>Where is my journal, streak, or progress data stored?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">In your browser's local storage, on your device — never on our servers. You can export it anytime from the "Export my data" option in your Profile, or permanently delete it via "Reset all data" or by clearing your browser's site data.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>Is it safe to type personal details into the desire field?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">General goals like "financial abundance" or "career success" are handled safely, but we recommend avoiding highly sensitive details — other people's full names, medical specifics, or financial account numbers — in any text field.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>How do I request deletion of my data?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Email <a href="mailto:hello@abowabon.com">hello@abowabon.com</a> and we'll process access, correction, or erasure requests in line with UK/EU GDPR. Locally stored data (journals, streaks) can be deleted yourself at any time via your device's browser settings.</div></div>
+    </div>
+  </div>
+
+  <div class="faq-section" id="billing">
+    <div class="faq-section-label">Billing</div>
+    <h2>Purchases & <em>payment</em></h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>Who processes payments for the Complete Manifestation System?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Purchases are processed securely through Gumroad. Abowabon does not store your card details.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>How do I get a receipt or invoice?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">Gumroad emails a receipt automatically at the time of purchase. If you can't find it, check spam or contact us with the email address you used to buy.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)"><span>Is this a subscription?</span><span class="chev">▾</span></div>
+      <div class="faq-a"><div class="faq-a-inner">No. The Complete Manifestation System is a one-time payment of £29 — instant access, yours forever, with no recurring charge.</div></div>
+    </div>
+  </div>
+
+  </div>
+
+  <div class="ad-zone">AdSense 300×250 — replace with your AdSense code</div>
+
+  <div class="cta-box">
+    <h3>Still have a question?</h3>
+    <p>Our team usually replies within 1–2 business days.</p>
+    <div class="btn-row">
+      <a class="btn-gold" href="https://abowabon.com/contact">✦ Contact us</a>
+      <a class="btn-ghost" href="https://abowabon.com">Open Abowabon free</a>
+    </div>
+  </div>
+
+  <footer>
+    <a href="https://abowabon.com">Home</a>
+    <a href="https://abowabon.com/about">About</a>
+    <a href="https://abowabon.com/contact">Contact</a>
+    <a href="https://abowabon.com/privacy">Privacy</a>
+    © 2025 Abowabon
+  </footer>
+</div>
+
+<script>
+function toggle(el) {
+  const item = el.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => { if (i !== item) i.classList.remove('open'); });
+  item.classList.toggle('open', !wasOpen);
+}
+
+function filterFaqs() {
+  const term = document.getElementById('faqSearch').value.trim().toLowerCase();
+  const sections = document.querySelectorAll('.faq-section');
+  let anyVisible = false;
+
+  sections.forEach(section => {
+    let sectionHasMatch = false;
+    section.querySelectorAll('.faq-item').forEach(item => {
+      const text = item.textContent.toLowerCase();
+      const match = !term || text.includes(term);
+      item.style.display = match ? '' : 'none';
+      if (match) sectionHasMatch = true;
+    });
+    section.style.display = sectionHasMatch ? '' : 'none';
+    if (sectionHasMatch) anyVisible = true;
+  });
+
+  document.getElementById('noResults').style.display = anyVisible ? 'none' : 'block';
+}
+</script>
+</body>
+</html>
