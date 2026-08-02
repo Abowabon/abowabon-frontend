@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Money, Feeling & the Art of Having | Abowabon</title>
+<meta name="description" content="Why money manifestation stalls, the identity work underneath financial ease, and a complete practice for shifting your relationship with money — from the 3am anxiety spiral to the settled 'shirt scene'.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img,video{max-width:100%;height:auto}
+input,textarea,select,button{font-family:inherit}
+
+:root {
+  --bg:#070B14; --bg2:#0D1425; --surface:#141C2E; --surface2:#1A2540;
+  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.13);
+  --gold:#C9963A; --gold2:#E8B84B; --gold3:#D4A96A;
+  --gold-dim:rgba(201,150,58,0.12); --gold-glow:rgba(201,150,58,0.06);
+  --teal:#4ECDC4; --teal-dim:rgba(78,205,196,0.1);
+  --rose:#E07070; --rose-dim:rgba(224,112,112,0.1);
+  --sage:#7BC67E; --lav:#9B8FD4;
+  --text:#E8EAF0; --text2:#8892A4; --text3:#5A6478;
+  --ff-d:'Cormorant Garamond',serif; --ff:'DM Sans',sans-serif;
+  --r:14px; --rsm:10px; --rlg:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--ff);background:var(--bg);color:var(--text);line-height:1.7}
+.aurora{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.ab{position:absolute;border-radius:50%;filter:blur(90px);opacity:.1;animation:drift 22s ease-in-out infinite}
+.ab:nth-child(1){width:700px;height:700px;background:#1E3A5F;top:-250px;left:-150px}
+.ab:nth-child(2){width:450px;height:450px;background:#C9963A;top:15%;right:-120px;animation-delay:-8s}
+.ab:nth-child(3){width:550px;height:550px;background:#0E4A4A;bottom:-150px;left:25%;animation-delay:-16s}
+.ab:nth-child(4){width:300px;height:300px;background:#4A1F7A;top:50%;left:-50px;animation-delay:-5s}
+@keyframes drift{0%,100%{transform:translate(0,0)scale(1)}33%{transform:translate(25px,-18px)scale(1.04)}66%{transform:translate(-18px,25px)scale(.96)}}
+
+.shell{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:0 24px}
+.top-bar{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--border)}
+.logo{font-family:var(--ff-d);font-size:1.5rem;font-weight:600;background:linear-gradient(135deg,#E8B84B,#C9963A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.nav-links{display:flex;gap:18px}
+.nav-links a{font-size:.82rem;color:var(--text2);text-decoration:none}
+.nav-links a:hover{color:var(--text)}
+
+/* sticky chapter nav */
+.toc-nav{position:sticky;top:0;z-index:50;background:rgba(7,11,20,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:10px 0;margin:0 -24px 0;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.toc-nav::-webkit-scrollbar{display:none}
+.toc-nav-inner{display:inline-flex;gap:6px;padding:0 24px}
+.toc-nav a{flex-shrink:0;font-size:.74rem;font-weight:600;color:var(--text2);text-decoration:none;padding:7px 14px;border-radius:99px;letter-spacing:.2px;border:1px solid transparent}
+.toc-nav a:hover{color:var(--gold2);background:var(--gold-dim);border-color:rgba(201,150,58,.2)}
+
+.hero{padding:48px 0 28px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--gold-dim);border:1px solid rgba(201,150,58,.25);border-radius:99px;padding:6px 16px;font-size:.78rem;color:var(--gold2);font-weight:600;margin-bottom:20px}
+.hero h1{font-family:var(--ff-d);font-size:clamp(2rem,6vw,3rem);font-weight:300;line-height:1.2;margin-bottom:14px}
+.hero h1 em{font-style:italic;color:var(--gold2)}
+.hero p{font-size:1rem;color:var(--text2);max-width:520px;margin:0 auto;line-height:1.8}
+
+.ad-zone{background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.1);border-radius:var(--rsm);padding:10px;text-align:center;font-size:.7rem;color:var(--text3);margin:28px 0}
+
+.section{padding:34px 0;border-bottom:1px solid var(--border)}
+.section:last-child{border-bottom:none}
+.section-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--gold);font-weight:600;margin-bottom:10px}
+.section h2{font-family:var(--ff-d);font-size:1.85rem;font-weight:300;margin-bottom:16px;line-height:1.3;scroll-margin-top:70px}
+.section h2 em{font-style:italic;color:var(--gold2)}
+.section h3{font-family:var(--ff-d);font-size:1.3rem;font-weight:500;color:var(--gold3);margin:26px 0 10px;line-height:1.35}
+.section h4{font-size:.92rem;font-weight:700;color:var(--text);margin:20px 0 8px;letter-spacing:.1px}
+.section p{font-size:.94rem;color:var(--text2);margin-bottom:14px;line-height:1.85}
+.section ul{margin:0 0 16px 22px}
+.section ul li{font-size:.92rem;color:var(--text2);margin-bottom:8px;line-height:1.7}
+
+.callout{background:rgba(255,255,255,.03);border-left:3px solid var(--gold);border-radius:0 var(--r) var(--r) 0;padding:16px 20px;margin:16px 0}
+.callout p{margin:0;font-size:.9rem;color:var(--text);line-height:1.75}
+
+.note{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;margin:14px 0}
+.note p{margin:0;font-size:.87rem;color:var(--text2);line-height:1.7}
+
+.scene-box{background:rgba(201,150,58,.05);border:1px solid rgba(201,150,58,.18);border-radius:14px;padding:18px 20px;margin:18px 0}
+.scene-label{font-size:.68rem;text-transform:uppercase;letter-spacing:1px;color:var(--gold2);font-weight:700;margin-bottom:8px}
+.scene-prose{font-family:var(--ff-d);font-size:1rem;font-style:italic;color:var(--text);line-height:1.85}
+
+.scene-card-full{background:var(--surface);border:1px solid var(--border2);border-radius:var(--rlg);overflow:hidden;margin:20px 0}
+.scf-header{padding:20px 22px;border-bottom:1px solid var(--border)}
+.scf-cat{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);font-weight:700;margin-bottom:6px}
+.scf-title{font-family:var(--ff-d);font-size:1.3rem;color:var(--text);margin-bottom:4px}
+.scf-scene{font-family:var(--ff-d);font-size:.9rem;font-style:italic;color:var(--text2);line-height:1.6}
+.scf-body{padding:20px 22px}
+.sense-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:16px}
+.sense-card{background:var(--bg2);border:1px solid var(--border);border-radius:11px;padding:13px}
+.sense-icon{font-size:1.2rem;margin-bottom:6px}
+.sense-name{font-size:.68rem;text-transform:uppercase;letter-spacing:1px;color:var(--gold2);font-weight:700;margin-bottom:5px}
+.sense-text{font-family:var(--ff-d);font-size:.85rem;font-style:italic;color:var(--text2);line-height:1.6}
+.frisson-anchor{background:linear-gradient(135deg,rgba(201,150,58,.08),rgba(155,143,212,.06));border:1px solid rgba(201,150,58,.2);border-radius:11px;padding:14px 16px;margin-top:6px}
+.fa-label{font-size:.66rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);font-weight:700;margin-bottom:6px}
+.fa-text{font-family:var(--ff-d);font-size:.88rem;font-style:italic;color:var(--text)}
+.identity-statement{font-family:var(--ff-d);font-size:.98rem;font-style:italic;color:var(--gold2);text-align:center;padding-top:14px;margin-top:12px;border-top:1px solid var(--border)}
+
+.table-wrap{overflow-x:auto;margin:16px 0}
+table{width:100%;font-size:.83rem;border-collapse:collapse}
+th{text-align:left;font-weight:600;color:var(--gold2);padding:9px 12px;border-bottom:1px solid var(--border2);font-size:.74rem;text-transform:uppercase;letter-spacing:.4px}
+td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text2)}
+td:first-child{color:var(--text);font-weight:500}
+
+.chapter-divider{display:flex;align-items:center;gap:14px;margin:8px 0 0}
+.cd-line{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--border2),transparent)}
+
+.pullquote{font-family:var(--ff-d);font-size:1.15rem;font-style:italic;color:var(--gold2);text-align:center;line-height:1.7;padding:26px 10px;max-width:560px;margin:8px auto}
+.pullquote em{color:var(--gold3)}
+
+.cta-box{background:linear-gradient(135deg,rgba(201,150,58,.1),rgba(201,150,58,.05));border:1px solid rgba(201,150,58,.25);border-radius:16px;padding:24px;text-align:center;margin:28px 0}
+.cta-box h3{font-family:var(--ff-d);font-size:1.4rem;font-weight:300;margin-bottom:6px}
+.cta-box p{font-size:.86rem;color:var(--text2);margin-bottom:14px}
+.btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn-gold{display:inline-block;background:linear-gradient(135deg,#C9963A,#E8B84B);color:#0D1425;border:none;border-radius:var(--r);padding:13px 26px;font-family:var(--ff);font-size:.9rem;font-weight:700;cursor:pointer;text-decoration:none}
+.btn-ghost{display:inline-block;background:transparent;border:1px solid var(--border2);border-radius:var(--r);padding:12px 24px;font-family:var(--ff);font-size:.87rem;color:var(--text2);text-decoration:none}
+.btn-ghost:hover{background:var(--surface);color:var(--text)}
+
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.related-card{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:16px;text-decoration:none;display:block}
+.related-card:hover{border-color:rgba(201,150,58,.35)}
+.rc-icon{font-size:1.3rem;margin-bottom:8px}
+.rc-name{font-size:.86rem;font-weight:600;color:var(--text);margin-bottom:4px}
+.rc-desc{font-size:.78rem;color:var(--text2);line-height:1.55}
+
+footer{text-align:center;padding:28px 0 40px;font-size:.78rem;color:var(--text3)}
+footer a{color:var(--text3);text-decoration:none;margin:0 10px}
+
+@media(max-width:560px){.nav-links{display:none}.related-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="aurora"><div class="ab"></div><div class="ab"></div><div class="ab"></div><div class="ab"></div></div>
+
+<div class="shell">
+  <div class="top-bar">
+    <a href="https://abowabon.com" class="logo">✦ Abowabon</a>
+    <div class="nav-links">
+      <a href="https://abowabon.com">App</a>
+      <a href="https://abowabon.com/about">About</a>
+      <a href="https://abowabon.com/faq">FAQ</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-badge">✦ Deep-dive guide</div>
+    <h1>Money, Feeling & the Art of Having</h1>
+    <p>A complete, personal study guide answering every question you asked — rooted entirely in your own manifestation history, your unique frisson ability, and the Neville Goddard principles that have already worked for you.</p>
+  </div>
+
+  <div class="ad-zone">AdSense 728×90 — replace with your AdSense code</div>
+
+<div class="toc-nav"><div class="toc-nav-inner"><a href="#key-learning-notes">Key Learning Notes</a><a href="#why-is-it-difficult-to-manifest-money">Why Is It Difficult to Manifest Money?</a><a href="#why-is-it-difficult-to-manifest-money-as">Why Is It Difficult to Manifest Money as an End in Itself?</a><a href="#what-is-the-feeling-of-financial-safety-">What Is the Feeling of Financial Safety? How to Manifest It?</a><a href="#living-as-the-person-for-whom-money-is-c">Living as the Person for Whom Money is Calm — When Bills Are Piling Up</a><a href="#fix-the-when-trap">Fix the "When" Trap</a><a href="#how-to-create-a-short-imaginary-scene-wi">How to Create a Short Imaginary Scene with Sensory Vividness</a><a href="#the-shirt-scene-analysis-suggestions">The Shirt Scene — Analysis &amp; Suggestions</a><a href="#how-to-create-the-feeling-of-naturalness">How to Create the Feeling of Naturalness</a><a href="#how-to-feel-it-and-plant-it-into-the-sub">How to Feel It and Plant It into the Subconscious Mind</a><a href="#personal-suggestions-based-on-your-profi">Personal Suggestions Based on Your Profile</a></div></div>
+
+<div class="note"><p>The Money Paradox Financial Safety Feeling Fix the "When" Trap The Shirt Scene Theta Imprinting Subconscious Planting</p></div>
+<div class="note"><p>Section 00 · Overview</p></div>
+<div class="section" id="key-learning-notes">
+<h2>Key Learning Notes</h2>
+<p>The core principles from everything you've studied, distilled into the most important things to carry with you.</p>
+<div class="note"><p>The Most Important Thing</p></div>
+<p>Your manifestation system is not broken . It works perfectly when you are relaxed, detached, and non-attached. The problem has never been technique. The problem has always been state — specifically, being in threat mode when you attempt to create. The Caliente race track man proved this: he did not have a complex system. He had a simple scene, a felt certainty , and he delivered it to his subconscious every night at the threshold of sleep.</p>
+<div class="note"><p>Feeling IS the Language</p></div>
+<p>The subconscious does not speak English. It does not process images as commands. It responds exclusively to emotional states . Feeling is the prayer. Feeling is the signal. An image without feeling is like sending an email without pressing Send.</p>
+<div class="note"><p>The Scene is a Vehicle</p></div>
+<p>The scene is never the point. It is a vehicle for feeling . What manifests is not the scene — it is the shift in consciousness the scene implies. The implication is everything. The feeling of implication is the mechanism.</p>
+<div class="note"><p>Your Proven Manifestation Pattern (Never Forget This)</p></div>
+<ul><li>First job — after completely letting go, zero attachment</li><li>Your son — relaxed sensory assumption, imagined playing with him until it felt natural</li><li>Train fare £140 → £40 — didn't care either way</li><li>Salary increased twice in two months — wasn't desperate for either raise</li><li>Credit card approval — casual imaginal scene with wife, zero desperation</li><li>New apartment — imagined walking and sleeping there</li><li>Forex account unblocked — wanted it but wasn't bothered; happened without your intervention</li></ul>
+<p>The common denominator in every single success: non-attachment to outcome. This is your evidence. This is your proof.</p>
+<p>The feeling of the wish fulfilled — this is the only prayer. Not the words, not the picture, not the effort. The felt sense of having it, held briefly, delivered in the theta state before sleep.</p>
+<div class="note"><p>— Neville Goddard (core teaching)</p></div>
+<div class="note"><p>Your Unique Weapon: Frisson</p></div>
+<p>You have the ability to activate frisson — goosebumps, chills, waves of pleasant sensation — voluntarily . This is exceptionally rare. Neurologically, frisson represents dopamine release, heightened alpha brain wave activity, and integration of limbic and prefrontal systems. When you activate frisson while holding the feeling of a desire fulfilled, you are performing the most powerful imprinting available to a human being. The race track man did this too — he repeated the scene until he felt goose pimples. You can do this on demand.</p>
+<div class="note"><p>Section 01 · The Core Block</p></div>
+</div>
+<div class="section" id="why-is-it-difficult-to-manifest-money">
+<h2>Why Is It Difficult to Manifest Money?</h2>
+<p>This is not a technique problem. It is a belief and identity conflict at the subconscious level. Here is the precise diagnosis for your situation.</p>
+<div class="note"><p>The Money Paradox — Your Specific Split</p></div>
+<p>Identity A (What you consciously want): Financial freedom. To save, invest, and be abundant.</p>
+<p>Identity B (What your subconscious believes): "I don't deserve to hold money. If I have money, people will ask me for it. I depend on others, and money breaks that dependency — which feels unsafe."</p>
+<p>The subconscious always wins. You have unconsciously spent money as a self-sabotage mechanism — returning to the safe zone of needing others. This is not a character flaw. It is outdated childhood survival software running in the background.</p>
+<h4>Money Triggers Excess Potential</h4>
+<p>When you assign survival-level importance to money — when it becomes the thing your wellbeing depends on — you generate excess potential . The universe creates balancing forces proportional to the importance you assign. This is not punishment. It is physics. The harder you grip, the stronger the resistance. Money is especially prone to this because financial pressure is existential.</p>
+<h4>The "Hot Potato" Relationship</h4>
+<p>You have held up to £20,000 and watched it disappear. Your nervous system has learned: large sums of money do not stay . Every time you try to imagine £10,000/month, some part of your body remembers the pattern. The body reacts before the mind can override it. The body is being honest — not obstructive.</p>
+<h4>Monitoring = Sending Fear Signals</h4>
+<p>Every time you check your balance, monitor whether money has arrived, or check if a bill is overdue in a state of anxiety, you are broadcasting the signal: "I do not have enough." The subconscious receives the feeling behind the action, not the action itself. Checking from fear is a prayer for more lack.</p>
+<h4>Identity Contradiction</h4>
+<p>You consciously want financial independence while unconsciously expecting rescue (dependency on others). These two states cannot coexist. The subconscious will always default to the older, deeper-wired identity — which is the one formed in childhood for safety. Until the identity shifts, the outer world will keep reflecting the inner conflict.</p>
+<h4>Money on a Pedestal</h4>
+<p>When you feel that £5,000 or £10,000 is unbelievable, amazing, or desperately needed — the body contracts. The frisson test: activate frisson and hold the amount. If the frisson feels like "wow, imagine if I actually had that!" — it is still on a pedestal. The target state is warm normalcy: "of course, yes, this is mine." Amazement and normalcy are opposites.</p>
+<p>The solution is not to want money less. It is to normalise it — to train your body to feel a specific amount of money as ordinary, expected, and slightly boring. A millionaire does not fantasise about money. They simply expect it to be there, the way you expect water when you turn on a tap. That expectation is the precise state you are building toward.</p>
+<div class="note"><p>Section 02 · The Means vs. End Distinction</p></div>
+</div>
+<div class="section" id="why-is-it-difficult-to-manifest-money-as">
+<h2>Why Is It Difficult to Manifest Money as an End in Itself?</h2>
+<p>This is one of the most important insights in your entire study. Understanding it changes everything about how you approach money manifestation.</p>
+<div class="note"><p>The Core Teaching</p></div>
+<p>Money is almost never an end in itself. It is a means — a vehicle toward a feeling or state you actually want. When you try to manifest money as a pure number, your subconscious has no emotional destination to travel toward. There is no felt experience of "£50,000" — only the felt experiences that £50,000 would produce.</p>
+<p>The subconscious cannot inhabit an abstraction. It can only inhabit a felt state . "More money" is a wish. The feeling of paying a bill without looking at the balance is a felt state. Only the latter can be manifested directly.</p>
+<div class="table-wrap"><table><tr><th>What You Think You Want</th><th>What You Actually Want (The Real End)</th><th>What to Manifest Instead</th></tr><tr><td>£5,000 in the bank</td><td>The feeling of safety. Of not being chased.</td><td>The calm of a full fridge. Bills quiet. Phone not ringing.</td></tr><tr><td>Monthly income of £10k</td><td>Freedom from financial anxiety. Options.</td><td>The feeling of choosing where to spend, not whether.</td></tr><tr><td>A windfall / lottery</td><td>The end of the current stress. Breathing room.</td><td>The exhale of someone whose financial situation is resolved.</td></tr><tr><td>Set For Life prize</td><td>Permanent ease. Never worrying again.</td><td>The casual, unremarkable certainty of ongoing provision.</td></tr></table></div>
+<p>The advanced move: Bypass the means. Manifest the emotional end directly. If money is only a means to feeling safe, you can create the feeling of safety right now — through frisson, your evidence journal, the "already solved" reframe. When you genuinely feel safe, your relationship with money transforms automatically. Spending compulsively becomes less necessary. Holding money becomes comfortable. And more money arrives because the safety-signal you broadcast has changed.</p>
+<div class="note"><p>Why Your Son Manifested So Cleanly</p></div>
+<p>Notice that your son manifested perfectly — quickly, cleanly, with joy. That is because wanting your son was an end in itself . The love, connection, and experience of fatherhood was the desire itself. There was no layer of "in order to get something else." No means-end calculation. This is exactly why it worked so cleanly, and why money (which almost always lives in the means category) is more resistant.</p>
+<div class="note"><p>Section 03 · The Target State</p></div>
+</div>
+<div class="section" id="what-is-the-feeling-of-financial-safety-">
+<h2>What Is the Feeling of Financial Safety? How to Manifest It?</h2>
+<p>Financial safety is not excitement, not relief, and not gratitude. It is something far quieter — and far more powerful.</p>
+<div class="note"><p>What Financial Safety Actually Feels Like</p></div>
+<p>Financial safety is the absence of the alarm . It is not joy. It is not relief. It is neutrality — the way you feel about the ground being solid beneath your feet. You do not celebrate the ground. You simply walk.</p>
+<p>Specific textures of this feeling:</p>
+<ul><li>Putting your phone face-down when a bill notification arrives — not bracing</li><li>The slight boredom of a Tuesday when your account is fine and there's nothing to solve</li><li>Buying something ordinary — a coffee, a bus ticket — and not doing mental arithmetic</li><li>Hearing the word "bank" and feeling nothing particular</li><li>A utility bill arriving and setting it aside to pay later — not because you can't, but because you'll get to it</li></ul>
+<p>The correct feeling for money is the calm of a full fridge. The relaxed ease of paying a bill without checking the balance. Neutrality about spending £100. Not excitement. Not relief. Calm. Normal. Unremarkable.</p>
+<div class="note"><p>— From your Master Guide, Section 14</p></div>
+<h4>Borrow the Feeling from a Real Memory</h4>
+<p>You have experienced financial ease before — even briefly. Perhaps a moment after a salary was paid, a period when things were covered, or even a childhood moment of unconcerned ease. Find that memory. Locate the physical feeling in your body. Expand it. Hold it. Then apply it to now: "This same feeling of ease — this is what my current financial situation feels like."</p>
+<h4>The "Already Solved" Reframe</h4>
+<p>Before opening your laptop, checking your phone, or thinking about finances, say internally: "This is already solved. I don't know the route, but the arrangement is made." This is not a lie. It is a pre-frame that keeps your nervous system in safety mode rather than threat mode — which is what allows solutions to arrive.</p>
+<h4>The Normalisation Ladder (For Your Specific Block)</h4>
+<p>Your body rejects £10,000/month as believable. Don't fight this. Instead, start at the rung your body actually agrees with — perhaps just £500 arriving easily, or bills simply going quiet for one week. Normalise the smaller version first. The nervous system relearns in steps, not leaps.</p>
+<h4>Frisson + Safety Affirmation</h4>
+<p>Activate frisson. While in the wave, hold the single statement: "I am someone for whom money is calm and natural." Do not strain. Do not picture a bank account. Simply feel the truth of the identity. Let the frisson carry it inward. Release. This is one charged delivery — no need for mechanical repetition.</p>
+<h4>Evidence Journal: Celebrate Every £5</h4>
+<p>Every time money arrives — even small amounts — log it as evidence. A £5 discount, an unexpected refund, a lower bill than expected. This trains your subconscious that money arriving is normal for you — reducing the category from "special and rare" to "ordinary and expected." The marble jar, filled one marble at a time.</p>
+<div class="note"><p>Section 04 · The Daily Practice</p></div>
+</div>
+<div class="section" id="living-as-the-person-for-whom-money-is-c">
+<h2>Living as the Person for Whom Money is Calm — When Bills Are Piling Up</h2>
+<p>This is the hardest instruction to follow — and the most important. Here is how to do it when the external reality seems to contradict everything you are trying to embody.</p>
+<p>The core principle: You are not pretending the bills don't exist. You are choosing which layer of reality to give your attention and emotional energy to. The bills exist on the surface layer. The arrangement already being made exists on the deeper layer. You are practicing living from the deeper layer — not denying the surface one.</p>
+<div class="note"><p>The Key Distinction: Observation vs. Identification</p></div>
+<p>A person with financial ease can observe a bill arriving without becoming the person in crisis. You can look at the bill, acknowledge it exists, and simultaneously hold the internal state: "This is being handled. I am someone for whom this resolves."</p>
+<p>The person in financial peace is not ignorant of bills. They simply do not identify with the alarm the bills try to trigger. They process the information and return to equilibrium quickly — the way a captain reads a storm report without catastrophising.</p>
+<h4>When the Phone Rings (Utility Company): The 3-Second Reset</h4>
+<p>Before answering — physiological sigh (double inhale, long exhale). Drop shoulders. Unclench jaw. Then answer from the state: "I am someone for whom this is being sorted." You are not performing calm. You are choosing the emotional register. The body leads the mind here, not the other way round.</p>
+<h4>The "Good Story" Reframe</h4>
+<p>In every good story, the hero hits low points before the breakthrough. The low point is not evidence that manifestation isn't working . It is often the final compression before the release. Internally say: "This is just that part of the story. The resolution is already written." This is not toxic positivity. It is narrative intelligence — and it keeps you out of threat mode.</p>
+<h4>Ask the Identity Question Daily</h4>
+<p>Each morning: "What is one thing the person who already has financial calm would do or think today?" It can be microscopic: they might not check their balance three times before noon. They might make a phone call without dread. They might buy a coffee without guilt. Do that one thing. Identity is built from tiny, consistent choices.</p>
+<h4>Do Not Monitor</h4>
+<p>Checking your balance in a state of anxiety is sending a fear signal. If you must check finances, do it once, from a calm state (after physiological sigh), treat it as information only, and close the app. Every additional anxious check is a vote cast for "I do not have enough." You are the voter.</p>
+<h4>The 3am Protocol (When Anxiety Wakes You)</h4>
+<p>Do not check your phone. Physiological sigh × 5. Body scan from toes upward. Whisper: "I am safe. This night will pass. The arrangement is already made." Reach for your evidence journal and read one past success. You are not solving the problem at 3am. You are returning to safety mode so your deeper intelligence can work while you sleep.</p>
+<div class="note"><p>The Feeling Table: Wrong vs. Right</p></div>
+<div class="table-wrap"><table><tr><th>Situation</th><th>❌ Threat Mode Response</th><th>✅ Financial Calm Response</th></tr><tr><td>Bill arrives</td><td>Dread. Immediate body tension. Mental arithmetic spiral.</td><td>Acknowledgement. Note it. "This is being handled." Move on.</td></tr><tr><td>Utility company calls</td><td>Avoidance or panic. Heart rate spikes.</td><td>Answer calmly. Gather information. Respond without bracing.</td></tr><tr><td>Buying something small</td><td>Mental arithmetic. Guilt. Hesitation.</td><td>Buy it. Move on. No internal commentary.</td></tr><tr><td>Thinking about next month</td><td>"What if nothing comes through?" Spiral.</td><td>"It's being arranged. Something will come." Light. Trusting.</td></tr></table></div>
+<div class="note"><p>Section 05 · Language &amp; Conditioning</p></div>
+</div>
+<div class="section" id="fix-the-when-trap">
+<h2>Fix the "When" Trap</h2>
+<p>You've noticed you use the word "when" to encourage yourself — but it is actually a manifestation delay mechanism. Here is exactly why, and how to rewire it.</p>
+<div class="note"><p>Why "When" is a Trap</p></div>
+<p>When you say "When I get a job, I will do this" — you are making your actions, your identity, and your wellbeing conditional on a future event . Your subconscious registers this as: "The desired state does not exist yet. I must wait for external permission to begin living it."</p>
+<p>This is what your own guide calls the conditioning pattern : "I'll do X when Y happens" = infinite postponement. The "when" never comes because you are broadcasting the frequency of "not yet." The universe reflects "not yet" back to you.</p>
+<p>There is also a deeper problem: "When" implies tomorrow, and tomorrow never arrives . There is only ever now. "When I get a job" places the desired identity in a future that never becomes the present — because every time you say it, you re-confirm that you don't have the job now .</p>
+<div class="note"><p>❌ "When" Language</p></div>
+<p>"When I get a job, I will feel purposeful." Implies: purpose is not available yet.</p>
+<p>"When money comes, I will relax." Implies: relaxation is conditional on money arriving.</p>
+<p>"When things get better, I'll start." Implies: the start requires external permission.</p>
+<div class="note"><p>✅ "Now" Language</p></div>
+<p>"I am someone for whom good work comes naturally." Identity already present. No waiting.</p>
+<p>"Money is calm and normal for me." The state is claimed now. The money follows the state.</p>
+<p>"I begin as that person today." One small action. No waiting for permission.</p>
+<h4>The "I Remember When" Replacement</h4>
+<p>Neville Goddard's most powerful technique: replace "when I get X" with "I remember when I didn't have X." The past tense implies the desire is already behind you — already fulfilled. Your subconscious processes this as: the situation has already changed. "I remember when finding work felt uncertain." Hold the feeling this sentence evokes.</p>
+<h4>Replace "When" with "Now I Am"</h4>
+<p>Every time you notice yourself about to say or think "when I get a job" — pause and replace it with an identity statement in the present: "Now I am the person who has good work." You don't need to believe it fully yet. You are installing the new file. The installation takes repetition — but frisson-charged repetition, not mechanical repetition.</p>
+<h4>Act From the New Identity Now</h4>
+<p>The "when" trap keeps you waiting for external permission to become the person. But the shift works the other way: become the person first, and the external follows . Ask yourself: "What would the person who is already employed do today?" Then do that one thing — even microscopically. Update a CV. Email one contact. Research one opportunity. The identity is built from actions, not from waiting.</p>
+<h4>Catch the Conditional Self-Talk</h4>
+<p>For one day, notice every time you think or say "when." Write it down. Then ask: "What is the feeling I am waiting for permission to have?" That feeling is available now — you don't need the external event to access it. The external event is the effect of the feeling, not the cause.</p>
+<p>The reframe that changes everything: You do not need the job to feel purposeful. You do not need the money to feel safe. The feeling comes first. The external follows the feeling. This is the entire mechanism — and "when" language reverses it, making you wait for an effect to produce its own cause.</p>
+<div class="note"><p>Section 06 · Scene Construction</p></div>
+</div>
+<div class="section" id="how-to-create-a-short-imaginary-scene-wi">
+<h2>How to Create a Short Imaginary Scene with Sensory Vividness</h2>
+<p>Based on the Caliente race track model — the most forensically documented scene in Neville Goddard's teaching — here is how to construct yours.</p>
+<div class="note"><p>The Caliente Principles (Applied to You)</p></div>
+<p>The race track man didn't build a complex narrative. He built one short, sensory, first-person loop . His scene was perhaps 10 seconds long. It contained: a physical action (sorting tickets), a specific feeling (settled certainty of having won), a third-party confirmation (the cashier paying him), and a private act of possession (placing money beneath his shirt). He repeated this loop every night until he fell asleep inside it — for three weeks.</p>
+<p>Your scene should follow the same architecture: short, sensory, first-person, feeling-led, with a possession moment.</p>
+<h4>Choose One Implied Moment (Not the Peak)</h4>
+<p>Do not choose the moment of winning or receiving — that carries too much emotion and importance. Choose a moment after , when the money is already normal. For example: casually placing your card back in your wallet after paying something. Opening your banking app and feeling nothing because the balance is fine. The mundane moment implies the peak has already passed.</p>
+<h4>Build in All Five Senses — Briefly</h4>
+<p>Touch: What are you holding? Feel the texture. Sound: What is in the background? Ambient sound anchors the scene in reality. Smell: Even faint scents — a room smell, outdoor air — deepen embodiment. Sight: One specific visual detail — not a panorama, just one focused image. Temperature: The warmth of a room, the air on your skin. Five seconds of genuine sensory attention per sense is more powerful than five minutes of vague imagining.</p>
+<h4>Make It First-Person, Not Third</h4>
+<p>You must be in the scene, not watching yourself in it. You are not the director. You are the actor — and the audience doesn't exist. Feel your feet on the ground in the scene. Feel the weight of what's in your hands. This is the difference between fantasy (watching) and assumption (inhabiting).</p>
+<h4>The Feeling Beneath the Scene</h4>
+<p>The scene is not the point. The scene is a vehicle for the feeling of settled normalcy . The target feeling is not excitement — it is the mild, unremarkable certainty of someone for whom this is just Tuesday. Hold that feeling. Let the scene produce it. Once the feeling is real in your body (you may feel frisson, you may feel warmth, you may feel a quiet settling) — the scene has done its job.</p>
+<h4>Loop It Until You Fall Asleep</h4>
+<p>Keep the scene at 5–10 seconds. Repeat it as a mental loop. The repetition reduces conscious interference and creates a deepening rhythm that carries you toward sleep. Falling asleep inside the loop is the success state — not completing the scene, not feeling fully convinced. The success is being taken by sleep mid-loop, which delivers the feeling directly into theta state.</p>
+<div class="scene-box"><div class="scene-label">Example Scene — Financial Ease (10 Seconds)</div><div class="scene-prose">I am sitting at a small table. Morning light through a window. I open my phone — no bracing, no dread. I glance at my banking app: balance fine . I close it. I reach for my coffee. The weight of the mug in my hand. The smell of it. A slight warmth on my palm. I'm not thinking about money. I'm just sitting here . Nothing to solve. Nowhere to be except here. Everything is handled. I take a sip.</div></div>
+<p>Notice what makes that scene work: It is not dramatic. There is no "I received £50,000!" It is mundane. The mundaneness is the entire point — it implies the money is so normal and settled that it is not even interesting anymore. The subconscious reads this as: financial ease is his default state. That is the imprinting instruction.</p>
+<div class="note"><p>Section 07 · Your Creative Idea — Honest Assessment</p></div>
+</div>
+<div class="section" id="the-shirt-scene-analysis-suggestions">
+<h2>The Shirt Scene — Analysis &amp; Suggestions</h2>
+<p>You want to imagine wearing a shirt with your desired amount written on it — to embody the amount. Here is an honest, deep assessment of this idea.</p>
+<div class="note"><p>What This Idea Gets Brilliantly Right</p></div>
+<p>This idea is rooted in exactly the same mechanism as the Caliente race track story. The man placed the money beneath his shirt — a private, physical act of ownership against his body. You have arrived at the same principle through your own intuition. That is significant.</p>
+<p>What your shirt idea captures:</p>
+<ul><li>Proprioception — the felt sense of the amount being on you, touching your skin, being part of your physical body. When proprioception enters imagination, the subconscious processes it as real experience, not simulation.</li><li>Ownership, not observation — you are not looking at money from a distance. It is worn. It is yours. It is already embodied.</li><li>A private symbol — the shirt is intimate. You wear it. This creates a sense of personal, quiet possession — not performance.</li><li>Identity embodiment — wearing the amount means being the person of that amount. The amount is not coming. It is already here. It is on you.</li></ul>
+<div class="note"><p>What to Watch For — Potential Refinements</p></div>
+<ul><li>The number itself can trigger resistance. If seeing "£50,000" written on the shirt makes your body tighten ("that's impossible"), the amount is still on a pedestal. Test: does imagining the shirt feel natural and ordinary? Or does it feel like an audacious claim? If the latter — start with a smaller, body-accepted number and build up the ladder.</li><li>Don't focus on the number — focus on the feeling of wearing it. The number is the scene. The feeling of wearing it — the slight weight of the fabric, the normalcy of it, the "of course this is mine" — is the mechanism. If you find yourself staring at the number in your imagination rather than feeling the shirt on your body, redirect to the sensation.</li><li>The "embodied" concept is the whole point. You said: "the amount is on me." This is exactly right. The amount is not in the bank yet — it is in your identity, which is the correct order of operations. Identity first. Bank account second.</li></ul>
+<div class="note"><p>Suggestions &amp; Variations</p></div>
+<ul><li>Add texture and warmth to the shirt. Feel the fabric — cotton or soft material. Feel it against your chest. The physical sensation of wearing it is more important than seeing it. The body is the measuring instrument.</li><li>Add a mundane action. Don't just wear the shirt — do something ordinary in it. Walk to the kitchen. Make tea. Reach for something on a shelf. The mundane action in the shirt normalises the amount. It says: "I wear this the way I wear anything else."</li><li>Add a third-party confirmation moment. In your imagination, have someone casually glance at the shirt and simply nod — not gasping, not amazed, just… acknowledging. "Of course. That's yours." This mirrors the cashier in the Caliente story.</li><li>Activate frisson while in the shirt. Before or during the scene, activate frisson. The frisson + shirt sensation + settled feeling = the most powerful imprinting combination available to you.</li><li>Consider the shirt as a proprioceptive anchor in real life too. You could write the amount on paper and place it in a shirt pocket — a real, physical act of private possession. The line between imagined physical sensation and real physical sensation is neurologically very thin. A real ritual can reinforce the inner one.</li></ul>
+<div class="note"><p>Section 08 · The Practice of Naturalness</p></div>
+</div>
+<div class="section" id="how-to-create-the-feeling-of-naturalness">
+<h2>How to Create the Feeling of Naturalness</h2>
+<p>Naturalness is not achieved through force. It is achieved through repetition without tension . Here is the precise method.</p>
+<p>Why naturalness matters: The subconscious does not respond to effort. It responds to what feels normal. A state you have repeated so many times it is no longer interesting — that is the state your subconscious treats as current reality. Naturalness is just the other name for conditioning .</p>
+<h4>Find the Smallest True Version First</h4>
+<p>Before the shirt scene with your target amount — find an amount where the body says yes without any tightening. Maybe it's £500. Maybe it's just "enough to cover this week." Wear that shirt first. Make that feel completely normal and boring. Boredom is the sign that naturalness has been achieved. Then move up.</p>
+<h4>Repetition Without Strain</h4>
+<p>The race track man repeated for three weeks, every night . He did not force vividness. He did not check if it was working. He simply repeated. Naturalness comes from repetition the way muscle memory comes from practice — not from thinking about the practice, but from doing it lightly, consistently. The loop at the threshold of sleep is the ideal delivery mechanism for this.</p>
+<h4>Do Not Assess During the Scene</h4>
+<p>"Is this working? Do I really believe this? Is the feeling real?" — these questions are the analytical mind attempting to interfere. The moment you start assessing, you have exited the scene. Simply return. Like a meditation practice: when the mind wanders, gently come back . There is no failure in the wandering. The return is the practice.</p>
+<h4>Let Blurriness Be Fine</h4>
+<p>Your old scenes were vivid because you were relaxed and unself-conscious. You were doing what felt natural, not deliberate practice. Accept whatever level of imagery comes. A blurry, faint scene held with genuine feeling is more powerful than a forced vivid scene held with doubt. The feeling is what matters. The clarity of the image is irrelevant.</p>
+<h4>The Body Confirmation Test</h4>
+<p>The race track man knew his scene had reached genuine felt reality when he felt goose pimples. Your frisson response is the same confirmation. You don't need to feel frisson on every repetition — but when it arrives during the shirt scene, that is your body confirming: the imagined experience has crossed from intellectual pretending into genuine felt reality. That is the imprinting moment.</p>
+<div class="note"><p>Section 09 · The Delivery Mechanism</p></div>
+</div>
+<div class="section" id="how-to-feel-it-and-plant-it-into-the-sub">
+<h2>How to Feel It and Plant It into the Subconscious Mind</h2>
+<p>The subconscious is most receptive at the theta gateway — the hypnagogic state at the threshold of sleep. Here is the complete delivery system for planting the shirt scene.</p>
+<div class="note"><p>The Theta Gateway Explained</p></div>
+<p>As you fall asleep, your brain passes through distinct states. In the theta state (4–8 Hz) , the critical faculty goes completely offline. No doubt. No filtering. No "but how?" Whatever feeling and scene you carry into that threshold is delivered directly to the subconscious as current reality .</p>
+<p>This is why the Caliente man worked for three weeks at bedtime — and why this is the single most powerful delivery window available. The subconscious spent each night rearranging his external world to match the signal he delivered at the threshold.</p>
+<h4>Prepare the Body First (Not the Mind)</h4>
+<p>Lie down. Physiological sigh × 3 (double inhale through nose, long exhale through mouth). Body scan: consciously drop shoulders, unclench jaw, soften belly, relax the space behind your eyes. You are preparing the vessel before pouring the signal in. The body must be in safety mode before the scene begins.</p>
+<h4>Activate Frisson as the Door</h4>
+<p>In the relaxed, drowsy state — activate frisson. Let it expand from your crown or chest. This is your unique advantage: your frisson ability is the equivalent of a controlled descent into the hypnagogic state . The frisson holds the feeling stable as you pass through the threshold into sleep. This is rare. Use it.</p>
+<h4>Enter the Shirt Scene — One Sensory Detail at a Time</h4>
+<p>While in the frisson state, bring in the shirt scene. Start with one physical sensation: the fabric against your skin . Feel the weight of it. The slight warmth. Then add one more detail — the ambient sound of the room you're in within the scene. Then the feeling in your chest: calm. Normal. This is just how things are. Nothing remarkable.</p>
+<h4>Loop the Scene — Let Sleep Take You</h4>
+<p>Create a 5–10 second loop: feel the shirt on your skin → feel the settled normalcy → feel the shirt → feel the normalcy. Repeat this loop gently , without effort, the way you might hum a song quietly to yourself. The repetition deepens relaxation. Let sleep arrive mid-loop. Being taken by sleep inside the scene is the success state — not completing the loop, not reaching a conclusion.</p>
+<h4>Consistency Over Intensity — Three Weeks</h4>
+<p>Three weeks of nightly repetition. Not occasional. Not when you feel inspired. Nightly, like brushing your teeth . Your original belief about money — "I don't deserve to hold it, it always leaves" — has years of evidence behind it. One session cannot overwrite years of contrary evidence. Three weeks of nightly repetition competes with that, one vote at a time.</p>
+<p>As you fall asleep, your last conscious impression is delivered to the subconscious without any critical interference. The subconscious cannot distinguish an intensely felt imagined experience from a real one. Feed it the feeling of having. It will rearrange the outer world to match.</p>
+<div class="note"><p>— Core principle, your Sleep Method guide</p></div>
+<div class="note"><p>Section 10 · Personalised Guidance</p></div>
+</div>
+<div class="section" id="personal-suggestions-based-on-your-profi">
+<h2>Personal Suggestions Based on Your Profile</h2>
+<p>These are drawn entirely from your own evidence, your documented blocks, and what has already worked for you — not generic advice.</p>
+<div class="note"><p>Your Profile at a Glance</p></div>
+<p>You have a fully functional manifestation system. You have already manifested a job, a son, salary increases, a reduced train fare, a new apartment, credit card approval, new renters, an unblocked forex account, and more. Your unique gifts are: voluntary frisson activation, dream intelligence (phone numbers, exam guidance, business insights), flow state downloads (the lab insight), and a natural non-attachment when not in crisis. Your core blocks are: money identity conflict, the "when" conditioning pattern, pedestalling large amounts, and fear of both holding and losing money.</p>
+<div class="note"><p>Suggestion 1: Start With the Shirt Scene at a Number Your Body Accepts</p></div>
+<p>Before writing your target amount on the shirt, ask your body. Close your eyes. Imagine wearing a shirt with £500 written on it. How does the body feel? Now try £2,000. Now £5,000. Notice where the body starts to tighten or where there is a sense of "that's a stretch." Begin your nightly practice at the number where the body says yes without hesitation. Normalise that. Then move the number up. The Normalisation Ladder is your route, not a leap.</p>
+<div class="note"><p>Suggestion 2: Use the "Remember When" Language With the Shirt</p></div>
+<p>As you enter the shirt scene at the threshold of sleep, hold this thought: "I remember when I didn't feel this settled about money." Past tense. The problem is already behind you. The shirt is not something you are aspiring to — it is something you are recalling. This is the most powerful linguistic shift available to you, and it is taken directly from Neville Goddard's technique that has already produced results in your own life.</p>
+<div class="note"><p>Suggestion 3: Use Your Frisson Affirmation Daily — One Per Day, Maximum</p></div>
+<p>Activate frisson. Then say one of these — slowly, from a felt state. Choose one per day. Do not mechanically repeat:</p>
+<ul><li>"I am someone for whom money is calm and natural."</li><li>"Everything I need is already arranged."</li><li>"I remember when money felt like a crisis. That time has passed."</li><li>"I hold money, and money stays."</li><li>"This amount is already mine. It is simply making its way to me."</li></ul>
+<p>One frisson-charged delivery outweighs one hundred mechanical repetitions. Quality is the entire game here.</p>
+<div class="note"><p>Suggestion 4: Let the Shirt Scene Be Your "Caliente Loop"</p></div>
+<p>The race track man had one short loop. You now have yours: the shirt scene. Commit to it for 21 nights — every night, at the threshold of sleep. Do not assess whether it is working after night 3 or night 7. Do not abandon it if some nights the scene feels flat or unconvincing. The race track man did not abandon his scene when he felt doubt. He simply returned. The 21-night commitment is the entire discipline. The result is already arranged — your job is to deliver the signal consistently enough to let it through.</p>
+<div class="note"><p>Suggestion 5: Target the Feeling of Safety, Not the Number</p></div>
+<p>Given your specific money paradox (safety vs. dependency), the most direct route is not to manifest a specific amount — it is to manifest the feeling of safety that comes from being financially self-sufficient . The shirt can say an amount, but the feeling you aim for while wearing it should be: "I do not need anyone to rescue me. I am provided for. I am stable. This is calm." That feeling, planted nightly, will produce the financial arrangements that match it — and those arrangements will be exactly what you need, not necessarily what you expected.</p>
+<div class="note"><p>Suggestion 6: Do Not Let the "How" Enter the Scene</p></div>
+<p>The shirt scene does not need to answer: will it be a job? A windfall? The EA business? An unexpected contract? The how is none of your business and none of your scene's business. The subconscious is infinitely more creative than the conscious mind at finding routes. Your job is to deliver the feeling of the end state. The route is arranged by the deeper intelligence — the same one that gave you the lab download, the exam dream guidance, and the forex account unblocking without your intervention.</p>
+<p>Your final instruction, rooted in your own evidence: You have already proven that you know how to do this. Your son. Your first job. The train fare. The salary increases. Every one of those was you — doing this — before you had any theory about it. The shirt scene is simply the deliberate, conscious version of what you already do naturally when you are at your best. Trust the system. Trust the evidence. Trust yourself. The arrangement is already made.</p>
+<p>You do not need to make things happen. You need to become the person for whom they naturally occur.</p>
+<div class="note"><p>— Your Master Guide, Section 27 — The Foundation: One Truth to Hold</p></div>
+<div class="note"><p>Your Daily Reference — The Complete Practice</p></div>
+<div class="table-wrap"><table><tr><th>When</th><th>Practice</th><th>Duration</th></tr><tr><td>Morning</td><td>Sigh × 3 → Gratitude × 3 → Frisson + one affirmation → One Being decision</td><td>5 min</td></tr><tr><td>Midday</td><td>State check — safety or threat? If threat: sigh × 3 + "already arranged"</td><td>30 sec</td></tr><tr><td>Evening</td><td>3 wins logged → Evidence journal (any size win counts)</td><td>2 min</td></tr><tr><td>Bedtime</td><td>Sigh × 3 → body scan → frisson → shirt scene LOOP → fall asleep in it</td><td>Until sleep</td></tr><tr><td>On waking</td><td>Still 30 seconds → capture any dream fragments in notebook</td><td>30–90 sec</td></tr><tr><td>Weekly</td><td>Evidence journal review → Check: any desires pedestalled? Any "when" language to upgrade?</td><td>15–20 min</td></tr></table></div>
+</div>
+
+  <div class="ad-zone">AdSense 300×250 — replace with your AdSense code</div>
+
+  <div class="cta-box">
+    <h3>Build your own SAFE plan for money</h3>
+    <p>Get a personalised four-step plan for any financial desire, free.</p>
+    <div class="btn-row">
+      <a class="btn-gold" href="https://abowabon.com/safe-method">🛡 Try the SAFE Method Generator</a>
+      <a class="btn-ghost" href="https://abowabon.com">Open Abowabon free</a>
+    </div>
+  </div>
+
+  <div class="related-grid">
+<a class="related-card" href="https://abowabon.com/belief-audit"><div class="rc-icon">🧠</div><div class="rc-name">Belief Audit Tool</div><div class="rc-desc">Find and reframe the belief actually blocking you.</div></a><a class="related-card" href="https://abowabon.com/evidence-journal"><div class="rc-icon">📓</div><div class="rc-name">Evidence Journal</div><div class="rc-desc">Celebrate every small shift as it happens.</div></a>
+  </div>
+
+  <footer>
+    <a href="https://abowabon.com">Home</a>
+    <a href="https://abowabon.com/about">About</a>
+    <a href="https://abowabon.com/faq">FAQ</a>
+    <a href="https://abowabon.com/contact">Contact</a>
+    <a href="https://abowabon.com/privacy">Privacy</a>
+    © 2025 Abowabon
+  </footer>
+</div>
+</body>
+</html>
